@@ -10,5 +10,16 @@
 			<integer>0</integer>
 		</dict>
 	</dict>
+<<<<<<< HEAD
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>8596FE282A695DE00050E574</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+=======
+>>>>>>> fix-error-handling-on-textfields
 </dict>
 </plist>

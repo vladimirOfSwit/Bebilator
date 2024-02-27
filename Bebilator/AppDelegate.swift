@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+<<<<<<< HEAD
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return UIDevice.current.userInterfaceIdiom == .phone ? .portrait : .all
+    }
+=======
+>>>>>>> fix-error-handling-on-textfields
 
     // MARK: UISceneSession Lifecycle
 
