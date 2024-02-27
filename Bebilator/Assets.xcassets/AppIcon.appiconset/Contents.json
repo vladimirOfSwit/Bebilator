@@ -4,6 +4,7 @@
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
+<<<<<<< HEAD
     },
     {
       "idiom" : "iphone",
@@ -56,6 +57,8 @@
       "filename" : "AppIcon.png",
       "idiom" : "universal",
       "scale" : "1x"
+=======
+>>>>>>> fix-error-handling-on-textfields
     }
   ],
   "info" : {

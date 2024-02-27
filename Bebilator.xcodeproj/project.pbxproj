@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		8502D6332AB08519008FC6C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502D6322AB08519008FC6C5 /* HomeViewController.swift */; };
 		8552D8CC2B84B45100EDD988 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */; };
 		85885E302A711F3700EFF479 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85885E2F2A711F3700EFF479 /* OnboardingViewController.swift */; };
@@ -66,6 +67,25 @@
 		85E7A03E2B78FB1900C66781 /* Loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loader.gif; sourceTree = "<group>"; };
 		85E7A0402B79041D00C66781 /* It-will-be-Girl-01.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "It-will-be-Girl-01.gif"; sourceTree = "<group>"; };
 		85E7A0412B79041E00C66781 /* It-will-be-Boy-01.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "It-will-be-Boy-01.gif"; sourceTree = "<group>"; };
+=======
+		8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8596FE2C2A695DE00050E574 /* AppDelegate.swift */; };
+		8596FE2F2A695DE00050E574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8596FE2E2A695DE00050E574 /* SceneDelegate.swift */; };
+		8596FE312A695DE00050E574 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8596FE302A695DE00050E574 /* ViewController.swift */; };
+		8596FE342A695DE00050E574 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8596FE322A695DE00050E574 /* Main.storyboard */; };
+		8596FE362A695DE40050E574 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8596FE352A695DE40050E574 /* Assets.xcassets */; };
+		8596FE392A695DE40050E574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8596FE372A695DE40050E574 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8596FE292A695DE00050E574 /* Bebilator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bebilator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8596FE2C2A695DE00050E574 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8596FE2E2A695DE00050E574 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8596FE302A695DE00050E574 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8596FE332A695DE00050E574 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8596FE352A695DE40050E574 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8596FE382A695DE40050E574 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8596FE3A2A695DE40050E574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+>>>>>>> fix-error-handling-on-textfields
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +99,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 		8502D6312AB0850C008FC6C5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +162,8 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> fix-error-handling-on-textfields
 		8596FE202A695DE00050E574 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +183,7 @@
 		8596FE2B2A695DE00050E574 /* Bebilator */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				85C571982B835764009C8944 /* Fonts */,
 				85C571972B8356ED009C8944 /* Gifs */,
 				85A265452B18E45400A6676C /* Help */,
@@ -172,10 +196,20 @@
 				8596FE352A695DE40050E574 /* Assets.xcassets */,
 				8596FE372A695DE40050E574 /* LaunchScreen.storyboard */,
 				8502D62D2AB0672E008FC6C5 /* Info.plist */,
+=======
+				8596FE2C2A695DE00050E574 /* AppDelegate.swift */,
+				8596FE2E2A695DE00050E574 /* SceneDelegate.swift */,
+				8596FE302A695DE00050E574 /* ViewController.swift */,
+				8596FE322A695DE00050E574 /* Main.storyboard */,
+				8596FE352A695DE40050E574 /* Assets.xcassets */,
+				8596FE372A695DE40050E574 /* LaunchScreen.storyboard */,
+				8596FE3A2A695DE40050E574 /* Info.plist */,
+>>>>>>> fix-error-handling-on-textfields
 			);
 			path = Bebilator;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		85A265452B18E45400A6676C /* Help */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +244,8 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> fix-error-handling-on-textfields
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				85C571C42B83578C009C8944 /* SFUIText-Italic.otf in Resources */,
 				85C571C52B83578C009C8944 /* SFUIText-Regular.otf in Resources */,
 				8596FE392A695DE40050E574 /* LaunchScreen.storyboard in Resources */,
@@ -283,6 +320,11 @@
 				8552D8CC2B84B45100EDD988 /* SFProDisplay-Bold.ttf in Resources */,
 				85C571C02B83578C009C8944 /* SFUIText-Light.otf in Resources */,
 				85C571BE2B83578C009C8944 /* SF UI Text Medium.otf in Resources */,
+=======
+				8596FE392A695DE40050E574 /* LaunchScreen.storyboard in Resources */,
+				8596FE362A695DE40050E574 /* Assets.xcassets in Resources */,
+				8596FE342A695DE00050E574 /* Main.storyboard in Resources */,
+>>>>>>> fix-error-handling-on-textfields
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				85A265442B18E3D300A6676C /* ResultsViewController.swift in Sources */,
 				85885E352A71659C00EFF479 /* GradientButton.swift in Sources */,
 				8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */,
@@ -305,6 +348,11 @@
 				85885E302A711F3700EFF479 /* OnboardingViewController.swift in Sources */,
 				85A265492B18E72E00A6676C /* BebilatorBrain.swift in Sources */,
 				85A265472B18E46400A6676C /* Constants.swift in Sources */,
+=======
+				8596FE312A695DE00050E574 /* ViewController.swift in Sources */,
+				8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */,
+				8596FE2F2A695DE00050E574 /* SceneDelegate.swift in Sources */,
+>>>>>>> fix-error-handling-on-textfields
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,7 +499,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = MG7RVDKYK5;
+=======
+				DEVELOPMENT_TEAM = 53D7DTCF29;
+>>>>>>> fix-error-handling-on-textfields
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bebilator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -479,7 +531,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = MG7RVDKYK5;
+=======
+				DEVELOPMENT_TEAM = 53D7DTCF29;
+>>>>>>> fix-error-handling-on-textfields
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bebilator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
