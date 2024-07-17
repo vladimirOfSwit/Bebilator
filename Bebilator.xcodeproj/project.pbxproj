@@ -34,6 +34,7 @@
 		85C571C52B83578C009C8944 /* SFUIText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571AE2B83578B009C8944 /* SFUIText-Regular.otf */; };
 		85C571C62B83578C009C8944 /* SFUIText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */; };
 		85E7A03F2B78FB1900C66781 /* Loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85E7A03E2B78FB1900C66781 /* Loader.gif */; };
+		85ED36B12C4681F20009BCE4 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED36B02C4681F20009BCE4 /* OnboardingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		85C571AE2B83578B009C8944 /* SFUIText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.otf"; sourceTree = "<group>"; };
 		85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.otf"; sourceTree = "<group>"; };
 		85E7A03E2B78FB1900C66781 /* Loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loader.gif; sourceTree = "<group>"; };
+		85ED36B02C4681F20009BCE4 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			children = (
 				85885E582A72769600EFF479 /* OnboardingSlide.swift */,
 				85A265482B18E72E00A6676C /* BebilatorBrain.swift */,
+				85ED36B02C4681F20009BCE4 /* OnboardingViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				8596FE2F2A695DE00050E574 /* SceneDelegate.swift in Sources */,
 				85885E332A71443700EFF479 /* UIView+Extension.swift in Sources */,
 				85885E592A72769600EFF479 /* OnboardingSlide.swift in Sources */,
+				85ED36B12C4681F20009BCE4 /* OnboardingViewModel.swift in Sources */,
 				8502D6332AB08519008FC6C5 /* HomeViewController.swift in Sources */,
 				85885E5B2A729C5B00EFF479 /* OnboardingCollectionViewCell.swift in Sources */,
 				85885E302A711F3700EFF479 /* OnboardingViewController.swift in Sources */,
