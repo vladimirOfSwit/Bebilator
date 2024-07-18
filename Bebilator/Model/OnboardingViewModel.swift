@@ -8,10 +8,8 @@
 import UIKit
 
 
-class OnboardingViewModel: UIViewController {
-    
-    let viewController = OnboardingViewController()
-    
+class OnboardingViewModel {
+
     var slides: [OnboardingSlide] = []
 
     var onCurrentPageUpdated: ((String, Int) -> ())?
@@ -20,16 +18,9 @@ class OnboardingViewModel: UIViewController {
         didSet {
             if currentPage == slides.count - 1 {
                 self.onCurrentPageUpdated?("Kraj", currentPage)
-                let controller = storyboard?.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
-                controller.modalPresentationStyle = .fullScreen
-                controller.modalTransitionStyle = .flipHorizontal
                 UserDefaults.standard.hasOnboarded = true
-                present(controller, animated: true)
             } else {
                 self.onCurrentPageUpdated?("Dalje", currentPage)
-                currentPage += 1
-                let indexPath = IndexPath(item: currentPage, section: 0)
-                viewController.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             }
         }
     }
@@ -42,7 +33,9 @@ class OnboardingViewModel: UIViewController {
         self.currentPage = number
     }
     
-    func updateUI() {
+    func fetchSlides() {
+   
+        
        slides = [OnboardingSlide(description: "Test prvi ekran", image: #imageLiteral(resourceName: "itsaboy")),
                  OnboardingSlide(description: "Test drugi ekran", image: #imageLiteral(resourceName: "itsagirl")),
                  OnboardingSlide(description: "Test treci ekran", image: #imageLiteral(resourceName: "boygirl"))
@@ -50,29 +43,8 @@ class OnboardingViewModel: UIViewController {
     }
 }
 
-
-extension OnboardingViewModel: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return slides.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier, for: indexPath) as! OnboardingCollectionViewCell
-
-        cell.setup(slides[indexPath.row])
-
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-    }
-
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let width = scrollView.frame.width
-        currentPage = Int(scrollView.contentOffset.x / width)
-
-    }
-
-
+struct OnboardingSlide {
+    let description: String
+    let image: UIImage
 }
+
