@@ -95,21 +95,21 @@ extension UITextField {
     
 }
 
-extension UIButton {
-    func addShadowAndRoundedCornersBtn() {
-        clipsToBounds = true
-        backgroundColor = UIColor.blue
-        layer.cornerRadius = 8
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowOpacity = 0.4
-        layer.shadowRadius = 4
-        
-        setTitleColor(UIColor.black, for: .normal)
-
-        
-    }
-}
+//extension UIButton {
+//    func addShadowAndRoundedCornersBtn() {
+//        clipsToBounds = true
+//        backgroundColor = UIColor.blue
+//        layer.cornerRadius = 8
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOffset = CGSize(width: 0, height: 2)
+//        layer.shadowOpacity = 0.4
+//        layer.shadowRadius = 4
+//        
+//        setTitleColor(UIColor.black, for: .normal)
+//
+//        
+//    }
+//}
 
 extension UIColor {
     public convenience init?(hex: String) {

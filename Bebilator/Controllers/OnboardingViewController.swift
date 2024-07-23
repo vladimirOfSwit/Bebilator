@@ -28,9 +28,6 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-//        print("The value of onboarding is now \(UserDefaults.standard.hasOnboarded)")
 
         slides = [OnboardingSlide(description: "Test first screen", image: #imageLiteral(resourceName: "itsaboy") ),
                   OnboardingSlide(description: "Test second screen", image: #imageLiteral(resourceName: "itsagirl")),
