@@ -29,12 +29,7 @@ struct BebilatorBrain {
         scoreMale = calculateAgingBetweenDates(numberOfYears: 4, bday: mBdayAsDate, chosenDate: chosenDateAsDate)
         scoreFemale = calculateAgingBetweenDates(numberOfYears: 3, bday: wBdayAsDate, chosenDate: chosenDateAsDate)
         
-        print("This is the score for male \(scoreMale)")
-        print("This is the score for female \(scoreFemale)")
-        
         finalResult = calculateGender(scoreM: scoreMale, scoreW: scoreFemale)
-        print(finalResult)
-        
     }
     
     
@@ -53,12 +48,11 @@ struct BebilatorBrain {
         repeat {
             bdayCalculated = bdayCalculated.addYear(n: numberOfYears)
             resultsOfAging.append(bdayCalculated)
-            print("Results aging \(resultsOfAging)")
+            
             if bdayCalculated > chosenDateFromUser {
                 resultsOfAging.removeLast()
                 if let latestChange = resultsOfAging.last {
                     latestChangeDate = latestChange
-                    print("Latest change -> \(latestChangeDate)")
                 }
                 break
             }

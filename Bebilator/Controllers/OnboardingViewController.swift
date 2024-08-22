@@ -58,8 +58,6 @@ class OnboardingViewController: UIViewController {
         numberOfClicks += 1
         
         viewModel.setCurrentPage(number: numberOfClicks)
-        
-        print(numberOfClicks)
     }
 }
 

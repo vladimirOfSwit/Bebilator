@@ -36,10 +36,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         setupDatePicker()
         
         UserDefaults.standard.hasOnboarded = false
-        print("The value of hasOnboarded is \(UserDefaults.standard.hasOnboarded)")
-        
-        
-    }
+        }
     
     
     
