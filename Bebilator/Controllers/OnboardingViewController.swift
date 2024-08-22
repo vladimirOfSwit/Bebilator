@@ -9,12 +9,12 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
-    private var viewModel = OnboardingViewModel()
-    private var numberOfClicks = 0
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    private var viewModel = OnboardingViewModel()
+    private var numberOfClicks = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,24 +26,24 @@ class OnboardingViewController: UIViewController {
         pageControl.numberOfPages = viewModel.slides.count
         
         self.configureViewModel()
-        
     }
     
     private func configureViewModel() {
         viewModel.onCurrentPageUpdated = { [weak self] title, currentPage in
-            self?.pageControl.currentPage = currentPage
-            self?.nextBtn.setTitle(title, for: .normal)
+        self?.pageControl.currentPage = currentPage
+        self?.nextBtn.setTitle(title, for: .normal)
             
-            let indexPath = IndexPath(item: currentPage, section: 0)
-            self?.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        let indexPath = IndexPath(item: currentPage, section: 0)
+        self?.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
-            if title == "Kraj" {
-                self?.presentHomeScreen()
+        if title == "Kraj" {
+        self?.presentHomeScreen()
             }
         }
     }
     
     private func presentHomeScreen() {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if let controller = storyboard.instantiateViewController(withIdentifier: "HomeNC") as? UINavigationController {

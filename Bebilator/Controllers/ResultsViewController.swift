@@ -8,39 +8,27 @@ import UIKit
 
 
 class ResultsViewController: UIViewController {
-    
-    var genderResult = ""
-    
+
     @IBOutlet weak var resultLabel: UILabel!
-    
     @IBOutlet weak var gifImageView: UIImageView!
-    
     @IBOutlet weak var repeatOutlet: UIButton!
     
-    
+    var genderResult = ""
    
-    
-    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        
-     
-        
-    
+ 
         if genderResult == "boy" {
             loadGif(name: "boy")
-            
         } else {
             loadGif(name: "girl")
-           
         }
-        
     }
     
     @IBAction func repeatButtonPressed(_ sender: Any) {
         self.dismiss(animated: true)
     }
-    
     
     func loadGif(name: String) {
         guard let gifPath = Bundle.main.path(forResource: name, ofType: "gif") else {

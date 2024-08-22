@@ -10,16 +10,11 @@ import Foundation
 
 struct BebilatorBrain {
     
-    // Properties
-    
     var chosenDateAsString: String = ""
     var scoreMale = 0
     var scoreFemale = 0
     var finalResult = ""
-    
-    
-    // Functions
-    
+
     public mutating func getDifferenceInAgingAndCalculateFinalResult(m: String, w: String, dateToConcieve: String) {
         
         let mBdayAsDate = formatStringToDate(date: m)
@@ -31,12 +26,8 @@ struct BebilatorBrain {
         
         finalResult = calculateGender(scoreM: scoreMale, scoreW: scoreFemale)
     }
-    
-    
-    
-    
+
     mutating func calculateAgingBetweenDates(numberOfYears: Int, bday: Date, chosenDate: Date) -> Int {
-        
         
         var bdayCalculated: Date = bday
         let chosenDateFromUser = chosenDate
@@ -58,7 +49,6 @@ struct BebilatorBrain {
             }
         } while bdayCalculated <= chosenDateFromUser
         
-        
         let timeInterval = calendar.dateComponents([.day], from: latestChangeDate!, to: chosenDateFromUser)
         daysPassedSinceChange = (timeInterval.day ?? 0) + 100
         return daysPassedSinceChange
@@ -71,7 +61,6 @@ struct BebilatorBrain {
         guard let date = dateFormatter.date(from: date) else {
             fatalError()
         }
-        
         return date
     }
     
@@ -88,9 +77,6 @@ struct BebilatorBrain {
             return("girl")
         }
     }
-    
-    
-    
 }
 
 

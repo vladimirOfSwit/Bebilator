@@ -7,25 +7,18 @@
 
 import UIKit
 
-
-
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
-    
-    var bebilatorBrain = BebilatorBrain()
+   
     
     @IBOutlet weak var mTextfield: UITextField!
-    
     @IBOutlet weak var wTextfield: UITextField!
-    
     @IBOutlet weak var nTextfield: UITextField!
-    
     @IBOutlet weak var clearBtn: UIButton!
-    
     @IBOutlet weak var previousScoresBtnLbl: UIButton!
     
+    var bebilatorBrain = BebilatorBrain()
     let dateFormatter = DateFormatter()
-   
     let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
@@ -36,18 +29,14 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         setupDatePicker()
         
         UserDefaults.standard.hasOnboarded = false
-        }
-    
-    
+    }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
-        
-        
         
         guard mTextfield.text?.isEmpty == false, mTextfield.text != K.TEXTFIELD_PLACEHOLDER else {
             mTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
             return
-       }
+        }
         
         guard wTextfield.text?.isEmpty == false, wTextfield.text != K.TEXTFIELD_PLACEHOLDER else {
             wTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
@@ -82,33 +71,20 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         wTextfield.text = ""
         nTextfield.text = ""
     }
-    
-    
-    
-    
-    
+
     func setupUI() {
         
         mTextfield.addShadowAndRoundedCorners()
         wTextfield.addShadowAndRoundedCorners()
         nTextfield.addShadowAndRoundedCorners()
-        
-       
-    
-        
+
         mTextfield.leftImage(UIImage(named: "mIconTextfield"), imageWidth: 5, padding: 10)
         wTextfield.leftImage(UIImage(named: "fIconTextfield"), imageWidth: 5, padding: 10)
         nTextfield.leftImage(UIImage(named: "nIconTextfield"), imageWidth: 5, padding: 10)
-        
-     }
-    
+    }
     
     func setupDatePicker() {
-        
-    
-        
-       
-        
+
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.backgroundColor = .white
@@ -116,10 +92,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         datePicker.setValue(true, forKeyPath: "highlightsToday")
         let transparent = UIColor(red: 50.00 , green: 255.0, blue: 100.00, alpha: 0.0)
         datePicker.subviews.first?.subviews.last?.backgroundColor = transparent
-     
-        
-     
-        
+   
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         
@@ -129,13 +102,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         mTextfield.inputAccessoryView = toolBar
         wTextfield.inputAccessoryView = toolBar
         nTextfield.inputAccessoryView = toolBar
-        
-       
-        
+   
         mTextfield.inputView = datePicker
         wTextfield.inputView = datePicker
         nTextfield.inputView = datePicker
-        
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -154,10 +124,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             datePicker.preferredDatePickerStyle = .wheels
         }
     }
-
+    
     @objc func tapOnDoneButt() {
-        
-        
+
         if mTextfield.isFirstResponder {
             dateFormatter.dateStyle = .long
             dateFormatter.timeStyle = .none
@@ -176,5 +145,4 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         
         self.view.endEditing(true)
     }
-    
 }
