@@ -17,6 +17,7 @@ class OnboardingViewController: UIViewController {
     private var numberOfClicks = 0
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         collectionView.delegate = self
@@ -29,20 +30,19 @@ class OnboardingViewController: UIViewController {
     }
     
     private func configureViewModel() {
-        viewModel.onCurrentPageUpdated = { [weak self] title, currentPage in
-        self?.pageControl.currentPage = currentPage
-        self?.nextBtn.setTitle(title, for: .normal)
+    viewModel.onCurrentPageUpdated = { [weak self] title, currentPage in
+        guard let self = self else { return }
+            
+        self.pageControl.currentPage = currentPage
+        self.nextBtn.setTitle(title, for: .normal)
             
         let indexPath = IndexPath(item: currentPage, section: 0)
-        self?.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            
-        if title == "Kraj" {
-        self?.presentHomeScreen()
-            }
+        self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
     }
     
     private func presentHomeScreen() {
+        UserDefaults.standard.hasOnboarded = true
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -54,10 +54,13 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func nextBtnClicked(_ sender: UIButton) {
+        let currentPage = viewModel.getCurrentPage()
         
-        numberOfClicks += 1
-        
-        viewModel.setCurrentPage(number: numberOfClicks)
+        if currentPage == viewModel.slides.count - 1 {
+            presentHomeScreen()
+        } else {
+            viewModel.setCurrentPage(number: currentPage + 1)
+        }
     }
 }
 

@@ -37,6 +37,7 @@ struct BebilatorBrain {
         var daysPassedSinceChange = 0
         
         repeat {
+            
             bdayCalculated = bdayCalculated.addYear(n: numberOfYears)
             resultsOfAging.append(bdayCalculated)
             
