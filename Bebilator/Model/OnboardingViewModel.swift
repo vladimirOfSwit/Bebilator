@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class OnboardingViewModel {
 
     var slides: [OnboardingSlide] = []
@@ -33,12 +32,11 @@ class OnboardingViewModel {
         self.currentPage = number
     }
     
-    func fetchSlides() {
-
-       slides = [OnboardingSlide(description: "Test prvi ekran", image: #imageLiteral(resourceName: "itsaboy")),
+    func createSlides() {
+        slides = [OnboardingSlide(description: "Test prvi ekran", image: #imageLiteral(resourceName: "itsaboy")),
                  OnboardingSlide(description: "Test drugi ekran", image: #imageLiteral(resourceName: "itsagirl")),
                  OnboardingSlide(description: "Test treci ekran", image: #imageLiteral(resourceName: "boygirl"))
-       ]
+        ]
     }
 }
 

@@ -23,7 +23,7 @@ class OnboardingViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        viewModel.fetchSlides()
+        viewModel.createSlides()
         pageControl.numberOfPages = viewModel.slides.count
         
         self.configureViewModel()
