@@ -8,6 +8,10 @@
 import UIKit
 
 class OnboardingViewModel {
+    
+    init() {
+        self.createSlides()
+    }
 
     var slides: [OnboardingSlide] = []
     var onCurrentPageUpdated: ((String, Int) -> ())?
@@ -25,7 +29,7 @@ class OnboardingViewModel {
     }
     
     func getCurrentPage() -> Int {
-        return self.currentPage
+        self.currentPage
     }
     
     func setCurrentPage(number: Int) {
