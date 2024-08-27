@@ -13,23 +13,24 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    private var viewModel = OnboardingViewModel()
-    private var numberOfClicks = 0
+    var viewModel: OnboardingViewModel?
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        pageControl.numberOfPages = viewModel.slides.count
-        
-        self.configureViewModel()
+        if let viewModel = viewModel {
+            pageControl.numberOfPages = viewModel.slides.count
+            self.configureViewModel()
+        }
     }
     
     private func configureViewModel() {
-    viewModel.onCurrentPageUpdated = { [weak self] title, currentPage in
+        guard let viewModel = viewModel else { return }
+        
+        viewModel.onCurrentPageUpdated = { [weak self] title, currentPage in
         guard let self = self else { return }
             
         self.pageControl.currentPage = currentPage
@@ -53,8 +54,9 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func nextBtnClicked(_ sender: UIButton) {
-        let currentPage = viewModel.getCurrentPage()
+        guard let viewModel = viewModel else { return }
         
+        let currentPage = viewModel.getCurrentPage()
         if currentPage == viewModel.slides.count - 1 {
             presentHomeScreen()
         } else {
@@ -65,14 +67,15 @@ class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.slides.count
+        return viewModel?.slides.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier, for: indexPath) as! OnboardingCollectionViewCell
         
-        cell.setup(viewModel.slides[indexPath.row])
-        
+        if let slide = viewModel?.slides[indexPath.row] {
+            cell.setup(slide)
+        }
         return cell
     }
     
@@ -83,6 +86,6 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
         let currentPage = Int(scrollView.contentOffset.x / width)
-        viewModel.setCurrentPage(number: currentPage)
+        viewModel?.setCurrentPage(number: currentPage)
     }
 }
