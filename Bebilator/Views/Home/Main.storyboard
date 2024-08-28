@@ -45,10 +45,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZMV-K5-OYO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="523"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="521.66666666666663"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiK-6P-XGh">
-                                                    <rect key="frame" x="16" y="523" width="358" height="56"/>
+                                                    <rect key="frame" x="16" y="521.66666666666663" width="358" height="57.333333333333371"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur
 adipiscing elit. Aliquam id imperdiet mi.
 Phasellus et aliquam dolor.</string>
@@ -93,10 +93,7 @@ Phasellus et aliquam dolor.</string>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Dalje">
-                                    <fontDescription key="titleFontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="20"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="plain" title="Dalje"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="28"/>
@@ -345,13 +342,13 @@ Phasellus et aliquam dolor.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boyGirlWelcome" translatesAutoresizingMaskIntoConstraints="NO" id="8Yw-gQ-rpp">
-                                <rect key="frame" x="0.0" y="203" width="375" height="259"/>
+                                <rect key="frame" x="0.0" y="203" width="346" height="259"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="g9a-Y4-FGD" userLabel="Bottom Stack View">
-                                <rect key="frame" x="35" y="598" width="305" height="137"/>
+                                <rect key="frame" x="35" y="598" width="276" height="137"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKs-5L-pOx" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="276" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="gdR-yH-XeR"/>
                                         </constraints>
@@ -373,7 +370,7 @@ Phasellus et aliquam dolor.</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoF-Ht-Pfi">
-                                        <rect key="frame" x="0.0" y="81" width="305" height="56"/>
+                                        <rect key="frame" x="0.0" y="81" width="276" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="92Z-g7-K9Z"/>
                                             <constraint firstAttribute="width" constant="320" id="QLp-an-F2d"/>
@@ -452,19 +449,19 @@ Phasellus et aliquam dolor.</string>
     </scenes>
     <designables>
         <designable name="Tuu-Ta-MMS">
-            <size key="intrinsicContentSize" width="135" height="37.333333333333336"/>
+            <size key="intrinsicContentSize" width="135.33333333333334" height="38"/>
         </designable>
         <designable name="l5j-tS-Yca">
-            <size key="intrinsicContentSize" width="76.666666666666671" height="37.333333333333336"/>
+            <size key="intrinsicContentSize" width="78.333333333333329" height="38"/>
         </designable>
         <designable name="lTl-JA-wl5">
-            <size key="intrinsicContentSize" width="68.666666666666671" height="37.333333333333336"/>
+            <size key="intrinsicContentSize" width="62" height="34.333333333333336"/>
         </designable>
         <designable name="qqb-TQ-gTk">
-            <size key="intrinsicContentSize" width="186" height="37.333333333333336"/>
+            <size key="intrinsicContentSize" width="191.33333333333334" height="38"/>
         </designable>
         <designable name="uKs-5L-pOx">
-            <size key="intrinsicContentSize" width="104.66666666666667" height="37.333333333333336"/>
+            <size key="intrinsicContentSize" width="106.33333333333333" height="38"/>
         </designable>
     </designables>
     <resources>
@@ -475,7 +472,7 @@ Phasellus et aliquam dolor.</string>
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

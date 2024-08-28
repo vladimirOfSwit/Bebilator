@@ -35,9 +35,21 @@ class OnboardingViewController: UIViewController {
             
         self.pageControl.currentPage = currentPage
         self.nextBtn.setTitle(title, for: .normal)
-            
+        self.nextBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold) // Set your desired font here
+                    
         let indexPath = IndexPath(item: currentPage, section: 0)
         self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
+    
+    @IBAction func nextBtnClicked(_ sender: UIButton) {
+        guard let viewModel = viewModel else { return }
+        
+        let currentPage = viewModel.getCurrentPage()
+        if currentPage == viewModel.slides.count - 1 {
+            presentHomeScreen()
+        } else {
+            viewModel.setCurrentPage(number: currentPage + 1)
         }
     }
     
@@ -53,16 +65,7 @@ class OnboardingViewController: UIViewController {
         }
     }
     
-    @IBAction func nextBtnClicked(_ sender: UIButton) {
-        guard let viewModel = viewModel else { return }
-        
-        let currentPage = viewModel.getCurrentPage()
-        if currentPage == viewModel.slides.count - 1 {
-            presentHomeScreen()
-        } else {
-            viewModel.setCurrentPage(number: currentPage + 1)
-        }
-    }
+ 
 }
 
 extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -71,8 +74,10 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier, for: indexPath) as! OnboardingCollectionViewCell
         
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier, for: indexPath) as! OnboardingCollectionViewCell
+ 
         if let slide = viewModel?.slides[indexPath.row] {
             cell.setup(slide)
         }
