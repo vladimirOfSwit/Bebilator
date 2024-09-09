@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-//        // Create an object of type UIViewController
+        // Create an object of type UIViewController
         var controller: UIViewController!
         
         // Check if the user has completed onboarding
@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if hasOnboarded {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mainVC = storyboard.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
-           controller = mainVC
+            controller = mainVC
           
         } else {
         // Create and pass the view model to the OnboardingViewController
