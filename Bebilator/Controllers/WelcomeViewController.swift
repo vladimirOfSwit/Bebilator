@@ -10,43 +10,38 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var bebilendarBtn: UIButton!
-    
+
+    let buttonWidth: CGFloat = 342
+    let buttonHeight: CGFloat = 56
+    let cornerRadius: CGFloat = 28
+    let shadowOpacity: Float = 0.5
+    let shadowOffset = CGSize(width: 0, height: 2)
+    let shadowRadius: CGFloat = 4
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-          // Modify the button
-          bebilendarBtn.frame = CGRect(x: 0, y: 0, width: 342, height: 56)
-          bebilendarBtn.backgroundColor = UIColor.white
-          
-          // Round the corners
-          bebilendarBtn.layer.cornerRadius = 28 // Half of the height to make it fully rounded
-          bebilendarBtn.clipsToBounds = true
-        
-          bebilendarBtn.layer.shadowColor = UIColor.black.cgColor
-          bebilendarBtn.layer.shadowOpacity = 0.5
-          bebilendarBtn.layer.shadowOffset = CGSize(width: 0, height: 2)
-          bebilendarBtn.layer.shadowRadius = 4
-          bebilendarBtn.layer.masksToBounds = false
-        
-  
-        
-
-        
-       
+        setupUI()
     }
     
-    
-    
+    func setupUI() {
+        bebilendarBtn.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight)
+        bebilendarBtn.backgroundColor = UIColor.white
+        
+        bebilendarBtn.layer.cornerRadius = cornerRadius
+        bebilendarBtn.clipsToBounds = true
+      
+        bebilendarBtn.layer.shadowColor = UIColor.black.cgColor
+        bebilendarBtn.layer.shadowOpacity = shadowOpacity
+        bebilendarBtn.layer.shadowOffset = shadowOffset
+        bebilendarBtn.layer.shadowRadius = shadowRadius
+        bebilendarBtn.layer.masksToBounds = false
+    }
     
     @IBAction func bebilatorButtonPressed(_ sender: UIButton) {
-        
         performSegue(withIdentifier: K.HOME_VIEW_CONTROLLER_IDENTIFIER, sender: self)
     }
     
     @IBAction func bebilendarButtonPressed(_ sender: UIButton) {
         print("Bebilator button pressed.")
     }
-    
-    
 }
