@@ -27,6 +27,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         setupUI()
         setupDatePicker()
     }
+    
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         
         guard let mText = mTextfield.text,
@@ -35,17 +36,16 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        guard mTextfield.text?.isEmpty == false, mTextfield.text != K.TEXTFIELD_PLACEHOLDER, bebilatorBrain.isEligible(date: mText) else {
-            mTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
+        guard validateTextField(mTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
             return
-       }
+        }
         
-        guard wTextfield.text?.isEmpty == false, wTextfield.text != K.TEXTFIELD_PLACEHOLDER, bebilatorBrain.isEligible(date: wText) else {
-            wTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
+        guard validateTextField(wTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
             return
         }
         
         guard nTextfield.text?.isEmpty == false, nTextfield.text != K.TEXTFIELD_PLACEHOLDER else {
+            nTextfield.placeholder = "Polje ne može biti prazno"
             nTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
             return
         }
@@ -60,6 +60,23 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             let destinationVC = segue.destination as? ResultsViewController
             destinationVC?.genderResult = bebilatorBrain.finalResult
         }
+    }
+    
+    func validateTextField(_ textField: UITextField, placeHolderEmpty: String, placeholderNotEligible: String) -> Bool {
+        guard let text = textField.text, !text.isEmpty, text != K.TEXTFIELD_PLACEHOLDER else {
+            textField.text = ""
+            textField.placeholder = placeHolderEmpty
+            textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
+            return false
+        }
+        
+        if !bebilatorBrain.isEligible(date: text) {
+            textField.text = ""
+            textField.placeholder = placeholderNotEligible
+            textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
+            return false
+        }
+        return true
     }
     
     @IBAction func clearButtonPressed(_ sender: UIButton) {

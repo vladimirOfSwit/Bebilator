@@ -18,9 +18,9 @@ struct BebilatorBrain {
     
     public mutating func getDifferenceInAgingAndCalculateFinalResult(m: String, w: String, dateToConcieve: String) {
         
-        let mBdayAsDate = formatStringToDate(date: m)
-        let wBdayAsDate = formatStringToDate(date: w)
-        let chosenDateAsDate = formatStringToDate(date: dateToConcieve)
+        guard let mBdayAsDate = formatStringToDate(date: m) else { return }
+        guard let wBdayAsDate = formatStringToDate(date: w) else { return }
+        guard let chosenDateAsDate = formatStringToDate(date: dateToConcieve) else { return }
         
         scoreMale = calculateAgingBetweenDates(numberOfYears: 4, bday: mBdayAsDate, chosenDate: chosenDateAsDate)
         scoreFemale = calculateAgingBetweenDates(numberOfYears: 3, bday: wBdayAsDate, chosenDate: chosenDateAsDate)
