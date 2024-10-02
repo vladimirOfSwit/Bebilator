@@ -30,12 +30,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         
-        guard let mText = mTextfield.text,
-              let wText = wTextfield.text,
-              let nText = nTextfield.text else {
-            return
-        }
-        
         guard validateTextField(mTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
             return
         }
@@ -50,7 +44,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mText, w: wText, dateToConcieve: nText)
+        bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mTextfield.text!, w: wTextfield.text!, dateToConcieve: nTextfield.text!)
         
         performSegue(withIdentifier: K.RESULTS_IDENTIFIER, sender: self)
     }

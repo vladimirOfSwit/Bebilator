@@ -11,19 +11,20 @@ import Foundation
 struct BebilatorBrain {
     
     var chosenDateAsString: String = ""
-    var scoreMale = 0
-    var scoreFemale = 0
     var finalResult = ""
     let calendar = Calendar.current
     
     public mutating func getDifferenceInAgingAndCalculateFinalResult(m: String, w: String, dateToConcieve: String) {
         
+        var scoreMale = 0
+        var scoreFemale = 0
+        
         guard let mBdayAsDate = formatStringToDate(date: m) else { return }
         guard let wBdayAsDate = formatStringToDate(date: w) else { return }
         guard let chosenDateAsDate = formatStringToDate(date: dateToConcieve) else { return }
         
-        scoreMale = calculateAgingBetweenDates(numberOfYears: 4, bday: mBdayAsDate, chosenDate: chosenDateAsDate)
-        scoreFemale = calculateAgingBetweenDates(numberOfYears: 3, bday: wBdayAsDate, chosenDate: chosenDateAsDate)
+        scoreMale = getDaysSinceLastAgeChange(numberOfYears: 4, bday: mBdayAsDate, chosenDate: chosenDateAsDate)
+        scoreFemale = getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBdayAsDate, chosenDate: chosenDateAsDate)
         
         print("This is the score for male \(scoreMale)")
         print("This is the score for female \(scoreFemale)")
@@ -32,30 +33,34 @@ struct BebilatorBrain {
         print(finalResult)
     }
     
-    mutating func calculateAgingBetweenDates(numberOfYears: Int, bday: Date, chosenDate: Date) -> Int {
+     func getDaysSinceLastAgeChange(numberOfYears: Int, bday: Date, chosenDate: Date) -> Int {
         
-        var bdayCalculated: Date = bday
-        let chosenDateFromUser = chosenDate
+        var bdayCalculatedByAddingYears = bday
         var resultsOfAging: [Date] = []
-        var latestChangeDate: Date?
-        var daysPassedSinceChange = 0
+        var latestChageDate: Date?
         
+        //Accumulate the aging dates
         repeat {
-            bdayCalculated = bdayCalculated.addYear(n: numberOfYears)
-            resultsOfAging.append(bdayCalculated)
-            print("Results aging \(resultsOfAging)")
-            if bdayCalculated > chosenDateFromUser {
+            bdayCalculatedByAddingYears = bdayCalculatedByAddingYears.addYear(n: numberOfYears)
+            resultsOfAging.append(bdayCalculatedByAddingYears)
+            
+            if bdayCalculatedByAddingYears > chosenDate {
                 resultsOfAging.removeLast()
-                if let latestChange = resultsOfAging.last {
-                    latestChangeDate = latestChange
-                }
+                latestChageDate = resultsOfAging.last
                 break
             }
-        } while bdayCalculated <= chosenDateFromUser
+        } while bdayCalculatedByAddingYears <= chosenDate
         
-        let timeInterval = calendar.dateComponents([.day], from: latestChangeDate!, to: chosenDateFromUser)
-        daysPassedSinceChange = (timeInterval.day ?? 0) + 100
+        guard let lastChange = latestChageDate else {
+            print("No latest date found")
+            return 0
+        }
+        
+        let timeInterval = calendar.dateComponents([.day], from: lastChange, to: chosenDate)
+        let daysPassedSinceChange = (timeInterval.day ?? 0) + 100
+        
         return daysPassedSinceChange
+        
     }
     
     func formatStringToDate(date: String) -> Date? {
@@ -83,7 +88,32 @@ struct BebilatorBrain {
         guard let eighteenYearsAgoFromToday = calendar.date(byAdding: .year, value: -18, to: Date()) else {
             return false
         }
+        print("isEligibleBday: \(bDay)")
+        print("isEligibleEighteenYearsAgoFromToday: \(eighteenYearsAgoFromToday)")
         return bDay <= eighteenYearsAgoFromToday
+    }
+    
+    func calculateSwitchingYears(mBirthdate: Date, wBirthdate: Date) -> [Int] {
+        var switchingYears: [Int] = []
+        let currentYear  = calendar.component(.year, from: Date())
+        let futureLimit = 50
+        
+        var lastGender = ""
+        
+        for year in currentYear...(currentYear + futureLimit) {
+            let maleScore = getDaysSinceLastAgeChange(numberOfYears: 4, bday: mBirthdate, chosenDate: year)
+            let femaleScore = getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBirthdate, chosenDate: year)
+            
+            let currentGender = maleScore < femaleScore ? "boy" : "girl"
+            
+            if currentGender != lastGender {
+                switchingYears.append(year)
+                lastGender = currentGender
+                
+            }
+        }
+        
+        return switchingYears
     }
 }
 
