@@ -9,8 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
-   
-    
     @IBOutlet weak var mTextfield: UITextField!
     @IBOutlet weak var wTextfield: UITextField!
     @IBOutlet weak var nTextfield: UITextField!
@@ -23,38 +21,26 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
-        
         setupDatePicker()
-        
-        UserDefaults.standard.hasOnboarded = false
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
-        
-        guard mTextfield.text?.isEmpty == false, mTextfield.text != K.TEXTFIELD_PLACEHOLDER else {
-            mTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
+        guard validateTextField(mTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
             return
         }
         
-        guard wTextfield.text?.isEmpty == false, wTextfield.text != K.TEXTFIELD_PLACEHOLDER else {
-            wTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
+        guard validateTextField(wTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
             return
         }
         
         guard nTextfield.text?.isEmpty == false, nTextfield.text != K.TEXTFIELD_PLACEHOLDER else {
+            nTextfield.placeholder = "Polje ne može biti prazno"
             nTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
             return
         }
         
-        guard let mText = mTextfield.text,
-              let wText = wTextfield.text,
-              let nText = nTextfield.text else {
-            return
-        }
-        
-        bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mText, w: wText, dateToConcieve: nText)
+        bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mTextfield.text!, w: wTextfield.text!, dateToConcieve: nTextfield.text!)
         
         performSegue(withIdentifier: K.RESULTS_IDENTIFIER, sender: self)
     }
@@ -66,25 +52,40 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func validateTextField(_ textField: UITextField, placeHolderEmpty: String, placeholderNotEligible: String) -> Bool {
+        guard let text = textField.text, !text.isEmpty, text != K.TEXTFIELD_PLACEHOLDER else {
+            textField.text = ""
+            textField.placeholder = placeHolderEmpty
+            textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
+            return false
+        }
+        
+        if !bebilatorBrain.isEligible(date: text) {
+            textField.text = ""
+            textField.placeholder = placeholderNotEligible
+            textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
+            return false
+        }
+        return true
+    }
+    
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         mTextfield.text = ""
         wTextfield.text = ""
         nTextfield.text = ""
     }
-
+    
     func setupUI() {
-        
         mTextfield.addShadowAndRoundedCorners()
         wTextfield.addShadowAndRoundedCorners()
         nTextfield.addShadowAndRoundedCorners()
-
+        
         mTextfield.leftImage(UIImage(named: "mIconTextfield"), imageWidth: 5, padding: 10)
         wTextfield.leftImage(UIImage(named: "fIconTextfield"), imageWidth: 5, padding: 10)
         nTextfield.leftImage(UIImage(named: "nIconTextfield"), imageWidth: 5, padding: 10)
     }
     
     func setupDatePicker() {
-
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.backgroundColor = .white
@@ -102,7 +103,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         mTextfield.inputAccessoryView = toolBar
         wTextfield.inputAccessoryView = toolBar
         nTextfield.inputAccessoryView = toolBar
-   
+        
         mTextfield.inputView = datePicker
         wTextfield.inputView = datePicker
         nTextfield.inputView = datePicker
@@ -110,23 +111,23 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == mTextfield {
-            
             datePicker.datePickerMode = .date
             datePicker.preferredDatePickerStyle = .wheels
         }
         if textField == wTextfield {
             datePicker.datePickerMode = .date
             datePicker.preferredDatePickerStyle = .wheels
+            datePicker.maximumDate = Date()
         }
         if textField == nTextfield {
             datePicker.date = Date()
             datePicker.datePickerMode = .date
             datePicker.preferredDatePickerStyle = .wheels
+            datePicker.minimumDate = Date()
         }
     }
     
     @objc func tapOnDoneButt() {
-
         if mTextfield.isFirstResponder {
             dateFormatter.dateStyle = .long
             dateFormatter.timeStyle = .none
