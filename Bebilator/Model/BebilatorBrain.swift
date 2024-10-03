@@ -10,16 +10,11 @@ import Foundation
 
 struct BebilatorBrain {
     
-    // Properties
-    
     var chosenDateAsString: String = ""
     var scoreMale = 0
     var scoreFemale = 0
     var finalResult = ""
-    
-    
-    // Functions
-    
+
     public mutating func getDifferenceInAgingAndCalculateFinalResult(m: String, w: String, dateToConcieve: String) {
         
         let mBdayAsDate = formatStringToDate(date: m)
@@ -29,19 +24,10 @@ struct BebilatorBrain {
         scoreMale = calculateAgingBetweenDates(numberOfYears: 4, bday: mBdayAsDate, chosenDate: chosenDateAsDate)
         scoreFemale = calculateAgingBetweenDates(numberOfYears: 3, bday: wBdayAsDate, chosenDate: chosenDateAsDate)
         
-        print("This is the score for male \(scoreMale)")
-        print("This is the score for female \(scoreFemale)")
-        
         finalResult = calculateGender(scoreM: scoreMale, scoreW: scoreFemale)
-        print(finalResult)
-        
     }
-    
-    
-    
-    
+
     mutating func calculateAgingBetweenDates(numberOfYears: Int, bday: Date, chosenDate: Date) -> Int {
-        
         
         var bdayCalculated: Date = bday
         let chosenDateFromUser = chosenDate
@@ -51,19 +37,18 @@ struct BebilatorBrain {
         var daysPassedSinceChange = 0
         
         repeat {
+            
             bdayCalculated = bdayCalculated.addYear(n: numberOfYears)
             resultsOfAging.append(bdayCalculated)
-            print("Results aging \(resultsOfAging)")
+            
             if bdayCalculated > chosenDateFromUser {
                 resultsOfAging.removeLast()
                 if let latestChange = resultsOfAging.last {
                     latestChangeDate = latestChange
-                    print("Latest change -> \(latestChangeDate)")
                 }
                 break
             }
         } while bdayCalculated <= chosenDateFromUser
-        
         
         let timeInterval = calendar.dateComponents([.day], from: latestChangeDate!, to: chosenDateFromUser)
         daysPassedSinceChange = (timeInterval.day ?? 0) + 100
@@ -77,7 +62,6 @@ struct BebilatorBrain {
         guard let date = dateFormatter.date(from: date) else {
             fatalError()
         }
-        
         return date
     }
     
@@ -94,9 +78,6 @@ struct BebilatorBrain {
             return("girl")
         }
     }
-    
-    
-    
 }
 
 

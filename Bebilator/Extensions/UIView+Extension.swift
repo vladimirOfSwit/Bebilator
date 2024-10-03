@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 // Create an extension of the UIView so that we can adapt the corners of the button
 extension UIView {
     @IBInspectable var cornerRadius: CGFloat {
@@ -31,7 +30,6 @@ extension UIViewController {
         return storyboard.instantiateViewController(withIdentifier: identifier) as! Self
     }
 }
-
 
 extension UITextField {
     func leftImage(_ image: UIImage?, imageWidth: CGFloat, padding: CGFloat) {
@@ -89,10 +87,7 @@ extension UITextField {
         layer.borderColor = UIColor.gray.cgColor
         layer.borderWidth = 1.5
         self.clipsToBounds = true
-        
     }
-    
-    
 }
 
 //extension UIButton {

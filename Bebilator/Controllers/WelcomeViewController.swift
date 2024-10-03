@@ -14,13 +14,18 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+
+    }
+    
+    func setupUI() {
         
           // Modify the button
           bebilendarBtn.frame = CGRect(x: 0, y: 0, width: 342, height: 56)
           bebilendarBtn.backgroundColor = UIColor.white
           
           // Round the corners
-          bebilendarBtn.layer.cornerRadius = 28 // Half of the height to make it fully rounded
+          bebilendarBtn.layer.cornerRadius = 28
           bebilendarBtn.clipsToBounds = true
         
           bebilendarBtn.layer.shadowColor = UIColor.black.cgColor
@@ -28,15 +33,7 @@ class WelcomeViewController: UIViewController {
           bebilendarBtn.layer.shadowOffset = CGSize(width: 0, height: 2)
           bebilendarBtn.layer.shadowRadius = 4
           bebilendarBtn.layer.masksToBounds = false
-        
-  
-        
-
-        
-       
     }
-    
-    
     
     
     @IBAction func bebilatorButtonPressed(_ sender: UIButton) {

@@ -22,13 +22,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create an object of type UIViewController
         var controller: UIViewController!
         
+        // Check if the user has completed onboarding
+        let hasOnboarded = UserDefaults.standard.bool(forKey: "hasOnboarded")
+        
         // Verify whether the user has been onboarded or not
-        if UserDefaults.standard.hasOnboarded {
+        if hasOnboarded {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            controller = storyboard.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
+            let mainVC = storyboard.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
+            controller = mainVC
           
         } else {
-            controller = OnboardingViewController.instantiate()
+        // Create and pass the view model to the OnboardingViewController
+            let viewModel = OnboardingViewModel()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
+            onboardingVC.viewModel = viewModel
+            controller = onboardingVC
         }
        
         window?.rootViewController = controller
