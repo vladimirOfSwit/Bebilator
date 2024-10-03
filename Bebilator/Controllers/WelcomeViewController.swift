@@ -11,8 +11,8 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var bebilendarBtn: UIButton!
 
-    let buttonWidth: CGFloat = 342
-    let buttonHeight: CGFloat = 56
+    let buttonWidth: CGFloat = UIScreen.main.bounds.width * 0.80
+    let buttonHeight: CGFloat = UIScreen.main.bounds.height * 0.08
     let cornerRadius: CGFloat = 28
     let shadowOpacity: Float = 0.5
     let shadowOffset = CGSize(width: 0, height: 2)
@@ -24,9 +24,7 @@ class WelcomeViewController: UIViewController {
     }
     
     func setupUI() {
-        bebilendarBtn.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight)
         bebilendarBtn.backgroundColor = UIColor.white
-        
         bebilendarBtn.layer.cornerRadius = cornerRadius
         bebilendarBtn.clipsToBounds = true
       
@@ -35,6 +33,14 @@ class WelcomeViewController: UIViewController {
         bebilendarBtn.layer.shadowOffset = shadowOffset
         bebilendarBtn.layer.shadowRadius = shadowRadius
         bebilendarBtn.layer.masksToBounds = false
+        
+        bebilendarBtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            bebilendarBtn.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            bebilendarBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            bebilendarBtn.widthAnchor.constraint(equalToConstant: buttonWidth),
+            bebilendarBtn.heightAnchor.constraint(equalToConstant: buttonHeight)
+        ])
     }
     
     @IBAction func bebilatorButtonPressed(_ sender: UIButton) {
