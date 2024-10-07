@@ -29,7 +29,7 @@ struct BebilatorBrain {
         finalResult = calculateGender(scoreM: scoreMale, scoreW: scoreFemale)
     }
     
-     func getDaysSinceLastAgeChange(numberOfYears: Int, bday: Date, chosenDate: Date) -> Int {
+    func getDaysSinceLastAgeChange(numberOfYears: Int, bday: Date, chosenDate: Date) -> Int {
         
         var bdayCalculatedByAddingYears = bday
         var resultsOfAging: [Date] = []
@@ -84,34 +84,43 @@ struct BebilatorBrain {
         guard let eighteenYearsAgoFromToday = calendar.date(byAdding: .year, value: -18, to: Date()) else {
             return false
         }
-        print("isEligibleBday: \(bDay)")
-        print("isEligibleEighteenYearsAgoFromToday: \(eighteenYearsAgoFromToday)")
         return bDay <= eighteenYearsAgoFromToday
     }
     
-    func calculateSwitchingYears(mBirthdate: Date, wBirthdate: Date) -> [Int] {
-        var switchingYears: [Int] = []
+    func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date) -> [(year: Int, month: Int, day: Int, gender: String)] {
+        var switchingPeriods: [(year: Int, month: Int, day: Int, gender: String)] = []
         let currentYear  = calendar.component(.year, from: Date())
         let futureLimit = 50
         
         var lastGender = ""
         
         for year in currentYear...(currentYear + futureLimit) {
-            let maleScore = getDaysSinceLastAgeChange(numberOfYears: 4, bday: mBirthdate, chosenDate: year)
-            let femaleScore = getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBirthdate, chosenDate: year)
-            
-            let currentGender = maleScore < femaleScore ? "boy" : "girl"
-            
-            if currentGender != lastGender {
-                switchingYears.append(year)
-                lastGender = currentGender
+            for month in 1...12 {
+                var dateComponents = DateComponents()
+                dateComponents.year = year
+                dateComponents.month = month
                 
+                if let monthDate = Calendar.current.date(from: dateComponents), let range = Calendar.current.range(of: .day, in: .month, for: monthDate) {
+                    
+                    for day in range {
+                        dateComponents.day = day
+                        let yearAsDate = Calendar.current.date(from: dateComponents) ?? Date()
+                        
+                        let maleScore = getDaysSinceLastAgeChange(numberOfYears: 4, bday: mBirthdate, chosenDate: yearAsDate)
+                        let femaleScore = getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBirthdate, chosenDate: yearAsDate)
+                        
+                        let currentGender = maleScore < femaleScore ? "boy" : "girl"
+                        
+                        print("Year: \(year), Month: \(month), Male Score: \(maleScore), Female Score: \(femaleScore), Gender: \(currentGender)")
+                        
+                        if currentGender != lastGender {
+                            switchingPeriods.append((year, month, day, currentGender))
+                            lastGender = currentGender
+                        }
+                    }
+                }
             }
         }
-        
-        return switchingYears
+        return switchingPeriods
     }
 }
-
-
-

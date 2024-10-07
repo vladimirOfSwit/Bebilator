@@ -12,6 +12,7 @@
 		852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */; };
 		852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF6A2C78A8D90050AF11 /* GradientButton.swift */; };
 		8552D8CC2B84B45100EDD988 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */; };
+		8554E4752CB005DB00CE7223 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554E4742CB005DB00CE7223 /* Help.swift */; };
 		8561535A2BC81D69009E1E0E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856153592BC81D69009E1E0E /* WelcomeViewController.swift */; };
 		85885E302A711F3700EFF479 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85885E2F2A711F3700EFF479 /* OnboardingViewController.swift */; };
 		85885E332A71443700EFF479 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85885E322A71443700EFF479 /* UIView+Extension.swift */; };
@@ -43,6 +44,7 @@
 		852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		852AEF6A2C78A8D90050AF11 /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		8554E4742CB005DB00CE7223 /* Help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		856153592BC81D69009E1E0E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		85885E2F2A711F3700EFF479 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		85885E322A71443700EFF479 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -87,11 +89,19 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		8554E4732CAF327800CE7223 /* OnboardingVC */ = {
+			isa = PBXGroup;
+			children = (
+				85ED36B02C4681F20009BCE4 /* OnboardingViewModel.swift */,
+				85885E2F2A711F3700EFF479 /* OnboardingViewController.swift */,
+			);
+			path = OnboardingVC;
+			sourceTree = "<group>";
+		};
 		85885E2B2A711E1F00EFF479 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				85A265482B18E72E00A6676C /* BebilatorBrain.swift */,
-				85ED36B02C4681F20009BCE4 /* OnboardingViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,7 +143,7 @@
 		858FC4C52B03BED5002A6A5C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				85885E2F2A711F3700EFF479 /* OnboardingViewController.swift */,
+				8554E4732CAF327800CE7223 /* OnboardingVC */,
 				8502D6322AB08519008FC6C5 /* HomeViewController.swift */,
 				85A265432B18E3D300A6676C /* ResultsViewController.swift */,
 				856153592BC81D69009E1E0E /* WelcomeViewController.swift */,
@@ -172,6 +182,7 @@
 				8596FE352A695DE40050E574 /* Assets.xcassets */,
 				8596FE372A695DE40050E574 /* LaunchScreen.storyboard */,
 				8502D62D2AB0672E008FC6C5 /* Info.plist */,
+				8554E4742CB005DB00CE7223 /* Help.swift */,
 			);
 			path = Bebilator;
 			sourceTree = "<group>";
@@ -302,6 +313,7 @@
 				8502D6332AB08519008FC6C5 /* HomeViewController.swift in Sources */,
 				85885E302A711F3700EFF479 /* OnboardingViewController.swift in Sources */,
 				8561535A2BC81D69009E1E0E /* WelcomeViewController.swift in Sources */,
+				8554E4752CB005DB00CE7223 /* Help.swift in Sources */,
 				85A265492B18E72E00A6676C /* BebilatorBrain.swift in Sources */,
 				85A265472B18E46400A6676C /* Constants.swift in Sources */,
 				852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */,

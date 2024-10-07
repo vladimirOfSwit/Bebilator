@@ -75,6 +75,21 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         nTextfield.text = ""
     }
     
+    @IBAction func previousScoresBtnPressed(_ sender: UIButton) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        
+        if let mBirthdate = dateFormatter.date(from: "08.06.1987"),
+           let wBirthdate = dateFormatter.date(from: "19.01.1988") {
+            
+            let result = bebilatorBrain.calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate)
+            for (year, month, day, gender) in result {
+            print("Year: \(year), Month: \(month), Day: \(day), Gender: \(gender)")
+            }
+        }
+    }
+    
     func setupUI() {
         mTextfield.addShadowAndRoundedCorners()
         wTextfield.addShadowAndRoundedCorners()
