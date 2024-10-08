@@ -26,11 +26,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
-        guard validateTextField(mTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
+        guard bebilatorBrain.validateTextField(mTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
             return
         }
         
-        guard validateTextField(wTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
+        guard bebilatorBrain.validateTextField(wTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
             return
         }
         
@@ -52,22 +52,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func validateTextField(_ textField: UITextField, placeHolderEmpty: String, placeholderNotEligible: String) -> Bool {
-        guard let text = textField.text, !text.isEmpty, text != K.TEXTFIELD_PLACEHOLDER else {
-            textField.text = ""
-            textField.placeholder = placeHolderEmpty
-            textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
-            return false
-        }
-        
-        if !bebilatorBrain.isEligible(date: text) {
-            textField.text = ""
-            textField.placeholder = placeholderNotEligible
-            textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
-            return false
-        }
-        return true
-    }
+    
     
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         mTextfield.text = ""
@@ -77,17 +62,17 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func previousScoresBtnPressed(_ sender: UIButton) {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        
-        if let mBirthdate = dateFormatter.date(from: "08.06.1987"),
-           let wBirthdate = dateFormatter.date(from: "19.01.1988") {
-            
-            let result = bebilatorBrain.calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate)
-            for (year, month, day, gender) in result {
-            print("Year: \(year), Month: \(month), Day: \(day), Gender: \(gender)")
-            }
-        }
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd.MM.yyyy"
+//        
+//        if let mBirthdate = dateFormatter.date(from: "08.06.1987"),
+//           let wBirthdate = dateFormatter.date(from: "19.01.1988") {
+//            
+//            let result = bebilatorBrain.calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate)
+//            for (year, month, day, gender) in result {
+//            print("Year: \(year), Month: \(month), Day: \(day), Gender: \(gender)")
+//            }
+//        }
     }
     
     func setupUI() {

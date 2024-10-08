@@ -11,6 +11,8 @@
 		852AEF672C78A78D0050AF11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852AEF662C78A78D0050AF11 /* Main.storyboard */; };
 		852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */; };
 		852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF6A2C78A8D90050AF11 /* GradientButton.swift */; };
+		852F4A762CB4FA5600C31AA6 /* SwitchingPeriodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F4A752CB4FA5600C31AA6 /* SwitchingPeriodsViewModel.swift */; };
+		852F4A782CB5046900C31AA6 /* SwitchingPeriodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F4A772CB5046900C31AA6 /* SwitchingPeriodsViewController.swift */; };
 		8552D8CC2B84B45100EDD988 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */; };
 		8554E4752CB005DB00CE7223 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554E4742CB005DB00CE7223 /* Help.swift */; };
 		8561535A2BC81D69009E1E0E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856153592BC81D69009E1E0E /* WelcomeViewController.swift */; };
@@ -43,6 +45,8 @@
 		852AEF662C78A78D0050AF11 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		852AEF6A2C78A8D90050AF11 /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		852F4A752CB4FA5600C31AA6 /* SwitchingPeriodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchingPeriodsViewModel.swift; sourceTree = "<group>"; };
+		852F4A772CB5046900C31AA6 /* SwitchingPeriodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchingPeriodsViewController.swift; sourceTree = "<group>"; };
 		8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		8554E4742CB005DB00CE7223 /* Help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		856153592BC81D69009E1E0E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,15 @@
 				852AEF662C78A78D0050AF11 /* Main.storyboard */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		852F4A742CB4FA2000C31AA6 /* SwitchingPeriodsVC */ = {
+			isa = PBXGroup;
+			children = (
+				852F4A752CB4FA5600C31AA6 /* SwitchingPeriodsViewModel.swift */,
+				852F4A772CB5046900C31AA6 /* SwitchingPeriodsViewController.swift */,
+			);
+			path = SwitchingPeriodsVC;
 			sourceTree = "<group>";
 		};
 		8554E4732CAF327800CE7223 /* OnboardingVC */ = {
@@ -144,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				8554E4732CAF327800CE7223 /* OnboardingVC */,
+				852F4A742CB4FA2000C31AA6 /* SwitchingPeriodsVC */,
 				8502D6322AB08519008FC6C5 /* HomeViewController.swift */,
 				85A265432B18E3D300A6676C /* ResultsViewController.swift */,
 				856153592BC81D69009E1E0E /* WelcomeViewController.swift */,
@@ -304,6 +318,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				852F4A782CB5046900C31AA6 /* SwitchingPeriodsViewController.swift in Sources */,
+				852F4A762CB4FA5600C31AA6 /* SwitchingPeriodsViewModel.swift in Sources */,
 				85A265442B18E3D300A6676C /* ResultsViewController.swift in Sources */,
 				852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */,
 				8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */,

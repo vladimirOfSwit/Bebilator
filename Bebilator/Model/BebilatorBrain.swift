@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 struct BebilatorBrain {
@@ -87,40 +88,20 @@ struct BebilatorBrain {
         return bDay <= eighteenYearsAgoFromToday
     }
     
-    func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date) -> [(year: Int, month: Int, day: Int, gender: String)] {
-        var switchingPeriods: [(year: Int, month: Int, day: Int, gender: String)] = []
-        let currentYear  = calendar.component(.year, from: Date())
-        let futureLimit = 50
-        
-        var lastGender = ""
-        
-        for year in currentYear...(currentYear + futureLimit) {
-            for month in 1...12 {
-                var dateComponents = DateComponents()
-                dateComponents.year = year
-                dateComponents.month = month
-                
-                if let monthDate = Calendar.current.date(from: dateComponents), let range = Calendar.current.range(of: .day, in: .month, for: monthDate) {
-                    
-                    for day in range {
-                        dateComponents.day = day
-                        let yearAsDate = Calendar.current.date(from: dateComponents) ?? Date()
-                        
-                        let maleScore = getDaysSinceLastAgeChange(numberOfYears: 4, bday: mBirthdate, chosenDate: yearAsDate)
-                        let femaleScore = getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBirthdate, chosenDate: yearAsDate)
-                        
-                        let currentGender = maleScore < femaleScore ? "boy" : "girl"
-                        
-                        print("Year: \(year), Month: \(month), Male Score: \(maleScore), Female Score: \(femaleScore), Gender: \(currentGender)")
-                        
-                        if currentGender != lastGender {
-                            switchingPeriods.append((year, month, day, currentGender))
-                            lastGender = currentGender
-                        }
-                    }
-                }
-            }
+    func validateTextField(_ textField: UITextField, placeHolderEmpty: String, placeholderNotEligible: String) -> Bool {
+        guard let text = textField.text, !text.isEmpty, text != K.TEXTFIELD_PLACEHOLDER else {
+            textField.text = ""
+            textField.placeholder = placeHolderEmpty
+            textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
+            return false
         }
-        return switchingPeriods
+        
+        if !isEligible(date: text) {
+            textField.text = ""
+            textField.placeholder = placeholderNotEligible
+            textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
+            return false
+        }
+        return true
     }
 }
