@@ -13,7 +13,7 @@ class SwitchingPeriodsViewModel {
     let calendar = Calendar.current
     var bebilatorBrain = BebilatorBrain()
     
-    func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date, futureLimit: Int) {
+    func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date, futureLimit: Int) -> [(year: Int, month: Int, day: Int, gender: String)] {
         let currentYear  = calendar.component(.year, from: Date())
         var lastGender = ""
         
@@ -40,5 +40,6 @@ class SwitchingPeriodsViewModel {
                 }
             }
         }
+        return switchingPeriods
     }
 }
