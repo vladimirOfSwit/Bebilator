@@ -34,7 +34,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        guard nTextfield.text?.isEmpty == false, nTextfield.text != K.TEXTFIELD_PLACEHOLDER else {
+        guard nTextfield.text?.isEmpty == false, nTextfield.text != Constants.TEXTFIELD_PLACEHOLDER else {
             nTextfield.placeholder = "Polje ne može biti prazno"
             nTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
             return
@@ -42,11 +42,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         
         bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mTextfield.text!, w: wTextfield.text!, dateToConcieve: nTextfield.text!)
         
-        performSegue(withIdentifier: K.RESULTS_IDENTIFIER, sender: self)
+        performSegue(withIdentifier: Constants.RESULTS_IDENTIFIER, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.RESULTS_IDENTIFIER {
+        if segue.identifier == Constants.RESULTS_IDENTIFIER {
             let destinationVC = segue.destination as? ResultsViewController
             destinationVC?.genderResult = bebilatorBrain.finalResult
         }

@@ -89,7 +89,7 @@ struct BebilatorBrain {
     }
     
     func validateTextField(_ textField: UITextField, placeHolderEmpty: String, placeholderNotEligible: String) -> Bool {
-        guard let text = textField.text, !text.isEmpty, text != K.TEXTFIELD_PLACEHOLDER else {
+        guard let text = textField.text, !text.isEmpty, text != Constants.TEXTFIELD_PLACEHOLDER else {
             textField.text = ""
             textField.placeholder = placeHolderEmpty
             textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
