@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8502D6332AB08519008FC6C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502D6322AB08519008FC6C5 /* HomeViewController.swift */; };
-		852AEF672C78A78D0050AF11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852AEF662C78A78D0050AF11 /* Main.storyboard */; };
 		852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */; };
 		852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF6A2C78A8D90050AF11 /* GradientButton.swift */; };
 		852F4A762CB4FA5600C31AA6 /* SwitchingPeriodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F4A752CB4FA5600C31AA6 /* SwitchingPeriodsViewModel.swift */; };
@@ -23,6 +22,7 @@
 		8596FE362A695DE40050E574 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8596FE352A695DE40050E574 /* Assets.xcassets */; };
 		8596FE392A695DE40050E574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8596FE372A695DE40050E574 /* LaunchScreen.storyboard */; };
 		859882F52CB93DCA00FF50A1 /* DatePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859882F42CB93DCA00FF50A1 /* DatePickerManager.swift */; };
+		859882FB2CB9464900FF50A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 859882FA2CB9464900FF50A1 /* Main.storyboard */; };
 		85A265442B18E3D300A6676C /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A265432B18E3D300A6676C /* ResultsViewController.swift */; };
 		85A265472B18E46400A6676C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A265462B18E46400A6676C /* Constants.swift */; };
 		85A265492B18E72E00A6676C /* BebilatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A265482B18E72E00A6676C /* BebilatorBrain.swift */; };
@@ -43,7 +43,6 @@
 /* Begin PBXFileReference section */
 		8502D62D2AB0672E008FC6C5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8502D6322AB08519008FC6C5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		852AEF662C78A78D0050AF11 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		852AEF6A2C78A8D90050AF11 /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		852F4A752CB4FA5600C31AA6 /* SwitchingPeriodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchingPeriodsViewModel.swift; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		8596FE352A695DE40050E574 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8596FE382A695DE40050E574 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		859882F42CB93DCA00FF50A1 /* DatePickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerManager.swift; sourceTree = "<group>"; };
+		859882FA2CB9464900FF50A1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		85A265432B18E3D300A6676C /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		85A265462B18E46400A6676C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		85A265482B18E72E00A6676C /* BebilatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilatorBrain.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		8502D6312AB0850C008FC6C5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				852AEF662C78A78D0050AF11 /* Main.storyboard */,
+				859882FA2CB9464900FF50A1 /* Main.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 				85C571BC2B83578C009C8944 /* SFUIText-HeavyItalic.otf in Resources */,
 				85C571C32B83578C009C8944 /* SFUIText-Bold.otf in Resources */,
 				85E7A03F2B78FB1900C66781 /* Loader.gif in Resources */,
-				852AEF672C78A78D0050AF11 /* Main.storyboard in Resources */,
+				859882FB2CB9464900FF50A1 /* Main.storyboard in Resources */,
 				8596FE362A695DE40050E574 /* Assets.xcassets in Resources */,
 				85B6FBDC2BAC91EC00F5CE06 /* girl.gif in Resources */,
 				85B6FBDB2BAC91EC00F5CE06 /* boy.gif in Resources */,

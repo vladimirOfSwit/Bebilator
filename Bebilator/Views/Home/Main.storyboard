@@ -206,7 +206,7 @@ Phasellus et aliquam dolor.</string>
                                         <rect key="frame" x="0.0" y="81" width="320" height="56"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5j-tS-Yca" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="145" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="WeK-Af-VIR"/>
                                                     <constraint firstAttribute="height" constant="56" id="Zzh-Ob-7fg"/>
@@ -231,7 +231,7 @@ Phasellus et aliquam dolor.</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqb-TQ-gTk" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="175" y="0.0" width="145" height="56"/>
+                                                <rect key="frame" x="170" y="0.0" width="150" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="OSl-Ue-4yI"/>
                                                     <constraint firstAttribute="height" constant="56" id="zjC-p9-yFk"/>
@@ -285,7 +285,7 @@ Phasellus et aliquam dolor.</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BEBILATOR" largeTitleDisplayMode="always" id="xFX-tv-7yJ">
-                        <barButtonItem key="backBarButtonItem" title="NAZAD" id="Jql-Bn-YEe"/>
+                        <barButtonItem key="backBarButtonItem" title="Nazad" id="Jql-Bn-YEe"/>
                     </navigationItem>
                     <connections>
                         <outlet property="clearBtn" destination="l5j-tS-Yca" id="hlv-ta-3TY"/>
@@ -339,13 +339,13 @@ Phasellus et aliquam dolor.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boyGirlWelcome" translatesAutoresizingMaskIntoConstraints="NO" id="8Yw-gQ-rpp">
-                                <rect key="frame" x="0.0" y="203" width="375" height="259"/>
+                                <rect key="frame" x="0.0" y="203" width="346" height="259"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="g9a-Y4-FGD" userLabel="Bottom Stack View">
-                                <rect key="frame" x="35" y="598" width="305" height="137"/>
+                                <rect key="frame" x="35" y="598" width="276" height="137"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKs-5L-pOx" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="276" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="gdR-yH-XeR"/>
                                         </constraints>
@@ -367,7 +367,7 @@ Phasellus et aliquam dolor.</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoF-Ht-Pfi">
-                                        <rect key="frame" x="0.0" y="81" width="305" height="56"/>
+                                        <rect key="frame" x="0.0" y="81" width="276" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="92Z-g7-K9Z"/>
                                             <constraint firstAttribute="width" constant="320" id="QLp-an-F2d"/>
@@ -388,7 +388,7 @@ Phasellus et aliquam dolor.</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="pbX-oB-nwF" kind="presentation" id="S5w-iw-HOp"/>
+                                            <segue destination="RBr-vO-ZFo" kind="show" id="Yoo-3y-fzw"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -413,7 +413,9 @@ Phasellus et aliquam dolor.</string>
                             <constraint firstItem="8Yw-gQ-rpp" firstAttribute="trailing" secondItem="ZIj-p9-jBR" secondAttribute="trailing" id="sAh-m1-eqj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="olU-5B-T4Q"/>
+                    <navigationItem key="navigationItem" id="olU-5B-T4Q">
+                        <barButtonItem key="backBarButtonItem" title="Nazad" id="jwP-3o-F9C"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="bebilendarBtn" destination="XoF-Ht-Pfi" id="Xf7-b8-fiy"/>
                     </connections>
@@ -421,21 +423,6 @@ Phasellus et aliquam dolor.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYn-9R-pz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1420" y="316"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="6Ja-ud-llp">
-            <objects>
-                <viewController id="pbX-oB-nwF" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ohH-aW-sOp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Xfw-NO-QXk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8yd-dD-AUg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2428" y="772"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="buG-jO-Nm9">
@@ -461,6 +448,106 @@ Phasellus et aliquam dolor.</string>
             </objects>
             <point key="canvasLocation" x="161" y="316"/>
         </scene>
+        <!--BEBILENDAR-->
+        <scene sceneID="MMj-9i-h4f">
+            <objects>
+                <viewController id="RBr-vO-ZFo" customClass="SwitchingPeriodsViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P51-BP-wWK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id imperdiet mi. Phasellus et aliquam dolor. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jh-l6-NAp">
+                                <rect key="frame" x="23" y="119" width="327" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Hm5-wT-yMD" userLabel="Middle StackView">
+                                <rect key="frame" x="27" y="213" width="320" height="236"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vj4-Zy-Px6" userLabel="mTextfield">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                                        <color key="tintColor" red="1" green="0.75379251960000004" blue="0.39477747299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="RMf-D2-uRm"/>
+                                            <constraint firstAttribute="height" constant="62" id="ti2-1x-7uL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" textContentType="date-time"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2R-5h-gj6" userLabel="wTextfield">
+                                        <rect key="frame" x="0.0" y="87" width="320" height="62"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" textContentType="date-time"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HKS-UU-5j4" userLabel="nTextfield">
+                                        <rect key="frame" x="0.0" y="174" width="320" height="62"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" textContentType="date-time"/>
+                                    </textField>
+                                </subviews>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pregnantLady" translatesAutoresizingMaskIntoConstraints="NO" id="KQV-h4-ca6">
+                                <rect key="frame" x="71" y="472" width="234" height="241"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njj-nY-d7X" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
+                                <rect key="frame" x="20" y="713" width="320" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="rGV-jf-4Ft"/>
+                                    <constraint firstAttribute="width" constant="320" id="yeT-8d-oeq"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="IZRAČUNAJ">
+                                    <fontDescription key="titleFontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.30821428270000001" green="0.4612421069" blue="0.76871567959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="calculateSwitchingPeriodsButtonPressed:" destination="RBr-vO-ZFo" eventType="touchUpInside" id="laY-V4-fSY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TVk-Gl-UPY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TVk-Gl-UPY" firstAttribute="trailing" secondItem="7jh-l6-NAp" secondAttribute="trailing" constant="25" id="9tJ-VG-8UX"/>
+                            <constraint firstItem="TVk-Gl-UPY" firstAttribute="trailing" secondItem="KQV-h4-ca6" secondAttribute="trailing" constant="70" id="Agg-2H-aEU"/>
+                            <constraint firstItem="njj-nY-d7X" firstAttribute="top" secondItem="KQV-h4-ca6" secondAttribute="bottom" id="CtF-MC-3Xi"/>
+                            <constraint firstItem="7jh-l6-NAp" firstAttribute="top" secondItem="TVk-Gl-UPY" secondAttribute="top" constant="25" id="Gpe-yh-ZdF"/>
+                            <constraint firstItem="TVk-Gl-UPY" firstAttribute="trailing" secondItem="Hm5-wT-yMD" secondAttribute="trailing" constant="28" id="I5O-nZ-owy"/>
+                            <constraint firstItem="Hm5-wT-yMD" firstAttribute="leading" secondItem="TVk-Gl-UPY" secondAttribute="leading" constant="27" id="Ish-Yt-4mO"/>
+                            <constraint firstItem="TVk-Gl-UPY" firstAttribute="trailing" secondItem="njj-nY-d7X" secondAttribute="trailing" constant="35" id="R3W-6K-PCP"/>
+                            <constraint firstItem="Hm5-wT-yMD" firstAttribute="top" secondItem="7jh-l6-NAp" secondAttribute="bottom" constant="33" id="TBq-Cb-K7f"/>
+                            <constraint firstItem="KQV-h4-ca6" firstAttribute="top" secondItem="Hm5-wT-yMD" secondAttribute="bottom" constant="23" id="Ufg-vo-Djn"/>
+                            <constraint firstItem="KQV-h4-ca6" firstAttribute="leading" secondItem="TVk-Gl-UPY" secondAttribute="leading" constant="71" id="bAh-4c-ceY"/>
+                            <constraint firstItem="7jh-l6-NAp" firstAttribute="leading" secondItem="TVk-Gl-UPY" secondAttribute="leading" constant="23" id="sXI-Mb-o6w"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="BEBILENDAR" id="v5P-fc-BB9"/>
+                    <connections>
+                        <outlet property="futureLimitTextfield" destination="HKS-UU-5j4" id="9c9-vu-gRA"/>
+                        <outlet property="infoLbl" destination="7jh-l6-NAp" id="o2E-Cf-syf"/>
+                        <outlet property="mTextfield" destination="Vj4-Zy-Px6" id="sJc-oA-1h1"/>
+                        <outlet property="wTextfield" destination="f2R-5h-gj6" id="YHq-9Q-fTk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUx-tF-XTD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2399" y="726"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="Tuu-Ta-MMS">
@@ -471,6 +558,9 @@ Phasellus et aliquam dolor.</string>
         </designable>
         <designable name="lTl-JA-wl5">
             <size key="intrinsicContentSize" width="62" height="34.333333333333336"/>
+        </designable>
+        <designable name="njj-nY-d7X">
+            <size key="intrinsicContentSize" width="135.33333333333334" height="38"/>
         </designable>
         <designable name="qqb-TQ-gTk">
             <size key="intrinsicContentSize" width="191.33333333333334" height="38"/>
@@ -483,6 +573,7 @@ Phasellus et aliquam dolor.</string>
         <image name="background" width="390" height="844"/>
         <image name="bothElephants" width="322" height="216"/>
         <image name="boyGirlWelcome" width="346" height="259"/>
+        <image name="pregnantLady" width="234" height="241"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
