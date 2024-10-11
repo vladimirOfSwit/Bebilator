@@ -77,34 +77,18 @@ extension UITextField {
         self.layer.add(shake, forKey: "position")
     }
     
-    func addShadowAndRoundedCorners() {
+    func addShadowAndRoundedCorners(color: UIColor?) {
         layer.masksToBounds = false
         layer.shadowRadius = 2.0
-        layer.shadowColor = Constants.colorMborder?.cgColor
+        layer.shadowColor = color?.cgColor
         layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
         layer.shadowOpacity = 1.0
         layer.cornerRadius = 7
-        layer.borderColor = UIColor.gray.cgColor
+        layer.borderColor = color?.cgColor
         layer.borderWidth = 1.5
         self.clipsToBounds = true
     }
 }
-
-//extension UIButton {
-//    func addShadowAndRoundedCornersBtn() {
-//        clipsToBounds = true
-//        backgroundColor = UIColor.blue
-//        layer.cornerRadius = 8
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOffset = CGSize(width: 0, height: 2)
-//        layer.shadowOpacity = 0.4
-//        layer.shadowRadius = 4
-//        
-//        setTitleColor(UIColor.black, for: .normal)
-//
-//        
-//    }
-//}
 
 extension UIColor {
     public convenience init?(hex: String) {
@@ -174,6 +158,31 @@ extension UIImage {
         }
         
         return UIImage.animatedImage(with: images, duration: 5.0)
+    }
+}
+
+extension UIDatePicker {
+    
+    func applyGradientToSelection() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor.blue.cgColor,
+            UIColor.purple.cgColor
+        ]
+        
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        let selectionBarHeight: CGFloat = 40
+        let selectionBarFrame = CGRect(x: 0, y: self.bounds.size.height / 2 - selectionBarHeight / 2, width: self.bounds.size.width, height: selectionBarHeight)
+        gradientLayer.frame = selectionBarFrame
+        
+        if let selectionView = self.subviews.first?.subviews.first(where: { $0.frame.height <= 40 }) {
+            gradientLayer.frame = selectionView.bounds
+            self.layer.addSublayer(gradientLayer)
+        }
+        
+       
     }
 }
 
