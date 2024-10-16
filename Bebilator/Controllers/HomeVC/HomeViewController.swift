@@ -24,24 +24,24 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
-        guard bebilatorBrain.validateTextField(mTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
+        guard bebilatorBrain.validateTextField(mTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina"),
+        let mText = mTextfield.text else {
+            return
+        }
+        guard bebilatorBrain.validateTextField(wTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina"),
+        let wText = wTextfield.text else {
             return
         }
         
-        guard bebilatorBrain.validateTextField(wTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
-            return
-        }
-        
-        guard nTextfield.text?.isEmpty == false, nTextfield.text != Constants.TEXTFIELD_PLACEHOLDER else {
+        guard let nText = nTextfield.text, !nText.isEmpty, nText != Constants.TEXTFIELD_PLACEHOLDER else {
             nTextfield.placeholder = "Polje ne može biti prazno"
             nTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
             return
         }
-        guard let mText = mTextfield.text, 
-              let wText = wTextfield.text,
-              let nText = nTextfield.text else {
-        return
+        guard let selectedDate = bebilatorBrain.formatStringToDate(date: nText), validateDateNTextfieldIsNotInThePast(selectedDate) else {
+            return
         }
+      
         bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mText, w: wText, dateToConcieve: nText)
         
         performSegue(withIdentifier: Constants.RESULTS_IDENTIFIER, sender: self)
@@ -85,6 +85,29 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             wTextfield.text = date
         } else if nTextfield.isFirstResponder {
             nTextfield.text = date
+        }
+    }
+    
+    private func validateDateNTextfieldIsNotInThePast(_ date: Date) -> Bool {
+        let calendar = Calendar.current
+        let currentDate = calendar.startOfDay(for: Date())
+        let selectedStartDate = calendar.startOfDay(for: date)
+        
+        guard selectedStartDate >= currentDate else {
+            editPlaceholderFont(textField: nTextfield, placeholderText: "Datum mora da bude današnji ili u budućnosti.", fontSize: 13)
+            nTextfield.text = ""
+            nTextfield.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 4, revert: true)
+        return false
+        }
+        return true
+    }
+    
+    private func editPlaceholderFont(textField: UITextField, placeholderText: String, fontSize: CGFloat) {
+        if let currentFont = nTextfield.font {
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: currentFont.withSize(12)
+            ]
+            textField.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: attributes)
         }
     }
 }
