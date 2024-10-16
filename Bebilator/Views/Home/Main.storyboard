@@ -206,7 +206,7 @@ Phasellus et aliquam dolor.</string>
                                         <rect key="frame" x="0.0" y="81" width="320" height="56"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5j-tS-Yca" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="145" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="WeK-Af-VIR"/>
                                                     <constraint firstAttribute="height" constant="56" id="Zzh-Ob-7fg"/>
@@ -231,7 +231,7 @@ Phasellus et aliquam dolor.</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqb-TQ-gTk" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="170" y="0.0" width="150" height="56"/>
+                                                <rect key="frame" x="175" y="0.0" width="145" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="OSl-Ue-4yI"/>
                                                     <constraint firstAttribute="height" constant="56" id="zjC-p9-yFk"/>
@@ -285,7 +285,7 @@ Phasellus et aliquam dolor.</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BEBILATOR" largeTitleDisplayMode="always" id="xFX-tv-7yJ">
-                        <barButtonItem key="backBarButtonItem" title="Nazad" id="Jql-Bn-YEe"/>
+                        <barButtonItem key="backBarButtonItem" title="Bebilator" id="Jql-Bn-YEe"/>
                     </navigationItem>
                     <connections>
                         <outlet property="clearBtn" destination="l5j-tS-Yca" id="hlv-ta-3TY"/>
@@ -328,7 +328,7 @@ Phasellus et aliquam dolor.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWH-sX-oaF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3280.8000000000002" y="-407.14285714285717"/>
+            <point key="canvasLocation" x="3281" y="7"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="ymr-2X-Aw6">
@@ -339,13 +339,13 @@ Phasellus et aliquam dolor.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boyGirlWelcome" translatesAutoresizingMaskIntoConstraints="NO" id="8Yw-gQ-rpp">
-                                <rect key="frame" x="0.0" y="203" width="346" height="259"/>
+                                <rect key="frame" x="0.0" y="203" width="375" height="259"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="g9a-Y4-FGD" userLabel="Bottom Stack View">
-                                <rect key="frame" x="35" y="598" width="276" height="137"/>
+                                <rect key="frame" x="35" y="598" width="305" height="137"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKs-5L-pOx" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="276" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="gdR-yH-XeR"/>
                                         </constraints>
@@ -367,7 +367,7 @@ Phasellus et aliquam dolor.</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoF-Ht-Pfi">
-                                        <rect key="frame" x="0.0" y="81" width="276" height="56"/>
+                                        <rect key="frame" x="0.0" y="81" width="305" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="92Z-g7-K9Z"/>
                                             <constraint firstAttribute="width" constant="320" id="QLp-an-F2d"/>
@@ -485,7 +485,7 @@ Phasellus et aliquam dolor.</string>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" textContentType="date-time"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HKS-UU-5j4" userLabel="nTextfield">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Broj godina u budućnosti" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HKS-UU-5j4" userLabel="nTextfield">
                                         <rect key="frame" x="0.0" y="174" width="320" height="62"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" textContentType="date-time"/>
@@ -517,6 +517,7 @@ Phasellus et aliquam dolor.</string>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="calculateSwitchingPeriodsButtonPressed:" destination="RBr-vO-ZFo" eventType="touchUpInside" id="laY-V4-fSY"/>
+                                    <segue destination="fsY-PH-pOJ" kind="show" identifier="goToSwitchPeriodsResults" id="AmX-Q8-DT2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -536,7 +537,9 @@ Phasellus et aliquam dolor.</string>
                             <constraint firstItem="7jh-l6-NAp" firstAttribute="leading" secondItem="TVk-Gl-UPY" secondAttribute="leading" constant="23" id="sXI-Mb-o6w"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="BEBILENDAR" id="v5P-fc-BB9"/>
+                    <navigationItem key="navigationItem" title="BEBILENDAR" id="v5P-fc-BB9">
+                        <barButtonItem key="backBarButtonItem" title="Bebilendar" id="mou-aG-ocj"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="futureLimitTextfield" destination="HKS-UU-5j4" id="9c9-vu-gRA"/>
                         <outlet property="infoLbl" destination="7jh-l6-NAp" id="o2E-Cf-syf"/>
@@ -547,6 +550,47 @@ Phasellus et aliquam dolor.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUx-tF-XTD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2399" y="726"/>
+        </scene>
+        <!--Switching Periods Result View Controller-->
+        <scene sceneID="GTa-93-lhj">
+            <objects>
+                <viewController id="fsY-PH-pOJ" customClass="SwitchingPeriodsResultViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ouf-6L-hYA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dq8-bc-Rw5">
+                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="w8P-m2-zX3">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w8P-m2-zX3" id="ahR-C4-ZfI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SWV-BL-S3N"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Dq8-bc-Rw5" firstAttribute="top" secondItem="SWV-BL-S3N" secondAttribute="top" id="8sU-e4-q0O"/>
+                            <constraint firstItem="SWV-BL-S3N" firstAttribute="trailing" secondItem="Dq8-bc-Rw5" secondAttribute="trailing" id="JNX-6F-Uqh"/>
+                            <constraint firstItem="Dq8-bc-Rw5" firstAttribute="leading" secondItem="SWV-BL-S3N" secondAttribute="leading" id="iSh-AI-tqa"/>
+                            <constraint firstItem="SWV-BL-S3N" firstAttribute="bottom" secondItem="Dq8-bc-Rw5" secondAttribute="bottom" id="xZo-Bf-XTs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cQT-Qq-LQ7"/>
+                    <connections>
+                        <outlet property="tableView" destination="Dq8-bc-Rw5" id="8AE-o9-aP3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iZW-hS-9gG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3280.8000000000002" y="724.8768472906404"/>
         </scene>
     </scenes>
     <designables>
@@ -578,7 +622,7 @@ Phasellus et aliquam dolor.</string>
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -37,10 +37,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             nTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
             return
         }
-        guard let mText = mTextfield.text, let wText = wTextfield.text, let nText = nTextfield.text else {
-            return
+        guard let mText = mTextfield.text, 
+              let wText = wTextfield.text,
+              let nText = nTextfield.text else {
+        return
         }
-        
         bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mText, w: wText, dateToConcieve: nText)
         
         performSegue(withIdentifier: Constants.RESULTS_IDENTIFIER, sender: self)

@@ -17,10 +17,19 @@ class SwitchingPeriodsViewController: UIViewController {
     var viewModel = SwitchingPeriodsViewModel()
     var bebilatorBrain = BebilatorBrain()
     let datePickerManager = DatePickerManager()
+    let resultViewController = SwitchingPeriodsResultViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        futureLimitTextfield.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func calculateSwitchingPeriodsButtonPressed(_ sender: GradientButton) {
@@ -40,13 +49,15 @@ class SwitchingPeriodsViewController: UIViewController {
         
         guard let mText = mTextfield.text, let wText = wTextfield.text else { return }
         
-       guard let mBdayAsDate = bebilatorBrain.formatStringToDate(date: mText),
-             let wBdayAsDate = bebilatorBrain.formatStringToDate(date: wText) else { return }
+        guard let mBdayAsDate = bebilatorBrain.formatStringToDate(date: mText),
+              let wBdayAsDate = bebilatorBrain.formatStringToDate(date: wText) else { return }
         
         let result = viewModel.calculateSwitchingPeriods(mBirthdate: mBdayAsDate, wBirthdate: wBdayAsDate, futureLimit: futureLimit)
-                  for (year, month, day, gender) in result {
-                  print("Year: \(year), Month: \(month), Day: \(day), Gender: \(gender)")
-                  }
+        for (year, month, day, gender) in result {
+            print("Year: \(year), Month: \(month), Day: \(day), Gender: \(gender)")
+        }
+        
+        //performSegue(withIdentifier: Constants.SWITCH_PERIODS_VIEW_CONTROLLER_RESULTS_IDENTIFIER, sender: self)
     }
     
     func setupUI() {
@@ -69,5 +80,14 @@ class SwitchingPeriodsViewController: UIViewController {
         } else if wTextfield.isFirstResponder {
             wTextfield.text = date
         }
+    }
+}
+
+extension SwitchingPeriodsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == futureLimitTextfield {
+            futureLimitTextfield.resignFirstResponder()
+        }
+        return true
     }
 }
