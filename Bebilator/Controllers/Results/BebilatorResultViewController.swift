@@ -1,5 +1,5 @@
 //
-//  ResultsViewController.swift
+//  BebilatorResultViewController.swift
 //  Bebilator
 //
 //  Created by Vladimir Savic on 30.11.23..
@@ -7,7 +7,7 @@
 import UIKit
 
 
-class ResultsViewController: UIViewController {
+class BebilatorResultViewController: UIViewController {
 
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var gifImageView: UIImageView!

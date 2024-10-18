@@ -88,6 +88,30 @@ extension UITextField {
         layer.borderWidth = 1.5
         self.clipsToBounds = true
     }
+    
+    func validateGenderTextfield(isEligible: (String) -> Bool) -> Bool {
+        guard let text = self.text, !text.isEmpty, text != Constants.TEXTFIELD_PLACEHOLDER else {
+            self.text = ""
+            self.placeholder = "Polje ne može biti prazno."
+            self.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
+            return false
+        }
+        if !isEligible(text) {
+            self.text = ""
+            self.placeholder = "Minimum 18. godina"
+            self.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
+            return false
+        }
+        return true
+    }
+    func editPlaceholderFont(_ placeHolderText: String, fontSize: CGFloat) {
+        if let currentFont = self.font {
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: currentFont.withSize(fontSize)
+            ]
+            self.attributedPlaceholder = NSAttributedString(string: placeHolderText, attributes: attributes)
+        }
+    }
 }
 
 extension UIColor {
@@ -121,6 +145,11 @@ extension Date {
     public func addYear(n: Int) -> Date {
         let calendar = Calendar.current
         return calendar.date(byAdding: .year, value: n, to: self)!
+    }
+    func toString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        return formatter.string(from: self)
     }
 }
 
@@ -183,6 +212,14 @@ extension UIDatePicker {
         }
         
        
+    }
+}
+
+extension String {
+    func toDate() -> Date? {
+       let dateFormatter = DateFormatter()
+       dateFormatter.dateFormat = "dd-MM-yyyy"
+       return dateFormatter.date (from: self)
     }
 }
 

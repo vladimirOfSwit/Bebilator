@@ -20,9 +20,9 @@ struct BebilatorBrain {
         var scoreMale = 0
         var scoreFemale = 0
         
-        guard let mBdayAsDate = formatStringToDate(date: m) else { return }
-        guard let wBdayAsDate = formatStringToDate(date: w) else { return }
-        guard let chosenDateAsDate = formatStringToDate(date: dateToConcieve) else { return }
+        guard let mBdayAsDate = m.toDate() else { return }
+        guard let wBdayAsDate = w.toDate() else { return }
+        guard let chosenDateAsDate = dateToConcieve.toDate() else { return }
         
         scoreMale = getDaysSinceLastAgeChange(numberOfYears: 4, bday: mBdayAsDate, chosenDate: chosenDateAsDate)
         scoreFemale = getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBdayAsDate, chosenDate: chosenDateAsDate)
@@ -59,19 +59,6 @@ struct BebilatorBrain {
         return daysPassedSinceChange
         
     }
-    
-    func formatStringToDate(date: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        return dateFormatter.date(from: date)
-    }
-    
-    func formatDateToString(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
-        return formatter.string(from: date)
-    }
-    
     public func calculateGender(scoreM: Int, scoreW: Int) -> String {
         if scoreM < scoreW {
             return("boy")
@@ -81,27 +68,10 @@ struct BebilatorBrain {
     }
     
     func isEligible (date: String) -> Bool {
-        guard let bDay = formatStringToDate(date: date) else { return false }
+        guard let bDay = date.toDate() else { return false }
         guard let eighteenYearsAgoFromToday = calendar.date(byAdding: .year, value: -18, to: Date()) else {
             return false
         }
         return bDay <= eighteenYearsAgoFromToday
-    }
-    
-    func validateTextField(_ textField: UITextField, placeHolderEmpty: String, placeholderNotEligible: String) -> Bool {
-        guard let text = textField.text, !text.isEmpty, text != Constants.TEXTFIELD_PLACEHOLDER else {
-            textField.text = ""
-            textField.placeholder = placeHolderEmpty
-            textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
-            return false
-        }
-        
-        if !isEligible(date: text) {
-            textField.text = ""
-            textField.placeholder = placeholderNotEligible
-            textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 6, revert: true)
-            return false
-        }
-        return true
     }
 }

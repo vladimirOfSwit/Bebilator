@@ -1,5 +1,5 @@
 //
-//  SwitchingPeriodsViewController.swift
+//  BebilendarViewController.swift
 //  Bebilator
 //
 //  Created by Vladimir Savic on 8.10.24..
@@ -8,16 +8,16 @@ import Foundation
 import UIKit
 
 
-class SwitchingPeriodsViewController: UIViewController {
+class BebilendarViewController: UIViewController {
     @IBOutlet weak var infoLbl: UILabel!
     @IBOutlet weak var mTextfield: UITextField!
     @IBOutlet weak var wTextfield: UITextField!
     @IBOutlet weak var futureLimitTextfield: UITextField!
     
-    var viewModel = SwitchingPeriodsViewModel()
+    var viewModel = BebilendarViewModel()
     var bebilatorBrain = BebilatorBrain()
     let datePickerManager = DatePickerManager()
-    let resultViewController = SwitchingPeriodsResultViewController()
+    let resultViewController = BebilendarResultViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +33,10 @@ class SwitchingPeriodsViewController: UIViewController {
     }
     
     @IBAction func calculateSwitchingPeriodsButtonPressed(_ sender: GradientButton) {
-        guard bebilatorBrain.validateTextField(mTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
+        guard mTextfield.validateGenderTextfield(isEligible: { bebilatorBrain.isEligible(date: $0) }),
+              wTextfield.validateGenderTextfield(isEligible: {bebilatorBrain.isEligible(date: $0)}) else {
             return
         }
-        
-        guard bebilatorBrain.validateTextField(wTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina") else {
-            return
-        }
-        
         guard futureLimitTextfield.text?.isEmpty == false, futureLimitTextfield.text != Constants.TEXTFIELD_PLACEHOLDER, let futureLimit = Int(futureLimitTextfield.text ?? "No value") else {
             futureLimitTextfield.placeholder = "Unesite broj"
             futureLimitTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
@@ -49,8 +45,8 @@ class SwitchingPeriodsViewController: UIViewController {
         
         guard let mText = mTextfield.text, let wText = wTextfield.text else { return }
         
-        guard let mBdayAsDate = bebilatorBrain.formatStringToDate(date: mText),
-              let wBdayAsDate = bebilatorBrain.formatStringToDate(date: wText) else { return }
+        guard let mBdayAsDate = mText.toDate(),
+              let wBdayAsDate = wText.toDate() else { return }
         
         let result = viewModel.calculateSwitchingPeriods(mBirthdate: mBdayAsDate, wBirthdate: wBdayAsDate, futureLimit: futureLimit)
         for (year, month, day, gender) in result {
@@ -83,7 +79,7 @@ class SwitchingPeriodsViewController: UIViewController {
     }
 }
 
-extension SwitchingPeriodsViewController: UITextFieldDelegate {
+extension BebilendarViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == futureLimitTextfield {
             futureLimitTextfield.resignFirstResponder()

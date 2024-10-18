@@ -1,5 +1,5 @@
 //
-//  SwitchingPeriodsViewModel.swift
+//  BebilendarViewModel.swift
 //  Bebilator
 //
 //  Created by Vladimir Savic on 8.10.24..
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SwitchingPeriodsViewModel {
+class BebilendarViewModel {
     var switchingPeriods: [(year: Int, month: Int, day: Int, gender: String)] = []
     var onSwitchingPeriodUpdated: (() -> ())?
     let calendar = Calendar.current

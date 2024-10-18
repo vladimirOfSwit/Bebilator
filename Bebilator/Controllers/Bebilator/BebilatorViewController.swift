@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  BebilatorViewController.swift
 //  Bebilator
 //
 //  Created by Vladimir Savic on 12.9.23..
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITextFieldDelegate {
+class BebilatorViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mTextfield: UITextField!
     @IBOutlet weak var wTextfield: UITextField!
@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     var bebilatorBrain = BebilatorBrain()
     let datePickerManager = DatePickerManager()
+    let viewModel = BebilatorViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,21 +25,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
-        guard bebilatorBrain.validateTextField(mTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina"),
-        let mText = mTextfield.text else {
-            return
-        }
-        guard bebilatorBrain.validateTextField(wTextfield, placeHolderEmpty: "Polje ne može biti prazno.", placeholderNotEligible: "Min 18. godina"),
-        let wText = wTextfield.text else {
-            return
-        }
-        
-        guard let nText = nTextfield.text, !nText.isEmpty, nText != Constants.TEXTFIELD_PLACEHOLDER else {
-            nTextfield.placeholder = "Polje ne može biti prazno"
-            nTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
-            return
-        }
-        guard let selectedDate = bebilatorBrain.formatStringToDate(date: nText), validateDateNTextfieldIsNotInThePast(selectedDate) else {
+        guard let mText = mTextfield.text, mTextfield.validateGenderTextfield(isEligible: { bebilatorBrain.isEligible(date: $0)}),
+              let wText = wTextfield.text, wTextfield.validateGenderTextfield(isEligible: {bebilatorBrain.isEligible(date: $0)}),
+              let nText = nTextfield.text, viewModel.validateDateNotInThePast(nText, textfield: nTextfield) else {
             return
         }
       
@@ -49,7 +38,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.RESULTS_IDENTIFIER {
-            let destinationVC = segue.destination as? ResultsViewController
+            let destinationVC = segue.destination as? BebilatorResultViewController
             destinationVC?.genderResult = bebilatorBrain.finalResult
         }
     }
@@ -86,20 +75,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         } else if nTextfield.isFirstResponder {
             nTextfield.text = date
         }
-    }
-    
-    private func validateDateNTextfieldIsNotInThePast(_ date: Date) -> Bool {
-        let calendar = Calendar.current
-        let currentDate = calendar.startOfDay(for: Date())
-        let selectedStartDate = calendar.startOfDay(for: date)
-        
-        guard selectedStartDate >= currentDate else {
-            editPlaceholderFont(textField: nTextfield, placeholderText: "Datum mora da bude današnji ili u budućnosti.", fontSize: 13)
-            nTextfield.text = ""
-            nTextfield.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 4, revert: true)
-        return false
-        }
-        return true
     }
     
     private func editPlaceholderFont(textField: UITextField, placeholderText: String, fontSize: CGFloat) {

@@ -132,7 +132,7 @@ Phasellus et aliquam dolor.</string>
         <!--BEBILATOR-->
         <scene sceneID="QEv-1l-pmq">
             <objects>
-                <viewController id="5xu-O6-gtO" customClass="HomeViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5xu-O6-gtO" customClass="BebilatorViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dtg-P2-XB0" userLabel="MainView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -300,10 +300,10 @@ Phasellus et aliquam dolor.</string>
             </objects>
             <point key="canvasLocation" x="2278" y="7"/>
         </scene>
-        <!--Results View Controller-->
+        <!--Bebilator Result View Controller-->
         <scene sceneID="mny-Sq-13R">
             <objects>
-                <viewController id="D3S-yv-7q0" customClass="ResultsViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D3S-yv-7q0" customClass="BebilatorResultViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nCF-w0-biX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -451,7 +451,7 @@ Phasellus et aliquam dolor.</string>
         <!--BEBILENDAR-->
         <scene sceneID="MMj-9i-h4f">
             <objects>
-                <viewController id="RBr-vO-ZFo" customClass="SwitchingPeriodsViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RBr-vO-ZFo" customClass="BebilendarViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P51-BP-wWK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -551,10 +551,10 @@ Phasellus et aliquam dolor.</string>
             </objects>
             <point key="canvasLocation" x="2399" y="726"/>
         </scene>
-        <!--Switching Periods Result View Controller-->
+        <!--Bebilendar Result View Controller-->
         <scene sceneID="GTa-93-lhj">
             <objects>
-                <viewController id="fsY-PH-pOJ" customClass="SwitchingPeriodsResultViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fsY-PH-pOJ" customClass="BebilendarResultViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ouf-6L-hYA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -595,19 +595,19 @@ Phasellus et aliquam dolor.</string>
     </scenes>
     <designables>
         <designable name="Tuu-Ta-MMS">
-            <size key="intrinsicContentSize" width="135.33333333333334" height="38"/>
+            <size key="intrinsicContentSize" width="135" height="37.333333333333336"/>
         </designable>
         <designable name="l5j-tS-Yca">
-            <size key="intrinsicContentSize" width="78.333333333333329" height="38"/>
+            <size key="intrinsicContentSize" width="76.666666666666671" height="37.333333333333336"/>
         </designable>
         <designable name="lTl-JA-wl5">
             <size key="intrinsicContentSize" width="62" height="34.333333333333336"/>
         </designable>
         <designable name="njj-nY-d7X">
-            <size key="intrinsicContentSize" width="135.33333333333334" height="38"/>
+            <size key="intrinsicContentSize" width="135" height="37.333333333333336"/>
         </designable>
         <designable name="qqb-TQ-gTk">
-            <size key="intrinsicContentSize" width="191.33333333333334" height="38"/>
+            <size key="intrinsicContentSize" width="186" height="37.333333333333336"/>
         </designable>
         <designable name="uKs-5L-pOx">
             <size key="intrinsicContentSize" width="106.33333333333333" height="38"/>

@@ -1,5 +1,5 @@
 //
-//  SwitchingPeriodsResultViewController.swift
+//  BebilendarResultViewController.swift
 //  Bebilator
 //
 //  Created by Vladimir Savic on 14.10.24..
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SwitchingPeriodsResultViewController: UIViewController {
+class BebilendarResultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -21,12 +21,12 @@ class SwitchingPeriodsResultViewController: UIViewController {
     
 }
 
-extension SwitchingPeriodsResultViewController: UITableViewDelegate {
+extension BebilendarResultViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped me")
     }
 }
-extension SwitchingPeriodsResultViewController: UITableViewDataSource {
+extension BebilendarResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
