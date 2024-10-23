@@ -11,7 +11,6 @@ import UIKit
 class BebilendarViewModel {
     var switchingPeriods: [(year: Int, month: Int, day: Int, gender: String)] = []
     var bebilatorBrain = BebilatorBrain()
-    
     var onSwitchingPeriodUpdated: (() -> Void)?
     var onValidationFailed: ((String) -> Void)?
     
@@ -26,34 +25,24 @@ class BebilendarViewModel {
             onValidationFailed?("mText is not eligible.")
             return false
         }
-        
         guard let wText = wBirthdateString, !wText.isEmpty else {
             onValidationFailed?("wTextfield is empty.")
             return false
         }
-        
         guard bebilatorBrain.isEligible(date: wText) else {
             onValidationFailed?("wText is not eligible.")
             return false
         }
-        
         guard let futureLimitText = futureLimitString, !futureLimitText.isEmpty, let futureLimit = Int(futureLimitText) else {
             onValidationFailed?("Future limit is not valid.")
             return false
         }
-        
         guard let mBirthdate = mText.toDate(), let wBirthdate = wText.toDate() else {
             onValidationFailed?("Invalid date format.")
             return false
         }
-        
         let results = calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate, futureLimit: futureLimit)
-        for (year, month, day, gender) in results {
-            print("Year: \(year), Month: \(month), Day: \(day), Gender: \(gender)")
-        }
-        
         switchingPeriods = results
-        
         onSwitchingPeriodUpdated?()
         return true
         }
