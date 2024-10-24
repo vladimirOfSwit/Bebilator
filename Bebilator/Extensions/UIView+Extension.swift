@@ -77,34 +77,42 @@ extension UITextField {
         self.layer.add(shake, forKey: "position")
     }
     
-    func addShadowAndRoundedCorners() {
+    func addShadowAndRoundedCorners(color: UIColor?) {
         layer.masksToBounds = false
         layer.shadowRadius = 2.0
-        layer.shadowColor = K.colorMborder?.cgColor
+        layer.shadowColor = color?.cgColor
         layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
         layer.shadowOpacity = 1.0
         layer.cornerRadius = 7
-        layer.borderColor = UIColor.gray.cgColor
+        layer.borderColor = color?.cgColor
         layer.borderWidth = 1.5
         self.clipsToBounds = true
     }
+    
+    func validateGenderTextfield(isEligible: (String) -> Bool) -> Bool {
+        guard let text = self.text, !text.isEmpty, text != Constants.TEXTFIELD_PLACEHOLDER else {
+            self.text = ""
+            self.placeholder = "Polje ne može biti prazno."
+            self.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
+            return false
+        }
+        if !isEligible(text) {
+            self.text = ""
+            self.placeholder = "Minimum 18. godina"
+            self.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
+            return false
+        }
+        return true
+    }
+    func editPlaceholderFont(_ placeHolderText: String, fontSize: CGFloat) {
+        if let currentFont = self.font {
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: currentFont.withSize(fontSize)
+            ]
+            self.attributedPlaceholder = NSAttributedString(string: placeHolderText, attributes: attributes)
+        }
+    }
 }
-
-//extension UIButton {
-//    func addShadowAndRoundedCornersBtn() {
-//        clipsToBounds = true
-//        backgroundColor = UIColor.blue
-//        layer.cornerRadius = 8
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOffset = CGSize(width: 0, height: 2)
-//        layer.shadowOpacity = 0.4
-//        layer.shadowRadius = 4
-//        
-//        setTitleColor(UIColor.black, for: .normal)
-//
-//        
-//    }
-//}
 
 extension UIColor {
     public convenience init?(hex: String) {
@@ -137,6 +145,11 @@ extension Date {
     public func addYear(n: Int) -> Date {
         let calendar = Calendar.current
         return calendar.date(byAdding: .year, value: n, to: self)!
+    }
+    func toString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        return formatter.string(from: self)
     }
 }
 
@@ -177,4 +190,35 @@ extension UIImage {
     }
 }
 
+extension UIDatePicker {
+    
+    func applyGradientToSelection() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor.blue.cgColor,
+            UIColor.purple.cgColor
+        ]
+        
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        let selectionBarHeight: CGFloat = 40
+        let selectionBarFrame = CGRect(x: 0, y: self.bounds.size.height / 2 - selectionBarHeight / 2, width: self.bounds.size.width, height: selectionBarHeight)
+        gradientLayer.frame = selectionBarFrame
+        
+        if let selectionView = self.subviews.first?.subviews.first(where: { $0.frame.height <= 40 }) {
+            gradientLayer.frame = selectionView.bounds
+            self.layer.addSublayer(gradientLayer)
+        }
+        
+       
+    }
+}
 
+extension String {
+    func toDate() -> Date? {
+       let dateFormatter = DateFormatter()
+       dateFormatter.dateFormat = "dd-MM-yyyy"
+       return dateFormatter.date (from: self)
+    }
+}

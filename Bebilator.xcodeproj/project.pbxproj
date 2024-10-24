@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8502D6332AB08519008FC6C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502D6322AB08519008FC6C5 /* HomeViewController.swift */; };
+		8502D6332AB08519008FC6C5 /* BebilatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502D6322AB08519008FC6C5 /* BebilatorViewController.swift */; };
+		851F2FEA2CCA482000250212 /* BebilatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FE92CCA482000250212 /* BebilatorViewModel.swift */; };
+		851F2FEC2CCA484F00250212 /* DatePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FEB2CCA484F00250212 /* DatePickerManager.swift */; };
+		851F2FEE2CCA488700250212 /* BebilatorResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FED2CCA488700250212 /* BebilatorResultViewController.swift */; };
+		851F2FF22CCA5AA400250212 /* PreviousScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FF12CCA5AA400250212 /* PreviousScoresViewController.swift */; };
+		851F2FF42CCA5C8500250212 /* PreviousScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FF32CCA5C8500250212 /* PreviousScore.swift */; };
+		851F2FF62CCA5CE300250212 /* PreviousScoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FF52CCA5CE300250212 /* PreviousScoresViewModel.swift */; };
 		852AEF672C78A78D0050AF11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852AEF662C78A78D0050AF11 /* Main.storyboard */; };
 		852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */; };
 		852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF6A2C78A8D90050AF11 /* GradientButton.swift */; };
@@ -38,7 +44,13 @@
 
 /* Begin PBXFileReference section */
 		8502D62D2AB0672E008FC6C5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8502D6322AB08519008FC6C5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8502D6322AB08519008FC6C5 /* BebilatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilatorViewController.swift; sourceTree = "<group>"; };
+		851F2FE92CCA482000250212 /* BebilatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilatorViewModel.swift; sourceTree = "<group>"; };
+		851F2FEB2CCA484F00250212 /* DatePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerManager.swift; sourceTree = "<group>"; };
+		851F2FED2CCA488700250212 /* BebilatorResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilatorResultViewController.swift; sourceTree = "<group>"; };
+		851F2FF12CCA5AA400250212 /* PreviousScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScoresViewController.swift; sourceTree = "<group>"; };
+		851F2FF32CCA5C8500250212 /* PreviousScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScore.swift; sourceTree = "<group>"; };
+		851F2FF52CCA5CE300250212 /* PreviousScoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScoresViewModel.swift; sourceTree = "<group>"; };
 		852AEF662C78A78D0050AF11 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		852AEF6A2C78A8D90050AF11 /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
@@ -87,6 +99,25 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		851F2FEF2CCA580400250212 /* Bebilator */ = {
+			isa = PBXGroup;
+			children = (
+				8502D6322AB08519008FC6C5 /* BebilatorViewController.swift */,
+				851F2FE92CCA482000250212 /* BebilatorViewModel.swift */,
+			);
+			path = Bebilator;
+			sourceTree = "<group>";
+		};
+		851F2FF02CCA581600250212 /* PreviousScores */ = {
+			isa = PBXGroup;
+			children = (
+				851F2FF12CCA5AA400250212 /* PreviousScoresViewController.swift */,
+				851F2FF32CCA5C8500250212 /* PreviousScore.swift */,
+				851F2FF52CCA5CE300250212 /* PreviousScoresViewModel.swift */,
+			);
+			path = PreviousScores;
+			sourceTree = "<group>";
+		};
 		85885E2B2A711E1F00EFF479 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,10 +164,12 @@
 		858FC4C52B03BED5002A6A5C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				851F2FF02CCA581600250212 /* PreviousScores */,
 				85885E2F2A711F3700EFF479 /* OnboardingViewController.swift */,
-				8502D6322AB08519008FC6C5 /* HomeViewController.swift */,
+				851F2FEF2CCA580400250212 /* Bebilator */,
 				85A265432B18E3D300A6676C /* ResultsViewController.swift */,
 				856153592BC81D69009E1E0E /* WelcomeViewController.swift */,
+				851F2FED2CCA488700250212 /* BebilatorResultViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -180,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				85A265462B18E46400A6676C /* Constants.swift */,
+				851F2FEB2CCA484F00250212 /* DatePickerManager.swift */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -298,11 +332,17 @@
 				8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */,
 				8596FE2F2A695DE00050E574 /* SceneDelegate.swift in Sources */,
 				85885E332A71443700EFF479 /* UIView+Extension.swift in Sources */,
+				851F2FEE2CCA488700250212 /* BebilatorResultViewController.swift in Sources */,
+				851F2FF62CCA5CE300250212 /* PreviousScoresViewModel.swift in Sources */,
+				851F2FEA2CCA482000250212 /* BebilatorViewModel.swift in Sources */,
 				85ED36B12C4681F20009BCE4 /* OnboardingViewModel.swift in Sources */,
-				8502D6332AB08519008FC6C5 /* HomeViewController.swift in Sources */,
+				851F2FF42CCA5C8500250212 /* PreviousScore.swift in Sources */,
+				851F2FF22CCA5AA400250212 /* PreviousScoresViewController.swift in Sources */,
+				8502D6332AB08519008FC6C5 /* BebilatorViewController.swift in Sources */,
 				85885E302A711F3700EFF479 /* OnboardingViewController.swift in Sources */,
 				8561535A2BC81D69009E1E0E /* WelcomeViewController.swift in Sources */,
 				85A265492B18E72E00A6676C /* BebilatorBrain.swift in Sources */,
+				851F2FEC2CCA484F00250212 /* DatePickerManager.swift in Sources */,
 				85A265472B18E46400A6676C /* Constants.swift in Sources */,
 				852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */,
 			);
