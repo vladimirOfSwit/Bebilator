@@ -34,6 +34,8 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
       
         bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mText, w: wText, dateToConcieve: nText)
         
+        previousScoresViewModel.savePreviousScore(mText: mText, wText: wText, nText: nText, result: bebilatorBrain.finalResult)
+        
         performSegue(withIdentifier: Constants.RESULTS_IDENTIFIER, sender: self)
     }
     
@@ -53,7 +55,7 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     @IBAction func previousScoresBtnPressed(_ sender: UIButton) {
         let previousScores = previousScoresViewModel.getPreviousScores()
         
-        print(previousScores)
+        print("These are the previous scores: \(previousScores)")
     }
     
     func setupUI() {

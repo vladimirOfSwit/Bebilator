@@ -132,7 +132,7 @@ Phasellus et aliquam dolor.</string>
         <!--BEBILATOR-->
         <scene sceneID="QEv-1l-pmq">
             <objects>
-                <viewController id="5xu-O6-gtO" customClass="HomeViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5xu-O6-gtO" customClass="BebilatorViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dtg-P2-XB0" userLabel="MainView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -230,7 +230,7 @@ Phasellus et aliquam dolor.</string>
                                                     <action selector="clearButtonPressed:" destination="5xu-O6-gtO" eventType="touchUpInside" id="j1Z-GK-QNs"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqb-TQ-gTk" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqb-TQ-gTk" userLabel="Previous Scores Btn" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
                                                 <rect key="frame" x="175" y="0.0" width="145" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="OSl-Ue-4yI"/>
@@ -253,7 +253,7 @@ Phasellus et aliquam dolor.</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="clearButtonPressed:" destination="5xu-O6-gtO" eventType="touchUpInside" id="gbB-fY-bGe"/>
+                                                    <action selector="previousScoresBtnPressed:" destination="5xu-O6-gtO" eventType="touchUpInside" id="dd9-VH-6Bs"/>
                                                 </connections>
                                             </button>
                                         </subviews>
