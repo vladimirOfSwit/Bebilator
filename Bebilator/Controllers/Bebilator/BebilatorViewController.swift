@@ -44,6 +44,10 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
             let destinationVC = segue.destination as? BebilatorResultViewController
             destinationVC?.genderResult = bebilatorBrain.finalResult
         }
+        if segue.identifier == Constants.PREVIOUS_SCORES_VIEW_CONTROLLER_IDENTIFIER {
+            let previousScoreVC = segue.destination as? PreviousScoresViewController
+            previousScoreVC?.previousScores = previousScoresViewModel.getFormattedPreviousScores()
+        }
     }
     
     @IBAction func clearButtonPressed(_ sender: UIButton) {
@@ -53,9 +57,8 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func previousScoresBtnPressed(_ sender: UIButton) {
-        let previousScores = previousScoresViewModel.getPreviousScores()
-        
-        print("These are the previous scores: \(previousScores)")
+        performSegue(withIdentifier: Constants.PREVIOUS_SCORES_VIEW_CONTROLLER_IDENTIFIER, sender: self)
+        print(previousScoresViewModel.getFormattedPreviousScores())
     }
     
     func setupUI() {

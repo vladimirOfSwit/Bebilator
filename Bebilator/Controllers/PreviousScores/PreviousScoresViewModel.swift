@@ -21,7 +21,6 @@ class PreviousScoresViewModel {
             UserDefaults.standard.setValue(encodedData, forKey: userDefaultsKey)
         }
     }
-    
     func getPreviousScores() -> [PreviousScore] {
         if let savedData = UserDefaults.standard.data(forKey: userDefaultsKey) {
           if let savedScores = try? JSONDecoder().decode([PreviousScore].self, from: savedData) {
@@ -30,7 +29,27 @@ class PreviousScoresViewModel {
         }
         return []
     }
+    func getFormattedPreviousScores() -> [(nText: String, result: String)] {
+        let previousScores = getPreviousScores()
+        return previousScores.map { score in
+            return (nText: score.nText, result: score.result)
+        }
+    }
     func clearPreviousScores() {
         UserDefaults.standard.removeObject(forKey: userDefaultsKey)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

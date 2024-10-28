@@ -138,18 +138,18 @@ Phasellus et aliquam dolor.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wTR-6z-VhW" userLabel="Top StackView">
-                                <rect key="frame" x="33.666666666666657" y="119" width="322" height="152"/>
+                                <rect key="frame" x="33.666666666666657" y="119" width="307" height="152"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bothElephants" translatesAutoresizingMaskIntoConstraints="NO" id="R8Z-wo-FXm">
-                                        <rect key="frame" x="0.0" y="0.0" width="322" height="152"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="307" height="152"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="DBW-vA-wfu" userLabel="Middle StackView">
-                                <rect key="frame" x="36" y="301" width="320" height="236"/>
+                                <rect key="frame" x="36" y="301" width="305" height="236"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="god-lN-wGJ" userLabel="mTextfield">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="62"/>
                                         <color key="tintColor" red="1" green="0.7537925196208678" blue="0.39477747303972044" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="62" id="OrD-O2-b5a"/>
@@ -164,12 +164,12 @@ Phasellus et aliquam dolor.</string>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VT6-Bm-QXw" userLabel="wTextfield">
-                                        <rect key="frame" x="0.0" y="87" width="320" height="62"/>
+                                        <rect key="frame" x="0.0" y="87" width="305" height="62"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" textContentType="date-time"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbL-fj-mQA" userLabel="nTextfield">
-                                        <rect key="frame" x="0.0" y="174" width="320" height="62"/>
+                                        <rect key="frame" x="0.0" y="174" width="305" height="62"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" textContentType="date-time"/>
                                     </textField>
@@ -177,10 +177,10 @@ Phasellus et aliquam dolor.</string>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="fZG-Kz-sF6" userLabel="Bottom Stack View">
-                                <rect key="frame" x="35" y="570" width="320" height="137"/>
+                                <rect key="frame" x="35" y="570" width="305" height="137"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tuu-Ta-MMS" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="0QR-6O-dd3"/>
                                             <constraint firstAttribute="height" constant="56" id="7UM-de-MD9"/>
@@ -203,7 +203,7 @@ Phasellus et aliquam dolor.</string>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bSn-6B-KMc">
-                                        <rect key="frame" x="0.0" y="81" width="320" height="56"/>
+                                        <rect key="frame" x="0.0" y="81" width="305" height="56"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5j-tS-Yca" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="56"/>
@@ -231,7 +231,7 @@ Phasellus et aliquam dolor.</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqb-TQ-gTk" userLabel="Previous Scores Btn" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="175" y="0.0" width="145" height="56"/>
+                                                <rect key="frame" x="175" y="0.0" width="130" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="OSl-Ue-4yI"/>
                                                     <constraint firstAttribute="height" constant="56" id="zjC-p9-yFk"/>
@@ -261,7 +261,7 @@ Phasellus et aliquam dolor.</string>
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Kkt-yI-kG2">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="She-Qq-5Ra"/>
@@ -284,7 +284,7 @@ Phasellus et aliquam dolor.</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BEBILATOR" largeTitleDisplayMode="always" id="xFX-tv-7yJ">
-                        <barButtonItem key="backBarButtonItem" title="NAZAD" id="Jql-Bn-YEe"/>
+                        <barButtonItem key="backBarButtonItem" title="Bebilator" id="Jql-Bn-YEe"/>
                     </navigationItem>
                     <connections>
                         <outlet property="clearBtn" destination="l5j-tS-Yca" id="hlv-ta-3TY"/>
@@ -293,11 +293,53 @@ Phasellus et aliquam dolor.</string>
                         <outlet property="previousScoresBtnLbl" destination="qqb-TQ-gTk" id="FWE-ve-BKc"/>
                         <outlet property="wTextfield" destination="VT6-Bm-QXw" id="3dT-SI-EmQ"/>
                         <segue destination="D3S-yv-7q0" kind="show" identifier="goToResults" id="D4I-aM-MhI"/>
+                        <segue destination="fNv-8x-4S9" kind="show" identifier="goToPreviousScoresViewController" id="dbQ-cn-m1Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6a-RZ-hH1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278" y="7"/>
+            <point key="canvasLocation" x="2327" y="110"/>
+        </scene>
+        <!--Previous Scores View Controller-->
+        <scene sceneID="Xwh-a4-5Vn">
+            <objects>
+                <viewController id="fNv-8x-4S9" customClass="PreviousScoresViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fGk-HG-I90">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Ls-Sa-8h7">
+                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="scoreCell" id="aC6-3g-p9J">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aC6-3g-p9J" id="1L5-IQ-YHj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YVi-Df-BOF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YVi-Df-BOF" firstAttribute="bottom" secondItem="4Ls-Sa-8h7" secondAttribute="bottom" id="TuL-1e-ww0"/>
+                            <constraint firstItem="4Ls-Sa-8h7" firstAttribute="leading" secondItem="YVi-Df-BOF" secondAttribute="leading" id="eNw-Nx-0O1"/>
+                            <constraint firstItem="YVi-Df-BOF" firstAttribute="trailing" secondItem="4Ls-Sa-8h7" secondAttribute="trailing" id="q2l-XO-la9"/>
+                            <constraint firstItem="4Ls-Sa-8h7" firstAttribute="top" secondItem="YVi-Df-BOF" secondAttribute="top" id="vf7-Kg-uno"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2dF-33-QBS"/>
+                    <connections>
+                        <outlet property="tableView" destination="4Ls-Sa-8h7" id="hz9-R1-avG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgd-aE-Gqi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3280.8000000000002" y="300"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="mny-Sq-13R">

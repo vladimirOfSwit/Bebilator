@@ -10,6 +10,7 @@ import UIKit
 struct Constants {
    static let RESULTS_IDENTIFIER = "goToResults"
    static let HOME_VIEW_CONTROLLER_IDENTIFIER = "goToBebilator"
+   static let PREVIOUS_SCORES_VIEW_CONTROLLER_IDENTIFIER = "goToPreviousScoresViewController"
    static let TEXTFIELD_PLACEHOLDER = "DD/MM/GGGG"
    static let APP_NAME = "BEBILATOR"
    static let colorMborder = UIColor(hex: "#6B92E5CC")
