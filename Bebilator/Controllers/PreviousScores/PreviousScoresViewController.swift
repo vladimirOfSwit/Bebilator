@@ -11,10 +11,11 @@
             @IBOutlet weak var tableView: UITableView!
             
             let viewModel = PreviousScoresViewModel()
-            var previousScores: [(nText: String, result: String)] = []
+            var previousScores: [(mText: String, wText: String, nText: String, result: String)] = []
             
             override func viewDidLoad() {
                 super.viewDidLoad()
+                tableView.register(PreviousScoreTableViewCell.self, forCellReuseIdentifier: "PreviousScoreTableViewCell")
                 previousScores = viewModel.getFormattedPreviousScores()
                 tableView.delegate = self
                 tableView.dataSource = self
@@ -29,9 +30,11 @@
             }
             
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "scoreCell", for: indexPath)
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "PreviousScoreTableViewCell", for: indexPath) as? PreviousScoreTableViewCell else {
+                    return UITableViewCell()
+                }
                 let score = previousScores[indexPath.row]
-                cell.textLabel?.text = "Date: \(score.nText), Result: \(score.result)"
+                cell.configure(with: score.mText, wText: score.wText, gender: score.result, nText: score.nText)
                 return cell
             }
             

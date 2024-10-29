@@ -29,10 +29,10 @@ class PreviousScoresViewModel {
         }
         return []
     }
-    func getFormattedPreviousScores() -> [(nText: String, result: String)] {
+    func getFormattedPreviousScores() -> [(mText: String, wText: String, nText: String, result: String)] {
         let previousScores = getPreviousScores()
         return previousScores.map { score in
-            return (nText: score.nText, result: score.result)
+            return (mText: score.mText, wText: score.wText, nText: score.nText, result: score.result)
         }
     }
     func clearPreviousScores() {
