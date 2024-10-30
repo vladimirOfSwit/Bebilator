@@ -12,6 +12,7 @@
             
             let viewModel = PreviousScoresViewModel()
             var previousScores: [(mText: String, wText: String, nText: String, result: String)] = []
+            let headerView = ScoresHeaderView()
             
             override func viewDidLoad() {
                 super.viewDidLoad()
@@ -25,6 +26,9 @@
         }
 
         extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelegate {
+            func numberOfSections(in tableView: UITableView) -> Int {
+                1
+            }
             func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
                 return previousScores.count
             }
@@ -36,6 +40,13 @@
                 let score = previousScores[indexPath.row]
                 cell.configure(with: score.mText, wText: score.wText, gender: score.result, nText: score.nText)
                 return cell
+            }
+            func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+                let headerView = ScoresHeaderView()
+                return headerView
+            }
+            func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+                return 30
             }
             
             

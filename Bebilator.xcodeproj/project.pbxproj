@@ -39,6 +39,7 @@
 		85C571C42B83578C009C8944 /* SFUIText-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571AD2B83578A009C8944 /* SFUIText-Italic.otf */; };
 		85C571C52B83578C009C8944 /* SFUIText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571AE2B83578B009C8944 /* SFUIText-Regular.otf */; };
 		85C571C62B83578C009C8944 /* SFUIText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */; };
+		85DD81952CD2532300C437A7 /* ScoresHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DD81942CD2532300C437A7 /* ScoresHeaderView.swift */; };
 		85E7A03F2B78FB1900C66781 /* Loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85E7A03E2B78FB1900C66781 /* Loader.gif */; };
 		85ED36B12C4681F20009BCE4 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED36B02C4681F20009BCE4 /* OnboardingViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		85C571AD2B83578A009C8944 /* SFUIText-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Italic.otf"; sourceTree = "<group>"; };
 		85C571AE2B83578B009C8944 /* SFUIText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.otf"; sourceTree = "<group>"; };
 		85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.otf"; sourceTree = "<group>"; };
+		85DD81942CD2532300C437A7 /* ScoresHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresHeaderView.swift; sourceTree = "<group>"; };
 		85E7A03E2B78FB1900C66781 /* Loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loader.gif; sourceTree = "<group>"; };
 		85ED36B02C4681F20009BCE4 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 				851F2FF32CCA5C8500250212 /* PreviousScore.swift */,
 				851F2FF52CCA5CE300250212 /* PreviousScoresViewModel.swift */,
 				8578FE282CD0CB2E002D8100 /* PreviousScoreCell.swift */,
+				85DD81942CD2532300C437A7 /* ScoresHeaderView.swift */,
 			);
 			path = PreviousScores;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85DD81952CD2532300C437A7 /* ScoresHeaderView.swift in Sources */,
 				85A265442B18E3D300A6676C /* ResultsViewController.swift in Sources */,
 				852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */,
 				8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */,
