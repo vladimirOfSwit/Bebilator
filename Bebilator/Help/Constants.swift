@@ -8,7 +8,7 @@
 import UIKit
 
 struct Constants {
-   static let RESULTS_IDENTIFIER = "goToResults"
+   static let BEBILATOR_RESULTS_VIEW_CONTROLLER = "goToResults"
    static let HOME_VIEW_CONTROLLER_IDENTIFIER = "goToBebilator"
    static let PREVIOUS_SCORES_VIEW_CONTROLLER_IDENTIFIER = "goToPreviousScoresViewController"
    static let TEXTFIELD_PLACEHOLDER = "DD/MM/GGGG"

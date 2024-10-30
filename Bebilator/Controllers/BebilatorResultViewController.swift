@@ -17,7 +17,7 @@ class BebilatorResultViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("This is the genderResult from BebilatorResultController: \(genderResult)")
         if genderResult == "boy" {
             loadGif(name: "boy")
         } else {

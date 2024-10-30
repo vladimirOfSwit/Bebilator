@@ -28,6 +28,8 @@ struct BebilatorBrain {
         scoreFemale = getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBdayAsDate, chosenDate: chosenDateAsDate)
         
         finalResult = calculateGender(scoreM: scoreMale, scoreW: scoreFemale)
+        
+        print("Score male: \(scoreMale), score female: \(scoreFemale)")
     }
     
     func getDaysSinceLastAgeChange(numberOfYears: Int, bday: Date, chosenDate: Date) -> Int {

@@ -15,7 +15,7 @@
             
             override func viewDidLoad() {
                 super.viewDidLoad()
-                tableView.register(PreviousScoreTableViewCell.self, forCellReuseIdentifier: "PreviousScoreTableViewCell")
+                tableView.register(PreviousScoreCell.self, forCellReuseIdentifier: "PreviousScoreTableViewCell")
                 previousScores = viewModel.getFormattedPreviousScores()
                 tableView.delegate = self
                 tableView.dataSource = self
@@ -30,7 +30,7 @@
             }
             
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "PreviousScoreTableViewCell", for: indexPath) as? PreviousScoreTableViewCell else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "PreviousScoreTableViewCell", for: indexPath) as? PreviousScoreCell else {
                     return UITableViewCell()
                 }
                 let score = previousScores[indexPath.row]

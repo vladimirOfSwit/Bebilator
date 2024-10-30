@@ -19,6 +19,7 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     let datePickerManager = DatePickerManager()
     let viewModel = BebilatorViewModel()
     var previousScoresViewModel = PreviousScoresViewModel()
+    var resultViewController = BebilatorResultViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +35,19 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
       
         bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mText, w: wText, dateToConcieve: nText)
         
+        print("Final result from calculateButtonPressed: \(bebilatorBrain.finalResult)")
+        
         previousScoresViewModel.savePreviousScore(mText: mText, wText: wText, nText: nText, result: bebilatorBrain.finalResult)
         
-        performSegue(withIdentifier: Constants.RESULTS_IDENTIFIER, sender: self)
+        performSegue(withIdentifier: Constants.BEBILATOR_RESULTS_VIEW_CONTROLLER, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.RESULTS_IDENTIFIER {
-            let destinationVC = segue.destination as? BebilatorResultViewController
-            destinationVC?.genderResult = bebilatorBrain.finalResult
+        if segue.identifier == Constants.BEBILATOR_RESULTS_VIEW_CONTROLLER {
+            if let bebilatorResultsVC = segue.destination as? BebilatorResultViewController {
+                bebilatorResultsVC.genderResult = bebilatorBrain.finalResult
+                print("This is the final result from prepare for segue: \(bebilatorBrain.finalResult)")
+            }
         }
         if segue.identifier == Constants.PREVIOUS_SCORES_VIEW_CONTROLLER_IDENTIFIER {
             let previousScoreVC = segue.destination as? PreviousScoresViewController

@@ -283,24 +283,22 @@ Phasellus et aliquam dolor.</string>
                             <constraint firstItem="fZG-Kz-sF6" firstAttribute="top" secondItem="DBW-vA-wfu" secondAttribute="bottom" constant="33" id="yrt-E0-yTK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="BEBILATOR" largeTitleDisplayMode="always" id="xFX-tv-7yJ">
-                        <barButtonItem key="backBarButtonItem" title="Bebilator" id="Jql-Bn-YEe"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="BEBILATOR" largeTitleDisplayMode="always" id="xFX-tv-7yJ"/>
                     <connections>
                         <outlet property="clearBtn" destination="l5j-tS-Yca" id="hlv-ta-3TY"/>
                         <outlet property="mTextfield" destination="god-lN-wGJ" id="aOV-34-h0e"/>
                         <outlet property="nTextfield" destination="gbL-fj-mQA" id="9UY-41-Mjp"/>
                         <outlet property="previousScoresBtnLbl" destination="qqb-TQ-gTk" id="FWE-ve-BKc"/>
                         <outlet property="wTextfield" destination="VT6-Bm-QXw" id="3dT-SI-EmQ"/>
-                        <segue destination="D3S-yv-7q0" kind="show" identifier="goToResults" id="D4I-aM-MhI"/>
                         <segue destination="fNv-8x-4S9" kind="show" identifier="goToPreviousScoresViewController" id="dbQ-cn-m1Q"/>
+                        <segue destination="D3S-yv-7q0" kind="show" identifier="goToResults" id="bEe-3m-nNx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6a-RZ-hH1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2327" y="110"/>
+            <point key="canvasLocation" x="2370" y="35"/>
         </scene>
-        <!--Previous Scores View Controller-->
+        <!--PRETHODNI REZULTATI-->
         <scene sceneID="Xwh-a4-5Vn">
             <objects>
                 <viewController id="fNv-8x-4S9" customClass="PreviousScoresViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
@@ -332,7 +330,7 @@ Phasellus et aliquam dolor.</string>
                             <constraint firstItem="4Ls-Sa-8h7" firstAttribute="top" secondItem="YVi-Df-BOF" secondAttribute="top" id="vf7-Kg-uno"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2dF-33-QBS"/>
+                    <navigationItem key="navigationItem" title="PRETHODNI REZULTATI" id="2dF-33-QBS"/>
                     <connections>
                         <outlet property="tableView" destination="4Ls-Sa-8h7" id="hz9-R1-avG"/>
                     </connections>
@@ -341,10 +339,10 @@ Phasellus et aliquam dolor.</string>
             </objects>
             <point key="canvasLocation" x="3280.8000000000002" y="300"/>
         </scene>
-        <!--Results View Controller-->
+        <!--Bebilator Result View Controller-->
         <scene sceneID="mny-Sq-13R">
             <objects>
-                <viewController id="D3S-yv-7q0" customClass="ResultsViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D3S-yv-7q0" customClass="BebilatorResultViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nCF-w0-biX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,9 +358,13 @@ Phasellus et aliquam dolor.</string>
                             <constraint firstItem="OeP-Dm-fR4" firstAttribute="leading" secondItem="pXV-0A-TBq" secondAttribute="leading" id="5Zy-Vg-gEo"/>
                             <constraint firstItem="OeP-Dm-fR4" firstAttribute="trailing" secondItem="pXV-0A-TBq" secondAttribute="trailing" id="7kQ-Ko-749"/>
                             <constraint firstItem="OeP-Dm-fR4" firstAttribute="top" secondItem="pXV-0A-TBq" secondAttribute="top" id="9BG-gU-ZD5"/>
+                            <constraint firstItem="OeP-Dm-fR4" firstAttribute="bottom" secondItem="pXV-0A-TBq" secondAttribute="bottom" id="EfC-hi-SJp"/>
+                            <constraint firstItem="OeP-Dm-fR4" firstAttribute="trailing" secondItem="pXV-0A-TBq" secondAttribute="trailing" id="Faa-Fk-jHN"/>
                             <constraint firstItem="OeP-Dm-fR4" firstAttribute="trailing" secondItem="pXV-0A-TBq" secondAttribute="trailing" id="H5A-rk-YzS"/>
                             <constraint firstItem="OeP-Dm-fR4" firstAttribute="bottom" secondItem="pXV-0A-TBq" secondAttribute="bottom" id="MpJ-Hv-l1W"/>
                             <constraint firstItem="OeP-Dm-fR4" firstAttribute="top" secondItem="pXV-0A-TBq" secondAttribute="top" id="ejf-nX-3Vo"/>
+                            <constraint firstItem="OeP-Dm-fR4" firstAttribute="leading" secondItem="pXV-0A-TBq" secondAttribute="leading" id="kyc-ws-5z2"/>
+                            <constraint firstItem="OeP-Dm-fR4" firstAttribute="top" secondItem="pXV-0A-TBq" secondAttribute="top" id="tik-gP-6R2"/>
                             <constraint firstItem="OeP-Dm-fR4" firstAttribute="leading" secondItem="pXV-0A-TBq" secondAttribute="leading" id="yzU-9k-D6v"/>
                         </constraints>
                     </view>
@@ -384,13 +386,13 @@ Phasellus et aliquam dolor.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boyGirlWelcome" translatesAutoresizingMaskIntoConstraints="NO" id="8Yw-gQ-rpp">
-                                <rect key="frame" x="0.0" y="203" width="375" height="259"/>
+                                <rect key="frame" x="0.0" y="203" width="346" height="259"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="g9a-Y4-FGD" userLabel="Bottom Stack View">
-                                <rect key="frame" x="35" y="598" width="305" height="137"/>
+                                <rect key="frame" x="35" y="598" width="276" height="137"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKs-5L-pOx" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="276" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="gdR-yH-XeR"/>
                                         </constraints>
@@ -412,7 +414,7 @@ Phasellus et aliquam dolor.</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoF-Ht-Pfi">
-                                        <rect key="frame" x="0.0" y="81" width="305" height="56"/>
+                                        <rect key="frame" x="0.0" y="81" width="276" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="92Z-g7-K9Z"/>
                                             <constraint firstAttribute="width" constant="320" id="QLp-an-F2d"/>

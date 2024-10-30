@@ -1,5 +1,5 @@
 //
-//  PreviousScoreTableViewCell.swift
+//  PreviousScoreCell.swift
 //  Bebilator
 //
 //  Created by Vladimir Savic on 29.10.24..
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PreviousScoreTableViewCell: UITableViewCell {
+class PreviousScoreCell: UITableViewCell {
     private let mTextLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "SF Pro Medium", size: 14)
@@ -76,11 +76,11 @@ class PreviousScoreTableViewCell: UITableViewCell {
             mTextLabel.textColor = UIColor(hex: "#6B92E5")
             wTextLabel.textColor = UIColor(hex: "#6B92E5")
             nTextLabel.textColor = UIColor(hex: "#6B92E5")
-            genderIcon.image = UIImage(named: "pinkBabyIcon")
+            genderIcon.image = UIImage(named: "blueBabyIcon")
         } else if gender.lowercased() == "girl" {
-            mTextLabel.textColor = UIColor(hex: "##F88AB0")
-            wTextLabel.textColor = UIColor(hex: "##F88AB0")
-            nTextLabel.textColor = UIColor(hex: "##F88AB0")
+            mTextLabel.textColor = UIColor(hex: "#F88AB0")
+            wTextLabel.textColor = UIColor(hex: "#F88AB0")
+            nTextLabel.textColor = UIColor(hex: "#F88AB0")
             genderIcon.image = UIImage(named: "pinkBabyIcon")
         }
     }
