@@ -39,6 +39,13 @@
                 }
                 let score = previousScores[indexPath.row]
                 cell.configure(with: score.mText, wText: score.wText, gender: score.result, nText: score.nText)
+                
+                if indexPath.row % 2 == 0 {
+                    cell.backgroundColor = UIColor(hex: "#CED0D6")
+                } else {
+                    cell.backgroundColor = UIColor(hex: "#F6F5F0")
+                }
+                
                 return cell
             }
             func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -46,7 +53,7 @@
                 return headerView
             }
             func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-                return 30
+                return tableView.rowHeight
             }
             
             
