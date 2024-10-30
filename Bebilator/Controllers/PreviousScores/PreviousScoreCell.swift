@@ -33,6 +33,16 @@ class PreviousScoreCell: UITableViewCell {
         return label
     }()
     
+    private let stackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.spacing = 4
+        stackView.distribution = .fillProportionally
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     override init (style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -44,27 +54,18 @@ class PreviousScoreCell: UITableViewCell {
     }
     
     private func setupViews() {
-        contentView.addSubview(mTextLabel)
-        contentView.addSubview(wTextLabel)
-        contentView.addSubview(genderIcon)
-        contentView.addSubview(nTextLabel)
+        stackView.addArrangedSubview(mTextLabel)
+        stackView.addArrangedSubview(wTextLabel)
+        stackView.addArrangedSubview(genderIcon)
+        stackView.addArrangedSubview(nTextLabel)
+        
+        contentView.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            mTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            mTextLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            
-            wTextLabel.leadingAnchor.constraint(equalTo: mTextLabel.trailingAnchor, constant: 8),
-            wTextLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            
-            genderIcon.leadingAnchor.constraint(equalTo: wTextLabel.trailingAnchor, constant: 8),
-            genderIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            genderIcon.widthAnchor.constraint(equalToConstant: 20),
-            genderIcon.heightAnchor.constraint(equalToConstant: 20),
-            
-            nTextLabel.leadingAnchor.constraint(equalTo: genderIcon.trailingAnchor, constant: 8),
-            nTextLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            nTextLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
-            
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
     func configure(with mText: String, wText: String, gender: String, nText: String) {
