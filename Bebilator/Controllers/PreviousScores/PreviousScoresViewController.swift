@@ -9,7 +9,6 @@ import UIKit
 
 class PreviousScoresViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
     let viewModel = PreviousScoresViewModel()
     var previousScores: [(mText: String, wText: String, nText: String, result: String)] = []
     let headerView = ScoresHeaderView()
@@ -18,7 +17,6 @@ class PreviousScoresViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
     }
-    
     private func setupViews() {
         tableView.register(PreviousScoreCell.self, forCellReuseIdentifier: "PreviousScoreTableViewCell")
         previousScores = viewModel.getFormattedPreviousScores()
@@ -27,7 +25,7 @@ class PreviousScoresViewController: UIViewController {
         tableView.reloadData()
         
         let deleteButton = UIButton(type: .system)
-        deleteButton.backgroundColor = UIColor.systemRed
+        deleteButton.backgroundColor = UIColor(hex: "#7B81BE")
         deleteButton.setTitle("🗑", for: .normal)
         deleteButton.tintColor = .white
         deleteButton.cornerRadius = 30
@@ -50,15 +48,20 @@ class PreviousScoresViewController: UIViewController {
         deleteButton.layer.shadowRadius = 4
     }
     @objc func clearAllPreviousScores() {
-        viewModel.clearPreviousScores()
-        
-        let alert = UIAlertController(title: "Svi rezultati obrisani", message: "Svi prethodni rezultati su obrisani", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-        
-        tableView.reloadData()
+        if !previousScores.isEmpty {
+            let alert = UIAlertController(title: "Obaveštenje", message: "Prethodni rezultati su obrisani.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            
+            viewModel.clearPreviousScores()
+            previousScores = viewModel.getFormattedPreviousScores()
+            tableView.reloadData()
+        } else {
+            let alert = UIAlertController(title: "Obaveštenje", message: "Rezultati su već obrisani.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+        }
     }
-    
 }
 extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,7 +70,6 @@ extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return previousScores.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PreviousScoreTableViewCell", for: indexPath) as? PreviousScoreCell else {
             return UITableViewCell()
@@ -80,7 +82,6 @@ extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelega
         } else {
             cell.backgroundColor = UIColor(hex: "#F6F5F0")
         }
-        
         return cell
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -90,6 +91,4 @@ extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return tableView.rowHeight
     }
-    
-    
 }

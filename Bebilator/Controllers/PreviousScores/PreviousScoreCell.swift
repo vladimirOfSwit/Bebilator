@@ -32,7 +32,6 @@ class PreviousScoreCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     private let stackView: UIStackView = {
        let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -47,12 +46,10 @@ class PreviousScoreCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
     }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupViews()
     }
-    
     private func setupViews() {
         stackView.addArrangedSubview(mTextLabel)
         stackView.addArrangedSubview(wTextLabel)

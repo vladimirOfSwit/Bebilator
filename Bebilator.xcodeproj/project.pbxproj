@@ -40,7 +40,6 @@
 		85C571C52B83578C009C8944 /* SFUIText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571AE2B83578B009C8944 /* SFUIText-Regular.otf */; };
 		85C571C62B83578C009C8944 /* SFUIText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */; };
 		85DD81952CD2532300C437A7 /* ScoresHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DD81942CD2532300C437A7 /* ScoresHeaderView.swift */; };
-		85DD81982CD27BD300C437A7 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DD81972CD27BD300C437A7 /* LoadingViewController.swift */; };
 		85E7A03F2B78FB1900C66781 /* Loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85E7A03E2B78FB1900C66781 /* Loader.gif */; };
 		85ED36B12C4681F20009BCE4 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED36B02C4681F20009BCE4 /* OnboardingViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -81,7 +80,6 @@
 		85C571AE2B83578B009C8944 /* SFUIText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.otf"; sourceTree = "<group>"; };
 		85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.otf"; sourceTree = "<group>"; };
 		85DD81942CD2532300C437A7 /* ScoresHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresHeaderView.swift; sourceTree = "<group>"; };
-		85DD81972CD27BD300C437A7 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		85E7A03E2B78FB1900C66781 /* Loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loader.gif; sourceTree = "<group>"; };
 		85ED36B02C4681F20009BCE4 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,7 +170,6 @@
 		858FC4C52B03BED5002A6A5C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				85DD81962CD27BBF00C437A7 /* Loading */,
 				851F2FF02CCA581600250212 /* PreviousScores */,
 				85885E2F2A711F3700EFF479 /* OnboardingViewController.swift */,
 				851F2FEF2CCA580400250212 /* Bebilator */,
@@ -251,14 +248,6 @@
 				85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		85DD81962CD27BBF00C437A7 /* Loading */ = {
-			isa = PBXGroup;
-			children = (
-				85DD81972CD27BD300C437A7 /* LoadingViewController.swift */,
-			);
-			path = Loading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,7 +347,6 @@
 				851F2FF42CCA5C8500250212 /* PreviousScore.swift in Sources */,
 				851F2FF22CCA5AA400250212 /* PreviousScoresViewController.swift in Sources */,
 				8502D6332AB08519008FC6C5 /* BebilatorViewController.swift in Sources */,
-				85DD81982CD27BD300C437A7 /* LoadingViewController.swift in Sources */,
 				85885E302A711F3700EFF479 /* OnboardingViewController.swift in Sources */,
 				8561535A2BC81D69009E1E0E /* WelcomeViewController.swift in Sources */,
 				85A265492B18E72E00A6676C /* BebilatorBrain.swift in Sources */,

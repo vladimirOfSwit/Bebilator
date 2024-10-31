@@ -12,9 +12,7 @@ class PreviousScoresViewModel {
     
     func savePreviousScore(mText: String, wText: String, nText: String, result: String) {
         let score = PreviousScore(mText: mText, wText: wText, nText: nText, result: result, date: Date())
-        
         var previousScores = getPreviousScores()
-        
         previousScores.append(score)
         
         if let encodedData = try? JSONEncoder().encode(previousScores) {

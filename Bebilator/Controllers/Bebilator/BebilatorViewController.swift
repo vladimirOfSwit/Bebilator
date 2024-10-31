@@ -8,7 +8,6 @@
 import UIKit
 
 class BebilatorViewController: UIViewController, UITextFieldDelegate {
-    
     @IBOutlet weak var mTextfield: UITextField!
     @IBOutlet weak var wTextfield: UITextField!
     @IBOutlet weak var nTextfield: UITextField!
@@ -32,21 +31,15 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
               let nText = nTextfield.text, viewModel.validateDateNotInThePast(nText, textfield: nTextfield) else {
             return
         }
-      
         bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mText, w: wText, dateToConcieve: nText)
-        
-        print("Final result from calculateButtonPressed: \(bebilatorBrain.finalResult)")
-        
         previousScoresViewModel.savePreviousScore(mText: mText, wText: wText, nText: nText, result: bebilatorBrain.finalResult)
         
         performSegue(withIdentifier: Constants.BEBILATOR_RESULTS_VIEW_CONTROLLER, sender: self)
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.BEBILATOR_RESULTS_VIEW_CONTROLLER {
             if let bebilatorResultsVC = segue.destination as? BebilatorResultViewController {
                 bebilatorResultsVC.genderResult = bebilatorBrain.finalResult
-                print("This is the final result from prepare for segue: \(bebilatorBrain.finalResult)")
             }
         }
         if segue.identifier == Constants.PREVIOUS_SCORES_VIEW_CONTROLLER_IDENTIFIER {
@@ -54,7 +47,6 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
             previousScoreVC?.previousScores = previousScoresViewModel.getFormattedPreviousScores()
         }
     }
-    
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         mTextfield.text = ""
         wTextfield.text = ""
@@ -80,7 +72,6 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
             self?.handleDateSelection(selectedDate)
         }
     }
-    
     private func handleDateSelection(_ date: String) {
         if mTextfield.isFirstResponder {
             mTextfield.text = date
@@ -90,7 +81,6 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
             nTextfield.text = date
         }
     }
-    
     private func editPlaceholderFont(textField: UITextField, placeholderText: String, fontSize: CGFloat) {
         if let currentFont = nTextfield.font {
             let attributes: [NSAttributedString.Key: Any] = [
