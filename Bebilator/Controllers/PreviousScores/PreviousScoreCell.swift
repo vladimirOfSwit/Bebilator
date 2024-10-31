@@ -72,16 +72,12 @@ class PreviousScoreCell: UITableViewCell {
         mTextLabel.text = mText
         wTextLabel.text = wText
         nTextLabel.text = nText
-        
+        mTextLabel.textColor = UIColor(hex: "#6B92E5")
+        wTextLabel.textColor = UIColor(hex: "#F88AB0")
+        nTextLabel.textColor = UIColor(hex: "#7B81BE")
         if gender.lowercased() == "boy" {
-            mTextLabel.textColor = UIColor(hex: "#6B92E5")
-            wTextLabel.textColor = UIColor(hex: "#6B92E5")
-            nTextLabel.textColor = UIColor(hex: "#6B92E5")
             genderIcon.image = UIImage(named: "blueBabyIcon")
         } else if gender.lowercased() == "girl" {
-            mTextLabel.textColor = UIColor(hex: "#F88AB0")
-            wTextLabel.textColor = UIColor(hex: "#F88AB0")
-            nTextLabel.textColor = UIColor(hex: "#F88AB0")
             genderIcon.image = UIImage(named: "pinkBabyIcon")
         }
     }
