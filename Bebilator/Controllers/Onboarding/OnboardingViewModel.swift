@@ -2,7 +2,7 @@
 //  OnboardingViewModel.swift
 //  Bebilator
 //
-//  Created by Vladimir Savic on 16.7.24..
+//  Created by Vladimir Savic on 4.11.24..
 //
 
 import UIKit
@@ -48,4 +48,3 @@ struct OnboardingSlide {
     let description: String
     let image: UIImage
 }
-

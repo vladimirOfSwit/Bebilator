@@ -47,6 +47,7 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func bebilendarButtonPressed(_ sender: UIButton) {
-        print("Bebilator button pressed.")
+        performSegue(withIdentifier: Constants.BEBILENDAR_VIEW_CONTROLLER_IDENTIFIER, sender: self)
+        print("I am pressed")
     }
 }
