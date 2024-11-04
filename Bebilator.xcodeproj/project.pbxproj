@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */; };
 		852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF6A2C78A8D90050AF11 /* GradientButton.swift */; };
+		8535E8002CD8FF85005668F6 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E7FF2CD8FF85005668F6 /* OnboardingSlide.swift */; };
 		8552D8CC2B84B45100EDD988 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */; };
 		85885E332A71443700EFF479 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85885E322A71443700EFF479 /* UIView+Extension.swift */; };
 		8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8596FE2C2A695DE00050E574 /* AppDelegate.swift */; };
@@ -21,7 +22,6 @@
 		85A265492B18E72E00A6676C /* BebilatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A265482B18E72E00A6676C /* BebilatorBrain.swift */; };
 		85A8A4B72CD8C59C007E89CD /* Onboarding in Resources */ = {isa = PBXBuildFile; fileRef = 85A8A4B22CD8C59B007E89CD /* Onboarding */; };
 		85A8A4B82CD8C59C007E89CD /* Welcome  in Resources */ = {isa = PBXBuildFile; fileRef = 85A8A4B32CD8C59B007E89CD /* Welcome  */; };
-		85A8A4B92CD8C59C007E89CD /* Bebilator in Resources */ = {isa = PBXBuildFile; fileRef = 85A8A4B42CD8C59B007E89CD /* Bebilator */; };
 		85A8A4BA2CD8C59C007E89CD /* Bebilendar in Resources */ = {isa = PBXBuildFile; fileRef = 85A8A4B52CD8C59B007E89CD /* Bebilendar */; };
 		85A8A4BB2CD8C59C007E89CD /* Results in Resources */ = {isa = PBXBuildFile; fileRef = 85A8A4B62CD8C59C007E89CD /* Results */; };
 		85B6FBDB2BAC91EC00F5CE06 /* boy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85B6FBD92BAC91EB00F5CE06 /* boy.gif */; };
@@ -41,6 +41,7 @@
 		8502D62D2AB0672E008FC6C5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		852AEF6A2C78A8D90050AF11 /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		8535E7FF2CD8FF85005668F6 /* OnboardingSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		85885E322A71443700EFF479 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		8596FE292A695DE00050E574 /* Bebilator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bebilator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +55,6 @@
 		85A265482B18E72E00A6676C /* BebilatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilatorBrain.swift; sourceTree = "<group>"; };
 		85A8A4B22CD8C59B007E89CD /* Onboarding */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Onboarding; sourceTree = "<group>"; };
 		85A8A4B32CD8C59B007E89CD /* Welcome  */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Welcome "; sourceTree = "<group>"; };
-		85A8A4B42CD8C59B007E89CD /* Bebilator */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bebilator; sourceTree = "<group>"; };
 		85A8A4B52CD8C59B007E89CD /* Bebilendar */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bebilendar; sourceTree = "<group>"; };
 		85A8A4B62CD8C59C007E89CD /* Results */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Results; sourceTree = "<group>"; };
 		85B6FBD92BAC91EB00F5CE06 /* boy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = boy.gif; sourceTree = "<group>"; };
@@ -92,6 +92,7 @@
 		85885E2B2A711E1F00EFF479 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8535E7FF2CD8FF85005668F6 /* OnboardingSlide.swift */,
 				85A265482B18E72E00A6676C /* BebilatorBrain.swift */,
 			);
 			path = Model;
@@ -134,7 +135,6 @@
 		858FC4C52B03BED5002A6A5C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				85A8A4B42CD8C59B007E89CD /* Bebilator */,
 				85A8A4B52CD8C59B007E89CD /* Bebilendar */,
 				85A8A4B22CD8C59B007E89CD /* Onboarding */,
 				85A8A4B62CD8C59C007E89CD /* Results */,
@@ -241,7 +241,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					8596FE282A695DE00050E574 = {
 						CreatedOnToolsVersion = 14.3;
@@ -279,7 +279,6 @@
 				85A8A4BB2CD8C59C007E89CD /* Results in Resources */,
 				85C571C32B83578C009C8944 /* SFUIText-Bold.otf in Resources */,
 				85E7A03F2B78FB1900C66781 /* Loader.gif in Resources */,
-				85A8A4B92CD8C59C007E89CD /* Bebilator in Resources */,
 				859882FB2CB9464900FF50A1 /* Main.storyboard in Resources */,
 				8596FE362A695DE40050E574 /* Assets.xcassets in Resources */,
 				85B6FBDC2BAC91EC00F5CE06 /* girl.gif in Resources */,
@@ -308,6 +307,7 @@
 				859882F52CB93DCA00FF50A1 /* DatePickerManager.swift in Sources */,
 				85A265492B18E72E00A6676C /* BebilatorBrain.swift in Sources */,
 				85A265472B18E46400A6676C /* Constants.swift in Sources */,
+				8535E8002CD8FF85005668F6 /* OnboardingSlide.swift in Sources */,
 				852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +362,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -422,6 +423,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -455,6 +457,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,6 +486,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
