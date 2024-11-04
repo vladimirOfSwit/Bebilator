@@ -15,6 +15,7 @@ class BebilendarResultViewController: UIViewController, UICollectionViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        collectionView.reloadData()
        
     }
     private func setupCollectionView() {
@@ -29,17 +30,32 @@ class BebilendarResultViewController: UIViewController, UICollectionViewDelegate
         collectionView.delegate = self
         collectionView.dataSource = self
         //collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(CarouselCell.self, forCellWithReuseIdentifier: CarouselCell.identifier)
         
+        view.addSubview(collectionView)
+        
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: 150),
+            collectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
         
         
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        switchingPeriods.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CarouselCell.identifier, for: indexPath) as! CarouselCell
+        let period = switchingPeriods[indexPath.row]
+        cell.configure(with: period)
+        return cell
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: 150, height: 150)
+        }
     
 }
 
