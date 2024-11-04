@@ -22,36 +22,47 @@ class BebilendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindViewModel()
     }
-    
+    func bindViewModel() {
+        viewModel.onValidationFailed = { [weak self ] errorMessage in
+            DispatchQueue.main.async {
+            switch errorMessage {
+            case "mTextfield is empty.":
+                self?.viewModel.showError(field: self?.mTextfield, placeholderText: "Polje ne može biti prazno.")
+            case "mText is not eligible.":
+                self?.mTextfield.text = ""
+                self?.viewModel.showError(field: self?.mTextfield, placeholderText: "Min. 18. godina")
+            case "wTextfield is empty.":
+                self?.viewModel.showError(field: self?.wTextfield, placeholderText: "Polje ne može biti prazno")
+            case "wText is not eligible.":
+                self?.mTextfield.text = ""
+                self?.viewModel.showError(field: self?.wTextfield, placeholderText: "Min 18. godina")
+            case "Future limit is not valid.":
+                self?.viewModel.showError(field: self?.futureLimitTextfield, placeholderText: "Polje mora biti broj.")
+            default:
+                print("Error in binding.")
+                }
+            }
+        }
+        viewModel.onSwitchingPeriodUpdated = { [weak self] in
+            DispatchQueue.main.async {
+                self?.performSegue(withIdentifier: Constants.SWITCH_PERIODS_VIEW_CONTROLLER_RESULTS_IDENTIFIER, sender: self)
+            }
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SWITCH_PERIODS_VIEW_CONTROLLER_RESULTS_IDENTIFIER {
+            let destinationVC = segue.destination as? BebilendarResultViewController
+            destinationVC?.switchingPeriods = viewModel.switchingPeriods
+        }
+    }
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
     @IBAction func calculateSwitchingPeriodsButtonPressed(_ sender: UIButton) {
-        guard let mText = mTextfield.text, mTextfield.validateGenderTextfield(isEligible: { bebilatorBrain.isEligible(date: $0) }),
-              let wText = wTextfield.text, wTextfield.validateGenderTextfield(isEligible: { bebilatorBrain.isEligible(date: $0) }) else {
-             return
-         }
-        guard futureLimitTextfield.text?.isEmpty == false,
-               futureLimitTextfield.text != Constants.TEXTFIELD_PLACEHOLDER,
-               let futureLimit = Int(futureLimitTextfield.text ?? "No value") else {
-             futureLimitTextfield.placeholder = "Unesite broj"
-             futureLimitTextfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
-             return
-         }
-        
-        guard let mBdayAsDate = mText.toDate(),
-              let wBdayAsDate = wText.toDate() else { return }
-        
-        let result = viewModel.calculateSwitchingPeriods(mBirthdate: mBdayAsDate, wBirthdate: wBdayAsDate, futureLimit: futureLimit)
-        for (year, month, day, gender) in result {
-            print("Year: \(year), Month: \(month), Day: \(day), Gender: \(gender)")
-        }
-        
-        performSegue(withIdentifier: Constants.SWITCH_PERIODS_VIEW_CONTROLLER_RESULTS_IDENTIFIER, sender: self)
+    _ = viewModel.validateAndCalculateSwitchingPeriods(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text)
     }
-    
     func setupUI() {
         mTextfield.addShadowAndRoundedCorners(color: Constants.colorMborder)
         wTextfield.addShadowAndRoundedCorners(color: Constants.colorWborder)
@@ -70,7 +81,6 @@ class BebilendarViewController: UIViewController {
             self?.handleDateSelection(selectedDate)
         }
     }
-    
     private func handleDateSelection(_ date: String) {
         if mTextfield.isFirstResponder {
             mTextfield.text = date

@@ -206,7 +206,7 @@ Phasellus et aliquam dolor.</string>
                                         <rect key="frame" x="0.0" y="81" width="320" height="56"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5j-tS-Yca" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="145" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="WeK-Af-VIR"/>
                                                     <constraint firstAttribute="height" constant="56" id="Zzh-Ob-7fg"/>
@@ -231,7 +231,7 @@ Phasellus et aliquam dolor.</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqb-TQ-gTk" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="175" y="0.0" width="145" height="56"/>
+                                                <rect key="frame" x="170" y="0.0" width="150" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="OSl-Ue-4yI"/>
                                                     <constraint firstAttribute="height" constant="56" id="zjC-p9-yFk"/>
@@ -544,12 +544,12 @@ Phasellus et aliquam dolor.</string>
                         <outlet property="infoLbl" destination="7jh-l6-NAp" id="o2E-Cf-syf"/>
                         <outlet property="mTextfield" destination="Vj4-Zy-Px6" id="sJc-oA-1h1"/>
                         <outlet property="wTextfield" destination="f2R-5h-gj6" id="YHq-9Q-fTk"/>
-                        <segue destination="fsY-PH-pOJ" kind="show" identifier="goToSwitchPeriodsResults" id="Erp-sc-Qpd"/>
+                        <segue destination="fsY-PH-pOJ" kind="show" identifier="goToSwitchPeriodsResults" id="AJS-eZ-YqT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUx-tF-XTD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2399" y="726"/>
+            <point key="canvasLocation" x="2364" y="725"/>
         </scene>
         <!--Bebilendar Result View Controller-->
         <scene sceneID="GTa-93-lhj">
