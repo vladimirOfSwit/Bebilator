@@ -596,35 +596,10 @@ Phasellus et aliquam dolor.</string>
                     <view key="view" contentMode="scaleToFill" id="v2L-1s-5Xi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yDy-7P-fo9">
-                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="69x-qv-NYi">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="69x-qv-NYi" id="ARR-RZ-073">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="VEO-WB-lHr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="VEO-WB-lHr" firstAttribute="trailing" secondItem="yDy-7P-fo9" secondAttribute="trailing" id="31f-5I-0SZ"/>
-                            <constraint firstItem="yDy-7P-fo9" firstAttribute="top" secondItem="VEO-WB-lHr" secondAttribute="top" id="JSr-g3-Wp2"/>
-                            <constraint firstItem="VEO-WB-lHr" firstAttribute="bottom" secondItem="yDy-7P-fo9" secondAttribute="bottom" id="ahk-Ud-kMS"/>
-                            <constraint firstItem="yDy-7P-fo9" firstAttribute="leading" secondItem="VEO-WB-lHr" secondAttribute="leading" id="fkp-Wr-Vvf"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aVO-Zd-9yk"/>
-                    <connections>
-                        <outlet property="tableView" destination="yDy-7P-fo9" id="Miy-09-Xdz"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZy-ua-8yc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

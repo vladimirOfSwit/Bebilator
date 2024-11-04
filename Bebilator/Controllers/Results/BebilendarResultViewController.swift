@@ -8,32 +8,39 @@
 import Foundation
 import UIKit
 
-class BebilendarResultViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    
+class BebilendarResultViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    private var collectionView: UICollectionView!
     var switchingPeriods: [(year: Int, month: Int, day: Int, gender: String)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.reloadData()
+        setupCollectionView()
+       
     }
-}
-extension BebilendarResultViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped me")
+    private func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 150, height: 150)
+        layout.minimumLineSpacing = 10
+        
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        //collectionView.showsHorizontalScrollIndicator = false
+        
+        
+        
     }
-}
-extension BebilendarResultViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return switchingPeriods.count
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let period = switchingPeriods[indexPath.row]
-        cell.textLabel?.text = "Year: \(period.year) Month: \(period.month), Day: \(period.day), gender: \(period.gender)"
-        return cell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
     }
+    
 }
+
+

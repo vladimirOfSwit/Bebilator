@@ -22,6 +22,7 @@
 		8535E8112CD92937005668F6 /* BebilendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E8102CD92937005668F6 /* BebilendarViewController.swift */; };
 		8535E8132CD9295B005668F6 /* BebilendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E8122CD9295B005668F6 /* BebilendarViewModel.swift */; };
 		8535E8162CD92B89005668F6 /* BebilendarResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */; };
+		8535E81A2CD945FD005668F6 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E8192CD945FD005668F6 /* CarouselCell.swift */; };
 		8552D8CC2B84B45100EDD988 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */; };
 		8561535A2BC81D69009E1E0E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856153592BC81D69009E1E0E /* WelcomeViewController.swift */; };
 		8578FE292CD0CB2E002D8100 /* PreviousScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578FE282CD0CB2E002D8100 /* PreviousScoreCell.swift */; };
@@ -63,6 +64,7 @@
 		8535E8102CD92937005668F6 /* BebilendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarViewController.swift; sourceTree = "<group>"; };
 		8535E8122CD9295B005668F6 /* BebilendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarViewModel.swift; sourceTree = "<group>"; };
 		8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarResultViewController.swift; sourceTree = "<group>"; };
+		8535E8192CD945FD005668F6 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		856153592BC81D69009E1E0E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		8578FE282CD0CB2E002D8100 /* PreviousScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScoreCell.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		8535E8092CD923F7005668F6 /* Results */ = {
 			isa = PBXGroup;
 			children = (
+				8535E8182CD94596005668F6 /* Carousel */,
 				851F2FED2CCA488700250212 /* BebilatorResultViewController.swift */,
 				8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */,
 			);
@@ -161,6 +164,14 @@
 				856153592BC81D69009E1E0E /* WelcomeViewController.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		8535E8182CD94596005668F6 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				8535E8192CD945FD005668F6 /* CarouselCell.swift */,
+			);
+			path = Carousel;
 			sourceTree = "<group>";
 		};
 		85885E2B2A711E1F00EFF479 /* Model */ = {
@@ -376,6 +387,7 @@
 				8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */,
 				8535E80C2CD924BC005668F6 /* OnboardingViewController.swift in Sources */,
 				8596FE2F2A695DE00050E574 /* SceneDelegate.swift in Sources */,
+				8535E81A2CD945FD005668F6 /* CarouselCell.swift in Sources */,
 				85885E332A71443700EFF479 /* UIView+Extension.swift in Sources */,
 				851F2FEE2CCA488700250212 /* BebilatorResultViewController.swift in Sources */,
 				8535E8132CD9295B005668F6 /* BebilendarViewModel.swift in Sources */,
