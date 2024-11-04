@@ -10,7 +10,6 @@
 		852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */; };
 		852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF6A2C78A8D90050AF11 /* GradientButton.swift */; };
 		8552D8CC2B84B45100EDD988 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */; };
-		8554E4752CB005DB00CE7223 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554E4742CB005DB00CE7223 /* Help.swift */; };
 		85885E332A71443700EFF479 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85885E322A71443700EFF479 /* UIView+Extension.swift */; };
 		8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8596FE2C2A695DE00050E574 /* AppDelegate.swift */; };
 		8596FE2F2A695DE00050E574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8596FE2E2A695DE00050E574 /* SceneDelegate.swift */; };
@@ -43,7 +42,6 @@
 		852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		852AEF6A2C78A8D90050AF11 /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
-		8554E4742CB005DB00CE7223 /* Help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		85885E322A71443700EFF479 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		8596FE292A695DE00050E574 /* Bebilator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bebilator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8596FE2C2A695DE00050E574 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 				8596FE352A695DE40050E574 /* Assets.xcassets */,
 				8596FE372A695DE40050E574 /* LaunchScreen.storyboard */,
 				8502D62D2AB0672E008FC6C5 /* Info.plist */,
-				8554E4742CB005DB00CE7223 /* Help.swift */,
 			);
 			path = Bebilator;
 			sourceTree = "<group>";
@@ -309,7 +306,6 @@
 				8596FE2F2A695DE00050E574 /* SceneDelegate.swift in Sources */,
 				85885E332A71443700EFF479 /* UIView+Extension.swift in Sources */,
 				859882F52CB93DCA00FF50A1 /* DatePickerManager.swift in Sources */,
-				8554E4752CB005DB00CE7223 /* Help.swift in Sources */,
 				85A265492B18E72E00A6676C /* BebilatorBrain.swift in Sources */,
 				85A265472B18E46400A6676C /* Constants.swift in Sources */,
 				852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */,
