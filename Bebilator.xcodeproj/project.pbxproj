@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59CC7EEDCDFB891635505E51 /* Pods_Bebilator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710D6DC2E4FABD7695BD5F72 /* Pods_Bebilator.framework */; };
 		8502D6332AB08519008FC6C5 /* BebilatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502D6322AB08519008FC6C5 /* BebilatorViewController.swift */; };
 		851F2FEA2CCA482000250212 /* BebilatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FE92CCA482000250212 /* BebilatorViewModel.swift */; };
 		851F2FEC2CCA484F00250212 /* DatePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FEB2CCA484F00250212 /* DatePickerManager.swift */; };
@@ -22,7 +23,7 @@
 		8535E8112CD92937005668F6 /* BebilendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E8102CD92937005668F6 /* BebilendarViewController.swift */; };
 		8535E8132CD9295B005668F6 /* BebilendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E8122CD9295B005668F6 /* BebilendarViewModel.swift */; };
 		8535E8162CD92B89005668F6 /* BebilendarResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */; };
-		8535E81A2CD945FD005668F6 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E8192CD945FD005668F6 /* CarouselCell.swift */; };
+		8535E81C2CDA47C7005668F6 /* BebilendarResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E81B2CDA47C7005668F6 /* BebilendarResultViewModel.swift */; };
 		8552D8CC2B84B45100EDD988 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */; };
 		8561535A2BC81D69009E1E0E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856153592BC81D69009E1E0E /* WelcomeViewController.swift */; };
 		8578FE292CD0CB2E002D8100 /* PreviousScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578FE282CD0CB2E002D8100 /* PreviousScoreCell.swift */; };
@@ -48,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CD94EEDF869D68D0102C5B3 /* Pods-Bebilator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bebilator.debug.xcconfig"; path = "Target Support Files/Pods-Bebilator/Pods-Bebilator.debug.xcconfig"; sourceTree = "<group>"; };
+		710D6DC2E4FABD7695BD5F72 /* Pods_Bebilator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bebilator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8502D62D2AB0672E008FC6C5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8502D6322AB08519008FC6C5 /* BebilatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilatorViewController.swift; sourceTree = "<group>"; };
 		851F2FE92CCA482000250212 /* BebilatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilatorViewModel.swift; sourceTree = "<group>"; };
@@ -64,7 +67,7 @@
 		8535E8102CD92937005668F6 /* BebilendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarViewController.swift; sourceTree = "<group>"; };
 		8535E8122CD9295B005668F6 /* BebilendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarViewModel.swift; sourceTree = "<group>"; };
 		8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarResultViewController.swift; sourceTree = "<group>"; };
-		8535E8192CD945FD005668F6 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
+		8535E81B2CDA47C7005668F6 /* BebilendarResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarResultViewModel.swift; sourceTree = "<group>"; };
 		8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		856153592BC81D69009E1E0E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		8578FE282CD0CB2E002D8100 /* PreviousScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScoreCell.swift; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 		85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.otf"; sourceTree = "<group>"; };
 		85DD81942CD2532300C437A7 /* ScoresHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresHeaderView.swift; sourceTree = "<group>"; };
 		85E7A03E2B78FB1900C66781 /* Loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loader.gif; sourceTree = "<group>"; };
+		B0910D740C25FD1F95C662B7 /* Pods-Bebilator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bebilator.release.xcconfig"; path = "Target Support Files/Pods-Bebilator/Pods-Bebilator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,12 +99,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59CC7EEDCDFB891635505E51 /* Pods_Bebilator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C56B035BDE79BC49E04EBA6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CD94EEDF869D68D0102C5B3 /* Pods-Bebilator.debug.xcconfig */,
+				B0910D740C25FD1F95C662B7 /* Pods-Bebilator.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8502D6312AB0850C008FC6C5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,9 +147,9 @@
 		8535E8092CD923F7005668F6 /* Results */ = {
 			isa = PBXGroup;
 			children = (
-				8535E8182CD94596005668F6 /* Carousel */,
 				851F2FED2CCA488700250212 /* BebilatorResultViewController.swift */,
 				8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */,
+				8535E81B2CDA47C7005668F6 /* BebilendarResultViewModel.swift */,
 			);
 			path = Results;
 			sourceTree = "<group>";
@@ -164,14 +178,6 @@
 				856153592BC81D69009E1E0E /* WelcomeViewController.swift */,
 			);
 			path = Welcome;
-			sourceTree = "<group>";
-		};
-		8535E8182CD94596005668F6 /* Carousel */ = {
-			isa = PBXGroup;
-			children = (
-				8535E8192CD945FD005668F6 /* CarouselCell.swift */,
-			);
-			path = Carousel;
 			sourceTree = "<group>";
 		};
 		85885E2B2A711E1F00EFF479 /* Model */ = {
@@ -234,6 +240,8 @@
 			children = (
 				8596FE2B2A695DE00050E574 /* Bebilator */,
 				8596FE2A2A695DE00050E574 /* Products */,
+				3C56B035BDE79BC49E04EBA6 /* Pods */,
+				FDFC05DEE6A0F07D21386F1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -299,6 +307,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		FDFC05DEE6A0F07D21386F1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				710D6DC2E4FABD7695BD5F72 /* Pods_Bebilator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -306,9 +322,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8596FE3D2A695DE40050E574 /* Build configuration list for PBXNativeTarget "Bebilator" */;
 			buildPhases = (
+				E0F5E454C7A103F758F1E628 /* [CP] Check Pods Manifest.lock */,
 				8596FE252A695DE00050E574 /* Sources */,
 				8596FE262A695DE00050E574 /* Frameworks */,
 				8596FE272A695DE00050E574 /* Resources */,
+				0E86D6984FEA4E6ACC5C040F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -377,6 +395,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0E86D6984FEA4E6ACC5C040F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bebilator/Pods-Bebilator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bebilator/Pods-Bebilator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bebilator/Pods-Bebilator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0F5E454C7A103F758F1E628 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bebilator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8596FE252A695DE00050E574 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -387,11 +447,11 @@
 				8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */,
 				8535E80C2CD924BC005668F6 /* OnboardingViewController.swift in Sources */,
 				8596FE2F2A695DE00050E574 /* SceneDelegate.swift in Sources */,
-				8535E81A2CD945FD005668F6 /* CarouselCell.swift in Sources */,
 				85885E332A71443700EFF479 /* UIView+Extension.swift in Sources */,
 				851F2FEE2CCA488700250212 /* BebilatorResultViewController.swift in Sources */,
 				8535E8132CD9295B005668F6 /* BebilendarViewModel.swift in Sources */,
 				851F2FF62CCA5CE300250212 /* PreviousScoresViewModel.swift in Sources */,
+				8535E81C2CDA47C7005668F6 /* BebilendarResultViewModel.swift in Sources */,
 				851F2FEA2CCA482000250212 /* BebilatorViewModel.swift in Sources */,
 				8535E8162CD92B89005668F6 /* BebilendarResultViewController.swift in Sources */,
 				8578FE292CD0CB2E002D8100 /* PreviousScoreCell.swift in Sources */,
@@ -426,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -473,7 +534,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -487,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -528,7 +590,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -540,12 +602,15 @@
 		};
 		8596FE3E2A695DE40050E574 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CD94EEDF869D68D0102C5B3 /* Pods-Bebilator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MG7RVDKYK5;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bebilator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -553,6 +618,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -568,12 +634,15 @@
 		};
 		8596FE3F2A695DE40050E574 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0910D740C25FD1F95C662B7 /* Pods-Bebilator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MG7RVDKYK5;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bebilator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -581,6 +650,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
