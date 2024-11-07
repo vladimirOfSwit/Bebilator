@@ -16,7 +16,7 @@ class BebilendarViewController: UIViewController {
     @IBOutlet weak var futureLimitTextfield: UITextField!
     
     var viewModel = BebilendarViewModel()
-    var bebilatorBrain = BebilatorBrain()
+    var resultViewModel = BebilendarResultViewModel()
     let datePickerManager = DatePickerManager()
     let resultViewController = BebilendarResultViewController()
     
@@ -48,21 +48,31 @@ class BebilendarViewController: UIViewController {
         }
         viewModel.onSwitchingPeriodUpdated = { [weak self] in
             DispatchQueue.main.async {
-                self?.performSegue(withIdentifier: Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER, sender: self)
+                guard let self = self else { return }
+                print("These are the results from the unwrapped switching periods: \(self.viewModel.switchingPeriods)")
+                self.resultViewModel.switchingPeriods = self.viewModel.switchingPeriods
+                self.performSegue(withIdentifier: Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER, sender: self)
             }
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER {
             let destinationVC = segue.destination as? BebilendarResultViewController
+            resultViewModel.switchingPeriods = viewModel.switchingPeriods
             destinationVC?.switchingPeriods = viewModel.switchingPeriods
+            print("Passing switching periods from prepareForSegue in BebilendarViewController and they are: \(viewModel.switchingPeriods)")
         }
     }
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     @IBAction func calculateSwitchingPeriodsButtonPressed(_ sender: UIButton) {
-    _ = viewModel.validateAndCalculateSwitchingPeriods(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text)
+    let success = viewModel.validateAndCalculateSwitchingPeriods(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text)
+        if success {
+            print("Switching periods populated from calculateSwitchingPeriodsButtonPressed with: \(viewModel.switchingPeriods)")
+        } else {
+            print("Failed to populate the switching periods array.")
+        }
     }
     func setupUI() {
         mTextfield.addShadowAndRoundedCorners(color: Constants.colorMborder)

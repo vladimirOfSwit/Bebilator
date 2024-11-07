@@ -147,9 +147,8 @@
 		8535E8092CD923F7005668F6 /* Results */ = {
 			isa = PBXGroup;
 			children = (
-				851F2FED2CCA488700250212 /* BebilatorResultViewController.swift */,
-				8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */,
-				8535E81B2CDA47C7005668F6 /* BebilendarResultViewModel.swift */,
+				858406E22CDB72EF008B1591 /* Bebilator */,
+				858406E02CDB72DB008B1591 /* Bebilendar */,
 			);
 			path = Results;
 			sourceTree = "<group>";
@@ -178,6 +177,23 @@
 				856153592BC81D69009E1E0E /* WelcomeViewController.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		858406E02CDB72DB008B1591 /* Bebilendar */ = {
+			isa = PBXGroup;
+			children = (
+				8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */,
+				8535E81B2CDA47C7005668F6 /* BebilendarResultViewModel.swift */,
+			);
+			path = Bebilendar;
+			sourceTree = "<group>";
+		};
+		858406E22CDB72EF008B1591 /* Bebilator */ = {
+			isa = PBXGroup;
+			children = (
+				851F2FED2CCA488700250212 /* BebilatorResultViewController.swift */,
+			);
+			path = Bebilator;
 			sourceTree = "<group>";
 		};
 		85885E2B2A711E1F00EFF479 /* Model */ = {
