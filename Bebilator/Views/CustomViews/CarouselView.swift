@@ -23,7 +23,6 @@ class CarouselView: UIView, iCarouselDataSource {
         carousel.frame = bounds
         carousel.reloadData()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -59,7 +58,6 @@ class CarouselView: UIView, iCarouselDataSource {
             stackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
             stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10)
         ])
-        
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.image = items[index].image

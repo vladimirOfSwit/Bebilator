@@ -16,7 +16,6 @@ class BebilendarResultViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupCarouselView()
-        print("Results from viewWillAppear viewModel.switchingPeriods: \(viewModel.switchingPeriods)")
     }
     private func setupCarouselView() {
         let items = viewModel.switchingPeriods.map { period in

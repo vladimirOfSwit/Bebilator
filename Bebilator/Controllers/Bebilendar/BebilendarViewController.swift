@@ -28,21 +28,21 @@ class BebilendarViewController: UIViewController {
     func bindViewModel() {
         bebilendarViewControllerModel.onValidationFailed = { [weak self ] errorMessage in
             DispatchQueue.main.async {
-            switch errorMessage {
-            case "mTextfield is empty.":
-                self?.bebilendarViewControllerModel.showError(field: self?.mTextfield, placeholderText: "Polje ne može biti prazno.")
-            case "mText is not eligible.":
-                self?.mTextfield.text = ""
-                self?.bebilendarViewControllerModel.showError(field: self?.mTextfield, placeholderText: "Min. 18. godina")
-            case "wTextfield is empty.":
-                self?.bebilendarViewControllerModel.showError(field: self?.wTextfield, placeholderText: "Polje ne može biti prazno")
-            case "wText is not eligible.":
-                self?.mTextfield.text = ""
-                self?.bebilendarViewControllerModel.showError(field: self?.wTextfield, placeholderText: "Min 18. godina")
-            case "Future limit is not valid.":
-                self?.bebilendarViewControllerModel.showError(field: self?.futureLimitTextfield, placeholderText: "Polje mora biti broj.")
-            default:
-                print("Error in binding.")
+                switch errorMessage {
+                case "mTextfield is empty.":
+                    self?.bebilendarViewControllerModel.showError(field: self?.mTextfield, placeholderText: "Polje ne može biti prazno.")
+                case "mText is not eligible.":
+                    self?.mTextfield.text = ""
+                    self?.bebilendarViewControllerModel.showError(field: self?.mTextfield, placeholderText: "Min. 18. godina")
+                case "wTextfield is empty.":
+                    self?.bebilendarViewControllerModel.showError(field: self?.wTextfield, placeholderText: "Polje ne može biti prazno")
+                case "wText is not eligible.":
+                    self?.mTextfield.text = ""
+                    self?.bebilendarViewControllerModel.showError(field: self?.wTextfield, placeholderText: "Min 18. godina")
+                case "Future limit is not valid.":
+                    self?.bebilendarViewControllerModel.showError(field: self?.futureLimitTextfield, placeholderText: "Polje mora biti broj.")
+                default:
+                    print("Error in binding.")
                 }
             }
         }
@@ -58,14 +58,13 @@ class BebilendarViewController: UIViewController {
         if segue.identifier == Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER {
             let destinationVC = segue.destination as? BebilendarResultViewController
             destinationVC?.viewModel.switchingPeriods = bebilendarViewControllerModel.switchingPeriods
-            print("BebilendarViewController to BebilendarResultViewModel: \(destinationVC?.viewModel.switchingPeriods)")
         }
     }
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     @IBAction func calculateSwitchingPeriodsButtonPressed(_ sender: UIButton) {
-    let success = bebilendarViewControllerModel.validateAndCalculateSwitchingPeriods(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text)
+        let success = bebilendarViewControllerModel.validateAndCalculateSwitchingPeriods(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text)
         if success {
             print("Switching periods populated from calculateSwitchingPeriodsButtonPressed with: \(bebilendarViewControllerModel.switchingPeriods)")
         } else {
@@ -98,7 +97,6 @@ class BebilendarViewController: UIViewController {
         }
     }
 }
-
 extension BebilendarViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == futureLimitTextfield {

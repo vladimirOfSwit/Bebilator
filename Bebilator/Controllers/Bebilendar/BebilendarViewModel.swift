@@ -46,7 +46,6 @@ class BebilendarViewModel {
         onSwitchingPeriodUpdated?()
         return true
         }
-    
     func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date, futureLimit: Int) -> [(year: Int, month: Int, day: Int, gender: String)] {
         let currentYear  = calendar.component(.year, from: Date())
         var lastGender = ""
@@ -76,7 +75,6 @@ class BebilendarViewModel {
         }
         return switchingPeriods
     }
-    
     func showError(field: UITextField?, placeholderText: String) {
         field?.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 4, revert: true)
         field?.placeholder = placeholderText

@@ -21,7 +21,7 @@ class PreviousScoresViewModel {
     }
     func getPreviousScores() -> [PreviousScore] {
         if let savedData = UserDefaults.standard.data(forKey: userDefaultsKey) {
-          if let savedScores = try? JSONDecoder().decode([PreviousScore].self, from: savedData) {
+            if let savedScores = try? JSONDecoder().decode([PreviousScore].self, from: savedData) {
                 return savedScores
             }
         }
