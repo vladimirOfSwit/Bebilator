@@ -45,9 +45,10 @@
 		85C571C52B83578C009C8944 /* SFUIText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571AE2B83578B009C8944 /* SFUIText-Regular.otf */; };
 		85C571C62B83578C009C8944 /* SFUIText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */; };
 		85DD81952CD2532300C437A7 /* ScoresHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DD81942CD2532300C437A7 /* ScoresHeaderView.swift */; };
-		85E7A03F2B78FB1900C66781 /* Loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85E7A03E2B78FB1900C66781 /* Loader.gif */; };
+		85E7A03F2B78FB1900C66781 /* loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85E7A03E2B78FB1900C66781 /* loader.gif */; };
 		85F3B3042CDCF00D00F81B65 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B3032CDCF00D00F81B65 /* CarouselView.swift */; };
 		85F3B3062CDCF47400F81B65 /* CarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B3052CDCF47400F81B65 /* CarouselItem.swift */; };
+		85F3B3092CDE775800F81B65 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B3082CDE775800F81B65 /* LoadingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,9 +93,10 @@
 		85C571AE2B83578B009C8944 /* SFUIText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.otf"; sourceTree = "<group>"; };
 		85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.otf"; sourceTree = "<group>"; };
 		85DD81942CD2532300C437A7 /* ScoresHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresHeaderView.swift; sourceTree = "<group>"; };
-		85E7A03E2B78FB1900C66781 /* Loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loader.gif; sourceTree = "<group>"; };
+		85E7A03E2B78FB1900C66781 /* loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loader.gif; sourceTree = "<group>"; };
 		85F3B3032CDCF00D00F81B65 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		85F3B3052CDCF47400F81B65 /* CarouselItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItem.swift; sourceTree = "<group>"; };
+		85F3B3082CDE775800F81B65 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		B0910D740C25FD1F95C662B7 /* Pods-Bebilator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bebilator.release.xcconfig"; path = "Target Support Files/Pods-Bebilator/Pods-Bebilator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,6 +249,7 @@
 		858FC4C52B03BED5002A6A5C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				85F3B3072CDE771A00F81B65 /* Loading */,
 				8535E80A2CD92419005668F6 /* Onboarding */,
 				8535E8172CD92C0F005668F6 /* Welcome */,
 				851F2FEF2CCA580400250212 /* Bebilator */,
@@ -308,7 +311,7 @@
 			children = (
 				85B6FBD92BAC91EB00F5CE06 /* boy.gif */,
 				85B6FBDA2BAC91EC00F5CE06 /* girl.gif */,
-				85E7A03E2B78FB1900C66781 /* Loader.gif */,
+				85E7A03E2B78FB1900C66781 /* loader.gif */,
 			);
 			path = Gifs;
 			sourceTree = "<group>";
@@ -327,6 +330,14 @@
 				85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		85F3B3072CDE771A00F81B65 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				85F3B3082CDE775800F81B65 /* LoadingViewController.swift */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		FDFC05DEE6A0F07D21386F1A /* Frameworks */ = {
@@ -402,7 +413,7 @@
 				8596FE392A695DE40050E574 /* LaunchScreen.storyboard in Resources */,
 				85C571BC2B83578C009C8944 /* SFUIText-HeavyItalic.otf in Resources */,
 				85C571C32B83578C009C8944 /* SFUIText-Bold.otf in Resources */,
-				85E7A03F2B78FB1900C66781 /* Loader.gif in Resources */,
+				85E7A03F2B78FB1900C66781 /* loader.gif in Resources */,
 				852AEF672C78A78D0050AF11 /* Main.storyboard in Resources */,
 				8596FE362A695DE40050E574 /* Assets.xcassets in Resources */,
 				85B6FBDC2BAC91EC00F5CE06 /* girl.gif in Resources */,
@@ -475,6 +486,7 @@
 				851F2FF62CCA5CE300250212 /* PreviousScoresViewModel.swift in Sources */,
 				8535E81C2CDA47C7005668F6 /* BebilendarResultViewModel.swift in Sources */,
 				851F2FEA2CCA482000250212 /* BebilatorViewModel.swift in Sources */,
+				85F3B3092CDE775800F81B65 /* LoadingViewController.swift in Sources */,
 				8535E8162CD92B89005668F6 /* BebilendarResultViewController.swift in Sources */,
 				8578FE292CD0CB2E002D8100 /* PreviousScoreCell.swift in Sources */,
 				851F2FF42CCA5C8500250212 /* PreviousScore.swift in Sources */,

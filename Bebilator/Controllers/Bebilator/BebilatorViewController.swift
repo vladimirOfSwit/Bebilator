@@ -19,6 +19,7 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     let viewModel = BebilatorViewModel()
     var previousScoresViewModel = PreviousScoresViewModel()
     var resultViewController = BebilatorResultViewController()
+    let loadingVC = LoadingViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()

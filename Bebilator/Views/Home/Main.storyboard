@@ -45,10 +45,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZMV-K5-OYO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="523"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="521.66666666666663"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiK-6P-XGh">
-                                                    <rect key="frame" x="16" y="523" width="358" height="56"/>
+                                                    <rect key="frame" x="16" y="521.66666666666663" width="358" height="57.333333333333371"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur
 adipiscing elit. Aliquam id imperdiet mi.
 Phasellus et aliquam dolor.</string>
@@ -206,7 +206,7 @@ Phasellus et aliquam dolor.</string>
                                         <rect key="frame" x="0.0" y="81" width="305" height="56"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5j-tS-Yca" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="WeK-Af-VIR"/>
                                                     <constraint firstAttribute="height" constant="56" id="Zzh-Ob-7fg"/>
@@ -231,7 +231,7 @@ Phasellus et aliquam dolor.</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqb-TQ-gTk" userLabel="Previous Scores Btn" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="155" y="0.0" width="150" height="56"/>
+                                                <rect key="frame" x="175" y="0.0" width="130" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="OSl-Ue-4yI"/>
                                                     <constraint firstAttribute="height" constant="56" id="zjC-p9-yFk"/>
@@ -368,6 +368,21 @@ Phasellus et aliquam dolor.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWH-sX-oaF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3281" y="-407"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="saY-zI-E0V">
+            <objects>
+                <viewController id="1CQ-ry-X25" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vnX-TP-YLX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gMe-QK-CcM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dCI-9Q-MXh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4681" y="-137"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="ymr-2X-Aw6">
