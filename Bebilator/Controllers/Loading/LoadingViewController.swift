@@ -9,10 +9,12 @@ import UIKit
 import ImageIO
 
 class LoadingViewController: UIViewController {
+    var backgroundImage: UIImageView?
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "backgroundResult")
         return imageView
     }()
     let gifImageView: UIImageView = {
@@ -30,12 +32,11 @@ class LoadingViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         view.addSubview(backgroundImageView)
-        
         NSLayoutConstraint.activate([
-            backgroundImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            backgroundImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            backgroundImageView.widthAnchor.constraint(equalToConstant: 200),
-            backgroundImageView.heightAnchor.constraint(equalToConstant: 200)
+            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         view.addSubview(gifImageView)
         NSLayoutConstraint.activate([
@@ -44,7 +45,6 @@ class LoadingViewController: UIViewController {
             gifImageView.widthAnchor.constraint(equalToConstant: 100),
             gifImageView.heightAnchor.constraint(equalToConstant: 100)
         ])
-        
         loadGifImage(named: "loader")
     }
     func loadGifImage(named name: String) {
@@ -53,8 +53,8 @@ class LoadingViewController: UIViewController {
         gifImageView.image = UIImage.gifImageWithData(gifData)
     }
     func showLoadingScreen(for seconds: TimeInterval) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { [weak self ] in
-            self?.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

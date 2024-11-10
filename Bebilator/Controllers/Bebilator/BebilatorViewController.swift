@@ -27,16 +27,29 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
+        let loadingVC = LoadingViewController()
+         loadingVC.modalPresentationStyle = .overFullScreen
+         present(loadingVC, animated: true) {
+             loadingVC.showLoadingScreen(for: 2.0)
+                 // Dismiss loading screen and then present the result screen
+             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in             
+                 loadingVC.dismiss(animated: true) {
+                     self?.presentBebilatorResultViewController()
+                 }
+             }
+         }
+    }
+    func presentBebilatorResultViewController() {
         guard let mText = mTextfield.text, mTextfield.validateGenderTextfield(isEligible: { bebilatorBrain.isEligible(date: $0)}),
               let wText = wTextfield.text, wTextfield.validateGenderTextfield(isEligible: {bebilatorBrain.isEligible(date: $0)}),
               let nText = nTextfield.text, viewModel.validateDateNotInThePast(nText, textfield: nTextfield) else {
             return
         }
-        bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mText, w: wText, dateToConcieve: nText)
-        previousScoresViewModel.savePreviousScore(mText: mText, wText: wText, nText: nText, result: bebilatorBrain.finalResult)
-        
-        performSegue(withIdentifier: Constants.BEBILATOR_RESULTS_VIEW_CONTROLLER, sender: self)
-    }
+       bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mText, w: wText, dateToConcieve: nText)
+       previousScoresViewModel.savePreviousScore(mText: mText, wText: wText, nText: nText, result: bebilatorBrain.finalResult)
+       
+       performSegue(withIdentifier: Constants.BEBILATOR_RESULTS_VIEW_CONTROLLER, sender: self)
+   }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.BEBILATOR_RESULTS_VIEW_CONTROLLER {
             if let bebilatorResultsVC = segue.destination as? BebilatorResultViewController {
