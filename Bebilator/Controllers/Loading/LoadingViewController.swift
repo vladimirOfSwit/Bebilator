@@ -10,6 +10,8 @@ import ImageIO
 
 class LoadingViewController: UIViewController {
     var backgroundImage: UIImageView?
+    var onLoadingComplete: (() -> Void)?
+    
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -53,8 +55,12 @@ class LoadingViewController: UIViewController {
         gifImageView.image = UIImage.gifImageWithData(gifData)
     }
     func showLoadingScreen(for seconds: TimeInterval) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.dismiss(animated: true, completion: nil)
+        print("Showing loading screen for \(seconds) seconds")
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { [ weak self ] in
+            self?.dismiss(animated: true) {
+                print("Dismissed loading screen")
+                self?.onLoadingComplete?()
+            }
         }
     }
 }
