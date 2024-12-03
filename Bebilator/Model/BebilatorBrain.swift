@@ -33,32 +33,21 @@ struct BebilatorBrain {
     }
     
     func getDaysSinceLastAgeChange(numberOfYears: Int, bday: Date, chosenDate: Date) -> Int {
+        var currentDate = bday
+        var lastChangeDate: Date?
         
-        var bdayCalculatedByAddingYears = bday
-        var resultsOfAging: [Date] = []
-        var latestChageDate: Date?
+        while currentDate <= chosenDate {
+            lastChangeDate = currentDate
+            currentDate = currentDate.addYear(n: numberOfYears)
+        }
         
-        //Accumulate the aging dates
-        repeat {
-            bdayCalculatedByAddingYears = bdayCalculatedByAddingYears.addYear(n: numberOfYears)
-            resultsOfAging.append(bdayCalculatedByAddingYears)
-            
-            if bdayCalculatedByAddingYears > chosenDate {
-                resultsOfAging.removeLast()
-                latestChageDate = resultsOfAging.last
-                break
-            }
-        } while bdayCalculatedByAddingYears <= chosenDate
-        
-        guard let lastChange = latestChageDate else {
-            print("No latest date found")
+        guard let lastChange = lastChangeDate else {
+            print("No valid date found")
             return 0
         }
         
-        let timeInterval = calendar.dateComponents([.day], from: lastChange, to: chosenDate)
-        let daysPassedSinceChange = (timeInterval.day ?? 0) + 100
-        
-        return daysPassedSinceChange
+        let daysSinceChange = calendar.dateComponents([.day], from: lastChange, to: chosenDate).day ?? 0
+        return daysSinceChange + 100
         
     }
     public func calculateGender(scoreM: Int, scoreW: Int) -> String {

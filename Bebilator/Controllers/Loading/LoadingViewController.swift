@@ -57,10 +57,8 @@ class LoadingViewController: UIViewController {
     func showLoadingScreen(for seconds: TimeInterval) {
         print("Showing loading screen for \(seconds) seconds")
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { [ weak self ] in
-            self?.dismiss(animated: true) {
-                print("Dismissed loading screen")
-                self?.onLoadingComplete?()
+           self?.onLoadingComplete?()
             }
         }
     }
-}
+

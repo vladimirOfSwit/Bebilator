@@ -22,10 +22,10 @@ class BebilatorViewModel {
     }
     private func compareDates(_ date: Date, _ textField: UITextField) -> Bool {
         let calendar = Calendar.current
-        let currentDate = calendar.startOfDay(for: Date())
+        let todaysStartDate  = calendar.startOfDay(for: Date())
         let selectedStartDate = calendar.startOfDay(for: date)
         
-        guard selectedStartDate >= currentDate else {
+        guard selectedStartDate >= todaysStartDate  else {
             textField.editPlaceholderFont("Datum mora biti današnji ili u budućnosti.", fontSize: 12)
             textField.text = ""
             textField.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 4, revert: true)

@@ -37,7 +37,7 @@ class PreviousScoreCell: UITableViewCell {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.spacing = 4
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .equalSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
