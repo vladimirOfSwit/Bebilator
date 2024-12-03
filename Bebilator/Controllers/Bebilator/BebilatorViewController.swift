@@ -48,7 +48,8 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
               let nText = nTextfield.text, viewModel.validateDateNotInThePast(nText, textfield: nTextfield) else {
             return
         }
-        bebilatorBrain.getDifferenceInAgingAndCalculateFinalResult(m: mText, w: wText, dateToConcieve: nText)
+        bebilatorBrain.getDifferenceInAging(m: mText, w: wText, dateToConcieve: nText)
+        bebilatorBrain.calculateFinalResult()
         previousScoresViewModel.savePreviousScore(mText: mText, wText: wText, nText: nText, result: bebilatorBrain.finalResult)
         
         performSegue(withIdentifier: Constants.BEBILATOR_RESULTS_VIEW_CONTROLLER, sender: self)
