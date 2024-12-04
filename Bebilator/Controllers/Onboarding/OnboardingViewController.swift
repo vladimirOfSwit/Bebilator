@@ -14,7 +14,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     
     var viewModel: OnboardingViewModel?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,14 +31,14 @@ class OnboardingViewController: UIViewController {
         guard let viewModel = viewModel else { return }
         
         viewModel.onCurrentPageUpdated = { [weak self] title, currentPage in
-        guard let self = self else { return }
+            guard let self = self else { return }
             
-        self.pageControl.currentPage = currentPage
-        self.nextBtn.setTitle(title, for: .normal)
-        self.nextBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold) // Set your desired font here
-                    
-        let indexPath = IndexPath(item: currentPage, section: 0)
-        self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            self.pageControl.currentPage = currentPage
+            self.nextBtn.setTitle(title, for: .normal)
+            self.nextBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold) // Set your desired font here
+            
+            let indexPath = IndexPath(item: currentPage, section: 0)
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
     }
     
@@ -65,10 +65,7 @@ class OnboardingViewController: UIViewController {
             present(controller, animated: true, completion: nil)
         }
     }
-    
- 
 }
-
 
 extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -76,10 +73,8 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier, for: indexPath) as! OnboardingCollectionViewCell
- 
+        
         if let slide = viewModel?.slides[indexPath.row] {
             cell.setup(slide)
         }

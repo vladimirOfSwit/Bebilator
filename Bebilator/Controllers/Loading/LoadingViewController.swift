@@ -24,12 +24,14 @@ class LoadingViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if let gradientLayer = view.layer.sublayers?.first as? CAGradientLayer {
             gradientLayer.frame = view.bounds
         }
     }
+    
     private func setupUI() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         let gradientLayer = viewModel.createGradientLayer(for: view.bounds)
@@ -44,13 +46,14 @@ class LoadingViewController: UIViewController {
         ])
         loadGifImage(named: "loader")
     }
+    
     func loadGifImage(named name: String) {
         guard let gifPath = Bundle.main.path(forResource: name, ofType: "gif"),
               let gifData = try? Data(contentsOf: URL(fileURLWithPath: gifPath)) else { return }
         gifImageView.image = UIImage.gifImageWithData(gifData)
     }
+    
     func showLoadingScreen(for seconds: TimeInterval) {
-        print("Showing loading screen for \(seconds) seconds")
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { [ weak self ] in
            self?.onLoadingComplete?()
             }

@@ -8,7 +8,6 @@ import UIKit
 
 
 class BebilatorResultViewController: UIViewController {
-
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var gifImageView: UIImageView!
     @IBOutlet weak var repeatOutlet: UIButton!
@@ -17,16 +16,17 @@ class BebilatorResultViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("This is the genderResult from BebilatorResultController: \(genderResult)")
         if genderResult == "boy" {
             loadGif(name: "boy")
         } else {
             loadGif(name: "girl")
         }
     }
+    
     @IBAction func repeatButtonPressed(_ sender: Any) {
         self.dismiss(animated: true)
     }
+    
     func loadGif(name: String) {
         guard let gifPath = Bundle.main.path(forResource: name, ofType: "gif") else {
             return

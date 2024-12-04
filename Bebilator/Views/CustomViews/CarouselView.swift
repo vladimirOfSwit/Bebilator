@@ -23,9 +23,11 @@ class CarouselView: UIView, iCarouselDataSource {
         carousel.frame = bounds
         carousel.reloadData()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     private func setupCarousel() {
         carousel.type = .coverFlow
         carousel.dataSource = self
@@ -33,9 +35,11 @@ class CarouselView: UIView, iCarouselDataSource {
         carousel.isPagingEnabled = true
         carousel.bounceDistance = 0.5
     }
+    
     func numberOfItems(in carousel: iCarousel) -> Int {
         items.count
     }
+    
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width * 0.8, height: 300))
         containerView.backgroundColor = .white

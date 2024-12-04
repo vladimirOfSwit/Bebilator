@@ -25,6 +25,7 @@
 		8535E8162CD92B89005668F6 /* BebilendarResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */; };
 		8535E81C2CDA47C7005668F6 /* BebilendarResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E81B2CDA47C7005668F6 /* BebilendarResultViewModel.swift */; };
 		853D5E052CFF5C4A00F20047 /* LoadingScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853D5E042CFF5C4A00F20047 /* LoadingScreenViewModel.swift */; };
+		853D5E072D00785E00F20047 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853D5E062D00785E00F20047 /* OnboardingSlide.swift */; };
 		8552D8CC2B84B45100EDD988 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */; };
 		8561535A2BC81D69009E1E0E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856153592BC81D69009E1E0E /* WelcomeViewController.swift */; };
 		8578FE292CD0CB2E002D8100 /* PreviousScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578FE282CD0CB2E002D8100 /* PreviousScoreCell.swift */; };
@@ -73,6 +74,7 @@
 		8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarResultViewController.swift; sourceTree = "<group>"; };
 		8535E81B2CDA47C7005668F6 /* BebilendarResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarResultViewModel.swift; sourceTree = "<group>"; };
 		853D5E042CFF5C4A00F20047 /* LoadingScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewModel.swift; sourceTree = "<group>"; };
+		853D5E062D00785E00F20047 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		856153592BC81D69009E1E0E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		8578FE282CD0CB2E002D8100 /* PreviousScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScoreCell.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				8535E80B2CD924BC005668F6 /* OnboardingViewController.swift */,
 				8535E80D2CD92510005668F6 /* OnboardingViewModel.swift */,
+				853D5E062D00785E00F20047 /* OnboardingSlide.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				853D5E072D00785E00F20047 /* OnboardingSlide.swift in Sources */,
 				85DD81952CD2532300C437A7 /* ScoresHeaderView.swift in Sources */,
 				852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */,
 				8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */,

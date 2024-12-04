@@ -46,10 +46,12 @@ class PreviousScoreCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
     }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupViews()
     }
+    
     private func setupViews() {
         stackView.addArrangedSubview(mTextLabel)
         stackView.addArrangedSubview(wTextLabel)
@@ -65,6 +67,7 @@ class PreviousScoreCell: UITableViewCell {
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
+    
     func configure(with mText: String, wText: String, gender: String, nText: String) {
         mTextLabel.text = mText
         wTextLabel.text = wText

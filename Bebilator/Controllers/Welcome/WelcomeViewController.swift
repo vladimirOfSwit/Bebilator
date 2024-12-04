@@ -8,7 +8,6 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    
     @IBOutlet weak var bebilendarBtn: UIButton!
 
     let buttonWidth: CGFloat = UIScreen.main.bounds.width * 0.80
@@ -48,6 +47,5 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func bebilendarButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: Constants.BEBILENDAR_VIEW_CONTROLLER_IDENTIFIER, sender: self)
-        print("I am pressed")
     }
 }

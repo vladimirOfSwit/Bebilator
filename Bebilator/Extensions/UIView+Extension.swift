@@ -7,7 +7,6 @@
 
 import UIKit
 
-// Create an extension of the UIView so that we can adapt the corners of the button
 extension UIView {
     @IBInspectable var cornerRadius: CGFloat {
         get { return self.cornerRadius }
@@ -17,10 +16,7 @@ extension UIView {
     }
 }
 
-// Create an extension to the UIViewController that will create itself using the func instantiate()
-
 extension UIViewController {
-    
     static var identifier: String {
         return String(describing: self)
     }
@@ -104,6 +100,7 @@ extension UITextField {
         }
         return true
     }
+    
     func editPlaceholderFont(_ placeHolderText: String, fontSize: CGFloat) {
         if let currentFont = self.font {
             let attributes: [NSAttributedString.Key: Any] = [
@@ -137,7 +134,6 @@ extension UIColor {
             self.init(red: r, green: g, blue: b, alpha: a)
             return
         }
-        
         return nil
     }
 }
@@ -159,12 +155,10 @@ extension UserDefaults {
         case hasOnboarded
         
     }
-    
     var hasOnboarded: Bool {
         get {
             bool(forKey: UserDefaultsKeys.hasOnboarded.rawValue)
         }
-        
         set {
             setValue(newValue, forKey: UserDefaultsKeys.hasOnboarded.rawValue)
         }
@@ -186,13 +180,11 @@ extension UIImage {
                 images.append(image)
             }
         }
-        
         return UIImage.animatedImage(with: images, duration: 5.0)
     }
 }
 
 extension UIDatePicker {
-    
     func applyGradientToSelection() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [
@@ -211,8 +203,6 @@ extension UIDatePicker {
             gradientLayer.frame = selectionView.bounds
             self.layer.addSublayer(gradientLayer)
         }
-        
-       
     }
 }
 

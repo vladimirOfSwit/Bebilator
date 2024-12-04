@@ -16,7 +16,7 @@ class BebilendarViewModel {
     
     let calendar = Calendar.current
     
-    func validateAndCalculateSwitchingPeriods(mBirthdateString: String?, wBirthdateString: String?, futureLimitString: String?) -> Bool {
+    func calculateSwitchingPeriods(mBirthdateString: String?, wBirthdateString: String?, futureLimitString: String?) -> Bool {
         guard let mText = mBirthdateString, !mText.isEmpty else {
             onValidationFailed?("mTextfield is empty.")
             return false
@@ -41,11 +41,13 @@ class BebilendarViewModel {
             onValidationFailed?("Invalid date format.")
             return false
         }
+        
         let results = calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate, futureLimit: futureLimit)
         switchingPeriods = results
         onSwitchingPeriodUpdated?()
         return true
-        }
+    }
+    
     func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date, futureLimit: Int) -> [(year: Int, month: Int, day: Int, gender: String)] {
         let currentYear  = calendar.component(.year, from: Date())
         var lastGender = ""
@@ -75,6 +77,7 @@ class BebilendarViewModel {
         }
         return switchingPeriods
     }
+    
     func showError(field: UITextField?, placeholderText: String) {
         field?.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 4, revert: true)
         field?.placeholder = placeholderText

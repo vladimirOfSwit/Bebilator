@@ -17,6 +17,7 @@ class PreviousScoresViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
     }
+    
     private func setupViews() {
         tableView.register(PreviousScoreCell.self, forCellReuseIdentifier: "PreviousScoreTableViewCell")
         previousScores = viewModel.getFormattedPreviousScores()
@@ -41,12 +42,12 @@ class PreviousScoresViewController: UIViewController {
             deleteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             deleteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
-        
         deleteButton.layer.shadowColor = UIColor.black.cgColor
         deleteButton.layer.shadowOffset = CGSize(width: 0, height: 4)
         deleteButton.layer.shadowOpacity = 0.3
         deleteButton.layer.shadowRadius = 4
     }
+    
     @objc func clearAllPreviousScores() {
         if !previousScores.isEmpty {
             let alert = UIAlertController(title: "Obaveštenje", message: "Prethodni rezultati su obrisani.", preferredStyle: .alert)
@@ -63,6 +64,7 @@ class PreviousScoresViewController: UIViewController {
         }
     }
 }
+
 extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         1
@@ -84,10 +86,12 @@ extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelega
         }
         return cell
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = ScoresHeaderView()
         return headerView
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return tableView.rowHeight
     }

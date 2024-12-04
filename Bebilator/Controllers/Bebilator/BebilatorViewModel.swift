@@ -20,6 +20,7 @@ class BebilatorViewModel {
         }
         return true
     }
+    
     private func compareDates(_ date: Date, _ textField: UITextField) -> Bool {
         let calendar = Calendar.current
         let todaysStartDate  = calendar.startOfDay(for: Date())

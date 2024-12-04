@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 struct BebilatorBrain {
     var finalResult = ""
     let calendar = Calendar.current
@@ -23,6 +22,7 @@ struct BebilatorBrain {
         scoreMale = getDaysSinceLastAgeChange(numberOfYears: 4, bday: mBdayAsDate, chosenDate: chosenDateAsDate)
         scoreFemale = getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBdayAsDate, chosenDate: chosenDateAsDate)
     }
+    
     mutating func calculateFinalResult() {
         if scoreMale < scoreFemale {
             finalResult = "boy"
@@ -30,6 +30,7 @@ struct BebilatorBrain {
             finalResult = "girl"
         }
     }
+    
     func getDaysSinceLastAgeChange(numberOfYears: Int, bday: Date, chosenDate: Date) -> Int {
         var currentDate = bday
         var lastChangeDate: Date?
@@ -42,10 +43,10 @@ struct BebilatorBrain {
             print("No valid date found")
             return 0
         }
-        
         let daysSinceChange = calendar.dateComponents([.day], from: lastChange, to: chosenDate).day ?? 0
         return daysSinceChange + 100
     }
+    
     func isEligible (date: String) -> Bool {
         guard let bDay = date.toDate() else { return false }
         guard let eighteenYearsAgoFromToday = calendar.date(byAdding: .year, value: -18, to: Date()) else {

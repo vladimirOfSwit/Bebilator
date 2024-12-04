@@ -17,6 +17,7 @@ class BebilendarResultViewController: UIViewController {
         super.viewWillAppear(animated)
         setupCarouselView()
     }
+    
     private func setupCarouselView() {
         let items = viewModel.switchingPeriods.map { period in
             CarouselItem(
@@ -32,7 +33,6 @@ class BebilendarResultViewController: UIViewController {
             carouselView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             carouselView.heightAnchor.constraint(equalToConstant: 300)
         ])
-        
         self.carouselView = carouselView
     }
 }

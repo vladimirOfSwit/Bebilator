@@ -8,7 +8,6 @@
 import UIKit
 
 class OnboardingViewModel {
-    
     init() {
         self.createSlides()
     }
@@ -44,7 +43,4 @@ class OnboardingViewModel {
     }
 }
 
-struct OnboardingSlide {
-    let description: String
-    let image: UIImage
-}
+

@@ -23,6 +23,7 @@ class BebilendarResultViewModel {
         
         return finalAttributedText
     }
+    
     func genderIcon (for gender: String) -> UIImage? {
         switch gender.lowercased() {
         case "boy":
@@ -33,6 +34,7 @@ class BebilendarResultViewModel {
             return nil
         }
     }
+    
     func styledContainerView(frame: CGRect) -> UIView {
         let view = UIView()
         view.backgroundColor = UIColor.systemGray5
@@ -43,6 +45,7 @@ class BebilendarResultViewModel {
         view.layer.shadowRadius = 4
         return view
     }
+    
     func attributedText(with imageName: String, text: String) -> NSAttributedString {
         let attachment = NSTextAttachment()
         attachment.image = UIImage(named: imageName)

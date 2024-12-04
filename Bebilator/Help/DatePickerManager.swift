@@ -26,9 +26,9 @@ class DatePickerManager: UIView {
         for textField in textFields {
             textField.inputAccessoryView = toolBar
             textField.inputView = datePicker
-        
         }
     }
+    
     func configureDatePicker(for textField: UITextField) {
         if textField.tag == 1 {
             datePicker.maximumDate = nil
@@ -39,6 +39,7 @@ class DatePickerManager: UIView {
             datePicker.minimumDate = Date()
         }
     }
+    
     @objc func donePressed() {
         let selectedDate = datePicker.date
         dateFormatter.dateStyle = .long

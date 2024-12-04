@@ -27,9 +27,7 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
-        print("Button pressed")
         loadingVC.modalPresentationStyle = .overFullScreen
-        
         loadingVC.onLoadingComplete = { [weak self] in
             guard let self = self else { return }
             
@@ -42,12 +40,12 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     }
     
     func presentBebilatorResultViewController() {
-        print("Presenting the BebilatorResultViewController")
         guard let mText = mTextfield.text, mTextfield.validateGenderTextfield(isEligible: { bebilatorBrain.isEligible(date: $0)}),
               let wText = wTextfield.text, wTextfield.validateGenderTextfield(isEligible: {bebilatorBrain.isEligible(date: $0)}),
               let nText = nTextfield.text, viewModel.validateDateNotInThePast(nText, textfield: nTextfield) else {
             return
         }
+        
         bebilatorBrain.getDifferenceInAging(m: mText, w: wText, dateToConcieve: nText)
         bebilatorBrain.calculateFinalResult()
         previousScoresViewModel.savePreviousScore(mText: mText, wText: wText, nText: nText, result: bebilatorBrain.finalResult)
@@ -65,6 +63,7 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
             previousScoreVC?.previousScores = previousScoresViewModel.getFormattedPreviousScores()
         }
     }
+    
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         mTextfield.text = ""
         wTextfield.text = ""
@@ -73,7 +72,6 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func previousScoresBtnPressed(_ sender: UIButton) {
         performSegue(withIdentifier: Constants.PREVIOUS_SCORES_VIEW_CONTROLLER_IDENTIFIER, sender: self)
-        print(previousScoresViewModel.getFormattedPreviousScores())
     }
     
     func setupUI() {
@@ -90,6 +88,7 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
             self?.handleDateSelection(selectedDate)
         }
     }
+    
     private func handleDateSelection(_ date: String) {
         if mTextfield.isFirstResponder {
             mTextfield.text = date

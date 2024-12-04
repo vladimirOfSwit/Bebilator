@@ -19,12 +19,12 @@ class BebilendarViewController: UIViewController {
     var bebilendarResultControllerModel = BebilendarResultViewModel()
     let datePickerManager = DatePickerManager()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         bindViewModel()
     }
+    
     func bindViewModel() {
         bebilendarViewControllerModel.onValidationFailed = { [weak self ] errorMessage in
             DispatchQueue.main.async {
@@ -54,23 +54,27 @@ class BebilendarViewController: UIViewController {
             }
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER {
             let destinationVC = segue.destination as? BebilendarResultViewController
             destinationVC?.viewModel.switchingPeriods = bebilendarViewControllerModel.switchingPeriods
         }
     }
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
     @IBAction func calculateSwitchingPeriodsButtonPressed(_ sender: UIButton) {
-        let success = bebilendarViewControllerModel.validateAndCalculateSwitchingPeriods(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text)
+        let success = bebilendarViewControllerModel.calculateSwitchingPeriods(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text)
         if success {
             print("Switching periods populated from calculateSwitchingPeriodsButtonPressed with: \(bebilendarViewControllerModel.switchingPeriods)")
         } else {
             print("Failed to populate the switching periods array.")
         }
     }
+    
     func setupUI() {
         mTextfield.addShadowAndRoundedCorners(color: Constants.colorMborder)
         wTextfield.addShadowAndRoundedCorners(color: Constants.colorWborder)
@@ -89,6 +93,7 @@ class BebilendarViewController: UIViewController {
             self?.handleDateSelection(selectedDate)
         }
     }
+    
     private func handleDateSelection(_ date: String) {
         if mTextfield.isFirstResponder {
             mTextfield.text = date
@@ -97,6 +102,7 @@ class BebilendarViewController: UIViewController {
         }
     }
 }
+
 extension BebilendarViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == futureLimitTextfield {
