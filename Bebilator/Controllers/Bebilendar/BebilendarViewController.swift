@@ -22,37 +22,6 @@ class BebilendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        bindViewModel()
-    }
-    
-    func bindViewModel() {
-        bebilendarViewControllerModel.onValidationFailed = { [weak self ] errorMessage in
-            DispatchQueue.main.async {
-                switch errorMessage {
-                case "mTextfield is empty.":
-                    self?.bebilendarViewControllerModel.showError(field: self?.mTextfield, placeholderText: "Polje ne može biti prazno.")
-                case "mText is not eligible.":
-                    self?.mTextfield.text = ""
-                    self?.bebilendarViewControllerModel.showError(field: self?.mTextfield, placeholderText: "Min. 18. godina")
-                case "wTextfield is empty.":
-                    self?.bebilendarViewControllerModel.showError(field: self?.wTextfield, placeholderText: "Polje ne može biti prazno")
-                case "wText is not eligible.":
-                    self?.mTextfield.text = ""
-                    self?.bebilendarViewControllerModel.showError(field: self?.wTextfield, placeholderText: "Min 18. godina")
-                case "Future limit is not valid.":
-                    self?.bebilendarViewControllerModel.showError(field: self?.futureLimitTextfield, placeholderText: "Polje mora biti broj.")
-                default:
-                    print("Error in binding.")
-                }
-            }
-        }
-        bebilendarViewControllerModel.onSwitchingPeriodUpdated = { [weak self] in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                self.bebilendarResultControllerModel.switchingPeriods = self.bebilendarViewControllerModel.switchingPeriods
-                self.performSegue(withIdentifier: Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER, sender: self)
-            }
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,11 +36,20 @@ class BebilendarViewController: UIViewController {
     }
     
     @IBAction func calculateSwitchingPeriodsButtonPressed(_ sender: UIButton) {
-        let success = bebilendarViewControllerModel.calculateSwitchingPeriods(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text)
-        if success {
-            print("Switching periods populated from calculateSwitchingPeriodsButtonPressed with: \(bebilendarViewControllerModel.switchingPeriods)")
+        if let parsedError = bebilendarViewControllerModel.getTheResultsForTheRequestedPeriod(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text) {
+            let textFieldWithError: UITextField?
+            
+            switch parsedError.field {
+            case .mTextfield:
+                textFieldWithError = mTextfield
+            case .wTextfield:
+                textFieldWithError = wTextfield
+            case .futureLimitTextfield:
+                textFieldWithError = futureLimitTextfield
+            }
+            showError(field: textFieldWithError, placeholderText: parsedError.text)
         } else {
-            print("Failed to populate the switching periods array.")
+            performSegue(withIdentifier: Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER, sender: self)
         }
     }
     
@@ -100,6 +78,11 @@ class BebilendarViewController: UIViewController {
         } else if wTextfield.isFirstResponder {
             wTextfield.text = date
         }
+    }
+    
+    func showError(field: UITextField?, placeholderText: String) {
+        field?.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 4, revert: true)
+        field?.placeholder = placeholderText
     }
 }
 

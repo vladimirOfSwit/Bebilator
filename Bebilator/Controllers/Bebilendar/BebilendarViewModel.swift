@@ -11,41 +11,39 @@ import UIKit
 class BebilendarViewModel {
     var switchingPeriods: [(year: Int, month: Int, day: Int, gender: String)] = []
     var bebilatorBrain = BebilatorBrain()
-    var onSwitchingPeriodUpdated: (() -> Void)?
-    var onValidationFailed: ((String) -> Void)?
-    
+    var bebilendarResultControllerModel = BebilendarResultViewModel()
     let calendar = Calendar.current
     
-    func calculateSwitchingPeriods(mBirthdateString: String?, wBirthdateString: String?, futureLimitString: String?) -> Bool {
+    enum FieldType {
+        case mTextfield, wTextfield, futureLimitTextfield
+    }
+    
+    func getTheResultsForTheRequestedPeriod(mBirthdateString: String?, wBirthdateString: String?, futureLimitString: String?) -> (field: FieldType, text: String)? {
         guard let mText = mBirthdateString, !mText.isEmpty else {
-            onValidationFailed?("mTextfield is empty.")
-            return false
+            return (.mTextfield, "Polje ne može biti prazno.")
         }
         guard bebilatorBrain.isEligible(date: mText) else {
-            onValidationFailed?("mText is not eligible.")
-            return false
+            return (.mTextfield, "Min. 18. godina")
         }
         guard let wText = wBirthdateString, !wText.isEmpty else {
-            onValidationFailed?("wTextfield is empty.")
-            return false
+            return (.wTextfield, "Polje ne može biti prazno.")
         }
         guard bebilatorBrain.isEligible(date: wText) else {
-            onValidationFailed?("wText is not eligible.")
-            return false
+            return (.wTextfield, "Min. 18. godina")
         }
         guard let futureLimitText = futureLimitString, !futureLimitText.isEmpty, let futureLimit = Int(futureLimitText) else {
-            onValidationFailed?("Future limit is not valid.")
-            return false
+            return (.futureLimitTextfield, "Polje mora biti broj")
         }
-        guard let mBirthdate = mText.toDate(), let wBirthdate = wText.toDate() else {
-            onValidationFailed?("Invalid date format.")
-            return false
+        guard let mBirthdate = mText.toDate() else {
+            return (.mTextfield, "Nevažeći format datuma.")
+        }
+        guard let wBirthdate = wText.toDate() else {
+            return (.wTextfield, "Nevažeći format datuma.")
         }
         
-        let results = calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate, futureLimit: futureLimit)
-        switchingPeriods = results
-        onSwitchingPeriodUpdated?()
-        return true
+        switchingPeriods = calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate, futureLimit: futureLimit)
+        
+        return nil
     }
     
     func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date, futureLimit: Int) -> [(year: Int, month: Int, day: Int, gender: String)] {
@@ -77,9 +75,5 @@ class BebilendarViewModel {
         }
         return switchingPeriods
     }
-    
-    func showError(field: UITextField?, placeholderText: String) {
-        field?.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 4, revert: true)
-        field?.placeholder = placeholderText
-    }
 }
+
