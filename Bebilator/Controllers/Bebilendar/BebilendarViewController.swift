@@ -36,9 +36,8 @@ class BebilendarViewController: UIViewController {
     }
     
     @IBAction func calculateSwitchingPeriodsButtonPressed(_ sender: UIButton) {
-        if let parsedError = bebilendarViewControllerModel.getTheResultsForTheRequestedPeriod(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text) {
+        if let parsedError = bebilendarViewControllerModel.validateInputValuesFrom(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text) {
             let textFieldWithError: UITextField?
-            
             switch parsedError.field {
             case .mTextfield:
                 textFieldWithError = mTextfield
@@ -49,6 +48,7 @@ class BebilendarViewController: UIViewController {
             }
             showError(field: textFieldWithError, placeholderText: parsedError.text)
         } else {
+            bebilendarViewControllerModel.getTheFinalResults()
             performSegue(withIdentifier: Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER, sender: self)
         }
     }
@@ -81,6 +81,7 @@ class BebilendarViewController: UIViewController {
     }
     
     func showError(field: UITextField?, placeholderText: String) {
+        field?.text = ""
         field?.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 4, revert: true)
         field?.placeholder = placeholderText
     }

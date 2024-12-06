@@ -13,40 +13,60 @@ class BebilendarViewModel {
     var bebilatorBrain = BebilatorBrain()
     var bebilendarResultControllerModel = BebilendarResultViewModel()
     let calendar = Calendar.current
+    var mBirthdate: Date?
+    var wBirthdate: Date?
+    var futureLimit: Int?
+    
+ 
     
     enum FieldType {
         case mTextfield, wTextfield, futureLimitTextfield
     }
     
-    func getTheResultsForTheRequestedPeriod(mBirthdateString: String?, wBirthdateString: String?, futureLimitString: String?) -> (field: FieldType, text: String)? {
-        guard let mText = mBirthdateString, !mText.isEmpty else {
+    func validateInputValuesFrom(mBirthdateString: String?, wBirthdateString: String?, futureLimitString: String?) -> (field: FieldType, text: String)? {
+        
+        func isEmpty(_ value: String?) -> Bool {
+            value?.isEmpty ?? true
+        }
+        
+        switch true {
+        case isEmpty(mBirthdateString):
             return (.mTextfield, "Polje ne može biti prazno.")
-        }
-        guard bebilatorBrain.isEligible(date: mText) else {
-            return (.mTextfield, "Min. 18. godina")
-        }
-        guard let wText = wBirthdateString, !wText.isEmpty else {
+        case !bebilatorBrain.isEligible(date: mBirthdateString ?? ""):
+            return (.mTextfield, "Min. 18. godina.")
+        case isEmpty(wBirthdateString):
             return (.wTextfield, "Polje ne može biti prazno.")
-        }
-        guard bebilatorBrain.isEligible(date: wText) else {
-            return (.wTextfield, "Min. 18. godina")
-        }
-        guard let futureLimitText = futureLimitString, !futureLimitText.isEmpty, let futureLimit = Int(futureLimitText) else {
+        case !bebilatorBrain.isEligible(date: wBirthdateString ?? ""):
+            return (.wTextfield, "Min. 18. godina.")
+        case isEmpty(futureLimitString), Int(futureLimitString ?? "") == nil:
             return (.futureLimitTextfield, "Polje mora biti broj")
-        }
-        guard let mBirthdate = mText.toDate() else {
+        case mBirthdateString?.toDate() == nil:
             return (.mTextfield, "Nevažeći format datuma.")
-        }
-        guard let wBirthdate = wText.toDate() else {
+        case wBirthdateString?.toDate() == nil:
             return (.wTextfield, "Nevažeći format datuma.")
+        default:
+            mBirthdate = mBirthdateString?.toDate()
+            wBirthdate = wBirthdateString?.toDate()
+            futureLimit = Int(futureLimitString ?? "")
+            
+            return nil
+        }
+    }
+    
+    func getTheFinalResults() {
+        
+        guard let mBirthdate = mBirthdate,
+              let wBirthdate = wBirthdate,
+              let futureLimit = futureLimit else {
+            print("Validation failed. Cannot calculate results.")
+            return
         }
         
         switchingPeriods = calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate, futureLimit: futureLimit)
-        
-        return nil
     }
     
     func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date, futureLimit: Int) -> [(year: Int, month: Int, day: Int, gender: String)] {
+        switchingPeriods = []
         let currentYear  = calendar.component(.year, from: Date())
         var lastGender = ""
         
