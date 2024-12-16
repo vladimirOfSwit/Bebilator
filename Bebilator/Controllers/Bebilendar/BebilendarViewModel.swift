@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+enum FieldIdentifier {
+    case mTextfield, wTextfield, futureLimitTextfield
+}
+
 class BebilendarViewModel {
     var switchingPeriods: [(year: Int, month: Int, day: Int, gender: String)] = []
     var bebilatorBrain = BebilatorBrain()
@@ -17,18 +21,10 @@ class BebilendarViewModel {
     var wBirthdate: Date?
     var futureLimit: Int?
     
- 
-    
-    enum FieldType {
-        case mTextfield, wTextfield, futureLimitTextfield
-    }
-    
-    func validateInputValuesFrom(mBirthdateString: String?, wBirthdateString: String?, futureLimitString: String?) -> (field: FieldType, text: String)? {
-        
+    func validateInputValuesFrom(mBirthdateString: String?, wBirthdateString: String?, futureLimitString: String?) -> (field: FieldIdentifier, errorText: String)? {
         func isEmpty(_ value: String?) -> Bool {
             value?.isEmpty ?? true
         }
-        
         switch true {
         case isEmpty(mBirthdateString):
             return (.mTextfield, "Polje ne može biti prazno.")
@@ -48,7 +44,6 @@ class BebilendarViewModel {
             mBirthdate = mBirthdateString?.toDate()
             wBirthdate = wBirthdateString?.toDate()
             futureLimit = Int(futureLimitString ?? "")
-            
             return nil
         }
     }

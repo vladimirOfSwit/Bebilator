@@ -36,20 +36,23 @@ class BebilendarViewController: UIViewController {
     }
     
     @IBAction func calculateSwitchingPeriodsButtonPressed(_ sender: UIButton) {
-        if let parsedError = bebilendarViewControllerModel.validateInputValuesFrom(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text) {
-            let textFieldWithError: UITextField?
-            switch parsedError.field {
-            case .mTextfield:
-                textFieldWithError = mTextfield
-            case .wTextfield:
-                textFieldWithError = wTextfield
-            case .futureLimitTextfield:
-                textFieldWithError = futureLimitTextfield
-            }
-            showError(field: textFieldWithError, placeholderText: parsedError.text)
-        } else {
+        if let validationError = bebilendarViewControllerModel.validateInputValuesFrom(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text) {
+            let errorField = determineTextField(for: validationError.field)
+            showError(field: errorField, placeholderText: validationError.errorText)
+    } else {
             bebilendarViewControllerModel.getTheFinalResults()
             performSegue(withIdentifier: Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER, sender: self)
+        }
+    }
+    
+    func determineTextField(for field: FieldIdentifier) -> UITextField? {
+        switch field {
+        case .mTextfield:
+            return mTextfield
+        case .wTextfield:
+            return wTextfield
+        case .futureLimitTextfield:
+            return futureLimitTextfield
         }
     }
     
