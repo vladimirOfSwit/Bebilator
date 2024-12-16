@@ -13,7 +13,7 @@ enum FieldIdentifier {
 }
 
 class BebilendarViewModel {
-    var switchingPeriods: [(year: Int, month: Int, day: Int, gender: String)] = []
+    var switchingPeriods: [(year: Int, month: String, day: Int, gender: String)] = []
     var bebilatorBrain = BebilatorBrain()
     var bebilendarResultControllerModel = BebilendarResultViewModel()
     let calendar = Calendar.current
@@ -48,7 +48,7 @@ class BebilendarViewModel {
         }
     }
     
-    func getTheFinalResults() {
+    func getTheFinalResult() {
         
         guard let mBirthdate = mBirthdate,
               let wBirthdate = wBirthdate,
@@ -60,16 +60,18 @@ class BebilendarViewModel {
         switchingPeriods = calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate, futureLimit: futureLimit)
     }
     
-    func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date, futureLimit: Int) -> [(year: Int, month: Int, day: Int, gender: String)] {
+    func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date, futureLimit: Int) -> [(year: Int, month: String, day: Int, gender: String)] {
         switchingPeriods = []
         let currentYear  = calendar.component(.year, from: Date())
+        let monthsInSerbian: [String: Int] = [
+            "Januar": 1, "Februar": 2, "Mart": 3, "April": 4, "Maj": 5, "Jun": 6, "Jul": 7, "Avgust": 8, "Septembar": 9, "Oktobar": 10, "Novembar": 11, "Decembar": 12]
         var lastGender = ""
         
         for year in currentYear...(currentYear + futureLimit) {
-            for month in 1...12 {
+            for (monthName, monthNumber) in monthsInSerbian {
                 var dateComponents = DateComponents()
                 dateComponents.year = year
-                dateComponents.month = month
+                dateComponents.month = monthNumber
                 
                 if let monthDate = Calendar.current.date(from: dateComponents), let range = Calendar.current.range(of: .day, in: .month, for: monthDate) {
                     for day in range {
@@ -81,7 +83,7 @@ class BebilendarViewModel {
                         let currentGender = maleScore < femaleScore ? "boy" : "girl"
                         
                         if currentGender != lastGender {
-                            switchingPeriods.append((year, month, day, currentGender))
+                            switchingPeriods.append((year, monthName, day, currentGender))
                             lastGender = currentGender
                         }
                     }

@@ -9,9 +9,9 @@
 import UIKit
 
 class BebilendarResultViewModel {
-    var switchingPeriods: [(year: Int, month: Int, day: Int, gender: String)] = []
+    var switchingPeriods: [(year: Int, month: String, day: Int, gender: String)] = []
     
-    func formattedText(for period: (year: Int, month: Int, day: Int, gender: String)) -> NSAttributedString {
+    func formattedText(for period: (year: Int, month: String, day: Int, gender: String)) -> NSAttributedString {
         let yearAttributedText = attributedText(with: "yearIcon", text: "\(period.year)")
         let monthAttributedText = attributedText(with: "monthIcon", text: "\(period.month)")
         let dayAttributedText = attributedText(with: "dayIcon", text: "\(period.day)")

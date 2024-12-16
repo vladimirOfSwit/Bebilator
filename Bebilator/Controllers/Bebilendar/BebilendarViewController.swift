@@ -40,7 +40,7 @@ class BebilendarViewController: UIViewController {
             let errorField = determineTextField(for: validationError.field)
             showError(field: errorField, placeholderText: validationError.errorText)
     } else {
-            bebilendarViewControllerModel.getTheFinalResults()
+            bebilendarViewControllerModel.getTheFinalResult()
             performSegue(withIdentifier: Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER, sender: self)
         }
     }
