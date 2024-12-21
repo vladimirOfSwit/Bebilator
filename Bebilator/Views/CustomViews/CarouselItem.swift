@@ -8,6 +8,8 @@
 import UIKit
 
 struct CarouselItem {
-    let image: UIImage?
-    let attributedText: NSAttributedString
+    let year: Int
+    let day: Int
+    let month: String
+    let gender: String
 }

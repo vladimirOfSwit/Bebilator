@@ -8,9 +8,10 @@
 import UIKit
 import iCarousel
 
-class CarouselView: UIView, iCarouselDataSource {
+class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
     private let carousel: iCarousel
     private var items: [CarouselItem]
+    private var toolTip: Tooltip?
     
     init(frame: CGRect, items: [CarouselItem]) {
         self.carousel = iCarousel()
@@ -31,6 +32,7 @@ class CarouselView: UIView, iCarouselDataSource {
     private func setupCarousel() {
         carousel.type = .coverFlow
         carousel.dataSource = self
+        carousel.delegate = self
         
         carousel.isPagingEnabled = true
         carousel.bounceDistance = 0.5
@@ -41,13 +43,22 @@ class CarouselView: UIView, iCarouselDataSource {
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width * 0.8, height: 300))
-        containerView.backgroundColor = .white
-        containerView.cornerRadius = 10
-        containerView.layer.shadowColor = UIColor.black.cgColor
+        setupCarouselView(indexOfTheCarousel: index)
+    }
+    
+    func setupCarouselView(indexOfTheCarousel: Int) -> UIView {
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 237.3, height: 281))
+        let period = items[indexOfTheCarousel]
+        
+        containerView.layer.cornerRadius = 20
+        containerView.layer.masksToBounds = true
+        containerView.layer.borderWidth = 2
+        containerView.layer.borderColor = period.gender.lowercased() == "boy" ? UIColor.systemBlue.cgColor : UIColor.systemPink.cgColor
+
         containerView.layer.shadowOpacity = 0.1
-        containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        containerView.layer.shadowRadius = 4
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        containerView.layer.shadowRadius = 5
+
         
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -57,25 +68,91 @@ class CarouselView: UIView, iCarouselDataSource {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-            stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
-            stackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
-            stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10)
+                stackView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+                stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+                stackView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.8)
         ])
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = items[index].image
-        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        stackView.addArrangedSubview(imageView)
         
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.font = UIFont(name: "SF Pro Medium", size: 14)
-        label.attributedText = items[index].attributedText
-        label.textColor = .black
-        stackView.addArrangedSubview(label)
+        // Gender Icon (Pink/Blue baby icon)
+        let genderImageView = UIImageView()
+        genderImageView.contentMode = .scaleAspectFit
+        genderImageView.image = period.gender.lowercased() == "boy"
+        ? UIImage(named: "blueBabyIcon"): UIImage(named: "pinkBabyIcon")
+        genderImageView.translatesAutoresizingMaskIntoConstraints = false
+        genderImageView.widthAnchor.constraint(equalToConstant: 123).isActive = true
+        genderImageView.heightAnchor.constraint(equalToConstant: 94).isActive = true
+        
+        stackView.addArrangedSubview(genderImageView)
+        
+        // Change background color based on gender
+        containerView.backgroundColor = period.gender.lowercased() == "boy" ? UIColor.systemBlue.withAlphaComponent(0.1) : UIColor.systemPink.withAlphaComponent(0.1)
+        
+        // Year label
+        let yearLabel = UILabel()
+        yearLabel.text = "\(period.year)"
+        yearLabel.font = UIFont(name: "Avenir Next-Bold", size: 22)
+        yearLabel.textColor = period.gender.lowercased() == "boy" ? .systemBlue: .systemPink
+        yearLabel.textAlignment = .center
+        stackView.addArrangedSubview(yearLabel)
+        
+        // Calendar icon
+        let calendarImageView = UIImageView()
+        calendarImageView.contentMode = .scaleAspectFit
+        calendarImageView.image = period.gender.lowercased() == "boy" ? UIImage(named: "blueCalendar"): UIImage(named: "pinkCalendar")
+        calendarImageView.heightAnchor.constraint(equalToConstant: 46).isActive = true
+        stackView.addArrangedSubview(calendarImageView)
+        
+        // Day label
+        let dayLabel = UILabel()
+        dayLabel.text = "\(period.day)"
+        dayLabel.font = UIFont(name: "Avenir Next-Bold", size: 20)
+        dayLabel.textColor = period.gender.lowercased() == "boy" ? .systemBlue : .systemPink
+        dayLabel.textAlignment = .center
+        stackView.addArrangedSubview(dayLabel)
+        
+        // Month label
+        let monthLabel = UILabel()
+        monthLabel.text = "\(period.month)"
+        monthLabel.font = UIFont(name: "Avenir Next-Bold", size: 20)
+        monthLabel.textColor = period.gender.lowercased() == "boy" ? .systemBlue : .systemPink
+        monthLabel.textAlignment = .center
+        stackView.addArrangedSubview(monthLabel)
+        
+        // Info button
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.tintColor = period.gender.lowercased() == "boy" ? .systemBlue : .systemPink
+        containerView.addSubview(infoButton)
+        
+        infoButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            infoButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            infoButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10)
+        ])
+        infoButton.tag = indexOfTheCarousel
+        
+        infoButton.addTarget(self, action: #selector(infoButtonTapped(_:)), for: .touchUpInside)
         
         return containerView
+    }
+    
+    @objc func infoButtonTapped(_ sender: UIButton) {
+        toolTip?.removeFromSuperview()
+        
+        let index = sender.tag
+        
+        let period = items[index]
+        toolTip = Tooltip(text: "Test test test test test test", gender: period.gender)
+        
+        if let toolTip = toolTip {
+            addSubview(toolTip)
+            toolTip.translatesAutoresizingMaskIntoConstraints = false
+            
+            if let itemView = carousel.itemView(at: index) {
+                NSLayoutConstraint.activate([
+                    toolTip.bottomAnchor.constraint(equalTo: itemView.topAnchor, constant: -10),
+                    toolTip.centerXAnchor.constraint(equalTo: itemView.centerXAnchor)
+                ])
+            }
+        }
     }
 }

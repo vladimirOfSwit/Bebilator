@@ -20,9 +20,12 @@ class BebilendarResultViewController: UIViewController {
     
     private func setupCarouselView() {
         let items = viewModel.switchingPeriods.map { period in
-            CarouselItem(
-                image: period.gender.lowercased() == "boy" ? UIImage(named: "blueBabyIcon") : UIImage(named: "pinkBabyIcon"),
-                attributedText: viewModel.formattedText(for: period))
+            let imageName = period.gender.lowercased() == "boy" ? "blueBabyIcon" : "pinkBabyIcon"
+            let image = UIImage(named: imageName)
+            image?.accessibilityIdentifier = imageName
+            
+            return CarouselItem(year: period.year, day: period.day, month: period.month, gender: period.gender)
+            
         }
         let carouselView = CarouselView(frame: .zero, items: items)
         carouselView.translatesAutoresizingMaskIntoConstraints = false

@@ -36,6 +36,7 @@
 		8596FE392A695DE40050E574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8596FE372A695DE40050E574 /* LaunchScreen.storyboard */; };
 		85A265472B18E46400A6676C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A265462B18E46400A6676C /* Constants.swift */; };
 		85A265492B18E72E00A6676C /* BebilatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A265482B18E72E00A6676C /* BebilatorBrain.swift */; };
+		85AFC1262D15C7E300F7B6E2 /* Tooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFC1252D15C7E300F7B6E2 /* Tooltip.swift */; };
 		85B6FBDB2BAC91EC00F5CE06 /* boy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85B6FBD92BAC91EB00F5CE06 /* boy.gif */; };
 		85B6FBDC2BAC91EC00F5CE06 /* girl.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85B6FBDA2BAC91EC00F5CE06 /* girl.gif */; };
 		85C571BB2B83578C009C8944 /* SFUIText-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571A42B835783009C8944 /* SFUIText-Heavy.otf */; };
@@ -86,6 +87,7 @@
 		8596FE382A695DE40050E574 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85A265462B18E46400A6676C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		85A265482B18E72E00A6676C /* BebilatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilatorBrain.swift; sourceTree = "<group>"; };
+		85AFC1252D15C7E300F7B6E2 /* Tooltip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tooltip.swift; sourceTree = "<group>"; };
 		85B6FBD92BAC91EB00F5CE06 /* boy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = boy.gif; sourceTree = "<group>"; };
 		85B6FBDA2BAC91EC00F5CE06 /* girl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = girl.gif; sourceTree = "<group>"; };
 		85C571A42B835783009C8944 /* SFUIText-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Heavy.otf"; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				852AEF6A2C78A8D90050AF11 /* GradientButton.swift */,
 				85F3B3032CDCF00D00F81B65 /* CarouselView.swift */,
 				85F3B3052CDCF47400F81B65 /* CarouselItem.swift */,
+				85AFC1252D15C7E300F7B6E2 /* Tooltip.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				8535E81C2CDA47C7005668F6 /* BebilendarResultViewModel.swift in Sources */,
 				851F2FEA2CCA482000250212 /* BebilatorViewModel.swift in Sources */,
 				85F3B3092CDE775800F81B65 /* LoadingViewController.swift in Sources */,
+				85AFC1262D15C7E300F7B6E2 /* Tooltip.swift in Sources */,
 				8535E8162CD92B89005668F6 /* BebilendarResultViewController.swift in Sources */,
 				8578FE292CD0CB2E002D8100 /* PreviousScoreCell.swift in Sources */,
 				851F2FF42CCA5C8500250212 /* PreviousScore.swift in Sources */,
