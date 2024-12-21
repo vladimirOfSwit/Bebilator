@@ -23,10 +23,18 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         carousel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         carousel.frame = bounds
         carousel.reloadData()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleOutsideTap(_ :)))
+        addGestureRecognizer(tapGesture)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func handleOutsideTap(_ gesture: UITapGestureRecognizer) {
+        toolTip?.removeFromSuperview()
+        toolTip = nil
     }
     
     private func setupCarousel() {
@@ -154,5 +162,10 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
                 ])
             }
         }
+    }
+    
+    func carouselDidEndScrollingAnimation(_ carousel: iCarousel) {
+        toolTip?.removeFromSuperview()
+        toolTip = nil
     }
 }
