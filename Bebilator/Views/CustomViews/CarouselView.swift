@@ -32,11 +32,6 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func handleOutsideTap(_ gesture: UITapGestureRecognizer) {
-        toolTip?.removeFromSuperview()
-        toolTip = nil
-    }
-    
     private func setupCarousel() {
         carousel.type = .coverFlow
         carousel.dataSource = self
@@ -44,6 +39,11 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         
         carousel.isPagingEnabled = true
         carousel.bounceDistance = 0.5
+    }
+    
+    @objc func handleOutsideTap(_ gesture: UITapGestureRecognizer) {
+        toolTip?.removeFromSuperview()
+        toolTip = nil
     }
     
     func numberOfItems(in carousel: iCarousel) -> Int {
@@ -62,11 +62,11 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         containerView.layer.masksToBounds = true
         containerView.layer.borderWidth = 2
         containerView.layer.borderColor = period.gender.lowercased() == "boy" ? UIColor.systemBlue.cgColor : UIColor.systemPink.cgColor
-
+        
         containerView.layer.shadowOpacity = 0.1
         containerView.layer.shadowOffset = CGSize(width: 0, height: 4)
         containerView.layer.shadowRadius = 5
-
+        
         
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -76,16 +76,15 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-                stackView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-                stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-                stackView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.8)
+            stackView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            stackView.widthAnchor.constraint(equalTo: containerView.widthAnchor, constant: 0.8)
         ])
         
         // Gender Icon (Pink/Blue baby icon)
         let genderImageView = UIImageView()
         genderImageView.contentMode = .scaleAspectFit
-        genderImageView.image = period.gender.lowercased() == "boy"
-        ? UIImage(named: "blueBabyIcon"): UIImage(named: "pinkBabyIcon")
+        genderImageView.image = period.gender.lowercased() == "boy" ? UIImage(named: "blueBabyIcon"): UIImage(named: "pinkBabyIcon")
         genderImageView.translatesAutoresizingMaskIntoConstraints = false
         genderImageView.widthAnchor.constraint(equalToConstant: 123).isActive = true
         genderImageView.heightAnchor.constraint(equalToConstant: 94).isActive = true
@@ -144,23 +143,28 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
     }
     
     @objc func infoButtonTapped(_ sender: UIButton) {
-        toolTip?.removeFromSuperview()
+        if toolTip != nil {
+            toolTip?.removeFromSuperview()
+            toolTip = nil
+            return
+        }
+       
         
         let index = sender.tag
-        
         let period = items[index]
-        toolTip = Tooltip(text: "Test test test test test test", gender: period.gender)
+        toolTip = Tooltip(text: "U Bebilendar karticama ispod vidite procenu u kojoj godini, mesecu i danu dolazi do promene. Srećno!", gender: period.gender)
         
-        if let toolTip = toolTip {
-            addSubview(toolTip)
+        guard let toolTip = toolTip else { return }
+        
+        if let parentView = self.superview {
+            parentView.addSubview(toolTip)
             toolTip.translatesAutoresizingMaskIntoConstraints = false
-            
-            if let itemView = carousel.itemView(at: index) {
-                NSLayoutConstraint.activate([
-                    toolTip.bottomAnchor.constraint(equalTo: itemView.topAnchor, constant: -10),
-                    toolTip.centerXAnchor.constraint(equalTo: itemView.centerXAnchor)
-                ])
-            }
+            NSLayoutConstraint.activate([
+                toolTip.bottomAnchor.constraint(equalTo: sender.topAnchor, constant: -10), // Above the button
+                toolTip.centerXAnchor.constraint(equalTo: sender.centerXAnchor),          // Align horizontally with the button
+                toolTip.leadingAnchor.constraint(greaterThanOrEqualTo: parentView.leadingAnchor, constant: 10), // Ensure tooltip doesn't overflow left
+                toolTip.trailingAnchor.constraint(lessThanOrEqualTo: parentView.trailingAnchor, constant: -10)  // Ensure tooltip doesn't overflow right
+            ])
         }
     }
     

@@ -39,10 +39,35 @@ class BebilendarViewController: UIViewController {
         if let validationError = bebilendarViewControllerModel.validateInputValuesFrom(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text) {
             let errorField = determineTextField(for: validationError.field)
             showError(field: errorField, placeholderText: validationError.errorText)
-    } else {
-            bebilendarViewControllerModel.getTheFinalResult()
-            performSegue(withIdentifier: Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER, sender: self)
+        } else {
+            let remainingTries = TryManager.shared.maxTries + TryManager.shared.purchasedTries - TryManager.shared.counter
+            infoLbl.text = "Preostali broj pogadjanja je \(String(remainingTries))"
+            
+            if remainingTries > 0 {
+                TryManager.shared.counter += 1
+                bebilendarViewControllerModel.getTheFinalResult()
+                performSegue(withIdentifier: Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER, sender: self)
+            } else {
+                disableInputFields()
+                showAlert(
+                    title: "Nemate više pokušaja",
+                    message: "Iskoristili ste maksimalni broj pokušaja"
+                )
+            }
         }
+    }
+    
+    func disableInputFields() {
+        [mTextfield, wTextfield, futureLimitTextfield].forEach {
+            $0?.isUserInteractionEnabled = false
+            $0?.backgroundColor = UIColor.lightGray
+        }
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true)
     }
     
     func determineTextField(for field: FieldIdentifier) -> UITextField? {
@@ -60,6 +85,10 @@ class BebilendarViewController: UIViewController {
         mTextfield.addShadowAndRoundedCorners(color: Constants.colorMborder)
         wTextfield.addShadowAndRoundedCorners(color: Constants.colorWborder)
         futureLimitTextfield.addShadowAndRoundedCorners(color: Constants.colorNBorder)
+        
+        mTextfield.text = "24.12.1997"
+        wTextfield.text = "26.04.1995"
+        futureLimitTextfield.text = "15"
         
         futureLimitTextfield.delegate = self
         
