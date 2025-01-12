@@ -48,7 +48,11 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
         
         bebilatorBrain.getDifferenceInAging(m: mText, w: wText, dateToConcieve: nText)
         bebilatorBrain.calculateFinalResult()
-        previousScoresViewModel.savePreviousScore(mText: mText, wText: wText, nText: nText, result: bebilatorBrain.finalResult)
+        if let gender = Gender(rawValue: bebilatorBrain.finalResult.lowercased()) {
+            previousScoresViewModel.savePreviousScore(mText: mText, wText: wText, nText: nText, gender: gender)
+        } else {
+            print("Error: Invalid gender value '\(bebilatorBrain.finalResult)'")
+        }
         
         performSegue(withIdentifier: Constants.BEBILATOR_RESULTS_VIEW_CONTROLLER, sender: self)
     }

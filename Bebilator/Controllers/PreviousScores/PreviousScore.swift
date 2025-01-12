@@ -7,10 +7,15 @@
 
 import Foundation
 
+enum Gender: String, Codable {
+    case boy
+    case girl
+}
+
 struct PreviousScore: Codable {
     let mText: String
     let wText: String
     let nText: String
-    let result: String
+    let gender: Gender
     let date: Date
 }

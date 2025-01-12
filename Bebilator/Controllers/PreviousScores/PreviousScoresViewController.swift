@@ -10,7 +10,7 @@ import UIKit
 class PreviousScoresViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let viewModel = PreviousScoresViewModel()
-    var previousScores: [(mText: String, wText: String, nText: String, result: String)] = []
+    var previousScores: [PreviousScore] = []
     let headerView = ScoresHeaderView()
     
     override func viewDidLoad() {
@@ -49,14 +49,27 @@ class PreviousScoresViewController: UIViewController {
     }
     
     @objc func clearAllPreviousScores() {
+        print("clear all button")
         if !previousScores.isEmpty {
-            let alert = UIAlertController(title: "Obaveštenje", message: "Prethodni rezultati su obrisani.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-            
-            viewModel.clearPreviousScores()
-            previousScores = viewModel.getFormattedPreviousScores()
-            tableView.reloadData()
+            let confirmationAlert = UIAlertController(
+                title: "Potvrda",
+                message: "Da li ste sigurni da želite da obrišete prethodne rezultate?",
+                preferredStyle: .alert)
+            confirmationAlert.addAction(UIAlertAction(title: "Otkaži", style: .cancel, handler: nil))
+            confirmationAlert.addAction(UIAlertAction(title: "Obriši", style: .destructive, handler: { _ in
+                self.viewModel.clearPreviousScores()
+                self.previousScores = self.viewModel.getFormattedPreviousScores()
+                self.tableView.reloadData()
+                
+                let successAlert = UIAlertController(
+                    title: "Obaveštenje",
+                    message: "Prethodni rezultati su obrisani.",
+                    preferredStyle: .alert
+                )
+                successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(successAlert, animated: true, completion: nil)
+            }))
+            present(confirmationAlert, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Obaveštenje", message: "Rezultati su već obrisani.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -77,7 +90,10 @@ extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelega
             return UITableViewCell()
         }
         let score = previousScores[indexPath.row]
-        cell.configure(with: score.mText, wText: score.wText, gender: score.result, nText: score.nText)
+        cell.configure(with: score.mText,
+                       wText: score.wText,
+                       gender: score.gender,
+                       nText: score.nText)
         cell.isUserInteractionEnabled = false
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor(hex: "#FFFFFF#")

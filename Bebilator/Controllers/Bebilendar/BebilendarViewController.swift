@@ -14,14 +14,29 @@ class BebilendarViewController: UIViewController {
     @IBOutlet weak var mTextfield: UITextField!
     @IBOutlet weak var wTextfield: UITextField!
     @IBOutlet weak var futureLimitTextfield: UITextField!
-    
+    @IBOutlet weak var calculateButton: GradientButton!
     var bebilendarViewControllerModel = BebilendarViewModel()
     var bebilendarResultControllerModel = BebilendarResultViewModel()
     let datePickerManager = DatePickerManager()
+    private var remainingTries: Int {
+        TryManager.shared.remainingTries
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        updateUIForRemainingTries()
+    }
+    
+    func resetInputFields() {
+        [mTextfield, wTextfield, futureLimitTextfield].forEach {
+            $0?.isUserInteractionEnabled = true
+            $0?.backgroundColor = .white
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,24 +51,52 @@ class BebilendarViewController: UIViewController {
     }
     
     @IBAction func calculateSwitchingPeriodsButtonPressed(_ sender: UIButton) {
+        if calculateButton.title(for: .normal) == "Poslednji rezultat" {
+            performSegue(withIdentifier: Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER, sender: nil)
+            return
+        }
+        
         if let validationError = bebilendarViewControllerModel.validateInputValuesFrom(mBirthdateString: mTextfield.text, wBirthdateString: wTextfield.text, futureLimitString: futureLimitTextfield.text) {
             let errorField = determineTextField(for: validationError.field)
             showError(field: errorField, placeholderText: validationError.errorText)
         } else {
-            let remainingTries = TryManager.shared.maxTries + TryManager.shared.purchasedTries - TryManager.shared.counter
-            infoLbl.text = "Preostali broj pogadjanja je \(String(remainingTries))"
+            
+            infoLbl.text = "Preostali broj tokena je \(String(remainingTries))"
             
             if remainingTries > 0 {
                 TryManager.shared.counter += 1
                 bebilendarViewControllerModel.getTheFinalResult()
                 performSegue(withIdentifier: Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER, sender: self)
             } else {
+                calculateButton.setTitle("Poslednji rezultat", for: .normal)
                 disableInputFields()
                 showAlert(
-                    title: "Nemate više pokušaja",
-                    message: "Iskoristili ste maksimalni broj pokušaja"
+                    title: "Obaveštenje",
+                    message: "Iskoristili ste maksimalni broj pokušaja. Molimo dokupite tokene.",
+                    actionTitle: "Kupi tokene",
+                    actionHandler: {self.navigateToPurchaseScreen() }
                 )
             }
+        }
+    }
+    
+    func navigateToPurchaseScreen() {
+        TryManager.shared.purchasedTries += 3
+        updateUIForRemainingTries()
+    }
+    
+    func updateUIForRemainingTries() {
+        print("Counter: \(TryManager.shared.counter)")
+        print("Purchased Tries: \(TryManager.shared.purchasedTries)")
+        print("Remaining Tries: \(TryManager.shared.remainingTries)")
+        infoLbl.text = "Preostali broj tokena je \(String(TryManager.shared.remainingTries))"
+        
+        if remainingTries > 0 {
+            resetInputFields()
+            calculateButton.setTitle("IZRAČUNAJ", for: .normal)
+        } else {
+            calculateButton.setTitle("POSLEDNJI REZULTAT", for: .normal)
+            disableInputFields()
         }
     }
     
@@ -64,10 +107,18 @@ class BebilendarViewController: UIViewController {
         }
     }
     
-    func showAlert(title: String, message: String) {
+    func showAlert(title: String, message: String, actionTitle: String, actionHandler: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true)
+        
+        let action = UIAlertAction(title: actionTitle, style: .default) { _ in
+            actionHandler?()
+        }
+        alert.addAction(action)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        
+        if let topViewController = UIApplication.shared.topMostViewController() {
+            topViewController.present(alert, animated: true)
+        }
     }
     
     func determineTextField(for field: FieldIdentifier) -> UITextField? {
@@ -82,6 +133,7 @@ class BebilendarViewController: UIViewController {
     }
     
     func setupUI() {
+        
         mTextfield.addShadowAndRoundedCorners(color: Constants.colorMborder)
         wTextfield.addShadowAndRoundedCorners(color: Constants.colorWborder)
         futureLimitTextfield.addShadowAndRoundedCorners(color: Constants.colorNBorder)

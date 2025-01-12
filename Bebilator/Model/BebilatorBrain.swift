@@ -20,7 +20,9 @@ struct BebilatorBrain {
         guard let chosenDateAsDate = dateToConcieve.toDate() else { return }
         
         scoreMale = getDaysSinceLastAgeChange(numberOfYears: 4, bday: mBdayAsDate, chosenDate: chosenDateAsDate)
+        print(scoreMale)
         scoreFemale = getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBdayAsDate, chosenDate: chosenDateAsDate)
+        print(scoreFemale)
     }
     
     mutating func calculateFinalResult() {

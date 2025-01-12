@@ -68,16 +68,18 @@ class PreviousScoreCell: UITableViewCell {
         ])
     }
     
-    func configure(with mText: String, wText: String, gender: String, nText: String) {
+    func configure(with mText: String, wText: String, gender: Gender, nText: String) {
         mTextLabel.text = mText
         wTextLabel.text = wText
         nTextLabel.text = nText
         mTextLabel.textColor = UIColor(hex: "#6B92E5")
         wTextLabel.textColor = UIColor(hex: "#F88AB0")
         nTextLabel.textColor = UIColor(hex: "#7B81BE")
-        if gender.lowercased() == "boy" {
+      
+        switch gender {
+        case .boy:
             genderIcon.image = UIImage(named: "blueBabyIcon")
-        } else if gender.lowercased() == "girl" {
+        case .girl:
             genderIcon.image = UIImage(named: "pinkBabyIcon")
         }
     }

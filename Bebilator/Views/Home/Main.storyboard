@@ -593,6 +593,7 @@ Phasellus et aliquam dolor.</string>
                         <barButtonItem key="backBarButtonItem" title="Bebilendar" id="mUp-7Y-P6V"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="calculateButton" destination="ErN-lu-ZUS" id="kdg-Pa-10z"/>
                         <outlet property="futureLimitTextfield" destination="xuF-wX-DRR" id="o8J-7r-DOM"/>
                         <outlet property="infoLbl" destination="wsb-oJ-ew6" id="glc-uL-bg9"/>
                         <outlet property="mTextfield" destination="uEl-Mm-au7" id="aBF-Lf-6HD"/>
@@ -650,7 +651,7 @@ Phasellus et aliquam dolor.</string>
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
