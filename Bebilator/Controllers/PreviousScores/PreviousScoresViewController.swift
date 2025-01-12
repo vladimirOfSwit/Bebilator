@@ -90,17 +90,9 @@ extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelega
             return UITableViewCell()
         }
         let score = previousScores[indexPath.row]
-        cell.configure(with: score.mText,
-                       wText: score.wText,
-                       gender: score.gender,
-                       nText: score.nText)
-        cell.isUserInteractionEnabled = false
-        if indexPath.row % 2 == 0 {
-            cell.backgroundColor = UIColor(hex: "#FFFFFF#")
-        } else {
-            cell.backgroundColor = UIColor(hex: "#F6F5F0")
-        }
-        return cell
+        let color = indexPath.row % 2 == 0 ? UIColor(hex: "#FFFFFF#") : UIColor(hex: "#F6F5F0")
+        cell.configure(with: score, backgroundColor: color ?? .black)
+       return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
