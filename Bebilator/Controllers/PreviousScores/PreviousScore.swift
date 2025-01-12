@@ -13,9 +13,9 @@ enum Gender: String, Codable {
 }
 
 struct PreviousScore: Codable {
-    let mText: String
-    let wText: String
-    let nText: String
+    let mTextfieldValue: String
+    let wTextfieldValue: String
+    let nTextfieldValue: String
     let gender: Gender
     let date: Date
 }

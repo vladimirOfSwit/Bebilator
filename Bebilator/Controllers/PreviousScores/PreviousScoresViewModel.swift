@@ -11,7 +11,7 @@ class PreviousScoresViewModel {
     private let userDefaultsKey = "previousScores"
     
     func savePreviousScore(mText: String, wText: String, nText: String, gender: Gender) {
-        let score = PreviousScore(mText: mText, wText: wText, nText: nText, gender: gender, date: Date())
+        let score = PreviousScore(mTextfieldValue: mText, wTextfieldValue: wText, nTextfieldValue: nText, gender: gender, date: Date())
         var previousScores = getPreviousScores()
         previousScores.append(score)
         

@@ -69,9 +69,9 @@ class PreviousScoreCell: UITableViewCell {
     }
     
     func configure(with score: PreviousScore, backgroundColor: UIColor) {
-        mTextLabel.text = score.mText
-        wTextLabel.text = score.wText
-        nTextLabel.text = score.nText
+        mTextLabel.text = score.mTextfieldValue
+        wTextLabel.text = score.wTextfieldValue
+        nTextLabel.text = score.nTextfieldValue
         mTextLabel.textColor = UIColor(hex: "#6B92E5")
         wTextLabel.textColor = UIColor(hex: "#F88AB0")
         nTextLabel.textColor = UIColor(hex: "#7B81BE")
