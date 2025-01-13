@@ -12,10 +12,10 @@ class PreviousScoresViewModel {
     
     func savePreviousScore(mText: String, wText: String, nText: String, gender: Gender) {
         let score = PreviousScore(mTextfieldValue: mText, wTextfieldValue: wText, nTextfieldValue: nText, gender: gender, date: Date())
-        var previousScores = getPreviousScores()
-        previousScores.append(score)
+        var allScores = getPreviousScores()
+        allScores.append(score)
         
-        if let encodedData = try? JSONEncoder().encode(previousScores) {
+        if let encodedData = try? JSONEncoder().encode(allScores) {
             UserDefaults.standard.setValue(encodedData, forKey: userDefaultsKey)
         }
     }
