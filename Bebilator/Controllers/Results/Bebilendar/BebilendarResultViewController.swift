@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class BebilendarResultViewController: UIViewController {
-    var switchingPeriods: [(year: Int, month: Int, day: Int, gender: String)] = []
+    var switchingPeriods: [SwitchingPeriod] = []
     var viewModel = BebilendarResultViewModel()
     private var carouselView: CarouselView?
     

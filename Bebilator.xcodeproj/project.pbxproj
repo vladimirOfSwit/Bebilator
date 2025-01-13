@@ -50,6 +50,7 @@
 		85C571C62B83578C009C8944 /* SFUIText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */; };
 		85DD81952CD2532300C437A7 /* ScoresHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DD81942CD2532300C437A7 /* ScoresHeaderView.swift */; };
 		85E7A03F2B78FB1900C66781 /* loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85E7A03E2B78FB1900C66781 /* loader.gif */; };
+		85EEB58B2D355ECC00788112 /* SwitchingPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEB58A2D355ECC00788112 /* SwitchingPeriod.swift */; };
 		85F3B3042CDCF00D00F81B65 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B3032CDCF00D00F81B65 /* CarouselView.swift */; };
 		85F3B3062CDCF47400F81B65 /* CarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B3052CDCF47400F81B65 /* CarouselItem.swift */; };
 		85F3B3092CDE775800F81B65 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B3082CDE775800F81B65 /* LoadingViewController.swift */; };
@@ -102,6 +103,7 @@
 		85C571AF2B83578C009C8944 /* SFUIText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.otf"; sourceTree = "<group>"; };
 		85DD81942CD2532300C437A7 /* ScoresHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresHeaderView.swift; sourceTree = "<group>"; };
 		85E7A03E2B78FB1900C66781 /* loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loader.gif; sourceTree = "<group>"; };
+		85EEB58A2D355ECC00788112 /* SwitchingPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchingPeriod.swift; sourceTree = "<group>"; };
 		85F3B3032CDCF00D00F81B65 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		85F3B3052CDCF47400F81B65 /* CarouselItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItem.swift; sourceTree = "<group>"; };
 		85F3B3082CDE775800F81B65 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				85A265482B18E72E00A6676C /* BebilatorBrain.swift */,
+				85EEB58A2D355ECC00788112 /* SwitchingPeriod.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				8535E80E2CD92510005668F6 /* OnboardingViewModel.swift in Sources */,
 				85A265472B18E46400A6676C /* Constants.swift in Sources */,
 				85F3B3042CDCF00D00F81B65 /* CarouselView.swift in Sources */,
+				85EEB58B2D355ECC00788112 /* SwitchingPeriod.swift in Sources */,
 				85F3B3062CDCF47400F81B65 /* CarouselItem.swift in Sources */,
 				852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */,
 				853D5E052CFF5C4A00F20047 /* LoadingScreenViewModel.swift in Sources */,
