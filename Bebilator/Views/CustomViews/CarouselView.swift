@@ -61,7 +61,7 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         containerView.layer.cornerRadius = 20
         containerView.layer.masksToBounds = true
         containerView.layer.borderWidth = 2
-        containerView.layer.borderColor = period.gender.lowercased() == "boy" ? UIColor.systemBlue.cgColor : UIColor.systemPink.cgColor
+        containerView.layer.borderColor = period.gender.rawValue == "boy" ? UIColor.systemBlue.cgColor : UIColor.systemPink.cgColor
         
         containerView.layer.shadowOpacity = 0.1
         containerView.layer.shadowOffset = CGSize(width: 0, height: 4)
@@ -84,7 +84,7 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         // Gender Icon (Pink/Blue baby icon)
         let genderImageView = UIImageView()
         genderImageView.contentMode = .scaleAspectFit
-        genderImageView.image = period.gender.lowercased() == "boy" ? UIImage(named: "blueBabyIcon"): UIImage(named: "pinkBabyIcon")
+        genderImageView.image = period.gender.rawValue == "boy" ? UIImage(named: "blueBabyIcon"): UIImage(named: "pinkBabyIcon")
         genderImageView.translatesAutoresizingMaskIntoConstraints = false
         genderImageView.widthAnchor.constraint(equalToConstant: 123).isActive = true
         genderImageView.heightAnchor.constraint(equalToConstant: 94).isActive = true
@@ -92,20 +92,20 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         stackView.addArrangedSubview(genderImageView)
         
         // Change background color based on gender
-        containerView.backgroundColor = period.gender.lowercased() == "boy" ? UIColor.systemBlue.withAlphaComponent(0.1) : UIColor.systemPink.withAlphaComponent(0.1)
+        containerView.backgroundColor = period.gender.rawValue == "boy" ? UIColor.systemBlue.withAlphaComponent(0.1) : UIColor.systemPink.withAlphaComponent(0.1)
         
         // Year label
         let yearLabel = UILabel()
         yearLabel.text = "\(period.year)"
         yearLabel.font = UIFont(name: "Avenir Next-Bold", size: 22)
-        yearLabel.textColor = period.gender.lowercased() == "boy" ? .systemBlue: .systemPink
+        yearLabel.textColor = period.gender.rawValue == "boy" ? .systemBlue: .systemPink
         yearLabel.textAlignment = .center
         stackView.addArrangedSubview(yearLabel)
         
         // Calendar icon
         let calendarImageView = UIImageView()
         calendarImageView.contentMode = .scaleAspectFit
-        calendarImageView.image = period.gender.lowercased() == "boy" ? UIImage(named: "blueCalendar"): UIImage(named: "pinkCalendar")
+        calendarImageView.image = period.gender.rawValue == "boy" ? UIImage(named: "blueCalendar"): UIImage(named: "pinkCalendar")
         calendarImageView.heightAnchor.constraint(equalToConstant: 46).isActive = true
         stackView.addArrangedSubview(calendarImageView)
         
@@ -113,7 +113,7 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         let dayLabel = UILabel()
         dayLabel.text = "\(period.day)"
         dayLabel.font = UIFont(name: "Avenir Next-Bold", size: 20)
-        dayLabel.textColor = period.gender.lowercased() == "boy" ? .systemBlue : .systemPink
+        dayLabel.textColor = period.gender.rawValue == "boy" ? .systemBlue : .systemPink
         dayLabel.textAlignment = .center
         stackView.addArrangedSubview(dayLabel)
         
@@ -121,13 +121,13 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         let monthLabel = UILabel()
         monthLabel.text = "\(period.month)"
         monthLabel.font = UIFont(name: "Avenir Next-Bold", size: 20)
-        monthLabel.textColor = period.gender.lowercased() == "boy" ? .systemBlue : .systemPink
+        monthLabel.textColor = period.gender.rawValue == "boy" ? .systemBlue : .systemPink
         monthLabel.textAlignment = .center
         stackView.addArrangedSubview(monthLabel)
         
         // Info button
         let infoButton = UIButton(type: .infoLight)
-        infoButton.tintColor = period.gender.lowercased() == "boy" ? .systemBlue : .systemPink
+        infoButton.tintColor = period.gender.rawValue == "boy" ? .systemBlue : .systemPink
         containerView.addSubview(infoButton)
         
         infoButton.translatesAutoresizingMaskIntoConstraints = false
@@ -152,7 +152,7 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         
         let index = sender.tag
         let period = items[index]
-        toolTip = Tooltip(text: "U Bebilendar karticama ispod vidite procenu u kojoj godini, mesecu i danu dolazi do promene. Srećno!", gender: period.gender)
+        toolTip = Tooltip(text: "U Bebilendar karticama ispod vidite procenu u kojoj godini, mesecu i danu dolazi do promene. Srećno!", gender: period.gender.rawValue)
         
         guard let toolTip = toolTip else { return }
         

@@ -9,20 +9,7 @@
 import UIKit
 
 class BebilendarResultViewModel {
-    var switchingPeriods: [(year: Int, month: String, day: Int, gender: String)] = []
-    
-//    func formattedText(for period: (year: Int, month: String, day: Int, gender: String)) -> NSAttributedString {
-//        let yearAttributedText = attributedText(with: "yearIcon", text: "\(period.year)")
-//        let monthAttributedText = attributedText(with: "monthIcon", text: "\(period.month)")
-//        let dayAttributedText = attributedText(with: "dayIcon", text: "\(period.day)")
-//        
-//        let finalAttributedText = NSMutableAttributedString()
-//        finalAttributedText.append(yearAttributedText)
-//        finalAttributedText.append(monthAttributedText)
-//        finalAttributedText.append(dayAttributedText)
-//        
-//        return finalAttributedText
-//    }
+    var switchingPeriods: [SwitchingPeriod] = []
     
     func genderIcon (for gender: String) -> UIImage? {
         switch gender.lowercased() {
@@ -45,16 +32,5 @@ class BebilendarResultViewModel {
         view.layer.shadowRadius = 4
         return view
     }
-    
-//    func attributedText(with imageName: String, text: String) -> NSAttributedString {
-//        let attachment = NSTextAttachment()
-//        attachment.image = UIImage(named: imageName)
-//        attachment.bounds = CGRect(x: 0, y: -3, width: 20, height: 20)
-//        
-//        let attributedString = NSMutableAttributedString(attachment: attachment)
-//        attributedString.append(NSAttributedString(string: " \(text)\n"))
-//        
-//        return attributedString
-//    }
 }
 

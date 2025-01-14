@@ -13,7 +13,7 @@ enum FieldIdentifier {
 }
 
 class BebilendarViewModel {
-    var switchingPeriods: [(year: Int, month: String, day: Int, gender: String)] = []
+    var switchingPeriods: [SwitchingPeriod] = []
     var bebilatorBrain = BebilatorBrain()
     var bebilendarResultControllerModel = BebilendarResultViewModel()
     let calendar = Calendar.current
@@ -60,15 +60,13 @@ class BebilendarViewModel {
         switchingPeriods = calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate, futureLimit: futureLimit)
     }
     
-    func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date, futureLimit: Int) -> [(year: Int, month: String, day: Int, gender: String)] {
+    func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date, futureLimit: Int) -> [SwitchingPeriod] {
         switchingPeriods = []
         let currentYear  = calendar.component(.year, from: Date())
-        let monthsInSerbian: [String: Int] = [
-            "Januar": 1, "Februar": 2, "Mart": 3, "April": 4, "Maj": 5, "Jun": 6, "Jul": 7, "Avgust": 8, "Septembar": 9, "Oktobar": 10, "Novembar": 11, "Decembar": 12]
-        var lastGender = ""
+        var lastGender: Gender? = nil
         
         for year in currentYear...(currentYear + futureLimit) {
-            for (monthName, monthNumber) in monthsInSerbian {
+            for (monthNumber, _) in Constants.monthsInSerbian {
                 var dateComponents = DateComponents()
                 dateComponents.year = year
                 dateComponents.month = monthNumber
@@ -80,13 +78,27 @@ class BebilendarViewModel {
                         
                         let maleScore = bebilatorBrain.getDaysSinceLastAgeChange(numberOfYears: 4, bday: mBirthdate, chosenDate: yearAsDate)
                         let femaleScore = bebilatorBrain.getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBirthdate, chosenDate: yearAsDate)
-                        let currentGender = maleScore < femaleScore ? "boy" : "girl"
+                        let currentGender = maleScore < femaleScore ? Gender.boy : Gender.girl
                         
                         if currentGender != lastGender {
-                            switchingPeriods.append((year, monthName, day, currentGender))
+                            let switchingPeriod = SwitchingPeriod(year: year,
+                                                                  month: monthNumber,
+                                                                  day: day,
+                                                                  gender: currentGender
+                            )
+                            switchingPeriods.append(switchingPeriod)
                             lastGender = currentGender
                         }
                     }
+                }
+            }
+            switchingPeriods.sort { period1, period2 in
+                if period1.year != period2.year {
+                    return period1.year < period2.year
+                } else if period1.month != period2.month {
+                    return period1.month < period2.month
+                } else {
+                    return period1.day < period2.day
                 }
             }
         }

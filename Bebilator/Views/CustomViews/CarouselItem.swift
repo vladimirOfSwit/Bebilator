@@ -11,5 +11,6 @@ struct CarouselItem {
     let year: Int
     let day: Int
     let month: String
-    let gender: String
+    let gender: Gender
 }
+    
