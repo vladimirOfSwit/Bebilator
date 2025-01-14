@@ -11,7 +11,6 @@ class OnboardingViewModel {
     init() {
         self.createSlides()
     }
-
     var slides: [OnboardingSlide] = []
     var onCurrentPageUpdated: ((String, Int) -> ())?
 

@@ -54,7 +54,7 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         setupCarouselView(indexOfTheCarousel: index)
     }
     
-    func setupCarouselView(indexOfTheCarousel: Int) -> UIView {
+   private func setupCarouselView(indexOfTheCarousel: Int) -> UIView {
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 237.3, height: 281))
         let period = items[indexOfTheCarousel]
         
@@ -81,7 +81,7 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
             stackView.widthAnchor.constraint(equalTo: containerView.widthAnchor, constant: 0.8)
         ])
         
-        // Gender Icon (Pink/Blue baby icon)
+       
         let genderImageView = UIImageView()
         genderImageView.contentMode = .scaleAspectFit
         genderImageView.image = period.gender.rawValue == "boy" ? UIImage(named: "blueBabyIcon"): UIImage(named: "pinkBabyIcon")
@@ -91,10 +91,10 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         
         stackView.addArrangedSubview(genderImageView)
         
-        // Change background color based on gender
+      
         containerView.backgroundColor = period.gender.rawValue == "boy" ? UIColor.systemBlue.withAlphaComponent(0.1) : UIColor.systemPink.withAlphaComponent(0.1)
         
-        // Year label
+       
         let yearLabel = UILabel()
         yearLabel.text = "\(period.year)"
         yearLabel.font = UIFont(name: "Avenir Next-Bold", size: 22)
@@ -102,14 +102,14 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         yearLabel.textAlignment = .center
         stackView.addArrangedSubview(yearLabel)
         
-        // Calendar icon
+       
         let calendarImageView = UIImageView()
         calendarImageView.contentMode = .scaleAspectFit
         calendarImageView.image = period.gender.rawValue == "boy" ? UIImage(named: "blueCalendar"): UIImage(named: "pinkCalendar")
         calendarImageView.heightAnchor.constraint(equalToConstant: 46).isActive = true
         stackView.addArrangedSubview(calendarImageView)
         
-        // Day label
+      
         let dayLabel = UILabel()
         dayLabel.text = "\(period.day)"
         dayLabel.font = UIFont(name: "Avenir Next-Bold", size: 20)
@@ -117,7 +117,7 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         dayLabel.textAlignment = .center
         stackView.addArrangedSubview(dayLabel)
         
-        // Month label
+       
         let monthLabel = UILabel()
         monthLabel.text = "\(period.month)"
         monthLabel.font = UIFont(name: "Avenir Next-Bold", size: 20)
@@ -125,7 +125,7 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         monthLabel.textAlignment = .center
         stackView.addArrangedSubview(monthLabel)
         
-        // Info button
+      
         let infoButton = UIButton(type: .infoLight)
         infoButton.tintColor = period.gender.rawValue == "boy" ? .systemBlue : .systemPink
         containerView.addSubview(infoButton)
