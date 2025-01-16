@@ -130,6 +130,7 @@ class BebilendarViewController: UIViewController {
     }
     
     func setupUI() {
+        removeBackButtonText()
         
         mTextfield.addShadowAndRoundedCorners(color: Constants.colorMborder)
         wTextfield.addShadowAndRoundedCorners(color: Constants.colorWborder)
