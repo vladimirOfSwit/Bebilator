@@ -62,9 +62,9 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            view.layoutIfNeeded()
             setupUI()
-        }
+            view.layoutIfNeeded()
+       }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         loadingVC.modalPresentationStyle = .overFullScreen
@@ -120,9 +120,11 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setupUI() {
-        mTextfield.text = "08.06.1987"
-        wTextfield.text = "12.03.1990"
-        nTextfield.text = "20.01.2025"
+        removeBackButtonText()
+        mTextfield.text = Constants.testingMDate
+        wTextfield.text = Constants.testingWDate
+        nTextfield.text = Constants.testingDateToConcieve
+        
         mTextfield.addShadowAndRoundedCorners(color: Constants.colorMborder)
         wTextfield.addShadowAndRoundedCorners(color: Constants.colorWborder)
         nTextfield.addShadowAndRoundedCorners(color: Constants.colorNBorder)

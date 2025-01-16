@@ -25,6 +25,14 @@ extension UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: identifier) as! Self
     }
+    
+    func removeBackButtonText() {
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        navigationItem.backBarButtonItem = backButton
+        
+        navigationController?.navigationBar.tintColor = .black
+    }
 }
 
 extension UITextField {

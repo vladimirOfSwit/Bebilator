@@ -22,6 +22,7 @@ class WelcomeViewController: UIViewController {
     }
     
     func setupUI() {
+        removeBackButtonText()
         bebilendarBtn.backgroundColor = UIColor.white
         bebilendarBtn.layer.cornerRadius = buttonHeight / 2
         bebilendarBtn.clipsToBounds = true

@@ -135,9 +135,9 @@ class BebilendarViewController: UIViewController {
         wTextfield.addShadowAndRoundedCorners(color: Constants.colorWborder)
         futureLimitTextfield.addShadowAndRoundedCorners(color: Constants.colorNBorder)
         
-        mTextfield.text = "24.12.1997"
-        wTextfield.text = "26.04.1995"
-        futureLimitTextfield.text = "1"
+        mTextfield.text = Constants.testingMDate
+        wTextfield.text = Constants.testingWDate
+        futureLimitTextfield.text = Constants.testingFutureLimit
         
         futureLimitTextfield.delegate = self
         

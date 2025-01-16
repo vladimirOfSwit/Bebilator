@@ -138,18 +138,18 @@ Phasellus et aliquam dolor.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wTR-6z-VhW" userLabel="Top StackView">
-                                <rect key="frame" x="33.666666666666657" y="119" width="307" height="170"/>
+                                <rect key="frame" x="33.666666666666657" y="119" width="322" height="170"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bothElephants" translatesAutoresizingMaskIntoConstraints="NO" id="R8Z-wo-FXm">
-                                        <rect key="frame" x="0.0" y="0.0" width="307" height="170"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="322" height="170"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="DBW-vA-wfu" userLabel="Middle StackView">
-                                <rect key="frame" x="36" y="319" width="305" height="236"/>
+                                <rect key="frame" x="36" y="319" width="320" height="236"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="god-lN-wGJ" userLabel="mTextfield">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="62"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                         <color key="tintColor" red="1" green="0.7537925196208678" blue="0.39477747303972044" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="62" id="OrD-O2-b5a"/>
@@ -164,12 +164,12 @@ Phasellus et aliquam dolor.</string>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VT6-Bm-QXw" userLabel="wTextfield">
-                                        <rect key="frame" x="0.0" y="87" width="305" height="62"/>
+                                        <rect key="frame" x="0.0" y="87" width="320" height="62"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" textContentType="date-time"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbL-fj-mQA" userLabel="nTextfield">
-                                        <rect key="frame" x="0.0" y="174" width="305" height="62"/>
+                                        <rect key="frame" x="0.0" y="174" width="320" height="62"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" textContentType="date-time"/>
                                     </textField>
@@ -177,10 +177,10 @@ Phasellus et aliquam dolor.</string>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="fZG-Kz-sF6" userLabel="Bottom Stack View">
-                                <rect key="frame" x="35" y="588" width="305" height="119"/>
+                                <rect key="frame" x="35" y="588" width="320" height="119"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tuu-Ta-MMS" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="0QR-6O-dd3"/>
                                             <constraint firstAttribute="height" constant="56" id="7UM-de-MD9"/>
@@ -203,10 +203,10 @@ Phasellus et aliquam dolor.</string>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bSn-6B-KMc">
-                                        <rect key="frame" x="0.0" y="81" width="305" height="38"/>
+                                        <rect key="frame" x="0.0" y="81" width="320" height="38"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5j-tS-Yca" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="38"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="147.66666666666666" height="38"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Obriši">
                                                     <fontDescription key="titleFontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
@@ -227,7 +227,7 @@ Phasellus et aliquam dolor.</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqb-TQ-gTk" userLabel="Previous Scores Btn" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="165" y="0.0" width="140" height="38"/>
+                                                <rect key="frame" x="172.66666666666663" y="0.0" width="147.33333333333337" height="38"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Prethodni rezultati">
                                                     <fontDescription key="titleFontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
@@ -253,7 +253,7 @@ Phasellus et aliquam dolor.</string>
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Kkt-yI-kG2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="812"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="She-Qq-5Ra"/>
@@ -582,9 +582,7 @@ Phasellus et aliquam dolor.</string>
                             <constraint firstItem="RtX-5x-uQ4" firstAttribute="trailing" secondItem="gEq-a4-vQP" secondAttribute="trailing" constant="70" id="hKO-ak-IRa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="BEBILENDAR" id="B32-P0-4BS">
-                        <barButtonItem key="backBarButtonItem" title="Bebilendar" id="mUp-7Y-P6V"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="BEBILENDAR" id="B32-P0-4BS"/>
                     <connections>
                         <outlet property="calculateButton" destination="ErN-lu-ZUS" id="kdg-Pa-10z"/>
                         <outlet property="futureLimitTextfield" destination="xuF-wX-DRR" id="o8J-7r-DOM"/>
