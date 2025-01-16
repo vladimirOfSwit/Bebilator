@@ -11,14 +11,12 @@ import UIKit
 class BebilendarResultViewModel {
     var switchingPeriods: [SwitchingPeriod] = []
     
-    func genderIcon (for gender: String) -> UIImage? {
-        switch gender.lowercased() {
-        case "boy":
+    func genderIcon (for gender: Gender) -> UIImage? {
+        switch gender {
+        case .boy:
             return UIImage(named: "blueBabyIcon")
-        case "girl":
+        case .girl:
             return UIImage(named: "pinkBabyIcon")
-        default:
-            return nil
         }
     }
     

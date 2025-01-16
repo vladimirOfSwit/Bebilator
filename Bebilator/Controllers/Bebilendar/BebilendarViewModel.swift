@@ -66,7 +66,9 @@ class BebilendarViewModel {
         var lastGender: Gender? = nil
         
         for year in currentYear...(currentYear + futureLimit) {
-            for (monthNumber, _) in Constants.monthsInSerbian {
+            print(year)
+            for (monthNumber, monthName) in Constants.monthsInSerbian {
+                print("Processing month \(monthNumber): \(monthName)")
                 var dateComponents = DateComponents()
                 dateComponents.year = year
                 dateComponents.month = monthNumber
@@ -77,9 +79,19 @@ class BebilendarViewModel {
                         let yearAsDate = Calendar.current.date(from: dateComponents) ?? Date()
                         
                         let maleScore = bebilatorBrain.getDaysSinceLastAgeChange(numberOfYears: 4, bday: mBirthdate, chosenDate: yearAsDate)
-                        let femaleScore = bebilatorBrain.getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBirthdate, chosenDate: yearAsDate)
-                        let currentGender = maleScore < femaleScore ? Gender.boy : Gender.girl
+                        print("Year as date for male score is: \(yearAsDate)")
                         
+                        
+                        let femaleScore = bebilatorBrain.getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBirthdate, chosenDate: yearAsDate)
+                        print("Year as date for female score is: \(yearAsDate)")
+                      
+                        let currentGender = maleScore < femaleScore ? Gender.boy : Gender.girl
+                            
+                        print("Male score is: \(maleScore)")
+                        print("Female score is: \(femaleScore)")
+                        
+                        print("Current gender is: \(currentGender)")
+                        print("Month number is \(monthNumber)")
                         if currentGender != lastGender {
                             let switchingPeriod = SwitchingPeriod(year: year,
                                                                   month: monthNumber,
@@ -88,21 +100,25 @@ class BebilendarViewModel {
                             )
                             switchingPeriods.append(switchingPeriod)
                             lastGender = currentGender
+                           
                         }
                     }
                 }
             }
-            switchingPeriods.sort { period1, period2 in
-                if period1.year != period2.year {
-                    return period1.year < period2.year
-                } else if period1.month != period2.month {
-                    return period1.month < period2.month
-                } else {
-                    return period1.day < period2.day
+            
+            switchingPeriods.sort {
+                if $0.year == $1.year {
+                    if $0.month == $1.month {
+                        return $0.day < $1.day
+                    }
+                    return $0.month < $1.month
                 }
+                return $0.year < $1.year
             }
+            
         }
         return switchingPeriods
+       
     }
 }
 

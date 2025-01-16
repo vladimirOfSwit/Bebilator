@@ -13,7 +13,11 @@ struct SwitchingPeriod {
     let day: Int
     let gender: Gender
     var monthName: String {
-        Constants.monthsInSerbian[month - 1] ?? "Nepoznat mesec"
+        if let monthEntry = Constants.monthsInSerbian.first(where: {$0.0 == month}) {
+            return monthEntry.1
+        } else {
+           return "Nepoznat mesec"
+        }
     }
 }
 

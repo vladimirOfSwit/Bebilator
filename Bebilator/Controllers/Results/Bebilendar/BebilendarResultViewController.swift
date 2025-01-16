@@ -20,7 +20,7 @@ class BebilendarResultViewController: UIViewController {
     
     private func setupCarouselView() {
         let items = viewModel.switchingPeriods.map { period in
-            let monthName = Constants.monthsInSerbian[period.month] ?? "Nepoznat mesec"
+            let monthName = period.monthName
             return CarouselItem(year: period.year,
                                 day: period.day,
                                 month: monthName,

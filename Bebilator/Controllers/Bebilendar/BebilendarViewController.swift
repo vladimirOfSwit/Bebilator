@@ -32,13 +32,6 @@ class BebilendarViewController: UIViewController {
         updateUIForRemainingTries()
     }
     
-    func resetInputFields() {
-        [mTextfield, wTextfield, futureLimitTextfield].forEach {
-            $0?.isUserInteractionEnabled = true
-            $0?.backgroundColor = .white
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.BEBILENDAR_RESULTS_VIEW_CONTROLLER_IDENTIFIER {
             let destinationVC = segue.destination as? BebilendarResultViewController
@@ -86,9 +79,6 @@ class BebilendarViewController: UIViewController {
     }
     
     func updateUIForRemainingTries() {
-        print("Counter: \(TryManager.shared.counter)")
-        print("Purchased Tries: \(TryManager.shared.purchasedTries)")
-        print("Remaining Tries: \(TryManager.shared.remainingTries)")
         infoLbl.text = "Preostali broj tokena je \(String(TryManager.shared.remainingTries))"
         
         if remainingTries > 0 {
@@ -97,6 +87,13 @@ class BebilendarViewController: UIViewController {
         } else {
             calculateButton.setTitle("POSLEDNJI REZULTAT", for: .normal)
             disableInputFields()
+        }
+    }
+    
+    func resetInputFields() {
+        [mTextfield, wTextfield, futureLimitTextfield].forEach {
+            $0?.isUserInteractionEnabled = true
+            $0?.backgroundColor = .white
         }
     }
     
@@ -140,7 +137,7 @@ class BebilendarViewController: UIViewController {
         
         mTextfield.text = "24.12.1997"
         wTextfield.text = "26.04.1995"
-        futureLimitTextfield.text = "15"
+        futureLimitTextfield.text = "1"
         
         futureLimitTextfield.delegate = self
         

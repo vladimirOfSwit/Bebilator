@@ -18,8 +18,18 @@ struct Constants {
     static let colorMborder = UIColor(hex: "#6B92E5CC")
     static let colorWborder = UIColor(hex: "#F88AB0CC")
     static let colorNBorder = UIColor(hex: "#7B81BECC")
-    static let monthsInSerbian: [Int: String] = [
-        1: "Januar", 2: "Februar", 3: "Mart", 4: "April", 5: "Maj", 6: "Jun",
-        7: "Jul", 8: "Avgust", 9: "Septembar", 10: "Oktobar", 11: "Novembar", 12: "Decembar"
+    static let monthsInSerbian = [
+        (1, "Januar"),
+        (2, "Februar"),
+        (3, "Mart"),
+        (4, "April"),
+        (5, "Maj"),
+        (6, "Jun"),
+        (7, "Jul"),
+        (8, "Avgust"),
+        (9, "Septembar"),
+        (10, "Oktobar"),
+        (11, "Novembar"),
+        (12, "Decembar")
         ]
 }

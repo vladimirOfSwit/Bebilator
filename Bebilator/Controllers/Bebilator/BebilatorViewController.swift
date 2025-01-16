@@ -13,6 +13,13 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nTextfield: UITextField!
     @IBOutlet weak var clearBtn: UIButton!
     @IBOutlet weak var previousScoresBtnLbl: UIButton!
+    @IBOutlet weak var bottomViewStackView: UIStackView!
+    
+    let buttonWidth: CGFloat = UIScreen.main.bounds.width * 0.80
+    let buttonHeight: CGFloat = 56
+    let shadowOpacity: Float = 0.5
+    let shadowOffset = CGSize(width: 0, height: 2)
+    let shadowRadius: CGFloat = 4
     
     var bebilatorBrain = BebilatorBrain()
     let datePickerManager = DatePickerManager()
@@ -21,10 +28,43 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     var resultViewController = BebilatorResultViewController()
     let loadingVC = LoadingViewController()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Ensure that layout is finalized before applying styles
+        view.layoutIfNeeded()
+        applyButtonStyles()
     }
+
+    // Apply button styles after layout is finalized
+    func applyButtonStyles() {
+        // Ensure layout is updated
+        clearBtn.layoutIfNeeded()
+        previousScoresBtnLbl.layoutIfNeeded()
+
+        // Apply the corner radius
+        clearBtn.layer.cornerRadius = clearBtn.frame.height / 2
+        previousScoresBtnLbl.layer.cornerRadius = previousScoresBtnLbl.frame.height / 2
+        
+        // Apply shadow
+        applyButtonShadow(button: clearBtn)
+        applyButtonShadow(button: previousScoresBtnLbl)
+    }
+
+    // Shadow setup for the buttons
+    func applyButtonShadow(button: UIButton) {
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.25
+        button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        button.layer.shadowRadius = 4
+        button.clipsToBounds = false
+    }
+
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            view.layoutIfNeeded()
+            setupUI()
+        }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         loadingVC.modalPresentationStyle = .overFullScreen
@@ -56,6 +96,7 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
         
         performSegue(withIdentifier: Constants.BEBILATOR_RESULTS_VIEW_CONTROLLER, sender: self)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.BEBILATOR_RESULTS_VIEW_CONTROLLER {
             if let bebilatorResultsVC = segue.destination as? BebilatorResultViewController {
@@ -79,6 +120,9 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setupUI() {
+        mTextfield.text = "08.06.1987"
+        wTextfield.text = "12.03.1990"
+        nTextfield.text = "20.01.2025"
         mTextfield.addShadowAndRoundedCorners(color: Constants.colorMborder)
         wTextfield.addShadowAndRoundedCorners(color: Constants.colorWborder)
         nTextfield.addShadowAndRoundedCorners(color: Constants.colorNBorder)
