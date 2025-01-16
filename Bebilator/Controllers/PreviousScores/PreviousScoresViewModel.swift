@@ -13,6 +13,16 @@ class PreviousScoresViewModel {
     func savePreviousScore(mText: String, wText: String, nText: String, gender: Gender) {
         let score = PreviousScore(mTextfieldValue: mText, wTextfieldValue: wText, nTextfieldValue: nText, gender: gender, date: Date())
         var allScores = getPreviousScores()
+        if allScores.contains(where: {
+            $0.mTextfieldValue == score.mTextfieldValue &&
+            $0.wTextfieldValue == score.wTextfieldValue &&
+            $0.nTextfieldValue == score.nTextfieldValue &&
+            $0.gender == score.gender
+        }) {
+            print("Score alreday exists")
+            return
+        }
+        
         allScores.append(score)
         
         if let encodedData = try? JSONEncoder().encode(allScores) {
