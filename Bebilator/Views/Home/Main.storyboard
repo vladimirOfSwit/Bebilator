@@ -138,18 +138,18 @@ Phasellus et aliquam dolor.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wTR-6z-VhW" userLabel="Top StackView">
-                                <rect key="frame" x="33.666666666666657" y="119" width="322" height="170"/>
+                                <rect key="frame" x="33.666666666666657" y="75" width="307" height="212"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bothElephants" translatesAutoresizingMaskIntoConstraints="NO" id="R8Z-wo-FXm">
-                                        <rect key="frame" x="0.0" y="0.0" width="322" height="170"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="307" height="212"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="DBW-vA-wfu" userLabel="Middle StackView">
-                                <rect key="frame" x="36" y="319" width="320" height="236"/>
+                                <rect key="frame" x="36" y="317" width="305" height="236"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="god-lN-wGJ" userLabel="mTextfield">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="62"/>
                                         <color key="tintColor" red="1" green="0.7537925196208678" blue="0.39477747303972044" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="62" id="OrD-O2-b5a"/>
@@ -164,12 +164,12 @@ Phasellus et aliquam dolor.</string>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VT6-Bm-QXw" userLabel="wTextfield">
-                                        <rect key="frame" x="0.0" y="87" width="320" height="62"/>
+                                        <rect key="frame" x="0.0" y="87" width="305" height="62"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" textContentType="date-time"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbL-fj-mQA" userLabel="nTextfield">
-                                        <rect key="frame" x="0.0" y="174" width="320" height="62"/>
+                                        <rect key="frame" x="0.0" y="174" width="305" height="62"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" textContentType="date-time"/>
                                     </textField>
@@ -177,10 +177,10 @@ Phasellus et aliquam dolor.</string>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="fZG-Kz-sF6" userLabel="Bottom Stack View">
-                                <rect key="frame" x="35" y="588" width="320" height="119"/>
+                                <rect key="frame" x="35" y="586" width="305" height="121"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tuu-Ta-MMS" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="0QR-6O-dd3"/>
                                             <constraint firstAttribute="height" constant="56" id="7UM-de-MD9"/>
@@ -202,12 +202,18 @@ Phasellus et aliquam dolor.</string>
                                             <action selector="calculateButtonPressed:" destination="5xu-O6-gtO" eventType="touchUpInside" id="8YK-pr-EdR"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bSn-6B-KMc">
-                                        <rect key="frame" x="0.0" y="81" width="320" height="38"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bSn-6B-KMc">
+                                        <rect key="frame" x="0.0" y="81" width="305" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5j-tS-Yca" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="147.66666666666666" height="38"/>
-                                                <state key="normal" title="Button"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="9wD-At-gVS"/>
+                                                    <constraint firstAttribute="width" constant="120" id="qUV-on-DWv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Obriši"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Obriši">
                                                     <fontDescription key="titleFontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
                                                 </buttonConfiguration>
@@ -227,8 +233,16 @@ Phasellus et aliquam dolor.</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqb-TQ-gTk" userLabel="Previous Scores Btn" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                                <rect key="frame" x="172.66666666666663" y="0.0" width="147.33333333333337" height="38"/>
-                                                <state key="normal" title="Button"/>
+                                                <rect key="frame" x="165" y="0.0" width="140" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="F1T-1D-x1K"/>
+                                                    <constraint firstAttribute="height" constant="40" id="ye9-6K-rUL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Prethodni rezultati">
+                                                    <color key="titleColor" systemColor="systemPinkColor"/>
+                                                </state>
                                                 <buttonConfiguration key="configuration" style="plain" title="Prethodni rezultati">
                                                     <fontDescription key="titleFontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
                                                     <color key="baseForegroundColor" systemColor="systemPinkColor"/>
@@ -251,9 +265,15 @@ Phasellus et aliquam dolor.</string>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="bSn-6B-KMc" firstAttribute="top" secondItem="Tuu-Ta-MMS" secondAttribute="bottom" constant="25" id="L7C-yK-tYx"/>
+                                    <constraint firstAttribute="trailing" secondItem="bSn-6B-KMc" secondAttribute="trailing" id="tXn-zO-Jw1"/>
+                                    <constraint firstAttribute="bottom" secondItem="bSn-6B-KMc" secondAttribute="bottom" id="uGD-Fd-kMX"/>
+                                    <constraint firstItem="bSn-6B-KMc" firstAttribute="leading" secondItem="fZG-Kz-sF6" secondAttribute="leading" id="uQl-Uw-zh8"/>
+                                </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Kkt-yI-kG2">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="She-Qq-5Ra"/>
@@ -281,15 +301,13 @@ Phasellus et aliquam dolor.</string>
                         <outlet property="clearBtn" destination="l5j-tS-Yca" id="hlv-ta-3TY"/>
                         <outlet property="mTextfield" destination="god-lN-wGJ" id="aOV-34-h0e"/>
                         <outlet property="nTextfield" destination="gbL-fj-mQA" id="9UY-41-Mjp"/>
-                        <outlet property="previousScoresBtnLbl" destination="qqb-TQ-gTk" id="FWE-ve-BKc"/>
+                        <outlet property="previousScoreBtn" destination="qqb-TQ-gTk" id="FWE-ve-BKc"/>
                         <outlet property="wTextfield" destination="VT6-Bm-QXw" id="3dT-SI-EmQ"/>
-                        <segue destination="fNv-8x-4S9" kind="show" identifier="goToPreviousScoresViewController" id="dbQ-cn-m1Q"/>
-                        <segue destination="D3S-yv-7q0" kind="show" identifier="goToBebilatorResults" id="bEe-3m-nNx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6a-RZ-hH1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2370" y="35"/>
+            <point key="canvasLocation" x="4732" y="-125"/>
         </scene>
         <!--PRETHODNI REZULTATI-->
         <scene sceneID="Xwh-a4-5Vn">
@@ -300,7 +318,7 @@ Phasellus et aliquam dolor.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Ls-Sa-8h7">
-                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="728"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aC6-3g-p9J">
@@ -362,20 +380,21 @@ Phasellus et aliquam dolor.</string>
             </objects>
             <point key="canvasLocation" x="3281" y="-407"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="saY-zI-E0V">
+        <!--New Bebilator View Controller-->
+        <scene sceneID="ija-ik-eys">
             <objects>
-                <viewController id="1CQ-ry-X25" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vnX-TP-YLX">
+                <viewController id="Zqt-Qs-kTh" customClass="newBebilatorViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PhP-MO-RSd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="gMe-QK-CcM"/>
+                        <viewLayoutGuide key="safeArea" id="w82-yI-983"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="IAt-kz-ff7"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dCI-9Q-MXh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THf-Se-syC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4681" y="-137"/>
+            <point key="canvasLocation" x="2209" y="-126"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="ymr-2X-Aw6">
@@ -410,7 +429,7 @@ Phasellus et aliquam dolor.</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="5xu-O6-gtO" kind="show" identifier="goToBebilator" id="FTf-1S-KeE"/>
+                                            <segue destination="Zqt-Qs-kTh" kind="show" identifier="goToBebilator" id="7om-fj-ojO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoF-Ht-Pfi">
@@ -468,7 +487,7 @@ Phasellus et aliquam dolor.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYn-9R-pz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="364"/>
+            <point key="canvasLocation" x="1350" y="316"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="buG-jO-Nm9">

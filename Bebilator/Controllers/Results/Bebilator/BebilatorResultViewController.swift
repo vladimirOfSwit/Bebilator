@@ -8,14 +8,13 @@ import UIKit
 
 
 class BebilatorResultViewController: UIViewController {
-    @IBOutlet weak var resultLabel: UILabel!
-    @IBOutlet weak var gifImageView: UIImageView!
-    @IBOutlet weak var repeatOutlet: UIButton!
+    private let gifImageView = UIImageView()
     
     var genderResult = ""
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         if genderResult == "boy" {
             loadGif(name: "boy")
         } else {
@@ -23,8 +22,18 @@ class BebilatorResultViewController: UIViewController {
         }
     }
     
-    @IBAction func repeatButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true)
+    private func setupUI() {
+        gifImageView.contentMode = .scaleAspectFit
+        gifImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(gifImageView)
+        
+        NSLayoutConstraint.activate([
+            gifImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            gifImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            gifImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            gifImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            
+        ])
     }
     
     func loadGif(name: String) {

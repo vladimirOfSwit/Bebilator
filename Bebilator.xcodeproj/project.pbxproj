@@ -15,6 +15,7 @@
 		851F2FF22CCA5AA400250212 /* PreviousScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FF12CCA5AA400250212 /* PreviousScoresViewController.swift */; };
 		851F2FF42CCA5C8500250212 /* PreviousScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FF32CCA5C8500250212 /* PreviousScore.swift */; };
 		851F2FF62CCA5CE300250212 /* PreviousScoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FF52CCA5CE300250212 /* PreviousScoresViewModel.swift */; };
+		8526F9482D40EF3D004AFFE6 /* newBebilatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8526F9472D40EF3D004AFFE6 /* newBebilatorViewController.swift */; };
 		852AEF672C78A78D0050AF11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852AEF662C78A78D0050AF11 /* Main.storyboard */; };
 		852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */; };
 		852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF6A2C78A8D90050AF11 /* GradientButton.swift */; };
@@ -68,6 +69,7 @@
 		851F2FF12CCA5AA400250212 /* PreviousScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScoresViewController.swift; sourceTree = "<group>"; };
 		851F2FF32CCA5C8500250212 /* PreviousScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScore.swift; sourceTree = "<group>"; };
 		851F2FF52CCA5CE300250212 /* PreviousScoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScoresViewModel.swift; sourceTree = "<group>"; };
+		8526F9472D40EF3D004AFFE6 /* newBebilatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newBebilatorViewController.swift; sourceTree = "<group>"; };
 		852AEF662C78A78D0050AF11 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		852AEF6A2C78A8D90050AF11 /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				8502D6322AB08519008FC6C5 /* BebilatorViewController.swift */,
 				851F2FE92CCA482000250212 /* BebilatorViewModel.swift */,
+				8526F9472D40EF3D004AFFE6 /* newBebilatorViewController.swift */,
 			);
 			path = Bebilator;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 		85885E2D2A711E3C00EFF479 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				851F2FEB2CCA484F00250212 /* DatePickerManager.swift */,
 				852AEF6A2C78A8D90050AF11 /* GradientButton.swift */,
 				85F3B3032CDCF00D00F81B65 /* CarouselView.swift */,
 				85F3B3052CDCF47400F81B65 /* CarouselItem.swift */,
@@ -299,7 +303,7 @@
 			children = (
 				85C571982B835764009C8944 /* Fonts */,
 				85C571972B8356ED009C8944 /* Gifs */,
-				85A265452B18E45400A6676C /* Help */,
+				85A265452B18E45400A6676C /* Helper */,
 				85885E312A71441B00EFF479 /* Extensions */,
 				85885E2B2A711E1F00EFF479 /* Model */,
 				85885E2C2A711E2C00EFF479 /* Views */,
@@ -313,14 +317,13 @@
 			path = Bebilator;
 			sourceTree = "<group>";
 		};
-		85A265452B18E45400A6676C /* Help */ = {
+		85A265452B18E45400A6676C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				85A265462B18E46400A6676C /* Constants.swift */,
-				851F2FEB2CCA484F00250212 /* DatePickerManager.swift */,
 				856D21B92D1BF5ED00AEF5CA /* TryManager.swift */,
 			);
-			path = Help;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		85C571972B8356ED009C8944 /* Gifs */ = {
@@ -518,6 +521,7 @@
 				8535E8112CD92937005668F6 /* BebilendarViewController.swift in Sources */,
 				8535E80E2CD92510005668F6 /* OnboardingViewModel.swift in Sources */,
 				85A265472B18E46400A6676C /* Constants.swift in Sources */,
+				8526F9482D40EF3D004AFFE6 /* newBebilatorViewController.swift in Sources */,
 				85F3B3042CDCF00D00F81B65 /* CarouselView.swift in Sources */,
 				85EEB58B2D355ECC00788112 /* SwitchingPeriod.swift in Sources */,
 				85F3B3062CDCF47400F81B65 /* CarouselItem.swift in Sources */,

@@ -44,6 +44,7 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func bebilatorButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: Constants.HOME_VIEW_CONTROLLER_IDENTIFIER, sender: self)
+        print("Bebilator")
     }
     
     @IBAction func bebilendarButtonPressed(_ sender: UIButton) {

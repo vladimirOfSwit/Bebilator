@@ -12,14 +12,8 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var wTextfield: UITextField!
     @IBOutlet weak var nTextfield: UITextField!
     @IBOutlet weak var clearBtn: UIButton!
-    @IBOutlet weak var previousScoresBtnLbl: UIButton!
+    @IBOutlet weak var previousScoreBtn: GradientButton!
     @IBOutlet weak var bottomViewStackView: UIStackView!
-    
-    let buttonWidth: CGFloat = UIScreen.main.bounds.width * 0.80
-    let buttonHeight: CGFloat = 56
-    let shadowOpacity: Float = 0.5
-    let shadowOffset = CGSize(width: 0, height: 2)
-    let shadowRadius: CGFloat = 4
     
     var bebilatorBrain = BebilatorBrain()
     let datePickerManager = DatePickerManager()
@@ -28,43 +22,56 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
     var resultViewController = BebilatorResultViewController()
     let loadingVC = LoadingViewController()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        roundTheButtons()
+        setupUI()
+        setupConstraints()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(true)
+        roundTheButtons()
+     
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        // Ensure that layout is finalized before applying styles
-        view.layoutIfNeeded()
-        applyButtonStyles()
-    }
-
-    // Apply button styles after layout is finalized
-    func applyButtonStyles() {
-        // Ensure layout is updated
-        clearBtn.layoutIfNeeded()
-        previousScoresBtnLbl.layoutIfNeeded()
-
-        // Apply the corner radius
-        clearBtn.layer.cornerRadius = clearBtn.frame.height / 2
-        previousScoresBtnLbl.layer.cornerRadius = previousScoresBtnLbl.frame.height / 2
-        
-        // Apply shadow
-        applyButtonShadow(button: clearBtn)
-        applyButtonShadow(button: previousScoresBtnLbl)
-    }
-
-    // Shadow setup for the buttons
-    func applyButtonShadow(button: UIButton) {
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.25
-        button.layer.shadowOffset = CGSize(width: 0, height: 4)
-        button.layer.shadowRadius = 4
-        button.clipsToBounds = false
-    }
-
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            setupUI()
+        print("Stack view frame: \(bottomViewStackView.frame)")
+            print("Clear button frame: \(clearBtn.frame)")
+            print("Previous score button frame: \(previousScoreBtn.frame)")
+        // Force the stack view to layout its subviews
+            bottomViewStackView.layoutIfNeeded()
             view.layoutIfNeeded()
-       }
+            
+            // Check frames are valid
+            guard clearBtn.frame.width > 0, previousScoreBtn.frame.width > 0 else { return }
+            
+            // Style the buttons
+            roundTheButtons()
+    }
+    
+    
+    
+    
+    func roundTheButtons() {
+       print("clearBtn frame: \(clearBtn.frame), previousScoreBtn frame: \(previousScoreBtn.frame)")
+        
+        clearBtn.layer.cornerRadius = 20
+        previousScoreBtn.layer.cornerRadius = 20
+        
+        
+        clearBtn.layer.shadowColor = UIColor.black.cgColor
+        clearBtn.layer.shadowOpacity = 0.2
+        clearBtn.layer.shadowOffset = CGSize(width: 0, height: 2)
+        clearBtn.layer.shadowRadius = 4
+        
+        previousScoreBtn.layer.shadowColor = UIColor.black.cgColor
+        previousScoreBtn.layer.shadowOpacity = 0.2
+        previousScoreBtn.layer.shadowOffset = CGSize(width: 0, height: 2)
+        previousScoreBtn.layer.shadowRadius = 4
+    }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         loadingVC.modalPresentationStyle = .overFullScreen
@@ -77,6 +84,27 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
         }
         present(loadingVC, animated: true)
         loadingVC.showLoadingScreen(for: 2.0)
+    }
+    
+    private func setupConstraints() {
+        // Remove autoresizing mask constraints
+        clearBtn.translatesAutoresizingMaskIntoConstraints = false
+        previousScoreBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Set explicit constraints for width and height
+        NSLayoutConstraint.activate([
+            clearBtn.widthAnchor.constraint(equalToConstant: 120),
+            clearBtn.heightAnchor.constraint(equalToConstant: 40),
+            
+            previousScoreBtn.widthAnchor.constraint(equalToConstant: 120),
+            previousScoreBtn.heightAnchor.constraint(equalToConstant: 40),
+            
+            // Optionally constrain stack view to its parent view
+            bottomViewStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            bottomViewStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            bottomViewStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+        ])
+        
     }
     
     func presentBebilatorResultViewController() {
@@ -108,6 +136,7 @@ class BebilatorViewController: UIViewController, UITextFieldDelegate {
             previousScoreVC?.previousScores = previousScoresViewModel.getFormattedPreviousScores()
         }
     }
+   
     
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         mTextfield.text = ""

@@ -83,11 +83,11 @@ extension UITextField {
     
     func addShadowAndRoundedCorners(color: UIColor?) {
         layer.masksToBounds = false
-        layer.shadowRadius = 2.0
+        layer.shadowRadius = 5.0
         layer.shadowColor = color?.cgColor
         layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
         layer.shadowOpacity = 1.0
-        layer.cornerRadius = 7
+        layer.cornerRadius = 14
         layer.borderColor = color?.cgColor
         layer.borderWidth = 1.5
         self.clipsToBounds = true
@@ -241,6 +241,10 @@ extension UIApplication {
             return base
         }
 }
+
+
+
+
 
 
 
