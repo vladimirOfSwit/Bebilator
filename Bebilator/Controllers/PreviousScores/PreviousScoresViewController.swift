@@ -8,7 +8,7 @@ import Foundation
 import UIKit
 
 class PreviousScoresViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    let tableView = UITableView()
     let viewModel = PreviousScoresViewModel()
     var previousScores: [PreviousScore] = []
     let headerView = ScoresHeaderView()
@@ -18,12 +18,30 @@ class PreviousScoresViewController: UIViewController {
         setupViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        previousScores = viewModel.getFormattedPreviousScores()
+        tableView.reloadData()
+    }
+    
     private func setupViews() {
+        tableView.reloadData()
+        view.backgroundColor = .white
+        navigationItem.title = "PRETHODNI REZULTATI"
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(PreviousScoreCell.self, forCellReuseIdentifier: "PreviousScoreTableViewCell")
         previousScores = viewModel.getFormattedPreviousScores()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
         
         let deleteButton = UIButton(type: .system)
         deleteButton.backgroundColor = UIColor(hex: "#7B81BE")
@@ -40,12 +58,14 @@ class PreviousScoresViewController: UIViewController {
             deleteButton.widthAnchor.constraint(equalToConstant: 60),
             deleteButton.heightAnchor.constraint(equalToConstant: 60),
             deleteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            deleteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            deleteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
         ])
         deleteButton.layer.shadowColor = UIColor.black.cgColor
         deleteButton.layer.shadowOffset = CGSize(width: 0, height: 4)
         deleteButton.layer.shadowOpacity = 0.3
         deleteButton.layer.shadowRadius = 4
+        print(previousScores)
+        
     }
     
     @objc func clearAllPreviousScores() {
@@ -92,7 +112,7 @@ extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelega
         let score = previousScores[indexPath.row]
         let color = indexPath.row % 2 == 0 ? UIColor(hex: "#FFFFFF#") : UIColor(hex: "#F6F5F0")
         cell.configure(with: score, backgroundColor: color ?? .black)
-       return cell
+        return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

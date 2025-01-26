@@ -380,10 +380,10 @@ Phasellus et aliquam dolor.</string>
             </objects>
             <point key="canvasLocation" x="3281" y="-407"/>
         </scene>
-        <!--New Bebilator View Controller-->
+        <!--Bebilator View Controller-->
         <scene sceneID="ija-ik-eys">
             <objects>
-                <viewController id="Zqt-Qs-kTh" customClass="newBebilatorViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Zqt-Qs-kTh" customClass="BebilatorViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PhP-MO-RSd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
