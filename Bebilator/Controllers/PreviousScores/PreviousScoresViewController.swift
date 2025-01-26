@@ -25,15 +25,12 @@ class PreviousScoresViewController: UIViewController {
     }
     
     private func setupViews() {
-        tableView.reloadData()
-        view.backgroundColor = .white
         navigationItem.title = "PRETHODNI REZULTATI"
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(PreviousScoreCell.self, forCellReuseIdentifier: "PreviousScoreTableViewCell")
         previousScores = viewModel.getFormattedPreviousScores()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.reloadData()
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -64,8 +61,6 @@ class PreviousScoresViewController: UIViewController {
         deleteButton.layer.shadowOffset = CGSize(width: 0, height: 4)
         deleteButton.layer.shadowOpacity = 0.3
         deleteButton.layer.shadowRadius = 4
-        print(previousScores)
-        
     }
     
     @objc func clearAllPreviousScores() {
@@ -110,13 +105,13 @@ extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelega
             return UITableViewCell()
         }
         let score = previousScores[indexPath.row]
-        let color = indexPath.row % 2 == 0 ? UIColor(hex: "#FFFFFF#") : UIColor(hex: "#F6F5F0")
+        let color = indexPath.row % 2 == 0 ? UIColor(hex: "#FFFFFF") : UIColor(hex: "#F6F5F0")
         cell.configure(with: score, backgroundColor: color ?? .black)
+        print("Color at row \(indexPath.row): \(color)")
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = ScoresHeaderView()
         return headerView
     }
     

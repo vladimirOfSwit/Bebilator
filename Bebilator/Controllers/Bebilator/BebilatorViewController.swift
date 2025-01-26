@@ -40,8 +40,12 @@ class BebilatorViewController: UIViewController {
         setupConstraints()
     }
     
+ 
+
+    
     //MARK: - UI Setup
     private func setupUI() {
+        print("Calculate Button Height: \(calculateButton.frame.height)")
         navigationItem.title = "BEBILATOR"
         self.removeBackButtonText()
         
@@ -136,7 +140,8 @@ class BebilatorViewController: UIViewController {
         if button == previousScoresButton {
             previousScoresButton.addTarget(self, action: #selector(previousScoresButtonTapped), for: .touchUpInside)
         } else {
-            button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            
         }
     }
     
@@ -153,7 +158,7 @@ class BebilatorViewController: UIViewController {
             middleStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             middleStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
-            bottomStackView.topAnchor.constraint(equalTo: middleStackView.bottomAnchor, constant: 60),
+            bottomStackView.topAnchor.constraint(equalTo: middleStackView.bottomAnchor, constant: 30),
             bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             bottomStackView.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),

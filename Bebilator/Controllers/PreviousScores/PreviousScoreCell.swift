@@ -75,6 +75,7 @@ class PreviousScoreCell: UITableViewCell {
         mTextLabel.textColor = UIColor(hex: "#6B92E5")
         wTextLabel.textColor = UIColor(hex: "#F88AB0")
         nTextLabel.textColor = UIColor(hex: "#7B81BE")
+        contentView.backgroundColor = backgroundColor
         
         isUserInteractionEnabled = false
       
