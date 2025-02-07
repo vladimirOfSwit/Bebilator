@@ -107,7 +107,7 @@ extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelega
         let score = previousScores[indexPath.row]
         let color = indexPath.row % 2 == 0 ? UIColor(hex: "#FFFFFF") : UIColor(hex: "#F6F5F0")
         cell.configure(with: score, backgroundColor: color ?? .black)
-        print("Color at row \(indexPath.row): \(color)")
+        print("Score gender is: \(score.gender)")
         return cell
     }
     

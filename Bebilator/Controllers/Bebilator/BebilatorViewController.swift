@@ -13,39 +13,30 @@ class BebilatorViewController: UIViewController {
     private let middleStackView = UIStackView()
     private let bottomStackView = UIStackView()
     private let bottomButtonsStackView = UIStackView()
-    
     private let bothElephantsImageView = UIImageView()
-    
     private let mTextfield = UITextField()
     private let wTextfield = UITextField()
     private let nTextfield = UITextField()
-    
     private let calculateButton = GradientButton()
     private let clearButton = UIButton(type: .system)
     private let previousScoresButton = UIButton(type: .system)
-    
     private let datePickerManager = DatePickerManager()
-    
-    var bebilatorBrain = BebilatorBrain()
     let viewModel = BebilatorViewModel()
-    let bebilatorResultsViewController = BebilatorResultViewController()
     let previousScoresViewCotroller = PreviousScoresViewController()
     let previousScoresViewModel = PreviousScoresViewModel()
     private let loadingVC = LoadingViewController()
+   
     
     //MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
+        setupBindings()
     }
-    
- 
-
     
     //MARK: - UI Setup
     private func setupUI() {
-        print("Calculate Button Height: \(calculateButton.frame.height)")
         navigationItem.title = "BEBILATOR"
         self.removeBackButtonText()
         
@@ -62,8 +53,11 @@ class BebilatorViewController: UIViewController {
         
         [mTextfield, wTextfield, nTextfield].forEach { textField in
             mTextfield.text = Constants.testingMDate
+            mTextfield.editPlaceholderFont("Muški datum rodjenja.", fontSize: 20)
             wTextfield.text = Constants.testingWDate
+            wTextfield.editPlaceholderFont("Ženski datum rodjenja.", fontSize: 20)
             nTextfield.text = Constants.testingDateToConcieve
+            nTextfield.editPlaceholderFont("Datum začeća deteta.", fontSize: 20)
             
             textField.textAlignment = .center
             textField.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -79,9 +73,6 @@ class BebilatorViewController: UIViewController {
             nTextfield.leftImage(UIImage(named: "nIconTextfield"), imageWidth: 20, padding: 10)
             
             datePickerManager.setupDatePicker(for: [mTextfield, wTextfield, nTextfield], view: self.view, target: self)
-            datePickerManager.onDateSelected = { [weak self] selectedDate in
-                self?.handleDateSelection(selectedDate)
-            }
             
             middleStackView.addArrangedSubview(textField)
         }
@@ -110,6 +101,26 @@ class BebilatorViewController: UIViewController {
         bottomStackView.addArrangedSubview(bottomButtonsStackView)
     }
     
+    private func setupBindings() {
+        datePickerManager.onDateSelected = { [weak self] selectedDate in
+            guard let self = self else { return }
+            let textfields = [mTextfield, wTextfield, nTextfield]
+            guard let _ = textfields.validateAndReturnActiveTextFieldWithValidValue(selectedDate) else { return }
+        }
+        loadingVC.onLoadingComplete = { [weak self] in
+            guard let self = self else { return }
+            self.loadingVC.dismiss(animated: true) {
+                let resultsVC = BebilatorResultViewController()
+                self.viewModel.delegate = resultsVC
+                
+                self.viewModel.calculateResultFrom(mDate: self.mTextfield.text,
+                                                   wDate: self.wTextfield.text,
+                                                   nDate: self.nTextfield.text)
+                self.navigationController?.pushViewController(resultsVC, animated: true)
+            }
+        }
+    }
+    
     private func setupButton(_ button: UIButton, title: String, titleColor: UIColor, backgroundColor: UIColor, isGradientButton: Bool = false) {
         button.setTitle(title, for: .normal)
         button.setTitleColor(titleColor, for: .normal)
@@ -131,7 +142,7 @@ class BebilatorViewController: UIViewController {
         }
         if button == clearButton || button == previousScoresButton {
             button.widthAnchor.constraint(equalToConstant: 120).isActive = true
-            button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 60).isActive = true
             button.titleLabel?.font = UIFont(name: "SF Pro Display Bold", size: 20)
         }
         if button == clearButton {
@@ -168,35 +179,21 @@ class BebilatorViewController: UIViewController {
     
     //MARK: - Functions
     
-    private func handleDateSelection(_ date: String) {
-        if mTextfield.isFirstResponder {
-            mTextfield.text = date
-        } else if wTextfield.isFirstResponder {
-            wTextfield.text = date
-        } else if nTextfield.isFirstResponder {
-            nTextfield.text = date
-        }
+    @objc private func calculateButtonPressed() {
+        let textfields = [mTextfield, wTextfield, nTextfield]
+        if textfields.validateTextfieldsAreNotEmpty(textfields) == true {
+            navigateToResultScreen()
+        } else { return }
     }
     
-    @objc private func calculateButtonPressed() {
+    private func navigateToResultScreen() {
         loadingVC.modalPresentationStyle = .overFullScreen
-        loadingVC.onLoadingComplete = { [weak self] in
-            guard let self = self else { return }
-            
-            self.loadingVC.dismiss(animated: true) {
-                self.presentBebilatorResultViewController()
-            }
-        }
         present(loadingVC, animated: true)
-        loadingVC.showLoadingScreen(for: 2.0)
-        navigationController?.pushViewController(bebilatorResultsViewController, animated: true)
+        loadingVC.showLoadingScreen(for: 1.0)
     }
     
     @objc private func clearButtonPressed() {
-        [mTextfield, wTextfield, nTextfield].forEach { textField in
-            textField.text = ""
-            textField.editPlaceholderFont("DD/MM/YYYY", fontSize: 21)
-        }
+        viewModel.resetFields(textFields: [mTextfield, wTextfield, nTextfield])
     }
     
     @objc private func previousScoresButtonTapped() {
@@ -204,20 +201,6 @@ class BebilatorViewController: UIViewController {
         navigationController?.pushViewController(previousScoresViewCotroller, animated: true)
     }
     
-    func presentBebilatorResultViewController() {
-        guard let mText = mTextfield.text, mTextfield.validateGenderTextfield(isEligible: { bebilatorBrain.isEligible(date: $0)}),
-              let wText = wTextfield.text, wTextfield.validateGenderTextfield(isEligible: {bebilatorBrain.isEligible(date: $0)}),
-              let nText = nTextfield.text, viewModel.validateDateNotInThePast(nText, textfield: nTextfield) else {
-            return
-        }
-        
-        bebilatorBrain.getDifferenceInAging(m: mText, w: wText, dateToConcieve: nText)
-        bebilatorBrain.calculateFinalResult()
-        if let gender = Gender(rawValue: bebilatorBrain.finalResult.lowercased()) {
-            previousScoresViewModel.savePreviousScore(mText: mText, wText: wText, nText: nText, gender: gender)
-        } else {
-            print("Error: Invalid gender value '\(bebilatorBrain.finalResult)'")
-        }
-    }
 }
+
 

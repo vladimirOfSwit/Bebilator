@@ -15,6 +15,7 @@
 		851F2FF42CCA5C8500250212 /* PreviousScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FF32CCA5C8500250212 /* PreviousScore.swift */; };
 		851F2FF62CCA5CE300250212 /* PreviousScoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FF52CCA5CE300250212 /* PreviousScoresViewModel.swift */; };
 		8526F9482D40EF3D004AFFE6 /* BebilatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8526F9472D40EF3D004AFFE6 /* BebilatorViewController.swift */; };
+		8526F94A2D528429004AFFE6 /* newBebilendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8526F9492D528420004AFFE6 /* newBebilendarViewController.swift */; };
 		852AEF672C78A78D0050AF11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852AEF662C78A78D0050AF11 /* Main.storyboard */; };
 		852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */; };
 		852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF6A2C78A8D90050AF11 /* GradientButton.swift */; };
@@ -68,6 +69,7 @@
 		851F2FF32CCA5C8500250212 /* PreviousScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScore.swift; sourceTree = "<group>"; };
 		851F2FF52CCA5CE300250212 /* PreviousScoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScoresViewModel.swift; sourceTree = "<group>"; };
 		8526F9472D40EF3D004AFFE6 /* BebilatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilatorViewController.swift; sourceTree = "<group>"; };
+		8526F9492D528420004AFFE6 /* newBebilendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newBebilendarViewController.swift; sourceTree = "<group>"; };
 		852AEF662C78A78D0050AF11 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		852AEF6A2C78A8D90050AF11 /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		8535E80F2CD9283C005668F6 /* Bebilendar */ = {
 			isa = PBXGroup;
 			children = (
+				8526F9492D528420004AFFE6 /* newBebilendarViewController.swift */,
 				8535E8102CD92937005668F6 /* BebilendarViewController.swift */,
 				8535E8122CD9295B005668F6 /* BebilendarViewModel.swift */,
 			);
@@ -502,6 +505,7 @@
 				85885E332A71443700EFF479 /* UIView+Extension.swift in Sources */,
 				851F2FEE2CCA488700250212 /* BebilatorResultViewController.swift in Sources */,
 				8535E8132CD9295B005668F6 /* BebilendarViewModel.swift in Sources */,
+				8526F94A2D528429004AFFE6 /* newBebilendarViewController.swift in Sources */,
 				851F2FF62CCA5CE300250212 /* PreviousScoresViewModel.swift in Sources */,
 				8535E81C2CDA47C7005668F6 /* BebilendarResultViewModel.swift in Sources */,
 				851F2FEA2CCA482000250212 /* BebilatorViewModel.swift in Sources */,

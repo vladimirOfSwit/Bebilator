@@ -7,19 +7,19 @@
 import UIKit
 
 
-class BebilatorResultViewController: UIViewController {
+class BebilatorResultViewController: UIViewController, BebilatorGenderResultDelegate  {
     private let gifImageView = UIImageView()
     
-    var genderResult = ""
+    var genderResult = "" {
+        didSet {
+            updateUI()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        if genderResult == "boy" {
-            loadGif(name: "boy")
-        } else {
-            loadGif(name: "girl")
-        }
+        updateUI()
     }
     
     private func setupUI() {
@@ -34,6 +34,24 @@ class BebilatorResultViewController: UIViewController {
             gifImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             
         ])
+    }
+    
+    private func updateUI() {
+        print("Gender result from updateUI() BebilatorResultViewController is \(genderResult)")
+        if genderResult == "boy" {
+            loadGif(name: "boy")
+        } else {
+            loadGif(name: "girl")
+        }
+        print("Result from delegate: \(genderResult)")
+    }
+    
+    func didReceiveGenderResult(_ result: String) {
+        print("Delegate method called with result: \(result)")
+        genderResult = result
+        if isViewLoaded {
+            updateUI()
+        }
     }
     
     func loadGif(name: String) {

@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 struct BebilatorBrain {
+    
+   
     var finalResult = ""
     let calendar = Calendar.current
     var scoreMale = 0
@@ -23,6 +25,11 @@ struct BebilatorBrain {
         print(scoreMale)
         scoreFemale = getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBdayAsDate, chosenDate: chosenDateAsDate)
         print(scoreFemale)
+        
+        calculateFinalResult()
+        print("Final FIRST and REAL result from bebilatorBrain is: \(finalResult)")
+        
+        
     }
     
     mutating func calculateFinalResult() {

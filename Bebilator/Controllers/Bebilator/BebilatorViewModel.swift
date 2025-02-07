@@ -8,30 +8,40 @@
 import Foundation
 import UIKit
 
+protocol BebilatorGenderResultDelegate: AnyObject {
+    func didReceiveGenderResult(_ result: String)
+}
+
 class BebilatorViewModel {
-    func validateDateNotInThePast(_ dateAsString: String, textfield: UITextField) -> Bool {
-        guard !dateAsString.isEmpty, dateAsString != Constants.TEXTFIELD_PLACEHOLDER else {
-            textfield.placeholder = "Polje ne može biti prazno."
-            textfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
-            return false
-        }
-        guard let selectedDate = dateAsString.toDate(), compareDates(selectedDate, textfield) else {
-            return false
-        }
-        return true
+    private var bebilatorBrain = BebilatorBrain()
+    private let previousScoresViewModel = PreviousScoresViewModel()
+    private let bebilatorResultViewController = BebilatorResultViewController()
+    
+   
+    var delegate: BebilatorGenderResultDelegate?
+    
+    
+    func updateDate(_ date: String, activeField: UITextField?) {
+        activeField?.text = date
     }
     
-    private func compareDates(_ date: Date, _ textField: UITextField) -> Bool {
-        let calendar = Calendar.current
-        let todaysStartDate  = calendar.startOfDay(for: Date())
-        let selectedStartDate = calendar.startOfDay(for: date)
+    func calculateResultFrom(mDate: String?, wDate: String?, nDate: String?) {
+        guard let mDate = mDate, let wDate = wDate, let nDate = nDate    else { return }
         
-        guard selectedStartDate >= todaysStartDate  else {
-            textField.editPlaceholderFont("Datum mora biti današnji ili u budućnosti.", fontSize: 12)
-            textField.text = ""
-            textField.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 4, revert: true)
-        return false
+        bebilatorBrain.getDifferenceInAging(m: mDate, w: wDate, dateToConcieve: nDate)
+        if let gender = Gender(rawValue: bebilatorBrain.finalResult.lowercased()) {
+            previousScoresViewModel.savePreviousScore(mText: mDate, wText: wDate, nText: nDate, gender: gender)
+            print("Gender from BebilatorViewModel is \(gender.rawValue)")
+            delegate?.didReceiveGenderResult(gender.rawValue)
         }
-        return true
+       
+    }
+    
+    func resetFields(textFields: [UITextField]) {
+        textFields.forEach { textField in
+            textField.text = ""
+            textField.editPlaceholderFont(Constants.TEXTFIELD_PLACEHOLDER, fontSize: 21)
+        }
+        
     }
 }

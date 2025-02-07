@@ -32,8 +32,8 @@ struct Constants {
         (11, "Novembar"),
         (12, "Decembar")
         ]
-    static let testingMDate = "08.06.1987"
-    static let testingWDate = "19.01.1988"
-    static let testingDateToConcieve = "15.03.2025"
+    static let testingMDate = "28.01.2000"
+    static let testingWDate = "19.07.2002"
+    static let testingDateToConcieve = "22.07.2025"
     static let testingFutureLimit = "10"
 }

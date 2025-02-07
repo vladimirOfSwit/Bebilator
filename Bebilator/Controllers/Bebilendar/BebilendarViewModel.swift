@@ -49,14 +49,12 @@ class BebilendarViewModel {
     }
     
     func getTheFinalResult() {
-        
         guard let mBirthdate = mBirthdate,
               let wBirthdate = wBirthdate,
               let futureLimit = futureLimit else {
             print("Validation failed. Cannot calculate results.")
             return
         }
-        
         switchingPeriods = calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate, futureLimit: futureLimit)
     }
     

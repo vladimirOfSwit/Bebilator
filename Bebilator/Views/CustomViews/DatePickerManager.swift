@@ -29,17 +29,6 @@ class DatePickerManager: UIView {
         }
     }
     
-    func configureDatePicker(for textField: UITextField) {
-        if textField.tag == 1 {
-            datePicker.maximumDate = nil
-        } else if textField.tag == 2 {
-            datePicker.maximumDate = Date()
-        } else if textField.tag == 3 {
-            datePicker.date = Date()
-            datePicker.minimumDate = Date()
-        }
-    }
-    
     @objc func donePressed() {
         let selectedDate = datePicker.date
         dateFormatter.dateStyle = .long

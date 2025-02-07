@@ -93,22 +93,6 @@ extension UITextField {
         self.clipsToBounds = true
     }
     
-    func validateGenderTextfield(isEligible: (String) -> Bool) -> Bool {
-        guard let text = self.text, !text.isEmpty, text != Constants.TEXTFIELD_PLACEHOLDER else {
-            self.text = ""
-            self.placeholder = "Polje ne može biti prazno."
-            self.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
-            return false
-        }
-        if !isEligible(text) {
-            self.text = ""
-            self.placeholder = "Minimum 18. godina"
-            self.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
-            return false
-        }
-        return true
-    }
-    
     func editPlaceholderFont(_ placeHolderText: String, fontSize: CGFloat) {
         if let currentFont = self.font {
             let attributes: [NSAttributedString.Key: Any] = [
@@ -216,9 +200,9 @@ extension UIDatePicker {
 
 extension String {
     func toDate() -> Date? {
-       let dateFormatter = DateFormatter()
-       dateFormatter.dateFormat = "dd-MM-yyyy"
-       return dateFormatter.date (from: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        return dateFormatter.date (from: self)
     }
 }
 
@@ -242,6 +226,36 @@ extension UIApplication {
         }
 }
 
+extension Array where Element == UITextField {
+    func validateAndReturnActiveTextFieldWithValidValue(_ text: String) -> UITextField? {
+        for textfield in self {
+            if textfield.isFirstResponder {
+                textfield.text = text
+                break
+            }
+        }
+        
+        for textfield in self {
+            guard let text = textfield.text?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else {
+                textfield.editPlaceholderFont("Polje ne može biti prazno.", fontSize: 16)
+                textfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
+                return nil
+            }
+        }
+        return nil
+    }
+    
+    func validateTextfieldsAreNotEmpty(_ textFields: [UITextField]) -> Bool {
+        for textField in textFields {
+            guard let text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else {
+                textField.editPlaceholderFont("Polje ne može biti prazno", fontSize: 16)
+                textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
+                return false
+            }
+        }
+        return true
+    }
+}
 
 
 
