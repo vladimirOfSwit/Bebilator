@@ -16,10 +16,16 @@ class BebilendarResultViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupCarouselView()
+        print("Switching periods from BebilendarResultViewController: \(switchingPeriods)")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
     }
     
     private func setupCarouselView() {
-        let items = viewModel.switchingPeriods.map { period in
+        let items = switchingPeriods.map { period in
             let monthName = period.monthName
             return CarouselItem(year: period.year,
                                 day: period.day,

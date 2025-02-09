@@ -443,7 +443,6 @@ Phasellus et aliquam dolor.</string>
                         <outlet property="infoLbl" destination="wsb-oJ-ew6" id="glc-uL-bg9"/>
                         <outlet property="mTextfield" destination="uEl-Mm-au7" id="aBF-Lf-6HD"/>
                         <outlet property="wTextfield" destination="IVu-Vp-BoS" id="JkF-1g-8BD"/>
-                        <segue destination="idn-5Q-z7D" kind="show" identifier="goToBebilendarResults" id="kXn-n1-4mp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRk-so-mzJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -455,7 +454,7 @@ Phasellus et aliquam dolor.</string>
             <objects>
                 <viewController id="idn-5Q-z7D" customClass="BebilendarResultViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v2L-1s-5Xi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="VEO-WB-lHr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

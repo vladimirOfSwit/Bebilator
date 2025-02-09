@@ -19,33 +19,6 @@ class BebilendarViewModel {
     var wBirthdate: Date?
     var futureLimit: Int?
     
-//    func validateInputValuesFrom(mBirthdateString: String?, wBirthdateString: String?, futureLimitString: String?) -> (field: FieldIdentifier, errorText: String)? {
-//        func isEmpty(_ value: String?) -> Bool {
-//            value?.isEmpty ?? true
-//        }
-//        switch true {
-//        case isEmpty(mBirthdateString):
-//            return (.mTextfield, "Polje ne može biti prazno.")
-//        case !bebilatorBrain.isEligible(date: mBirthdateString ?? ""):
-//            return (.mTextfield, "Min. 18. godina.")
-//        case isEmpty(wBirthdateString):
-//            return (.wTextfield, "Polje ne može biti prazno.")
-//        case !bebilatorBrain.isEligible(date: wBirthdateString ?? ""):
-//            return (.wTextfield, "Min. 18. godina.")
-//        case isEmpty(futureLimitString), Int(futureLimitString ?? "") == nil:
-//            return (.futureLimitTextfield, "Polje mora biti broj")
-//        case mBirthdateString?.toDate() == nil:
-//            return (.mTextfield, "Nevažeći format datuma.")
-//        case wBirthdateString?.toDate() == nil:
-//            return (.wTextfield, "Nevažeći format datuma.")
-//        default:
-//            mBirthdate = mBirthdateString?.toDate()
-//            wBirthdate = wBirthdateString?.toDate()
-//            futureLimit = Int(futureLimitString ?? "")
-//            return nil
-//        }
-//    }
-    
     func getTheFinalResult() {
         guard let mBirthdate = mBirthdate,
               let wBirthdate = wBirthdate,
@@ -54,6 +27,7 @@ class BebilendarViewModel {
             return
         }
         switchingPeriods = calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate, futureLimit: futureLimit)
+        print("Switching periods from viewModel are: \(switchingPeriods)")
     }
     
     func calculateSwitchingPeriods(mBirthdate: Date, wBirthdate: Date, futureLimit: Int) -> [SwitchingPeriod] {
@@ -62,9 +36,9 @@ class BebilendarViewModel {
         var lastGender: Gender? = nil
         
         for year in currentYear...(currentYear + futureLimit) {
-            print(year)
+            //print(year)
             for (monthNumber, monthName) in Constants.monthsInSerbian {
-                print("Processing month \(monthNumber): \(monthName)")
+                //print("Processing month \(monthNumber): \(monthName)")
                 var dateComponents = DateComponents()
                 dateComponents.year = year
                 dateComponents.month = monthNumber
@@ -75,19 +49,19 @@ class BebilendarViewModel {
                         let yearAsDate = Calendar.current.date(from: dateComponents) ?? Date()
                         
                         let maleScore = bebilatorBrain.getDaysSinceLastAgeChange(numberOfYears: 4, bday: mBirthdate, chosenDate: yearAsDate)
-                        print("Year as date for male score is: \(yearAsDate)")
+                        //print("Year as date for male score is: \(yearAsDate)")
                         
                         
                         let femaleScore = bebilatorBrain.getDaysSinceLastAgeChange(numberOfYears: 3, bday: wBirthdate, chosenDate: yearAsDate)
-                        print("Year as date for female score is: \(yearAsDate)")
+                        //print("Year as date for female score is: \(yearAsDate)")
                       
                         let currentGender = maleScore < femaleScore ? Gender.boy : Gender.girl
                             
-                        print("Male score is: \(maleScore)")
-                        print("Female score is: \(femaleScore)")
-                        
-                        print("Current gender is: \(currentGender)")
-                        print("Month number is \(monthNumber)")
+//                        print("Male score is: \(maleScore)")
+//                        print("Female score is: \(femaleScore)")
+//                        
+//                        print("Current gender is: \(currentGender)")
+//                        print("Month number is \(monthNumber)")
                         if currentGender != lastGender {
                             let switchingPeriod = SwitchingPeriod(year: year,
                                                                   month: monthNumber,
