@@ -8,9 +8,7 @@
 import Foundation
 import UIKit
 
-enum FieldIdentifier {
-    case mTextfield, wTextfield, futureLimitTextfield
-}
+
 
 class BebilendarViewModel {
     var switchingPeriods: [SwitchingPeriod] = []
@@ -21,32 +19,32 @@ class BebilendarViewModel {
     var wBirthdate: Date?
     var futureLimit: Int?
     
-    func validateInputValuesFrom(mBirthdateString: String?, wBirthdateString: String?, futureLimitString: String?) -> (field: FieldIdentifier, errorText: String)? {
-        func isEmpty(_ value: String?) -> Bool {
-            value?.isEmpty ?? true
-        }
-        switch true {
-        case isEmpty(mBirthdateString):
-            return (.mTextfield, "Polje ne može biti prazno.")
-        case !bebilatorBrain.isEligible(date: mBirthdateString ?? ""):
-            return (.mTextfield, "Min. 18. godina.")
-        case isEmpty(wBirthdateString):
-            return (.wTextfield, "Polje ne može biti prazno.")
-        case !bebilatorBrain.isEligible(date: wBirthdateString ?? ""):
-            return (.wTextfield, "Min. 18. godina.")
-        case isEmpty(futureLimitString), Int(futureLimitString ?? "") == nil:
-            return (.futureLimitTextfield, "Polje mora biti broj")
-        case mBirthdateString?.toDate() == nil:
-            return (.mTextfield, "Nevažeći format datuma.")
-        case wBirthdateString?.toDate() == nil:
-            return (.wTextfield, "Nevažeći format datuma.")
-        default:
-            mBirthdate = mBirthdateString?.toDate()
-            wBirthdate = wBirthdateString?.toDate()
-            futureLimit = Int(futureLimitString ?? "")
-            return nil
-        }
-    }
+//    func validateInputValuesFrom(mBirthdateString: String?, wBirthdateString: String?, futureLimitString: String?) -> (field: FieldIdentifier, errorText: String)? {
+//        func isEmpty(_ value: String?) -> Bool {
+//            value?.isEmpty ?? true
+//        }
+//        switch true {
+//        case isEmpty(mBirthdateString):
+//            return (.mTextfield, "Polje ne može biti prazno.")
+//        case !bebilatorBrain.isEligible(date: mBirthdateString ?? ""):
+//            return (.mTextfield, "Min. 18. godina.")
+//        case isEmpty(wBirthdateString):
+//            return (.wTextfield, "Polje ne može biti prazno.")
+//        case !bebilatorBrain.isEligible(date: wBirthdateString ?? ""):
+//            return (.wTextfield, "Min. 18. godina.")
+//        case isEmpty(futureLimitString), Int(futureLimitString ?? "") == nil:
+//            return (.futureLimitTextfield, "Polje mora biti broj")
+//        case mBirthdateString?.toDate() == nil:
+//            return (.mTextfield, "Nevažeći format datuma.")
+//        case wBirthdateString?.toDate() == nil:
+//            return (.wTextfield, "Nevažeći format datuma.")
+//        default:
+//            mBirthdate = mBirthdateString?.toDate()
+//            wBirthdate = wBirthdateString?.toDate()
+//            futureLimit = Int(futureLimitString ?? "")
+//            return nil
+//        }
+//    }
     
     func getTheFinalResult() {
         guard let mBirthdate = mBirthdate,

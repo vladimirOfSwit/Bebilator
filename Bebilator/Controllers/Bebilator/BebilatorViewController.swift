@@ -9,7 +9,7 @@ import UIKit
 
 class BebilatorViewController: UIViewController {
     
-    //MARK: - UI Elements
+    //MARK: - Properties
     private let middleStackView = UIStackView()
     private let bottomStackView = UIStackView()
     private let bottomButtonsStackView = UIStackView()
@@ -182,11 +182,11 @@ class BebilatorViewController: UIViewController {
     @objc private func calculateButtonPressed() {
         let textfields = [mTextfield, wTextfield, nTextfield]
         if textfields.validateTextfieldsAreNotEmpty(textfields) == true {
-            navigateToResultScreen()
+            presentTheLoadingScreen()
         } else { return }
     }
     
-    private func navigateToResultScreen() {
+    private func presentTheLoadingScreen() {
         loadingVC.modalPresentationStyle = .overFullScreen
         present(loadingVC, animated: true)
         loadingVC.showLoadingScreen(for: 1.0)

@@ -101,6 +101,18 @@ extension UITextField {
             self.attributedPlaceholder = NSAttributedString(string: placeHolderText, attributes: attributes)
         }
     }
+    
+    func validateValueIsInt() -> Bool {
+        if let text = text, let intValue = Int(text) {
+            self.text = "\(intValue)"
+            return true
+        } else {
+            self.text = ""
+            self.editPlaceholderFont("Polje mora biti broj", fontSize: 16)
+            self.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
+            return false
+        }
+    }
 }
 
 extension UIColor {
