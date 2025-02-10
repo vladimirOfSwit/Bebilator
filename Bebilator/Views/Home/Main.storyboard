@@ -45,10 +45,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZMV-K5-OYO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="521.66666666666663"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="523"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiK-6P-XGh">
-                                                    <rect key="frame" x="16" y="521.66666666666663" width="358" height="57.333333333333371"/>
+                                                    <rect key="frame" x="16" y="523" width="358" height="56"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur
 adipiscing elit. Aliquam id imperdiet mi.
 Phasellus et aliquam dolor.</string>
@@ -332,10 +332,10 @@ Phasellus et aliquam dolor.</string>
             </objects>
             <point key="canvasLocation" x="161" y="316"/>
         </scene>
-        <!--New Bebilendar View Controller-->
+        <!--Bebilendar View Controller-->
         <scene sceneID="Gzn-RI-oHf">
             <objects>
-                <viewController id="OMK-TY-gK6" customClass="newBebilendarViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OMK-TY-gK6" customClass="BebilendarViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aCL-tA-FXU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -347,107 +347,6 @@ Phasellus et aliquam dolor.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHT-Jl-dnj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1574" y="1219"/>
-        </scene>
-        <!--BEBILENDAR-->
-        <scene sceneID="QDl-YO-EqC">
-            <objects>
-                <viewController id="NzC-Ez-S3P" customClass="BebilendarViewController" customModule="Bebilator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Clc-Ho-i2D">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id imperdiet mi. Phasellus et aliquam dolor. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsb-oJ-ew6">
-                                <rect key="frame" x="23" y="75" width="327" height="61"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="lXg-2o-4XK" userLabel="Middle StackView">
-                                <rect key="frame" x="27" y="169" width="320" height="236"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uEl-Mm-au7" userLabel="mTextfield">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
-                                        <color key="tintColor" red="1" green="0.75379251960000004" blue="0.39477747299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="62" id="adi-Vs-WNw"/>
-                                            <constraint firstAttribute="width" constant="320" id="xbk-HE-ijg"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
-                                        <textInputTraits key="textInputTraits" textContentType="date-time"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="DD/MM/GGGG" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="IVu-Vp-BoS" userLabel="wTextfield">
-                                        <rect key="frame" x="0.0" y="87" width="320" height="62"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
-                                        <textInputTraits key="textInputTraits" textContentType="date-time"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Broj godina u budućnosti" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xuF-wX-DRR" userLabel="nTextfield">
-                                        <rect key="frame" x="0.0" y="174" width="320" height="62"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="21"/>
-                                        <textInputTraits key="textInputTraits" textContentType="date-time"/>
-                                    </textField>
-                                </subviews>
-                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
-                            </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pregnantLady" translatesAutoresizingMaskIntoConstraints="NO" id="gEq-a4-vQP">
-                                <rect key="frame" x="71" y="428" width="234" height="241"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ErN-lu-ZUS" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                <rect key="frame" x="20" y="669" width="320" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="9fD-tS-olE"/>
-                                    <constraint firstAttribute="height" constant="56" id="Jlg-m7-F7H"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="IZRAČUNAJ">
-                                    <fontDescription key="titleFontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" red="0.30821428270000001" green="0.4612421069" blue="0.76871567959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="calculateSwitchingPeriodsButtonPressed:" destination="NzC-Ez-S3P" eventType="touchUpInside" id="dZt-lF-crL"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="RtX-5x-uQ4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="wsb-oJ-ew6" firstAttribute="leading" secondItem="RtX-5x-uQ4" secondAttribute="leading" constant="23" id="06n-sw-kze"/>
-                            <constraint firstItem="RtX-5x-uQ4" firstAttribute="trailing" secondItem="lXg-2o-4XK" secondAttribute="trailing" constant="28" id="57g-Ik-5k6"/>
-                            <constraint firstItem="ErN-lu-ZUS" firstAttribute="top" secondItem="gEq-a4-vQP" secondAttribute="bottom" id="6f9-ab-Fcc"/>
-                            <constraint firstItem="RtX-5x-uQ4" firstAttribute="trailing" secondItem="wsb-oJ-ew6" secondAttribute="trailing" constant="25" id="ACW-AJ-cR8"/>
-                            <constraint firstItem="wsb-oJ-ew6" firstAttribute="top" secondItem="RtX-5x-uQ4" secondAttribute="top" constant="25" id="HA8-2C-rGi"/>
-                            <constraint firstItem="lXg-2o-4XK" firstAttribute="leading" secondItem="RtX-5x-uQ4" secondAttribute="leading" constant="27" id="Hcc-qg-n4p"/>
-                            <constraint firstItem="gEq-a4-vQP" firstAttribute="leading" secondItem="RtX-5x-uQ4" secondAttribute="leading" constant="71" id="OtU-y8-6DE"/>
-                            <constraint firstItem="lXg-2o-4XK" firstAttribute="top" secondItem="wsb-oJ-ew6" secondAttribute="bottom" constant="33" id="Wph-vR-Cb3"/>
-                            <constraint firstItem="gEq-a4-vQP" firstAttribute="top" secondItem="lXg-2o-4XK" secondAttribute="bottom" constant="23" id="Y4w-Ph-leN"/>
-                            <constraint firstItem="RtX-5x-uQ4" firstAttribute="trailing" secondItem="ErN-lu-ZUS" secondAttribute="trailing" constant="35" id="ZBv-7Y-ntF"/>
-                            <constraint firstItem="RtX-5x-uQ4" firstAttribute="trailing" secondItem="gEq-a4-vQP" secondAttribute="trailing" constant="70" id="hKO-ak-IRa"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="BEBILENDAR" id="B32-P0-4BS"/>
-                    <connections>
-                        <outlet property="calculateButton" destination="ErN-lu-ZUS" id="kdg-Pa-10z"/>
-                        <outlet property="futureLimitTextfield" destination="xuF-wX-DRR" id="o8J-7r-DOM"/>
-                        <outlet property="infoLbl" destination="wsb-oJ-ew6" id="glc-uL-bg9"/>
-                        <outlet property="mTextfield" destination="uEl-Mm-au7" id="aBF-Lf-6HD"/>
-                        <outlet property="wTextfield" destination="IVu-Vp-BoS" id="JkF-1g-8BD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pRk-so-mzJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2364" y="725"/>
         </scene>
         <!--Bebilendar Result View Controller-->
         <scene sceneID="uvh-Sa-mi1">
@@ -463,12 +362,11 @@ Phasellus et aliquam dolor.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZy-ua-8yc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3281" y="985"/>
+            <point key="canvasLocation" x="2674" y="1188"/>
         </scene>
     </scenes>
     <resources>
         <image name="boyGirlWelcome" width="346" height="259"/>
-        <image name="pregnantLady" width="234" height="241"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
