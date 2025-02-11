@@ -13,9 +13,6 @@
         <array key="SF UI Text Medium.otf">
             <string>SFUIText-Medium</string>
         </array>
-        <array key="SFProDisplay-Bold.ttf">
-            <string>SFProDisplay-Bold</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Onboarding View Controller-->
@@ -223,86 +220,10 @@ Phasellus et aliquam dolor.</string>
                     <view key="view" contentMode="scaleToFill" id="86p-7l-ppN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boyGirlWelcome" translatesAutoresizingMaskIntoConstraints="NO" id="8Yw-gQ-rpp">
-                                <rect key="frame" x="0.0" y="203" width="375" height="259"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="g9a-Y4-FGD" userLabel="Bottom Stack View">
-                                <rect key="frame" x="35" y="598" width="305" height="137"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKs-5L-pOx" customClass="GradientButton" customModule="Bebilator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="gdR-yH-XeR"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Bebilator">
-                                            <fontDescription key="titleFontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                <color key="value" red="0.30821428270000001" green="0.4612421069" blue="0.76871567959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                <color key="value" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="Zqt-Qs-kTh" kind="show" identifier="goToBebilator" id="7om-fj-ojO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoF-Ht-Pfi">
-                                        <rect key="frame" x="0.0" y="81" width="305" height="56"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="92Z-g7-K9Z"/>
-                                            <constraint firstAttribute="width" constant="320" id="QLp-an-F2d"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="w4r-9L-Sb7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Bebilendar"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="OMK-TY-gK6" kind="show" identifier="goToBebilendar" id="Fln-r0-Kf5"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="XoF-Ht-Pfi" firstAttribute="top" secondItem="uKs-5L-pOx" secondAttribute="bottom" constant="25" id="DAt-vc-CBY"/>
-                                    <constraint firstAttribute="trailing" secondItem="XoF-Ht-Pfi" secondAttribute="trailing" id="TwO-Xy-cI9"/>
-                                    <constraint firstItem="XoF-Ht-Pfi" firstAttribute="top" secondItem="uKs-5L-pOx" secondAttribute="bottom" constant="25" id="UAM-Qa-Ops"/>
-                                    <constraint firstItem="XoF-Ht-Pfi" firstAttribute="leading" secondItem="g9a-Y4-FGD" secondAttribute="leading" id="WUn-6a-rNc"/>
-                                    <constraint firstItem="uKs-5L-pOx" firstAttribute="leading" secondItem="g9a-Y4-FGD" secondAttribute="leading" id="kRa-uD-qho"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ZIj-p9-jBR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="g9a-Y4-FGD" firstAttribute="leading" secondItem="ZIj-p9-jBR" secondAttribute="leading" constant="35" id="AqL-Wa-K6l"/>
-                            <constraint firstItem="ZIj-p9-jBR" firstAttribute="trailing" secondItem="g9a-Y4-FGD" secondAttribute="trailing" constant="35" id="KCR-7H-0zg"/>
-                            <constraint firstItem="g9a-Y4-FGD" firstAttribute="top" secondItem="8Yw-gQ-rpp" secondAttribute="bottom" constant="136" id="aRT-iq-dv1"/>
-                            <constraint firstItem="ZIj-p9-jBR" firstAttribute="bottom" secondItem="g9a-Y4-FGD" secondAttribute="bottom" constant="43" id="evP-fi-KIl"/>
-                            <constraint firstItem="8Yw-gQ-rpp" firstAttribute="leading" secondItem="ZIj-p9-jBR" secondAttribute="leading" id="fqm-3O-0At"/>
-                            <constraint firstItem="8Yw-gQ-rpp" firstAttribute="top" secondItem="ZIj-p9-jBR" secondAttribute="top" constant="109" id="peS-th-aJg"/>
-                            <constraint firstItem="8Yw-gQ-rpp" firstAttribute="trailing" secondItem="ZIj-p9-jBR" secondAttribute="trailing" id="sAh-m1-eqj"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="olU-5B-T4Q"/>
-                    <connections>
-                        <outlet property="bebilendarBtn" destination="XoF-Ht-Pfi" id="W4f-vd-3Ss"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYn-9R-pz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -366,7 +287,6 @@ Phasellus et aliquam dolor.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="boyGirlWelcome" width="346" height="259"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

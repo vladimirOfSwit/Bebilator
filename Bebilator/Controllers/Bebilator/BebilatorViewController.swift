@@ -37,6 +37,7 @@ class BebilatorViewController: UIViewController {
     
     //MARK: - UI Setup
     private func setupUI() {
+        view.backgroundColor = .white
         navigationItem.title = "BEBILATOR"
         self.removeBackButtonText()
         
@@ -126,8 +127,8 @@ class BebilatorViewController: UIViewController {
         button.setTitleColor(titleColor, for: .normal)
         
         if isGradientButton, let gradientButton = button as? GradientButton {
-            gradientButton.startColor = .systemBlue
-            gradientButton.endColor = .systemPink
+            gradientButton.startColor = UIColor(hex: "#6B92E5") ?? .systemBlue
+            gradientButton.endColor = UIColor(hex: "#F88AB0") ?? .systemPink
             gradientButton.layer.cornerRadius = 25
             gradientButton.clipsToBounds = true
             gradientButton.titleLabel?.font = UIFont(name: "SF Pro Display Bold", size: 20)
@@ -136,8 +137,8 @@ class BebilatorViewController: UIViewController {
             button.backgroundColor = backgroundColor
             button.layer.cornerRadius = 12
             button.layer.shadowColor = UIColor.black.cgColor
-            button.layer.shadowOpacity = 0.2
-            button.layer.shadowOffset = CGSize(width: 0, height: 3)
+            button.layer.shadowOpacity = 0.5
+            button.layer.shadowOffset = CGSize(width: 0, height: 2)
             button.layer.shadowRadius = 4
         }
         if button == clearButton || button == previousScoresButton {

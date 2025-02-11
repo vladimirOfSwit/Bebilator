@@ -8,46 +8,91 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    @IBOutlet weak var bebilendarBtn: UIButton!
-
+    private let welcomeImageView = UIImageView()
+    private let bebilatorButton = GradientButton()
+    private let bebilendarButton = UIButton(type: .system)
+    private let bottomStackView = UIStackView()
+    
     let buttonWidth: CGFloat = UIScreen.main.bounds.width * 0.80
     let buttonHeight: CGFloat = 56
     let shadowOpacity: Float = 0.5
     let shadowOffset = CGSize(width: 0, height: 2)
     let shadowRadius: CGFloat = 4
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
     func setupUI() {
-        removeBackButtonText()
-        bebilendarBtn.backgroundColor = UIColor.white
-        bebilendarBtn.layer.cornerRadius = buttonHeight / 2
-        bebilendarBtn.clipsToBounds = true
-      
-        bebilendarBtn.layer.shadowColor = UIColor.black.cgColor
-        bebilendarBtn.layer.shadowOpacity = shadowOpacity
-        bebilendarBtn.layer.shadowOffset = shadowOffset
-        bebilendarBtn.layer.shadowRadius = shadowRadius
-        bebilendarBtn.layer.masksToBounds = false
+        welcomeImageView.image = UIImage(named: "boyGirlWelcome")
+        welcomeImageView.translatesAutoresizingMaskIntoConstraints = false
+        welcomeImageView.contentMode = .scaleAspectFit
         
-        bebilendarBtn.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(welcomeImageView)
+        
+        bottomStackView.axis = .vertical
+        bottomStackView.alignment = .fill
+        bottomStackView.spacing = 15
+        bottomStackView.distribution = .fillEqually
+        bottomStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bottomStackView)
+        
+        bebilatorButton.translatesAutoresizingMaskIntoConstraints = false
+        bebilatorButton.startColor = UIColor(hex: "#6B92E5") ?? .systemRed
+        bebilatorButton.endColor = UIColor(hex: "#F88AB0") ?? .systemGray
+        bebilatorButton.layer.cornerRadius = 25
+        bebilatorButton.clipsToBounds = true
+        bebilatorButton.addTarget(self, action: #selector(bebilatorButtonPressed), for: .touchUpInside)
+        bebilatorButton.titleLabel?.font = UIFont(name: "SF Pro Display Bold", size: 20)
+        bebilatorButton.setTitle("Bebilator", for: .normal)
+        bottomStackView.addArrangedSubview(bebilatorButton)
+        
+        removeBackButtonText()
+        bebilendarButton.backgroundColor = UIColor.white
+        bebilendarButton.layer.cornerRadius = buttonHeight / 2
+        bebilendarButton.clipsToBounds = true
+        bebilendarButton.addTarget(self, action: #selector(bebilendarButtonPressed), for: .touchUpInside)
+        bebilendarButton.titleLabel?.font = UIFont(name: "SF Pro Display Bold", size: 20)
+        bebilendarButton.setTitle("Bebilendar", for: .normal)
+        bebilendarButton.setTitleColor(.systemBlue, for: .normal)
+        
+        bebilendarButton.layer.shadowColor = UIColor.black.cgColor
+        bebilendarButton.layer.shadowOpacity = shadowOpacity
+        bebilendarButton.layer.shadowOffset = shadowOffset
+        bebilendarButton.layer.shadowRadius = shadowRadius
+        bebilendarButton.layer.masksToBounds = false
+        
+        bottomStackView.addArrangedSubview(bebilendarButton)
+        
+        bebilendarButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            bebilendarBtn.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            bebilendarBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            bebilendarBtn.widthAnchor.constraint(equalToConstant: buttonWidth),
-            bebilendarBtn.heightAnchor.constraint(equalToConstant: buttonHeight)
+            
+            welcomeImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+            welcomeImageView.bottomAnchor.constraint(equalTo: bottomStackView.topAnchor, constant: -10),
+            welcomeImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            welcomeImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            bebilatorButton.heightAnchor.constraint(equalToConstant: buttonHeight),
+            bebilendarButton.heightAnchor.constraint(equalToConstant: buttonHeight),
+            
+            bottomStackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            bottomStackView.topAnchor.constraint(equalTo: welcomeImageView.bottomAnchor, constant: 40),
+            bottomStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            bottomStackView.widthAnchor.constraint(equalToConstant: buttonWidth),
+           
         ])
     }
     
-    @IBAction func bebilatorButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: Constants.HOME_VIEW_CONTROLLER_IDENTIFIER, sender: self)
-        print("Bebilator")
+    @objc private func bebilatorButtonPressed() {
+        let bebilatorVC = BebilatorViewController()
+        bebilatorVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(bebilatorVC, animated: true)
     }
     
-    @IBAction func bebilendarButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: Constants.BEBILENDAR_VIEW_CONTROLLER_IDENTIFIER, sender: self)
+    @objc func bebilendarButtonPressed(_ sender: UIButton) {
+        let bebilendarVC = BebilendarViewController()
+        bebilendarVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(bebilendarVC, animated: true)
     }
 }

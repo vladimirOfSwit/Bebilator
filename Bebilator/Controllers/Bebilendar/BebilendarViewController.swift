@@ -31,7 +31,7 @@ class BebilendarViewController:UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         updateUIForRemainingTries()
-        print("Purchased tries: \(TryManager.shared.purchasedTries)")
+        //TryManager.shared.purchasedTries = 0
     }
     
     @objc func dismissKeyboard() {
@@ -46,6 +46,7 @@ class BebilendarViewController:UIViewController {
     }
     
     private func setupUI() {
+        view.backgroundColor = .white
         navigationItem.title = "BEBILENDAR"
         self.removeBackButtonText()
         
@@ -113,8 +114,8 @@ class BebilendarViewController:UIViewController {
         bottomStackView.addArrangedSubview(pregnantGirlImageView)
         
         calculateButton.translatesAutoresizingMaskIntoConstraints = false
-        calculateButton.startColor = .systemBlue
-        calculateButton.endColor = .systemPink
+        calculateButton.startColor = UIColor(hex: "#6B92E5") ?? .systemBlue
+        calculateButton.endColor = UIColor(hex: "#F88AB0") ?? .systemPink
         calculateButton.layer.cornerRadius = 25
         calculateButton.clipsToBounds = true
         calculateButton.titleLabel?.font = UIFont(name: "SF Pro Display Bold", size: 20)

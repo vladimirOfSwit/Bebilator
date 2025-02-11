@@ -1,17 +1,37 @@
 {
   "images" : [
     {
-      "filename" : "pacifier.jpeg",
+      "filename" : "pacifier.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "pacifier@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "pacifier@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
+    },
+    {
+      "filename" : "pacifier.svg",
+      "idiom" : "universal",
+      "scale" : "1x",
+      "unassigned" : true
+    },
+    {
+      "filename" : "pacifier@2x.svg",
+      "idiom" : "universal",
+      "scale" : "2x",
+      "unassigned" : true
+    },
+    {
+      "filename" : "pacifier@3x.svg",
+      "idiom" : "universal",
+      "scale" : "3x",
+      "unassigned" : true
     }
   ],
   "info" : {
