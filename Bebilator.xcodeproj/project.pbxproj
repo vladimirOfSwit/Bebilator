@@ -14,16 +14,17 @@
 		851F2FF22CCA5AA400250212 /* PreviousScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FF12CCA5AA400250212 /* PreviousScoresViewController.swift */; };
 		851F2FF42CCA5C8500250212 /* PreviousScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FF32CCA5C8500250212 /* PreviousScore.swift */; };
 		851F2FF62CCA5CE300250212 /* PreviousScoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F2FF52CCA5CE300250212 /* PreviousScoresViewModel.swift */; };
+		8522F5B02D78A2DA0040F54E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522F5AF2D78A2D20040F54E /* OnboardingViewController.swift */; };
 		8526F9482D40EF3D004AFFE6 /* BebilatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8526F9472D40EF3D004AFFE6 /* BebilatorViewController.swift */; };
 		8526F94A2D528429004AFFE6 /* BebilendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8526F9492D528420004AFFE6 /* BebilendarViewController.swift */; };
 		852AEF672C78A78D0050AF11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852AEF662C78A78D0050AF11 /* Main.storyboard */; };
 		852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */; };
 		852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AEF6A2C78A8D90050AF11 /* GradientButton.swift */; };
-		8535E80C2CD924BC005668F6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E80B2CD924BC005668F6 /* OnboardingViewController.swift */; };
 		8535E80E2CD92510005668F6 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E80D2CD92510005668F6 /* OnboardingViewModel.swift */; };
 		8535E8132CD9295B005668F6 /* BebilendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E8122CD9295B005668F6 /* BebilendarViewModel.swift */; };
 		8535E8162CD92B89005668F6 /* BebilendarResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */; };
 		8535E81C2CDA47C7005668F6 /* BebilendarResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535E81B2CDA47C7005668F6 /* BebilendarResultViewModel.swift */; };
+		853C47B32D7F648300012E86 /* GradientPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C47B22D7F642F00012E86 /* GradientPageControl.swift */; };
 		853D5E052CFF5C4A00F20047 /* LoadingScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853D5E042CFF5C4A00F20047 /* LoadingScreenViewModel.swift */; };
 		853D5E072D00785E00F20047 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853D5E062D00785E00F20047 /* OnboardingSlide.swift */; };
 		8552D8CC2B84B45100EDD988 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */; };
@@ -67,16 +68,17 @@
 		851F2FF12CCA5AA400250212 /* PreviousScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScoresViewController.swift; sourceTree = "<group>"; };
 		851F2FF32CCA5C8500250212 /* PreviousScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScore.swift; sourceTree = "<group>"; };
 		851F2FF52CCA5CE300250212 /* PreviousScoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousScoresViewModel.swift; sourceTree = "<group>"; };
+		8522F5AF2D78A2D20040F54E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8526F9472D40EF3D004AFFE6 /* BebilatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilatorViewController.swift; sourceTree = "<group>"; };
 		8526F9492D528420004AFFE6 /* BebilendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarViewController.swift; sourceTree = "<group>"; };
 		852AEF662C78A78D0050AF11 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		852AEF682C78A7D30050AF11 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		852AEF6A2C78A8D90050AF11 /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
-		8535E80B2CD924BC005668F6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8535E80D2CD92510005668F6 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		8535E8122CD9295B005668F6 /* BebilendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarViewModel.swift; sourceTree = "<group>"; };
 		8535E8152CD92B89005668F6 /* BebilendarResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarResultViewController.swift; sourceTree = "<group>"; };
 		8535E81B2CDA47C7005668F6 /* BebilendarResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebilendarResultViewModel.swift; sourceTree = "<group>"; };
+		853C47B22D7F642F00012E86 /* GradientPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientPageControl.swift; sourceTree = "<group>"; };
 		853D5E042CFF5C4A00F20047 /* LoadingScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewModel.swift; sourceTree = "<group>"; };
 		853D5E062D00785E00F20047 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		8552D8CB2B84B45100EDD988 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
@@ -174,7 +176,7 @@
 		8535E80A2CD92419005668F6 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				8535E80B2CD924BC005668F6 /* OnboardingViewController.swift */,
+				8522F5AF2D78A2D20040F54E /* OnboardingViewController.swift */,
 				8535E80D2CD92510005668F6 /* OnboardingViewModel.swift */,
 				853D5E062D00785E00F20047 /* OnboardingSlide.swift */,
 			);
@@ -238,6 +240,7 @@
 		85885E2D2A711E3C00EFF479 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				853C47B22D7F642F00012E86 /* GradientPageControl.swift */,
 				851F2FEB2CCA484F00250212 /* DatePickerManager.swift */,
 				852AEF6A2C78A8D90050AF11 /* GradientButton.swift */,
 				85F3B3032CDCF00D00F81B65 /* CarouselView.swift */,
@@ -495,9 +498,9 @@
 			files = (
 				853D5E072D00785E00F20047 /* OnboardingSlide.swift in Sources */,
 				85DD81952CD2532300C437A7 /* ScoresHeaderView.swift in Sources */,
+				853C47B32D7F648300012E86 /* GradientPageControl.swift in Sources */,
 				852AEF6B2C78A8D90050AF11 /* GradientButton.swift in Sources */,
 				8596FE2D2A695DE00050E574 /* AppDelegate.swift in Sources */,
-				8535E80C2CD924BC005668F6 /* OnboardingViewController.swift in Sources */,
 				8596FE2F2A695DE00050E574 /* SceneDelegate.swift in Sources */,
 				85885E332A71443700EFF479 /* UIView+Extension.swift in Sources */,
 				851F2FEE2CCA488700250212 /* BebilatorResultViewController.swift in Sources */,
@@ -516,6 +519,7 @@
 				85A265492B18E72E00A6676C /* BebilatorBrain.swift in Sources */,
 				851F2FEC2CCA484F00250212 /* DatePickerManager.swift in Sources */,
 				8535E80E2CD92510005668F6 /* OnboardingViewModel.swift in Sources */,
+				8522F5B02D78A2DA0040F54E /* OnboardingViewController.swift in Sources */,
 				85A265472B18E46400A6676C /* Constants.swift in Sources */,
 				8526F9482D40EF3D004AFFE6 /* BebilatorViewController.swift in Sources */,
 				85F3B3042CDCF00D00F81B65 /* CarouselView.swift in Sources */,

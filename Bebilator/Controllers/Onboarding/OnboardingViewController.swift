@@ -2,50 +2,110 @@
 //  OnboardingViewController.swift
 //  Bebilator
 //
-//  Created by Vladimir Savic on 4.11.24..
+//  Created by Vladimir Savic on 5.3.25..
 //
 
 import UIKit
 
 class OnboardingViewController: UIViewController {
+    var viewModel = OnboardingViewModel()
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var nextBtn: UIButton!
-    @IBOutlet weak var pageControl: UIPageControl!
+    init(viewModel: OnboardingViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
     
-    var viewModel: OnboardingViewModel?
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
+    private lazy var pageControl: GradientPageControl = {
+        let pc = GradientPageControl()
+        pc.numberOfPages = 3 // Or however many pages you have
+        pc.currentPage = 0
+        pc.pageIndicatorTintColor = UIColor.lightGray // Color for inactive dots
+        pageControl.startColor = UIColor(hex: "#6B92E5") ?? .systemRed
+        pageControl.endColor = UIColor(hex: "#F88AB0") ?? .systemGray
+        pc.translatesAutoresizingMaskIntoConstraints = false
+        return pc
+    }()
+    
+    private let nextButton: GradientButton = {
+        let button = GradientButton()
+        button.startColor = UIColor(hex: "#6B92E5") ?? .systemBlue
+        button.endColor = UIColor(hex: "#F88AB0") ?? .systemPink
+        button.setTitle("Dalje", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        if let viewModel = viewModel {
-            pageControl.numberOfPages = viewModel.slides.count
-            self.configureViewModel()
-        }
+        setupUI()
+        setupCollectionView()
+        setupBindings()
     }
     
-    private func configureViewModel() {
-        guard let viewModel = viewModel else { return }
+    private func setupUI() {
+        view.backgroundColor = .white
+        view.addSubview(collectionView)
+        view.addSubview(pageControl)
+        view.addSubview(nextButton)
         
-        viewModel.onCurrentPageUpdated = { [weak self] title, currentPage in
-            guard let self = self else { return }
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -20),
             
+            pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -10),
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pageControl.heightAnchor.constraint(equalToConstant: 20),
+            
+            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            nextButton.widthAnchor.constraint(equalToConstant: 165),
+            nextButton.heightAnchor.constraint(equalToConstant: 56)
+        ])
+        
+        nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
+    }
+    
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: OnboardingCollectionViewCell.identifier)
+    }
+    
+    private func setupBindings() {
+        
+        pageControl.numberOfPages = viewModel.slides.count
+        viewModel.onCurrentPageUpdated = {[weak self] title, currentPage in
+            guard let self = self else { return }
             self.pageControl.currentPage = currentPage
-            self.nextBtn.setTitle(title, for: .normal)
-            self.nextBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold) // Set your desired font here
+            self.nextButton.setTitle(title, for: .normal)
             
             let indexPath = IndexPath(item: currentPage, section: 0)
             self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
     }
     
-    @IBAction func nextBtnClicked(_ sender: UIButton) {
-        guard let viewModel = viewModel else { return }
-        
+    @objc private func nextButtonClicked() {
         let currentPage = viewModel.getCurrentPage()
+        
         if currentPage == viewModel.slides.count - 1 {
             presentHomeScreen()
         } else {
@@ -55,29 +115,22 @@ class OnboardingViewController: UIViewController {
     
     private func presentHomeScreen() {
         UserDefaults.standard.hasOnboarded = true
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        if let controller = storyboard.instantiateViewController(withIdentifier: "HomeNC") as? UINavigationController {
-            let controller = storyboard.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
-            controller.modalPresentationStyle = .fullScreen
-            controller.modalTransitionStyle = .flipHorizontal
-            present(controller, animated: true, completion: nil)
-        }
+        let homeVC = UINavigationController(rootViewController: WelcomeViewController())
+        homeVC.modalPresentationStyle = .fullScreen
+        homeVC.modalTransitionStyle = .flipHorizontal
+        present(homeVC, animated: true)
     }
 }
 
-extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.slides.count ?? 0
+        return viewModel.slides.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier, for: indexPath) as! OnboardingCollectionViewCell
-        
-        if let slide = viewModel?.slides[indexPath.row] {
-            cell.setup(slide)
-        }
+        let slide = viewModel.slides[indexPath.row]
+        cell.setup(slide)
         return cell
     }
     
@@ -88,6 +141,6 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
         let currentPage = Int(scrollView.contentOffset.x / width)
-        viewModel?.setCurrentPage(number: currentPage)
+        viewModel.setCurrentPage(number: currentPage)
     }
 }

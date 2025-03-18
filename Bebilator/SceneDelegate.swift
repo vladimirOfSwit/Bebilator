@@ -38,9 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             // Create and pass the view model to the OnboardingViewController
             let viewModel = OnboardingViewModel()
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
-            onboardingVC.viewModel = viewModel
+            let onboardingVC = OnboardingViewController(viewModel: viewModel)
             controller = onboardingVC
         }
         

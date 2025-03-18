@@ -61,8 +61,8 @@ class BebilendarViewController:UIViewController {
             pacifierImageView.contentMode = .scaleAspectFit
             pacifierImageView.translatesAutoresizingMaskIntoConstraints = false
             
-            pacifierImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
-            pacifierImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            pacifierImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            pacifierImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
             
             topStackView.addArrangedSubview(pacifierImageView)
             remainingPacifiers.append(pacifierImageView)
@@ -131,7 +131,7 @@ class BebilendarViewController:UIViewController {
             topStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             topStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            middleStackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 40),
+            middleStackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 20),
             middleStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             middleStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             

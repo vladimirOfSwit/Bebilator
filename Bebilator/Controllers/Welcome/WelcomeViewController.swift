@@ -21,14 +21,16 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
+        view.backgroundColor = .white
         setupUI()
+        UserDefaults.standard.hasOnboarded = false 
     }
     
     func setupUI() {
         welcomeImageView.image = UIImage(named: "boyGirlWelcome")
         welcomeImageView.translatesAutoresizingMaskIntoConstraints = false
         welcomeImageView.contentMode = .scaleAspectFit
-        
         view.addSubview(welcomeImageView)
         
         bottomStackView.axis = .vertical

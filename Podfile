@@ -7,5 +7,6 @@ target 'Bebilator' do
   use_frameworks!
 
   pod 'iCarousel'
+  
 
 end

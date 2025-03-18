@@ -14,6 +14,20 @@ extension UIView {
             self.layer.cornerRadius = newValue
         }
     }
+    
+    func applyGradient(colours: [UIColor]) {
+            let gradient = CAGradientLayer()
+            gradient.frame = bounds
+            gradient.colors = colours.map { $0.cgColor }
+            gradient.startPoint = CGPoint(x: 0, y: 0.5)
+            gradient.endPoint = CGPoint(x: 1, y: 0.5)
+            gradient.cornerRadius = layer.cornerRadius
+            layer.insertSublayer(gradient, at: 0)
+        }
+    
+    func removeGradient() {
+          layer.sublayers?.filter { $0 is CAGradientLayer }.forEach { $0.removeFromSuperlayer() }
+      }
 }
 
 extension UIViewController {
@@ -116,29 +130,39 @@ extension UITextField {
 }
 
 extension UIColor {
-    public convenience init?(hex: String) {
-        let r, g, b, a: CGFloat
+    convenience init(hex: String) {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
-        var hexColor = hex.hasPrefix("#") ? String(hex.dropFirst()) : hex
-        if hexColor.count == 6 {
-            hexColor.append("FF") // Append alpha value if missing
+        if hexSanitized.hasPrefix("#") {
+            hexSanitized.remove(at: hexSanitized.startIndex)
         }
+
+        var rgb: UInt64 = 0
         
-        guard hexColor.count == 8 else { return nil }
-        
-        let scanner = Scanner(string: hexColor)
-        var hexNumber: UInt64 = 0
-        
-        if scanner.scanHexInt64(&hexNumber) {
-            r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-            g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-            b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-            a = CGFloat(hexNumber & 0x000000ff) / 255
-            
-            self.init(red: r, green: g, blue: b, alpha: a)
-            return
+        // Fallback color values
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 1
+
+        if Scanner(string: hexSanitized).scanHexInt64(&rgb) {
+            switch hexSanitized.count {
+            case 6:
+                r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
+                g = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
+                b = CGFloat(rgb & 0x0000FF) / 255.0
+            case 8:
+                r = CGFloat((rgb & 0xFF000000) >> 24) / 255.0
+                g = CGFloat((rgb & 0x00FF0000) >> 16) / 255.0
+                b = CGFloat((rgb & 0x0000FF00) >> 8) / 255.0
+                a = CGFloat(rgb & 0x000000FF) / 255.0
+            default:
+                break
+            }
         }
-        return nil
+
+        // Always call self.init to avoid EXC_BAD_ACCESS
+        self.init(red: r, green: g, blue: b, alpha: a)
     }
 }
 
