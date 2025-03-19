@@ -31,20 +31,19 @@ class OnboardingViewController: UIViewController {
     }()
     
     private lazy var pageControl: GradientPageControl = {
-        let pc = GradientPageControl()
-        pc.numberOfPages = 3 // Or however many pages you have
-        pc.currentPage = 0
-        pc.pageIndicatorTintColor = UIColor.lightGray // Color for inactive dots
-        pageControl.startColor = UIColor(hex: "#6B92E5") ?? .systemRed
-        pageControl.endColor = UIColor(hex: "#F88AB0") ?? .systemGray
-        pc.translatesAutoresizingMaskIntoConstraints = false
-        return pc
+        let pageControl = GradientPageControl()
+        pageControl.numberOfPages = 5
+        pageControl.currentPage = 0
+        pageControl.startColor = UIColor(hex: "#6B92E5")
+        pageControl.endColor = UIColor(hex: "#F88AB0")
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        return pageControl
     }()
     
     private let nextButton: GradientButton = {
         let button = GradientButton()
-        button.startColor = UIColor(hex: "#6B92E5") ?? .systemBlue
-        button.endColor = UIColor(hex: "#F88AB0") ?? .systemPink
+        button.startColor = UIColor(hex: "#6B92E5")
+        button.endColor = UIColor(hex: "#F88AB0")
         button.setTitle("Dalje", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

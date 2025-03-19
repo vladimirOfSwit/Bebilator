@@ -1,45 +1,97 @@
 import UIKit
 
-
-
 class GradientPageControl: UIPageControl {
 
-    // Now these are safely unwrapped and won’t cause EXC_BAD_ACCESS
-    var startColor: UIColor = UIColor(hex: "#6B92E5") // ✅ Works
-    var endColor: UIColor = UIColor(hex: "#F88AB0")   // ✅ Works
-    //var badColor: UIColor = UIColor(hex: "garbage")  
+    var startColor: UIColor = UIColor(hex: "#6B92E5")
+    var endColor: UIColor = UIColor(hex: "#F88AB0")
+    var inactiveColor: UIColor = UIColor.lightGray
 
-    override func draw(_ rect: CGRect) {
-        backgroundColor = .clear
-        
-        guard let context = UIGraphicsGetCurrentContext() else { return }
-        
-        for (index, subview) in subviews.enumerated() {
-            let dotRect = subview.frame.insetBy(dx: (subview.frame.width - 8) / 2, dy: (subview.frame.height - 8) / 2)
-            
+    private var dotViews: [UIView] = []
+    private let stackView = UIStackView()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+
+    private func commonInit() {
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(stackView)
+
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+    }
+
+    override var numberOfPages: Int {
+        didSet { setupDots() }
+    }
+
+    override var currentPage: Int {
+        didSet { updateDots() }
+    }
+
+    private func setupDots() {
+        dotViews.forEach { $0.removeFromSuperview() }
+        dotViews.removeAll()
+
+        for _ in 0..<numberOfPages {
+            let dot = UIView()
+            dot.translatesAutoresizingMaskIntoConstraints = false
+            dot.layer.cornerRadius = 5
+            dot.clipsToBounds = true
+            NSLayoutConstraint.activate([
+                dot.widthAnchor.constraint(equalToConstant: 10),
+                dot.heightAnchor.constraint(equalToConstant: 10)
+            ])
+            stackView.addArrangedSubview(dot)
+            dotViews.append(dot)
+        }
+        updateDots()
+    }
+
+    private func updateDots() {
+        for (index, dot) in dotViews.enumerated() {
+            dot.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
             if index == currentPage {
-                // Active dot with gradient
-                let path = UIBezierPath(ovalIn: dotRect)
-                context.saveGState()
-                path.addClip()
-                
-                let colors = [startColor.cgColor, endColor.cgColor] as CFArray
-                guard let gradient = CGGradient(colorsSpace: nil, colors: colors, locations: [0.0, 1.0]) else { return }
-                context.drawLinearGradient(gradient, start: CGPoint(x: dotRect.minX, y: dotRect.midY), end: CGPoint(x: dotRect.maxX, y: dotRect.midY), options: [])
-                
-                context.restoreGState()
+                applyGradient(to: dot, colors: [startColor.cgColor, endColor.cgColor])
             } else {
-                // Inactive dot
-                let path = UIBezierPath(ovalIn: dotRect)
-                UIColor.lightGray.setFill()
-                path.fill()
+                applyGradient(to: dot, colors: [inactiveColor.cgColor, inactiveColor.cgColor])
             }
         }
     }
-    
+
+    private func applyGradient(to view: UIView, colors: [CGColor]) {
+        let gradient = CAGradientLayer()
+        gradient.colors = colors
+        gradient.startPoint = CGPoint(x: 0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1, y: 0.5)
+        gradient.frame = view.bounds
+        gradient.cornerRadius = view.layer.cornerRadius
+        view.layer.insertSublayer(gradient, at: 0)
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        backgroundColor = .clear
-        setNeedsDisplay()
+        for dot in dotViews {
+            dot.layer.sublayers?.forEach {
+                if let gradient = $0 as? CAGradientLayer {
+                    gradient.frame = dot.bounds
+                }
+            }
+        }
     }
 }
+
+
+
