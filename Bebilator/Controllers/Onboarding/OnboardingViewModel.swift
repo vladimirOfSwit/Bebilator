@@ -39,7 +39,7 @@ class OnboardingViewModel {
         // Insert first image after
         let firstSlideDescription = NSMutableAttributedString(string: "Zdravo! Dobrodošli na aplikaciju zabavnog karaktera koja vam može pomoći da predvidite pol Vaše bebe. ")
         
-        firstSlideDescription.appendImage(UIImage(named: "mIconTextfield")!, after: "aplikaciju")
+        firstSlideDescription.appendImage("mIconTextfield", after: "zabavnog")
         
        
         slides = [OnboardingSlide(description: firstSlideDescription, image: #imageLiteral(resourceName: "itsaboy")),

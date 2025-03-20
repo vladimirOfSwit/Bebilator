@@ -294,8 +294,10 @@ extension Array where Element == UITextField {
 }
 
 extension NSMutableAttributedString {
-    func appendImage(_ image: UIImage, after word: String, imageSize: CGSize = CGSize(width: 16, height: 16)) {
+    func appendImage(_ imageName: String, after word: String, imageSize: CGSize = CGSize(width: 16, height: 16)) {
         let space = NSMutableAttributedString(string: " ")
+        
+        guard let image = UIImage(named: imageName) else { return }
         
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = image
