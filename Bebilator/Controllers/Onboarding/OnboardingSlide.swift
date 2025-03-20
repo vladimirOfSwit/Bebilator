@@ -11,7 +11,7 @@ struct OnboardingSlide {
     var description: NSAttributedString
     var image: UIImage
     
-    init(description: NSAttributedString, image: UIImage) {
+    init(description: NSMutableAttributedString, image: UIImage) {
         self.description = description
         self.image = image
     }

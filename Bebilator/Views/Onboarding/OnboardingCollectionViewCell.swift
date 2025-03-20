@@ -21,6 +21,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.font = UIFont(name: "Avenir Next-Bold", size: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
