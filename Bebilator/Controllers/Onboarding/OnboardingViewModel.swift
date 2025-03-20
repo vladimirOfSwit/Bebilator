@@ -35,9 +35,16 @@ class OnboardingViewModel {
     }
     
     func createSlides() {
-        slides = [OnboardingSlide(description: "Test prvi ekran", image: #imageLiteral(resourceName: "itsaboy")),
-                 OnboardingSlide(description: "Test drugi ekran", image: #imageLiteral(resourceName: "itsagirl")),
-                 OnboardingSlide(description: "Test treci ekran", image: #imageLiteral(resourceName: "boygirl"))
+      
+        // Insert first image after
+        let firstSlideDescription = NSMutableAttributedString(string: "Zdravo! Dobrodošli na aplikaciju zabavnog karaktera koja vam može pomoći da predvidite pol Vaše bebe. ")
+        
+        firstSlideDescription.appendImage(UIImage(named: "mIconTextfield")!, after: "aplikaciju")
+        
+       
+        slides = [OnboardingSlide(description: firstSlideDescription, image: #imageLiteral(resourceName: "itsaboy")),
+                  OnboardingSlide(description: firstSlideDescription, image: #imageLiteral(resourceName: "itsagirl")),
+                  OnboardingSlide(description: firstSlideDescription, image: #imageLiteral(resourceName: "boygirl"))
         ]
     }
 }

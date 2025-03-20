@@ -8,6 +8,11 @@
 import UIKit
 
 struct OnboardingSlide {
-    let description: String
-    let image: UIImage
+    var description: NSAttributedString
+    var image: UIImage
+    
+    init(description: NSAttributedString, image: UIImage) {
+        self.description = description
+        self.image = image
+    }
 }

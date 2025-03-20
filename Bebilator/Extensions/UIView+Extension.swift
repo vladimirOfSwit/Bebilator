@@ -293,6 +293,24 @@ extension Array where Element == UITextField {
     }
 }
 
+extension NSMutableAttributedString {
+    func appendImage(_ image: UIImage, after word: String, imageSize: CGSize = CGSize(width: 16, height: 16)) {
+        let space = NSMutableAttributedString(string: " ")
+        
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = image
+        imageAttachment.bounds = CGRect(x: 0, y: -3, width: imageSize.width, height: imageSize.height)
+        
+        let inlineIcon = NSAttributedString(attachment: imageAttachment)
+        
+        let rangeOfImage = (self.string as NSString).range(of: word)
+        guard rangeOfImage.location != NSNotFound else { return }
+        
+        self.insert(space, at: rangeOfImage.location + rangeOfImage.length)
+        self.insert(inlineIcon, at: rangeOfImage.location + rangeOfImage.length + 1)
+    }
+}
+
 
 
 

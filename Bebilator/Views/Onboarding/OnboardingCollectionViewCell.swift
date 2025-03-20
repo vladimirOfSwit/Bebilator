@@ -53,7 +53,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(_ slide: OnboardingSlide) {
-        descriptionLabel.text = slide.description
+        descriptionLabel.attributedText = slide.description
         imageView.image = slide.image
     }
 }
