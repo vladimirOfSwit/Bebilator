@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SFUIText-Regular.otf</string>
 		<string>SFUIText-Bold.otf</string>
 		<string>SFProDisplay-Bold.ttf</string>
 		<string>SFUIText-Heavy.otf</string>

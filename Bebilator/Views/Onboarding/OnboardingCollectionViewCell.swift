@@ -22,8 +22,9 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont(name: "Avenir Next-Bold", size: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.setContentHuggingPriority(.defaultLow, for: .vertical)
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return label
     }()
     
@@ -41,12 +42,12 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(descriptionLabel)
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40),
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
-            imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.6),
+            imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
             
-            descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -20)
@@ -54,7 +55,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(_ slide: OnboardingSlide) {
-        descriptionLabel.attributedText = slide.description
+        descriptionLabel.attributedText = slide.attributedText
         imageView.image = slide.image
     }
 }
