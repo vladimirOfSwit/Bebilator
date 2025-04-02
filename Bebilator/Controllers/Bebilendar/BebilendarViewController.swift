@@ -31,7 +31,7 @@ class BebilendarViewController:UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         updateUIForRemainingTries()
-        //TryManager.shared.purchasedTries = 0
+        TryManager.shared.purchasedTries = 0
     }
     
     @objc func dismissKeyboard() {
@@ -55,7 +55,7 @@ class BebilendarViewController:UIViewController {
         topStackView.distribution = .equalSpacing
         topStackView.spacing = 20
         
-        for _ in 0..<3 {
+        for _ in 0..<remainingTries{
             let pacifierImageView = UIImageView()
             pacifierImageView.image = UIImage(named: "pacifier")
             pacifierImageView.contentMode = .scaleAspectFit
@@ -114,8 +114,8 @@ class BebilendarViewController:UIViewController {
         bottomStackView.addArrangedSubview(pregnantGirlImageView)
         
         calculateButton.translatesAutoresizingMaskIntoConstraints = false
-        calculateButton.startColor = UIColor(hex: "#6B92E5") ?? .systemBlue
-        calculateButton.endColor = UIColor(hex: "#F88AB0") ?? .systemPink
+        calculateButton.startColor = UIColor(hex: "#6B92E5")
+        calculateButton.endColor = UIColor(hex: "#F88AB0")
         calculateButton.layer.cornerRadius = 25
         calculateButton.clipsToBounds = true
         calculateButton.titleLabel?.font = UIFont(name: "SF Pro Display Bold", size: 20)
@@ -148,20 +148,18 @@ class BebilendarViewController:UIViewController {
             navigationController?.pushViewController(BebilendarResultViewController(), animated: true)
             return
         }
-        
         if textfields.validateTextfieldsAreNotEmpty(textfields) == true && futureLimitTextfield.validateValueIsInt() == true {
             handleRemainingTries()
             presentTheLoadingScreen()
-            
         }
     }
     
     private func handleRemainingTries() {
         print("Remaining tries: \(remainingTries)")
-        
         if remainingTries > 0 {
             TryManager.shared.counter += 1
             viewModel.getTheFinalResult()
+            updatePacifierImages()
         }
         else {
             calculateButton.setTitle("POSLEDNJI REZULTAT", for: .normal)
@@ -173,21 +171,16 @@ class BebilendarViewController:UIViewController {
                 actionHandler: {self.navigateToPurchaseScreen()}
             )
         }
-        
     }
-    
-    
-    
-    
     
     private func navigateToPurchaseScreen() {
         TryManager.shared.purchasedTries += 3
         updateUIForRemainingTries()
+        updatePacifierImages()
     }
     
     private func updateUIForRemainingTries() {
         print("Preostali broj pokušaja: \(String(TryManager.shared.remainingTries))")
-        
         if remainingTries > 0 {
             resetInputFields()
             calculateButton.setTitle("IZRAČUNAJ", for: .normal)
@@ -262,6 +255,14 @@ class BebilendarViewController:UIViewController {
         loadingVC.modalPresentationStyle = .fullScreen
         present(loadingVC, animated: true)
         loadingVC.showLoadingScreen(for: 1.0)
+    }
+    
+    private func updatePacifierImages() {
+        for (index, pacifier) in remainingPacifiers.enumerated() {
+            UIView.animate(withDuration: 0.3) {
+                pacifier.alpha = index < self.remainingTries ? 1.0 : 0.3
+            }
+        }
     }
 }
 
