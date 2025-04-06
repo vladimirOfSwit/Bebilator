@@ -127,8 +127,8 @@ class BebilatorViewController: UIViewController {
         button.setTitleColor(titleColor, for: .normal)
         
         if isGradientButton, let gradientButton = button as? GradientButton {
-            gradientButton.startColor = UIColor(hex: "#6B92E5") ?? .systemBlue
-            gradientButton.endColor = UIColor(hex: "#F88AB0") ?? .systemPink
+            gradientButton.startColor = UIColor(hex: "#6B92E5")
+            gradientButton.endColor = UIColor(hex: "#F88AB0")
             gradientButton.layer.cornerRadius = 25
             gradientButton.clipsToBounds = true
             gradientButton.titleLabel?.font = UIFont(name: "SF Pro Display Bold", size: 20)

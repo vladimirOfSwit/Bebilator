@@ -24,7 +24,6 @@ class WelcomeViewController: UIViewController {
         overrideUserInterfaceStyle = .light
         view.backgroundColor = .white
         setupUI()
-        UserDefaults.standard.hasOnboarded = false 
     }
     
     func setupUI() {
@@ -41,8 +40,8 @@ class WelcomeViewController: UIViewController {
         view.addSubview(bottomStackView)
         
         bebilatorButton.translatesAutoresizingMaskIntoConstraints = false
-        bebilatorButton.startColor = UIColor(hex: "#6B92E5") ?? .systemRed
-        bebilatorButton.endColor = UIColor(hex: "#F88AB0") ?? .systemGray
+        bebilatorButton.startColor = UIColor(hex: "#6B92E5")
+        bebilatorButton.endColor = UIColor(hex: "#F88AB0")
         bebilatorButton.layer.cornerRadius = 25
         bebilatorButton.clipsToBounds = true
         bebilatorButton.addTarget(self, action: #selector(bebilatorButtonPressed), for: .touchUpInside)

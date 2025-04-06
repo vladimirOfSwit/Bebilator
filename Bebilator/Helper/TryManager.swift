@@ -9,33 +9,31 @@
 
     class TryManager {
         static let shared = TryManager()
-        let maxTries = 3
         
         private init() {}
         
-        private let counterKey = "counter"
-        private let purchasedTriesKey = "purchasedTries"
+        private let remainingTriesKey = "remainingTriesKey"
       
-        
-        var counter: Int {
-            get {
-                return UserDefaults.standard.integer(forKey: counterKey)
-            }
-            set {
-                return UserDefaults.standard.set(newValue, forKey: counterKey)
-            }
-        }
-        
-        var purchasedTries: Int {
-            get {
-                UserDefaults.standard.integer(forKey: purchasedTriesKey)
-            }
-            set {
-                UserDefaults.standard.set(newValue, forKey: purchasedTriesKey)
-            }
-        }
         var remainingTries: Int {
-            let totalTries = maxTries + purchasedTries
-            return max(0, totalTries - counter)
+            get {
+                UserDefaults.standard.integer(forKey: remainingTriesKey)
+            }
+            set {
+                UserDefaults.standard.set(newValue, forKey: remainingTriesKey)
+            }
+        }
+        
+        func resetRemainingTries() {
+            remainingTries = 3
+        }
+        
+        func useTry() {
+            if remainingTries > 0 {
+                remainingTries -= 1
+            }
+        }
+        
+        var isOutOfTries: Bool {
+            remainingTries == 0
         }
     }

@@ -19,6 +19,7 @@ class OnboardingViewModel {
             if currentPage < slides.count {
                 if currentPage == slides.count - 1 {
                     self.onCurrentPageUpdated?("Kraj", currentPage)
+                    TryManager.shared.resetRemainingTries()
                 } else {
                     self.onCurrentPageUpdated?("Dalje", currentPage)
                 }

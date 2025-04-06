@@ -24,14 +24,12 @@ class BebilendarViewController:UIViewController {
     private let loadingVC = LoadingViewController()
     
     private lazy var textfields = [mTextfield, wTextfield, futureLimitTextfield]
-    private var remainingTries: Int {
-        TryManager.shared.remainingTries
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         updateUIForRemainingTries()
-        TryManager.shared.purchasedTries = 0
+        updatePacifierImages()
+        
     }
     
     @objc func dismissKeyboard() {
@@ -52,17 +50,17 @@ class BebilendarViewController:UIViewController {
         
         topStackView.axis = .horizontal
         topStackView.alignment = .center
-        topStackView.distribution = .equalSpacing
-        topStackView.spacing = 20
+        topStackView.distribution = .fillEqually
+        topStackView.spacing = 3
         
-        for _ in 0..<remainingTries{
+        for _ in 0..<3 {
             let pacifierImageView = UIImageView()
             pacifierImageView.image = UIImage(named: "pacifier")
             pacifierImageView.contentMode = .scaleAspectFit
             pacifierImageView.translatesAutoresizingMaskIntoConstraints = false
             
-            pacifierImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-            pacifierImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            pacifierImageView.widthAnchor.constraint(equalToConstant: 140).isActive = true
+            pacifierImageView.heightAnchor.constraint(equalToConstant: 140).isActive = true
             
             topStackView.addArrangedSubview(pacifierImageView)
             remainingPacifiers.append(pacifierImageView)
@@ -155,9 +153,9 @@ class BebilendarViewController:UIViewController {
     }
     
     private func handleRemainingTries() {
-        print("Remaining tries: \(remainingTries)")
-        if remainingTries > 0 {
-            TryManager.shared.counter += 1
+        print("Remaining tries: \(TryManager.shared.remainingTries)")
+        if !TryManager.shared.isOutOfTries {
+            TryManager.shared.useTry()
             viewModel.getTheFinalResult()
             updatePacifierImages()
         }
@@ -174,14 +172,14 @@ class BebilendarViewController:UIViewController {
     }
     
     private func navigateToPurchaseScreen() {
-        TryManager.shared.purchasedTries += 3
+        TryManager.shared.resetRemainingTries()
         updateUIForRemainingTries()
         updatePacifierImages()
     }
     
     private func updateUIForRemainingTries() {
         print("Preostali broj pokušaja: \(String(TryManager.shared.remainingTries))")
-        if remainingTries > 0 {
+        if !TryManager.shared.isOutOfTries {
             resetInputFields()
             calculateButton.setTitle("IZRAČUNAJ", for: .normal)
         } else {
@@ -260,7 +258,7 @@ class BebilendarViewController:UIViewController {
     private func updatePacifierImages() {
         for (index, pacifier) in remainingPacifiers.enumerated() {
             UIView.animate(withDuration: 0.3) {
-                pacifier.alpha = index < self.remainingTries ? 1.0 : 0.3
+                pacifier.alpha = index < TryManager.shared.remainingTries ? 1.0 : 0.3
             }
         }
     }
