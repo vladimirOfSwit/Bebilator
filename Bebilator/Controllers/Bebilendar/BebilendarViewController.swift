@@ -15,6 +15,7 @@ class BebilendarViewController:UIViewController {
     private let calculateButton = GradientButton()
     private var remainingPacifiers: [UIImageView] =  []
     
+    
     private let topStackView = UIStackView()
     private let middleStackView = UIStackView()
     private let bottomStackView = UIStackView()
@@ -41,6 +42,7 @@ class BebilendarViewController:UIViewController {
         setupUI()
         setupConstraints()
         setupBindings()
+        TryManager.shared.resetRemainingTries()
     }
     
     private func setupUI() {
@@ -59,8 +61,8 @@ class BebilendarViewController:UIViewController {
             pacifierImageView.contentMode = .scaleAspectFit
             pacifierImageView.translatesAutoresizingMaskIntoConstraints = false
             
-            pacifierImageView.widthAnchor.constraint(equalToConstant: 140).isActive = true
-            pacifierImageView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+            pacifierImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            pacifierImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
             
             topStackView.addArrangedSubview(pacifierImageView)
             remainingPacifiers.append(pacifierImageView)
@@ -82,6 +84,7 @@ class BebilendarViewController:UIViewController {
             futureLimitTextfield.text = Constants.testingFutureLimit
             futureLimitTextfield.editPlaceholderFont("Broj godina u budućnosti", fontSize: 20)
             
+            textField.delegate = self
             textField.textAlignment = .center
             textField.heightAnchor.constraint(equalToConstant: 60).isActive = true
             textField.layer.masksToBounds = true
@@ -142,32 +145,27 @@ class BebilendarViewController:UIViewController {
     }
     
     @objc private func calculateButtonPressed() {
-        if calculateButton.title(for: .normal) == "Poslednji rezultat" {
-            navigationController?.pushViewController(BebilendarResultViewController(), animated: true)
-            return
-        }
         if textfields.validateTextfieldsAreNotEmpty(textfields) == true && futureLimitTextfield.validateValueIsInt() == true {
-            handleRemainingTries()
-            presentTheLoadingScreen()
+            TryManager.shared.recordTry()
+            if TryManager.shared.isOutOfTries {
+                disableTextfieldsAndCalculateButton()
+                showAlert(title: "Nemate više pokušaja", message: "Da bi ste mogli da pronađete optimalnu datum, molimo vas da kupite proizvod.")
+            } else {
+                handleRemainingTries()
+                presentTheLoadingScreen()
+            }
         }
     }
     
     private func handleRemainingTries() {
         print("Remaining tries: \(TryManager.shared.remainingTries)")
-        if !TryManager.shared.isOutOfTries {
-            TryManager.shared.useTry()
-            viewModel.getTheFinalResult()
-            updatePacifierImages()
+        if TryManager.shared.isOutOfTries {
+            disableTextfieldsAndCalculateButton()
         }
         else {
-            calculateButton.setTitle("POSLEDNJI REZULTAT", for: .normal)
-            disableInputFields()
-            showAlert(
-                title: "Obaveštenje",
-                message: "Iskoristili ste maksimalni broj pokušaja. Dokupite tokene.",
-                actionTitle: "Dokupite tokene",
-                actionHandler: {self.navigateToPurchaseScreen()}
-            )
+//            TryManager.shared.recordTry()
+//            viewModel.getTheFinalResult()
+            updatePacifierImages()
         }
     }
     
@@ -179,37 +177,50 @@ class BebilendarViewController:UIViewController {
     
     private func updateUIForRemainingTries() {
         print("Preostali broj pokušaja: \(String(TryManager.shared.remainingTries))")
-        if !TryManager.shared.isOutOfTries {
-            resetInputFields()
-            calculateButton.setTitle("IZRAČUNAJ", for: .normal)
+        print("Broj na counteru: \(TryManager.shared.counterOfTaps)")
+        if TryManager.shared.isOutOfTries {
+            disableTextfieldsAndCalculateButton()
+            showAlert(title: "Obaveštenje", message: "Nemate više cucli. Dokupite ih kako biste nastavili da pogadjate.")
         } else {
-            calculateButton.setTitle("POSLEDNJI REZULTAT", for: .normal)
-            disableInputFields()
+            resetInputFields()
         }
     }
     
     private func resetInputFields() {
+        calculateButton.isUserInteractionEnabled = true
+        calculateButton.alpha = 1.0
         textfields.forEach {
             $0.isUserInteractionEnabled = true
             $0.backgroundColor = .white
         }
     }
     
-    private func disableInputFields() {
+    private func disableTextfieldsAndCalculateButton() {
+        calculateButton.isUserInteractionEnabled = false
+        calculateButton.alpha = 0.3
         textfields.forEach {
             $0.isUserInteractionEnabled = false
             $0.backgroundColor = UIColor.lightGray
         }
+       
     }
     
-    private func showAlert(title: String, message: String, actionTitle: String, actionHandler: (() -> Void)? = nil) {
+    private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: actionTitle, style: .default) { _ in
-            actionHandler?()
+        let lastResultAction = UIAlertAction(title: "Poslednji rezultat", style: .default) { _ in
+            self.presentTheResultsScreen()
         }
-        alert.addAction(action)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        
+        alert.addAction(lastResultAction)
+        
+        let purchaseAction = UIAlertAction(title: "Dokupi cucle", style: .default) { _ in
+            self.navigateToPurchaseScreen()
+        }
+        
+        alert.addAction(purchaseAction)
+        
+        //alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         
         if let topViewController = UIApplication.shared.topMostViewController() {
             topViewController.present(alert, animated: true)
@@ -226,6 +237,14 @@ class BebilendarViewController:UIViewController {
         loadingVC.onLoadingComplete = { [weak self] in
             guard let self = self else { return }
             self.loadingVC.dismiss(animated: true) {
+                if TryManager.shared.isOutOfTries {
+                    self.showAlert(
+                        title: "Obaveštenje",
+                        message: "Iskoristili ste maksimalni broj pokušaja. Dokupite cucle."
+                    )
+                    return
+                }
+                
                 guard let mBirthdateAsString = self.mTextfield.text,
                       let wBirthdateAsString = self.wTextfield.text,
                       let futureLimitTextfieldAsString = self.futureLimitTextfield.text else { return }
@@ -240,13 +259,16 @@ class BebilendarViewController:UIViewController {
                 
                 self.viewModel.getTheFinalResult()
                 
-                let resultVC = BebilendarResultViewController()
-                resultVC.switchingPeriods = self.viewModel.switchingPeriods
-                self.navigationController?.pushViewController(resultVC, animated: true)
+                self.presentTheResultsScreen()
                 
             }
         }
-        
+    }
+    
+    private func presentTheResultsScreen() {
+        let resultVC = BebilendarResultViewController()
+        resultVC.switchingPeriods = self.viewModel.switchingPeriods
+        self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
     private func presentTheLoadingScreen() {
@@ -268,6 +290,8 @@ extension BebilendarViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == futureLimitTextfield {
             futureLimitTextfield.resignFirstResponder()
+        } else {
+            textField.resignFirstResponder()
         }
         return true
     }
