@@ -19,7 +19,6 @@ class OnboardingViewModel {
             if currentPage < slides.count {
                 if currentPage == slides.count - 1 {
                     self.onCurrentPageUpdated?(NSLocalizedString("Finish", comment: "done button on OnboardingSlides"), currentPage)
-                    TryManager.shared.resetRemainingTries()
                 } else {
                     self.onCurrentPageUpdated?(NSLocalizedString("Next", comment: "next button on OnboardingSlides"), currentPage)
                 }

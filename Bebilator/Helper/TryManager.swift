@@ -15,7 +15,7 @@
       
         private(set) var remainingTries: Int {
             get {
-                UserDefaults.standard.integer(forKey: remainingTriesKey)
+                return UserDefaults.standard.integer(forKey: remainingTriesKey)
             }
             set {
                 UserDefaults.standard.set(newValue, forKey: remainingTriesKey)
@@ -24,7 +24,7 @@
         
         private(set) var counterOfTaps: Int {
             get {
-                UserDefaults.standard.integer(forKey: counterOfTapsKey)
+               return UserDefaults.standard.integer(forKey: counterOfTapsKey)
             }
             set {
                 UserDefaults.standard.set(newValue, forKey: counterOfTapsKey)
@@ -32,9 +32,8 @@
         }
         
         private init() {
-            if UserDefaults.standard.object(forKey: remainingTriesKey) == nil {
-                remainingTries = 1
-            }
+            remainingTries = 1
+            counterOfTaps = 2
         }
         
         var isOutOfTries: Bool {

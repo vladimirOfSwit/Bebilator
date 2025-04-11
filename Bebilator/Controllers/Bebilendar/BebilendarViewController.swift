@@ -41,7 +41,6 @@ class BebilendarViewController:UIViewController {
         setupUI()
         setupConstraints()
         setupBindings()
-        TryManager.shared.resetRemainingTries()
     }
     
     private func setupUI() {
@@ -167,11 +166,8 @@ class BebilendarViewController:UIViewController {
     }
     
     private func navigateToPurchaseScreen() {
-        //TryManager.shared.resetRemainingTries()
         let storeVC = StoreViewController()
         navigationController?.pushViewController(storeVC, animated: true)
-//        updateUIForRemainingTries()
-//        updatePacifierImages()
     }
     
     private func updateUIForRemainingTries() {
