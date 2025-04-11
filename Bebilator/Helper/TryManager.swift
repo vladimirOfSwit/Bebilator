@@ -33,7 +33,7 @@
         
         private init() {
             if UserDefaults.standard.object(forKey: remainingTriesKey) == nil {
-                remainingTries = 3
+                remainingTries = 1
             }
         }
         

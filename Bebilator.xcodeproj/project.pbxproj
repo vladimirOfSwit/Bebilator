@@ -41,6 +41,10 @@
 		85AFC1262D15C7E300F7B6E2 /* Tooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFC1252D15C7E300F7B6E2 /* Tooltip.swift */; };
 		85B6FBDB2BAC91EC00F5CE06 /* boy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85B6FBD92BAC91EB00F5CE06 /* boy.gif */; };
 		85B6FBDC2BAC91EC00F5CE06 /* girl.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85B6FBDA2BAC91EC00F5CE06 /* girl.gif */; };
+		85BB5B942DA686E100F8399D /* Cuclas.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 85BB5B932DA686E100F8399D /* Cuclas.storekit */; };
+		85BB5B972DA68EA700F8399D /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB5B962DA68E9700F8399D /* StoreKitManager.swift */; };
+		85BB5B992DA696D100F8399D /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB5B982DA6966000F8399D /* StoreViewController.swift */; };
+		85BB5B9D2DA80CF100F8399D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 85BB5B9C2DA80CF100F8399D /* Localizable.xcstrings */; };
 		85C571BB2B83578C009C8944 /* SFUIText-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571A42B835783009C8944 /* SFUIText-Heavy.otf */; };
 		85C571BC2B83578C009C8944 /* SFUIText-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571A52B835783009C8944 /* SFUIText-HeavyItalic.otf */; };
 		85C571BE2B83578C009C8944 /* SF UI Text Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85C571A72B835784009C8944 /* SF UI Text Medium.otf */; };
@@ -96,6 +100,10 @@
 		85AFC1252D15C7E300F7B6E2 /* Tooltip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tooltip.swift; sourceTree = "<group>"; };
 		85B6FBD92BAC91EB00F5CE06 /* boy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = boy.gif; sourceTree = "<group>"; };
 		85B6FBDA2BAC91EC00F5CE06 /* girl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = girl.gif; sourceTree = "<group>"; };
+		85BB5B932DA686E100F8399D /* Cuclas.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cuclas.storekit; sourceTree = "<group>"; };
+		85BB5B962DA68E9700F8399D /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		85BB5B982DA6966000F8399D /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		85BB5B9C2DA80CF100F8399D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		85C571A42B835783009C8944 /* SFUIText-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Heavy.otf"; sourceTree = "<group>"; };
 		85C571A52B835783009C8944 /* SFUIText-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-HeavyItalic.otf"; sourceTree = "<group>"; };
 		85C571A72B835784009C8944 /* SF UI Text Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF UI Text Medium.otf"; sourceTree = "<group>"; };
@@ -269,8 +277,8 @@
 		858FC4C52B03BED5002A6A5C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				85F3B3072CDE771A00F81B65 /* Loading */,
 				8535E80A2CD92419005668F6 /* Onboarding */,
+				85F3B3072CDE771A00F81B65 /* Loading */,
 				8535E8172CD92C0F005668F6 /* Welcome */,
 				851F2FEF2CCA580400250212 /* Bebilator */,
 				8535E80F2CD9283C005668F6 /* Bebilendar */,
@@ -301,6 +309,8 @@
 		8596FE2B2A695DE00050E574 /* Bebilator */ = {
 			isa = PBXGroup;
 			children = (
+				85BB5B9C2DA80CF100F8399D /* Localizable.xcstrings */,
+				85BB5B952DA68E8200F8399D /* IAP */,
 				85C571982B835764009C8944 /* Fonts */,
 				85C571972B8356ED009C8944 /* Gifs */,
 				85A265452B18E45400A6676C /* Helper */,
@@ -324,6 +334,16 @@
 				856D21B92D1BF5ED00AEF5CA /* TryManager.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		85BB5B952DA68E8200F8399D /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				85BB5B982DA6966000F8399D /* StoreViewController.swift */,
+				85BB5B962DA68E9700F8399D /* StoreKitManager.swift */,
+				85BB5B932DA686E100F8399D /* Cuclas.storekit */,
+			);
+			path = IAP;
 			sourceTree = "<group>";
 		};
 		85C571972B8356ED009C8944 /* Gifs */ = {
@@ -413,6 +433,7 @@
 			knownRegions = (
 				en,
 				Base,
+				sr,
 			);
 			mainGroup = 8596FE202A695DE00050E574;
 			productRefGroup = 8596FE2A2A695DE00050E574 /* Products */;
@@ -430,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85C571C42B83578C009C8944 /* SFUIText-Italic.otf in Resources */,
+				85BB5B9D2DA80CF100F8399D /* Localizable.xcstrings in Resources */,
 				85C571C52B83578C009C8944 /* SFUIText-Regular.otf in Resources */,
 				8596FE392A695DE40050E574 /* LaunchScreen.storyboard in Resources */,
 				85C571BC2B83578C009C8944 /* SFUIText-HeavyItalic.otf in Resources */,
@@ -442,6 +464,7 @@
 				85C571BB2B83578C009C8944 /* SFUIText-Heavy.otf in Resources */,
 				85C571C62B83578C009C8944 /* SFUIText-Semibold.otf in Resources */,
 				8552D8CC2B84B45100EDD988 /* SFProDisplay-Bold.ttf in Resources */,
+				85BB5B942DA686E100F8399D /* Cuclas.storekit in Resources */,
 				85C571C02B83578C009C8944 /* SFUIText-Light.otf in Resources */,
 				85C571BE2B83578C009C8944 /* SF UI Text Medium.otf in Resources */,
 			);
@@ -516,6 +539,7 @@
 				851F2FF42CCA5C8500250212 /* PreviousScore.swift in Sources */,
 				851F2FF22CCA5AA400250212 /* PreviousScoresViewController.swift in Sources */,
 				8561535A2BC81D69009E1E0E /* WelcomeViewController.swift in Sources */,
+				85BB5B992DA696D100F8399D /* StoreViewController.swift in Sources */,
 				85A265492B18E72E00A6676C /* BebilatorBrain.swift in Sources */,
 				851F2FEC2CCA484F00250212 /* DatePickerManager.swift in Sources */,
 				8535E80E2CD92510005668F6 /* OnboardingViewModel.swift in Sources */,
@@ -528,6 +552,7 @@
 				85EEB58D2D35743800788112 /* Gender.swift in Sources */,
 				852AEF692C78A7D30050AF11 /* OnboardingCollectionViewCell.swift in Sources */,
 				853D5E052CFF5C4A00F20047 /* LoadingScreenViewModel.swift in Sources */,
+				85BB5B972DA68EA700F8399D /* StoreKitManager.swift in Sources */,
 				856D21BA2D1BF5ED00AEF5CA /* TryManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,6 +629,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -659,6 +685,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

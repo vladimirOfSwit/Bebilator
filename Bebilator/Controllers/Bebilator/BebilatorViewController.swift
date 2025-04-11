@@ -54,11 +54,11 @@ class BebilatorViewController: UIViewController {
         
         [mTextfield, wTextfield, nTextfield].forEach { textField in
             mTextfield.text = Constants.testingMDate
-            mTextfield.editPlaceholderFont("Muški datum rodjenja.", fontSize: 20)
+            mTextfield.editPlaceholderFont(NSLocalizedString("Male date of birth.", comment: "textfield placeholder for male birthdate"), fontSize: 20)
             wTextfield.text = Constants.testingWDate
-            wTextfield.editPlaceholderFont("Ženski datum rodjenja.", fontSize: 20)
+            wTextfield.editPlaceholderFont(NSLocalizedString("Female date of birth.", comment: "textfield placeholder for female birthdate"), fontSize: 20)
             nTextfield.text = Constants.testingDateToConcieve
-            nTextfield.editPlaceholderFont("Datum začeća deteta.", fontSize: 20)
+            nTextfield.editPlaceholderFont(NSLocalizedString("Planned/Conceived date.", comment: "textfield placeholder for conception date"), fontSize: 20)
             
             textField.textAlignment = .center
             textField.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -93,9 +93,9 @@ class BebilatorViewController: UIViewController {
         bottomButtonsStackView.spacing = 16
         bottomButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        setupButton(calculateButton, title: "IZRAČUNAJ", titleColor: .white, backgroundColor: .clear, isGradientButton: true)
-        setupButton(clearButton, title: "Obriši", titleColor: .systemBlue, backgroundColor: .white)
-        setupButton(previousScoresButton, title: "Prethodni rezultati", titleColor: .systemRed, backgroundColor: .white)
+        setupButton(calculateButton, title: NSLocalizedString("CALCULATE", comment: "calculate Button value"), titleColor: .white, backgroundColor: .clear, isGradientButton: true)
+        setupButton(clearButton, title: NSLocalizedString("Delete", comment: "clear button value in Bebilator"), titleColor: .systemBlue, backgroundColor: .white)
+        setupButton(previousScoresButton, title: NSLocalizedString("Previous results", comment: "previous scores button value in Bebilator"), titleColor: .systemRed, backgroundColor: .white)
         
         [clearButton, previousScoresButton].forEach { bottomButtonsStackView.addArrangedSubview($0)}
         bottomStackView.addArrangedSubview(calculateButton)

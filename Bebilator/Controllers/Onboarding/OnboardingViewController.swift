@@ -44,7 +44,7 @@ class OnboardingViewController: UIViewController {
         let button = GradientButton()
         button.startColor = UIColor(hex: "#6B92E5")
         button.endColor = UIColor(hex: "#F88AB0")
-        button.setTitle("Dalje", for: .normal)
+        button.setTitle(NSLocalizedString("Next", comment: "next button on OnboardingSlides"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

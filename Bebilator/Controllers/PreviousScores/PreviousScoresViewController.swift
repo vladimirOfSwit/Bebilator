@@ -25,7 +25,7 @@ class PreviousScoresViewController: UIViewController {
     }
     
     private func setupViews() {
-        navigationItem.title = "PRETHODNI REZULTATI"
+        navigationItem.title = NSLocalizedString("PREVIOUS SCORES", comment: "navigation bar title on Previous Scores screen")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(PreviousScoreCell.self, forCellReuseIdentifier: "PreviousScoreTableViewCell")
         previousScores = viewModel.getFormattedPreviousScores()
@@ -67,18 +67,18 @@ class PreviousScoresViewController: UIViewController {
         print("clear all button")
         if !previousScores.isEmpty {
             let confirmationAlert = UIAlertController(
-                title: "Potvrda",
-                message: "Da li ste sigurni da želite da obrišete prethodne rezultate?",
+                title: NSLocalizedString("Info", comment: "info title regarding the deletion of all previous scores entries saved"),
+                message: NSLocalizedString("Are you sure you want to delete all previous results?", comment: "message in the alert regarding the deletion of previous results"),
                 preferredStyle: .alert)
-            confirmationAlert.addAction(UIAlertAction(title: "Otkaži", style: .cancel, handler: nil))
-            confirmationAlert.addAction(UIAlertAction(title: "Obriši", style: .destructive, handler: { _ in
+            confirmationAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "cancel button to cancel the alert"), style: .cancel, handler: nil))
+            confirmationAlert.addAction(UIAlertAction(title: NSLocalizedString("Delete all", comment: "delete button to delete all the previous scores"), style: .destructive, handler: { _ in
                 self.viewModel.clearPreviousScores()
                 self.previousScores = self.viewModel.getFormattedPreviousScores()
                 self.tableView.reloadData()
                 
                 let successAlert = UIAlertController(
-                    title: "Obaveštenje",
-                    message: "Prethodni rezultati su obrisani.",
+                    title: NSLocalizedString("Info", comment: "info title regarding the deletion of all previous scores entries saved"),
+                    message: NSLocalizedString("All previous scores have been deleted.", comment: "message confirming all previous scores have been deleted."),
                     preferredStyle: .alert
                 )
                 successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -86,7 +86,7 @@ class PreviousScoresViewController: UIViewController {
             }))
             present(confirmationAlert, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Obaveštenje", message: "Rezultati su već obrisani.", preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("Info", comment: "info title regarding the deletion of all previous scores entries saved"), message: NSLocalizedString("All the results have already been deleted.", comment: "info message informing the user that the table is empty already."), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true)
         }
@@ -106,7 +106,7 @@ extension PreviousScoresViewController: UITableViewDataSource, UITableViewDelega
         }
         let score = previousScores[indexPath.row]
         let color = indexPath.row % 2 == 0 ? UIColor(hex: "#FFFFFF") : UIColor(hex: "#F6F5F0")
-        cell.configure(with: score, backgroundColor: color ?? .black)
+        cell.configure(with: score, backgroundColor: color)
         print("Score gender is: \(score.gender)")
         return cell
     }

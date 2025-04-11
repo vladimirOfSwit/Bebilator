@@ -273,7 +273,7 @@ extension Array where Element == UITextField {
         
         for textfield in self {
             guard let text = textfield.text?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else {
-                textfield.editPlaceholderFont("Polje ne može biti prazno.", fontSize: 16)
+                textfield.editPlaceholderFont(NSLocalizedString("This field cannot be empty.", comment: "error message placeholder when textfield is empty"), fontSize: 16)
                 textfield.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
                 return nil
             }
@@ -284,7 +284,7 @@ extension Array where Element == UITextField {
     func validateTextfieldsAreNotEmpty(_ textFields: [UITextField]) -> Bool {
         for textField in textFields {
             guard let text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else {
-                textField.editPlaceholderFont("Polje ne može biti prazno", fontSize: 16)
+                textField.editPlaceholderFont(NSLocalizedString("This field cannot be empty.", comment: "error message placeholder when textfield is empty"), fontSize: 16)
                 textField.isError(baseColor: UIColor.gray.cgColor, numberOfShakes: 4, revert: true)
                 return false
             }

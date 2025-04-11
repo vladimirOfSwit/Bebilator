@@ -30,7 +30,6 @@ class BebilendarViewController:UIViewController {
         super.viewWillAppear(true)
         updateUIForRemainingTries()
         updatePacifierImages()
-        
     }
     
     @objc func dismissKeyboard() {
@@ -78,11 +77,11 @@ class BebilendarViewController:UIViewController {
         
         [mTextfield, wTextfield, futureLimitTextfield].forEach { textField in
             mTextfield.text = Constants.testingMDate
-            mTextfield.editPlaceholderFont("Muški datum rodjenja.", fontSize: 20)
+            mTextfield.editPlaceholderFont(NSLocalizedString("Male date of birth.", comment: "textfield placeholder for male birthdate"), fontSize: 20)
             wTextfield.text = Constants.testingWDate
-            wTextfield.editPlaceholderFont("Ženski datum rodjenja.", fontSize: 20)
+            wTextfield.editPlaceholderFont(NSLocalizedString("Female date of birth.", comment: "textfield placeholder for female birthdate"), fontSize: 20)
             futureLimitTextfield.text = Constants.testingFutureLimit
-            futureLimitTextfield.editPlaceholderFont("Broj godina u budućnosti", fontSize: 20)
+            futureLimitTextfield.editPlaceholderFont(NSLocalizedString("Insert the number of years in the future", comment: "textfield placeholder value for number of days in the future"), fontSize: 20)
             
             textField.delegate = self
             textField.textAlignment = .center
@@ -121,7 +120,7 @@ class BebilendarViewController:UIViewController {
         calculateButton.clipsToBounds = true
         calculateButton.titleLabel?.font = UIFont(name: "SF Pro Display Bold", size: 20)
         calculateButton.addTarget(self, action: #selector(calculateButtonPressed), for: .touchUpInside)
-        calculateButton.setTitle("IZRAČUNAJ", for: .normal)
+        calculateButton.setTitle(NSLocalizedString("CALCULATE", comment: "calculate Button value"), for: .normal)
         
         bottomStackView.addArrangedSubview(calculateButton)
         
@@ -149,7 +148,7 @@ class BebilendarViewController:UIViewController {
             TryManager.shared.recordTry()
             if TryManager.shared.isOutOfTries {
                 disableTextfieldsAndCalculateButton()
-                showAlert(title: "Nemate više pokušaja", message: "Da bi ste mogli da pronađete optimalnu datum, molimo vas da kupite proizvod.")
+                showAlert(title: NSLocalizedString("You are out of pacifiers.", comment: "title of the alert informing the users they need to buy more pacifiers"), message: NSLocalizedString("If you want to continue guessing, add more pacifiers.", comment: "message informing the user they need to buy more pacifiers"))
             } else {
                 handleRemainingTries()
                 presentTheLoadingScreen()
@@ -163,16 +162,16 @@ class BebilendarViewController:UIViewController {
             disableTextfieldsAndCalculateButton()
         }
         else {
-//            TryManager.shared.recordTry()
-//            viewModel.getTheFinalResult()
             updatePacifierImages()
         }
     }
     
     private func navigateToPurchaseScreen() {
-        TryManager.shared.resetRemainingTries()
-        updateUIForRemainingTries()
-        updatePacifierImages()
+        //TryManager.shared.resetRemainingTries()
+        let storeVC = StoreViewController()
+        navigationController?.pushViewController(storeVC, animated: true)
+//        updateUIForRemainingTries()
+//        updatePacifierImages()
     }
     
     private func updateUIForRemainingTries() {
@@ -180,7 +179,7 @@ class BebilendarViewController:UIViewController {
         print("Broj na counteru: \(TryManager.shared.counterOfTaps)")
         if TryManager.shared.isOutOfTries {
             disableTextfieldsAndCalculateButton()
-            showAlert(title: "Obaveštenje", message: "Nemate više cucli. Dokupite ih kako biste nastavili da pogadjate.")
+            showAlert(title: NSLocalizedString("You are out of pacifiers.", comment: "title of the alert informing the users they need to buy more pacifiers"), message: NSLocalizedString("If you want to continue guessing, add more pacifiers.", comment: "message informing the user they need to buy more pacifiers"))
         } else {
             resetInputFields()
         }
@@ -208,22 +207,21 @@ class BebilendarViewController:UIViewController {
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let lastResultAction = UIAlertAction(title: "Poslednji rezultat", style: .default) { _ in
+        let lastResultAction = UIAlertAction(title: NSLocalizedString("Last result", comment: "action taking the user to the BebilendarResultViewController"), style: .default) { _ in
             self.presentTheResultsScreen()
         }
         
         alert.addAction(lastResultAction)
         
-        let purchaseAction = UIAlertAction(title: "Dokupi cucle", style: .default) { _ in
+        let purchaseAction = UIAlertAction(title: NSLocalizedString("Add more pacifiers", comment: "action taking the user to the purchase page to buy pacifiers"), style: .default) { _ in
             self.navigateToPurchaseScreen()
         }
         
         alert.addAction(purchaseAction)
         
-        //alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-        
-        if let topViewController = UIApplication.shared.topMostViewController() {
+       if let topViewController = UIApplication.shared.topMostViewController() {
             topViewController.present(alert, animated: true)
+           return
         }
     }
     
@@ -239,8 +237,7 @@ class BebilendarViewController:UIViewController {
             self.loadingVC.dismiss(animated: true) {
                 if TryManager.shared.isOutOfTries {
                     self.showAlert(
-                        title: "Obaveštenje",
-                        message: "Iskoristili ste maksimalni broj pokušaja. Dokupite cucle."
+                        title: NSLocalizedString("You are out of pacifiers.", comment: "title of the alert informing the users they need to buy more pacifiers"), message: NSLocalizedString("If you want to continue guessing, add more pacifiers.", comment: "message informing the user they need to buy more pacifiers")
                     )
                     return
                 }

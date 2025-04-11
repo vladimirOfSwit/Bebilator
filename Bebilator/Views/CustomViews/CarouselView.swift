@@ -152,7 +152,7 @@ class CarouselView: UIView, iCarouselDataSource, iCarouselDelegate {
         
         let index = sender.tag
         let period = items[index]
-        toolTip = Tooltip(text: "U Bebilendar karticama ispod vidite procenu u kojoj godini, mesecu i danu dolazi do promene. Srećno!", gender: period.gender.rawValue)
+        toolTip = Tooltip(text: NSLocalizedString("In the Bebilendar cards below, you can see the estimate of when the change will occur, including the year, month, and day. Good luck!", comment: "tool tip info message"), gender: period.gender.rawValue)
         
         guard let toolTip = toolTip else { return }
         

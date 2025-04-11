@@ -19,18 +19,18 @@ struct Constants {
     static let colorWborder = UIColor(hex: "#F88AB0CC")
     static let colorNBorder = UIColor(hex: "#7B81BECC")
     static let monthsInSerbian = [
-        (1, "Januar"),
-        (2, "Februar"),
-        (3, "Mart"),
-        (4, "April"),
-        (5, "Maj"),
-        (6, "Jun"),
-        (7, "Jul"),
-        (8, "Avgust"),
-        (9, "Septembar"),
-        (10, "Oktobar"),
-        (11, "Novembar"),
-        (12, "Decembar")
+        (1, NSLocalizedString("January", comment: "january")),
+        (2, NSLocalizedString("February", comment: "february")),
+        (3, NSLocalizedString("March", comment: "march")),
+        (4, NSLocalizedString("April", comment: "april")),
+        (5, NSLocalizedString("May", comment: "may")),
+        (6, NSLocalizedString("June", comment: "june")),
+        (7, NSLocalizedString("July", comment: "july")),
+        (8, NSLocalizedString("August", comment: "august")),
+        (9, NSLocalizedString("September", comment: "september")),
+        (10, NSLocalizedString("October", comment: "october")),
+        (11, NSLocalizedString("November", comment: "november")),
+        (12, NSLocalizedString("December", comment: "december"))
         ]
     static let testingMDate = "28.01.2000"
     static let testingWDate = "19.07.2002"

@@ -1,0 +1,446 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Add more pacifiers" : {
+      "comment" : "action taking the user to the purchase page to buy pacifiers",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dodaj još cucli."
+          }
+        }
+      }
+    },
+    "All previous scores have been deleted." : {
+      "comment" : "message confirming all previous scores have been deleted.",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prethodni rezultati su obrisani."
+          }
+        }
+      }
+    },
+    "All the results have already been deleted." : {
+      "comment" : "info message informing the user that the table is empty already.",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rezultati su već obrisani."
+          }
+        }
+      }
+    },
+    "April" : {
+      "comment" : "april",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "April"
+          }
+        }
+      }
+    },
+    "Are you sure you want to delete all previous results?" : {
+      "comment" : "message in the alert regarding the deletion of previous results",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Da li ste sigurni da želite da obrišete prethodne rezultate?"
+          }
+        }
+      }
+    },
+    "August" : {
+      "comment" : "august",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avgust"
+          }
+        }
+      }
+    },
+    "CALCULATE" : {
+      "comment" : "calculate Button value",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IZRAČUNAJ"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "comment" : "cancel button to cancel the alert",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otkaži"
+          }
+        }
+      }
+    },
+    "December" : {
+      "comment" : "december",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Decembar"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "comment" : "clear button value in Bebilator",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obriši"
+          }
+        }
+      }
+    },
+    "Delete all" : {
+      "comment" : "delete button to delete all the previous scores",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obriši sve"
+          }
+        }
+      }
+    },
+    "Enter three dates – one male, one female, and the date when you’re planning to have a baby (or the approximate conception date if you're already pregnant) – and Bebilator will immediately whisper to you: blue or pink clothes? 🍼🎀 " : {
+      "comment" : "body of the second OnboardingSlide",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unesite tri datuma – jedan muški(), jedan ženski() i datum kada planirate bebu() ili kada je otprilike začeta ukoliko ste već trudni – i Bebilator će Vam odmah šapnuti: plava ili roze odeća? 🍼🎀"
+          }
+        }
+      }
+    },
+    "February" : {
+      "comment" : "february",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Februar"
+          }
+        }
+      }
+    },
+    "Female date of birth." : {
+      "comment" : "textfield placeholder for female birthdate",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ženski datum rodjenja."
+          }
+        }
+      }
+    },
+    "Finish" : {
+      "comment" : "done button on OnboardingSlides",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kraj"
+          }
+        }
+      }
+    },
+    "Hello" : {
+      "comment" : "headline of the first OnboardingSlide",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zdravo"
+          }
+        }
+      }
+    },
+    "If you want to continue guessing, add more pacifiers." : {
+      "comment" : "message informing the user they need to buy more pacifiers",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ako želite da nastavite sa pogadjanjem, dodajte još cucli."
+          }
+        }
+      }
+    },
+    "In the Bebilendar cards below, you can see the estimate of when the change will occur, including the year, month, and day. Good luck!" : {
+      "comment" : "tool tip info message",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "U Bebilendar karticama ispod vidite procenu u kojoj godini, mesecu i danu dolazi do promene. Srećno!"
+          }
+        }
+      }
+    },
+    "Info" : {
+      "comment" : "info title regarding the deletion of all previous scores entries saved",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obaveštenje"
+          }
+        }
+      }
+    },
+    "Insert the number of years in the future" : {
+      "comment" : "textfield placeholder value for number of days in the future",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Broj godina u budućnosti"
+          }
+        }
+      }
+    },
+    "January" : {
+      "comment" : "january",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Januar"
+          }
+        }
+      }
+    },
+    "July" : {
+      "comment" : "july",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jul"
+          }
+        }
+      }
+    },
+    "June" : {
+      "comment" : "june",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jun"
+          }
+        }
+      }
+    },
+    "Last result" : {
+      "comment" : "action taking the user to the BebilendarResultViewController",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poslednji rezultat"
+          }
+        }
+      }
+    },
+    "Let’s start the game! 🎯" : {
+      "comment" : "headline of the second OnboardingSlide",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Započnimo igru! 🎯"
+          }
+        }
+      }
+    },
+    "Male date of birth." : {
+      "comment" : "textfield placeholder for male birthdate",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muški datum rodjenja."
+          }
+        }
+      }
+    },
+    "March" : {
+      "comment" : "march",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mart"
+          }
+        }
+      }
+    },
+    "May" : {
+      "comment" : "may",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maj"
+          }
+        }
+      }
+    },
+    "Next" : {
+      "comment" : "next button on OnboardingSlides",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dalje"
+          }
+        }
+      }
+    },
+    "November" : {
+      "comment" : "november",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novembar"
+          }
+        }
+      }
+    },
+    "October" : {
+      "comment" : "october",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "October"
+          }
+        }
+      }
+    },
+    "Plan with a smile! Bebilendar helps you discover which months 'hint' at a boy and which at a girl – all based on your birthday. A fun calendar for parents who love to dream and enjoy every step on the journey to their baby’s arrival! Depending on the result, the cards in Bebilendar will be blue or pink. Good luck!" : {
+      "comment" : "body of the third OnboardingSlided",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Planirajte sa osmehom! Bebilendar Vam pomaže da otkrijete koji meseci „nagoveštavaju“ dečaka, a koji devojčicu – sve na osnovu Vašeg rođendana. Zabavan kalendar za roditelje koji vole da maštaju i uživaju u svakom koraku do dolaska bebe! U zavisnosti od rezultata kartice u Bebilendaru će biti plave ili roze Srećno!"
+          }
+        }
+      }
+    },
+    "Planned/Conceived date." : {
+      "comment" : "textfield placeholder for conception date",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Planirani/Okvirni datum začeća bebe."
+          }
+        }
+      }
+    },
+    "Previous results" : {
+      "comment" : "previous scores button value in Bebilator",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prethodni rezultati"
+          }
+        }
+      }
+    },
+    "PREVIOUS SCORES" : {
+      "comment" : "navigation bar title on Previous Scores screen",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PRETHODNI REZULTATI"
+          }
+        }
+      }
+    },
+    "September" : {
+      "comment" : "september",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Septembar"
+          }
+        }
+      }
+    },
+    "This field cannot be empty." : {
+      "comment" : "error message placeholder when textfield is empty",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obavezno polje."
+          }
+        }
+      }
+    },
+    "Welcome!🌟 A fun baby gender guessing game is in front of you! This app uses an old method from when grandmas knew everything and the internet didn't exist. Will it be a boy or a girl? Let's find out together - who knows, maybe we'll guess! 😉" : {
+      "comment" : "body of the first OnboardingSlide",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dobrodošli!🌟 Zabavna pogađalica pola bebe je pred Vama! Ova aplikacija koristi staru metodu iz vremena kada su bake znale sve i internet nije postojao. Da li će biti dečak ili devojčica? Hajde da zajedno saznamo – ko zna, možda i pogodimo! 😉"
+          }
+        }
+      }
+    },
+    "What is Bebilendar?" : {
+      "comment" : "headline of the third OnboardingSlide",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Šta je Bebilendar?"
+          }
+        }
+      }
+    },
+    "You are out of pacifiers." : {
+      "comment" : "title of the alert informing the users they need to buy more pacifiers",
+      "localizations" : {
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iskoristili ste sve cucle."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

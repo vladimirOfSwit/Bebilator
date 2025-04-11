@@ -18,10 +18,10 @@ class OnboardingViewModel {
         didSet {
             if currentPage < slides.count {
                 if currentPage == slides.count - 1 {
-                    self.onCurrentPageUpdated?("Kraj", currentPage)
+                    self.onCurrentPageUpdated?(NSLocalizedString("Finish", comment: "done button on OnboardingSlides"), currentPage)
                     TryManager.shared.resetRemainingTries()
                 } else {
-                    self.onCurrentPageUpdated?("Dalje", currentPage)
+                    self.onCurrentPageUpdated?(NSLocalizedString("Next", comment: "next button on OnboardingSlides"), currentPage)
                 }
             }
         }
@@ -38,21 +38,21 @@ class OnboardingViewModel {
     func setupOnboardingSlides() {
         slides = [
             createSlideUsing(
-                headline: "Zdravo!",
-                body: "Dobrodošli!🌟 Zabavna pogađalica pola bebe je pred Vama! Ova aplikacija koristi staru metodu iz vremena kada su bake znale sve i internet nije postojao. Da li će biti dečak ili devojčica? Hajde da zajedno saznamo – ko zna, možda i pogodimo! 😉",
+                headline: NSLocalizedString("Hello", comment: "headline of the first OnboardingSlide"),
+                body: NSLocalizedString("Welcome!🌟 A fun baby gender guessing game is in front of you! This app uses an old method from when grandmas knew everything and the internet didn't exist. Will it be a boy or a girl? Let's find out together - who knows, maybe we'll guess! 😉", comment: "body of the first OnboardingSlide"),
                 slideImageName: "itsaboy"
             ),
             createSlideUsing(
-                headline: "Okej, igra počinje! 🎯",
-                body: "Unesite tri datuma – jedan muški(), jedan ženski() i datum kada planirate bebu() ili kada je otprilike začeta ukoliko ste već trudni – i Bebilator će Vam odmah šapnuti: plava ili roze odeća? 🍼🎀 ",
+                headline: NSLocalizedString("Let’s start the game! 🎯", comment: "headline of the second OnboardingSlide"),
+                body: NSLocalizedString("Enter three dates – one male, one female, and the date when you’re planning to have a baby (or the approximate conception date if you're already pregnant) – and Bebilator will immediately whisper to you: blue or pink clothes? 🍼🎀 ", comment: "body of the second OnboardingSlide"),
                 inlineImages: [("mIconTextfield", "ški("),
                                ("fIconTextfield", "ski("),
                                ("nIconTextfield", "bu(")],
                 slideImageName: "itsagirl"
             ),
             createSlideUsing(
-                headline: "Šta je Bebilendar?",
-                body: "Planirajte sa osmehom! Bebilendar Vam pomaže da otkrijete koji meseci „nagoveštavaju“ dečaka, a koji devojčicu – sve na osnovu Vašeg rođendana. Zabavan kalendar za roditelje koji vole da maštaju i uživaju u svakom koraku do dolaska bebe! U zavisnosti od rezultata kartice u Bebilendaru će biti plave ili roze Srećno!",
+                headline: NSLocalizedString("What is Bebilendar?", comment: "headline of the third OnboardingSlide"),
+                body: NSLocalizedString("Plan with a smile! Bebilendar helps you discover which months 'hint' at a boy and which at a girl – all based on your birthday. A fun calendar for parents who love to dream and enjoy every step on the journey to their baby’s arrival! Depending on the result, the cards in Bebilendar will be blue or pink. Good luck!", comment: "body of the third OnboardingSlided"),
                 inlineImages: [("blueBabyIcon", "plave"),
                                ("pinkBabyIcon", "roze")],
                 slideImageName: "boygirl"
