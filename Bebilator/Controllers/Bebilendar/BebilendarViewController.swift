@@ -215,6 +215,10 @@ class BebilendarViewController:UIViewController {
         
         alert.addAction(purchaseAction)
         
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        
+        alert.addAction(okAction)
+        
        if let topViewController = UIApplication.shared.topMostViewController() {
             topViewController.present(alert, animated: true)
            return
