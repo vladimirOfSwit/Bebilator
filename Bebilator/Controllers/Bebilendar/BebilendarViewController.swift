@@ -215,7 +215,7 @@ class BebilendarViewController:UIViewController {
         
         alert.addAction(purchaseAction)
         
-        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        let okAction = UIAlertAction(title: "OK", style: .default)
         
         alert.addAction(okAction)
         

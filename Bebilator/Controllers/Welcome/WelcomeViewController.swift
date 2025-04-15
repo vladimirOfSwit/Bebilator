@@ -24,7 +24,7 @@ class WelcomeViewController: UIViewController {
         overrideUserInterfaceStyle = .light
         view.backgroundColor = .white
         setupUI()
-        UserDefaults.standard.hasOnboarded = false
+        UserDefaults.standard.hasOnboarded = true
     }
     
     func setupUI() {

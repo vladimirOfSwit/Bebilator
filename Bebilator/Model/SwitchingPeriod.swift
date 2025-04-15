@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SwitchingPeriod {
+struct SwitchingPeriod: Codable {
     let year: Int
     let month: Int
     let day: Int

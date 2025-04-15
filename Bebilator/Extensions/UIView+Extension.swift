@@ -61,7 +61,7 @@ extension UITextField {
         leftViewMode = .always
     }
     
-    func setBottomBorderOnlyWith(color: CGColor) {
+    func setBottomBorderOnlyWith(_ color: CGColor) {
         self.borderStyle = .none
         self.layer.masksToBounds = false
         self.layer.shadowColor = color
@@ -139,7 +139,6 @@ extension UIColor {
 
         var rgb: UInt64 = 0
         
-        // Fallback color values
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0
@@ -160,8 +159,6 @@ extension UIColor {
                 break
             }
         }
-
-        // Always call self.init to avoid EXC_BAD_ACCESS
         self.init(red: r, green: g, blue: b, alpha: a)
     }
 }
@@ -181,8 +178,8 @@ extension Date {
 extension UserDefaults {
     private enum UserDefaultsKeys: String {
         case hasOnboarded
-        
     }
+    
     var hasOnboarded: Bool {
         get {
             bool(forKey: UserDefaultsKeys.hasOnboarded.rawValue)
@@ -209,28 +206,6 @@ extension UIImage {
             }
         }
         return UIImage.animatedImage(with: images, duration: 5.0)
-    }
-}
-
-extension UIDatePicker {
-    func applyGradientToSelection() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [
-            UIColor.blue.cgColor,
-            UIColor.purple.cgColor
-        ]
-        
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        
-        let selectionBarHeight: CGFloat = 40
-        let selectionBarFrame = CGRect(x: 0, y: self.bounds.size.height / 2 - selectionBarHeight / 2, width: self.bounds.size.width, height: selectionBarHeight)
-        gradientLayer.frame = selectionBarFrame
-        
-        if let selectionView = self.subviews.first?.subviews.first(where: { $0.frame.height <= 40 }) {
-            gradientLayer.frame = selectionView.bounds
-            self.layer.addSublayer(gradientLayer)
-        }
     }
 }
 

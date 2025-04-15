@@ -15,6 +15,7 @@ class BebilendarResultViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        switchingPeriods = loadSwitchingPeriods()
         setupCarouselView()
         print("Switching periods from BebilendarResultViewController: \(switchingPeriods)")
     }
@@ -42,6 +43,14 @@ class BebilendarResultViewController: UIViewController {
             carouselView.heightAnchor.constraint(equalToConstant: 300)
         ])
         self.carouselView = carouselView
+    }
+    
+    private func loadSwitchingPeriods() -> [SwitchingPeriod] {
+        guard let data = UserDefaults.standard.data(forKey: "lastSwitchingPeriods"),
+              let decoded = try? JSONDecoder().decode([SwitchingPeriod].self, from: data) else {
+            return []
+        }
+        return decoded
     }
 }
 

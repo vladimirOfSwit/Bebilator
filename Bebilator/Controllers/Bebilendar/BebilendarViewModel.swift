@@ -27,6 +27,7 @@ class BebilendarViewModel {
             return
         }
         switchingPeriods = calculateSwitchingPeriods(mBirthdate: mBirthdate, wBirthdate: wBirthdate, futureLimit: futureLimit)
+        saveSwitchingPeriodsToUserDefaults()
         print("Switching periods from viewModel are: \(switchingPeriods)")
     }
     
@@ -89,6 +90,14 @@ class BebilendarViewModel {
         }
         return switchingPeriods
        
+    }
+    
+    private func saveSwitchingPeriodsToUserDefaults() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(switchingPeriods) {
+            UserDefaults.standard.set(encoded, forKey: "lastSwitchingPeriods")
+            print("Last result has been saved to UserDefaults")
+        }
     }
 }
 
